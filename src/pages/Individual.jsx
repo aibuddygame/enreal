@@ -108,15 +108,27 @@ export default function IndividualPage() {
             }} />
 
             <div style={{ position: 'relative', zIndex: 1 }}>
-                <Hero />
-                <TheShift />
-                <Architecture />
-                <LearningOutcomes />
-                <CurriculumOverview />
-                <ForWho />
-                <Philosophy />
-                <Contact />
-                <Footer />
+                <main>
+                    <Hero />
+                    <TheShift />
+                    <Architecture />
+                    <LearningOutcomes />
+                    <CurriculumOverview />
+                    <ForWho />
+                    <Philosophy />
+                    <Contact />
+                </main>
+                <Footer
+                    navLinks={[
+                        { label: 'Program', id: 'program' },
+                        { label: 'Outcomes', id: 'outcomes' },
+                        { label: 'Curriculum', id: 'curriculum' },
+                        { label: 'For Who', id: 'for-who' },
+                        { label: 'FAQ', id: 'faq' }
+                    ]}
+                    brandText="The intelligence layer for professionals entering an AI-native economy."
+                    accentColor="#059669"
+                />
             </div>
         </div>
     )

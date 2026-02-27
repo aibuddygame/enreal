@@ -3,12 +3,12 @@ import { useNavigate, useLocation } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 
 const T = {
-    text: '#FFFFFF',
-    muted: '#A1A1AA',
-    accent: '#FFFFFF', // Clean white accent for borders/interactions
-    border: 'rgba(255,255,255,0.08)',
-    shadow: '0 4px 24px rgba(0,0,0,0.6)',
-    shadowH: '0 8px 32px rgba(0,0,0,0.8)',
+    text: '#0B0B0C',
+    muted: '#52525B',
+    accent: '#0B0B0C',
+    border: 'rgba(0,0,0,0.08)',
+    shadow: '0 4px 24px rgba(0,0,0,0.06)',
+    shadowH: '0 8px 32px rgba(0,0,0,0.08)',
 }
 
 const NAV = [
@@ -28,18 +28,13 @@ export default function IndividualNavbar() {
     const isLanding = location.pathname === '/individual'
 
     useEffect(() => {
-        if (isLanding) {
-            const hero = document.getElementById('hero')
-            if (!hero) return
-            const obs = new IntersectionObserver(
-                ([e]) => setScrolled(!e.isIntersecting), { threshold: 0.1 }
-            )
-            obs.observe(hero)
-            return () => obs.disconnect()
-        } else {
-            setScrolled(true)
-        }
-    }, [isLanding, location.pathname])
+        const obs = new IntersectionObserver(
+            ([e]) => setScrolled(!e.isIntersecting), { threshold: 0.1 }
+        )
+        const hero = document.getElementById('hero')
+        if (hero) obs.observe(hero)
+        return () => obs.disconnect()
+    }, [isLanding])
 
     useEffect(() => {
         if (!isLanding) return
@@ -71,9 +66,9 @@ export default function IndividualNavbar() {
                 display: 'flex', alignItems: 'center',
                 padding: '0.45rem 0.45rem 0.45rem 1.35rem',
                 borderRadius: 999,
-                background: scrolled ? 'rgba(11,11,12,0.85)' : 'rgba(11,11,12,0)',
+                background: scrolled ? 'rgba(255,255,255,0.85)' : 'rgba(255,255,255,0.03)',
                 backdropFilter: scrolled ? 'blur(24px) saturate(1.6)' : 'none',
-                border: scrolled ? `1px solid ${T.border}` : '1px solid transparent',
+                border: scrolled ? `1px solid ${T.border}` : `1px solid ${T.border}`,
                 boxShadow: scrolled ? T.shadow : 'none',
                 transition: 'all 0.5s cubic-bezier(0.25,0.46,0.45,0.94)',
             }}>
@@ -108,20 +103,20 @@ export default function IndividualNavbar() {
                 {/* Page Switcher */}
                 <button onClick={() => navigate('/business')} className="nav-d" style={{
                     marginLeft: '1.25rem', padding: '0.5rem 1rem', borderRadius: 999,
-                    background: 'rgba(255,255,255,0.03)', border: `1px solid ${T.border}`, cursor: 'pointer',
+                    background: 'rgba(0,0,0,0.03)', border: `1px solid ${T.border}`, cursor: 'pointer',
                     fontFamily: 'Inter,sans-serif', fontSize: '0.82rem', fontWeight: 600, color: T.text,
                     whiteSpace: 'nowrap', transition: 'background 0.2s',
                 }}
-                    onMouseEnter={e => e.currentTarget.style.background = 'rgba(255,255,255,0.07)'}
-                    onMouseLeave={e => e.currentTarget.style.background = 'rgba(255,255,255,0.03)'}>
+                    onMouseEnter={e => e.currentTarget.style.background = 'rgba(0,0,0,0.06)'}
+                    onMouseLeave={e => e.currentTarget.style.background = 'rgba(0,0,0,0.03)'}>
                     Switch to Business <ArrowRight size={10} style={{ marginLeft: '4px', display: 'inline' }} />
                 </button>
 
                 {/* CTA */}
                 <button onClick={() => go('contact')} className="nav-d" style={{
                     marginLeft: '0.5rem', padding: '0.55rem 1.15rem', borderRadius: 999,
-                    background: '#F5F5F7', border: 'none', cursor: 'pointer',
-                    fontFamily: 'Inter,sans-serif', fontSize: '0.82rem', fontWeight: 700, color: '#0B0B0C',
+                    background: '#0B0B0C', border: 'none', cursor: 'pointer',
+                    fontFamily: 'Inter,sans-serif', fontSize: '0.82rem', fontWeight: 700, color: '#FFFFFF',
                     whiteSpace: 'nowrap', transition: 'transform 0.2s', display: 'flex', alignItems: 'center', gap: '0.35rem'
                 }}
                     onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.03)'}
@@ -144,7 +139,7 @@ export default function IndividualNavbar() {
             {open && (
                 <div role="dialog" aria-label="Navigation menu" style={{
                     position: 'absolute', top: 'calc(100% - 0.5rem)', left: '1rem', right: '1rem',
-                    background: 'rgba(11,11,12,0.97)', backdropFilter: 'blur(24px)',
+                    background: 'rgba(255,255,255,0.97)', backdropFilter: 'blur(24px)',
                     border: `1px solid ${T.border}`, borderRadius: '1.5rem',
                     padding: '1rem', display: 'flex', flexDirection: 'column', gap: '0.15rem',
                     pointerEvents: 'all', boxShadow: T.shadowH,
@@ -164,7 +159,7 @@ export default function IndividualNavbar() {
                     {/* Page Switcher (Mobile) */}
                     <button onClick={() => navigate('/business')}
                         style={{
-                            background: 'rgba(255,255,255,0.03)', border: `1px solid ${T.border}`, cursor: 'pointer',
+                            background: 'rgba(0,0,0,0.03)', border: `1px solid ${T.border}`, cursor: 'pointer',
                             padding: '0.65rem 0.75rem', borderRadius: '0.875rem', marginTop: '0.25rem',
                             fontFamily: 'Inter,sans-serif', fontSize: '0.95rem', fontWeight: 600,
                             color: T.text, textAlign: 'left', display: 'flex', justifyContent: 'space-between', alignItems: 'center'
@@ -175,8 +170,8 @@ export default function IndividualNavbar() {
                     <button onClick={() => go('contact')}
                         style={{
                             marginTop: '0.5rem', padding: '0.75rem', borderRadius: '0.875rem',
-                            background: '#F5F5F7', border: 'none', cursor: 'pointer',
-                            fontFamily: 'Inter,sans-serif', fontSize: '0.9rem', fontWeight: 700, color: '#0B0B0C'
+                            background: '#0B0B0C', border: 'none', cursor: 'pointer',
+                            fontFamily: 'Inter,sans-serif', fontSize: '0.9rem', fontWeight: 700, color: '#FFFFFF'
                         }}>
                         Join Updates
                     </button>

@@ -9,7 +9,7 @@ import Method from '../components/Method.jsx'
 import About from '../components/About.jsx'
 import Contact from '../components/Contact.jsx'
 import Footer from '../components/Footer.jsx'
-import { T } from '../data.js'
+import { NAV, T } from '../data.js'
 
 export default function LandingPage() {
     const location = useLocation()

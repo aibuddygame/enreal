@@ -7,13 +7,13 @@ import Footer from '../components/Footer.jsx'
 
 gsap.registerPlugin(ScrollTrigger)
 
-// Minimal Graphite/Grey Preset
+// Minimal Light/Grey Preset
 const T = {
-    bg: '#0B0B0C',
-    surface: '#111113', // Slightly lighter for cards
-    text: '#FFFFFF',
-    muted: '#A1A1AA',
-    border: 'rgba(255,255,255,0.08)',
+    bg: '#FFFFFF',
+    surface: '#F5F5F7',
+    text: '#0B0B0C',
+    muted: '#52525B',
+    border: 'rgba(0,0,0,0.08)',
 }
 
 // ── DATA ─────────────────────────────────────────────────────────
@@ -103,7 +103,7 @@ export default function IndividualPage() {
             {/* Subtle Gradient Atmosphere */}
             <div style={{
                 position: 'fixed', top: '-20%', left: '50%', transform: 'translateX(-50%)',
-                width: '80vw', height: '60vh', background: 'radial-gradient(ellipse at center, rgba(255,255,255,0.03) 0%, transparent 70%)',
+                width: '80vw', height: '60vh', background: 'radial-gradient(ellipse at center, rgba(0,0,0,0.03) 0%, transparent 70%)',
                 pointerEvents: 'none', zIndex: 0
             }} />
 
@@ -124,25 +124,105 @@ export default function IndividualPage() {
 
 // ── SECTIONS ─────────────────────────────────────────────────────
 
+const TYPING_MS = 60
+const DELETING_MS = 30
+const PAUSE_MS = 1500
+
+const PHRASES = [
+    'Your role must evolve.',
+    'Execution now requires intelligence.',
+    'Architecture is the new advantage.'
+]
+
 function Hero() {
+    const [display, setDisplay] = useState('')
+    const [phase, setPhase] = useState('typing') // typing | paused | deleting
+    const [phraseIdx, setPhraseIdx] = useState(0)
+    const tRef = useRef(null)
+
     const go = id => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
 
+    useEffect(() => {
+        const target = PHRASES[phraseIdx]
+        let cancelled = false
+        const schedule = (fn, delay) => {
+            tRef.current = setTimeout(() => { if (!cancelled) fn() }, delay)
+        }
+
+        if (phase === 'typing') {
+            if (display.length < target.length) {
+                schedule(() => setDisplay(target.slice(0, display.length + 1)), TYPING_MS)
+            } else {
+                setPhase('paused')
+            }
+        }
+        if (phase === 'paused') {
+            schedule(() => setPhase('deleting'), PAUSE_MS)
+        }
+        if (phase === 'deleting') {
+            if (display.length > 0) {
+                schedule(() => setDisplay(d => d.slice(0, -1)), DELETING_MS)
+            } else {
+                schedule(() => {
+                    setPhraseIdx(i => (i + 1) % PHRASES.length)
+                    setPhase('typing')
+                }, 220)
+            }
+        }
+        return () => { cancelled = true; clearTimeout(tRef.current) }
+    }, [display, phase, phraseIdx])
+
+    const LONGEST = PHRASES.reduce((a, b) => a.length > b.length ? a : b)
+
     return (
-        <section id="hero" style={{ height: '100dvh', display: 'flex', alignItems: 'center', padding: '0 5vw' }}>
-            <div style={{ maxWidth: 900, marginTop: '10vh' }}>
+        <section id="hero" style={{ height: '100dvh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '0 5vw' }}>
+            <div style={{ maxWidth: 900, marginTop: '20vh', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+
+                {/* Eyebrow */}
+                <p className="h-rev" style={{
+                    fontFamily: 'JetBrains Mono, monospace', fontSize: '0.7rem', letterSpacing: '0.22em',
+                    color: T.muted, marginBottom: '2.5rem', opacity: 0.85,
+                }}>
+                    ENREAL AI — HONG KONG
+                </p>
+
                 <h1 className="h-rev" style={{
-                    fontSize: 'clamp(3rem, 7vw, 6rem)', fontWeight: 500,
+                    fontSize: 'clamp(3rem, 6vw, 5.5rem)', fontWeight: 500,
                     lineHeight: 1.05, letterSpacing: '-0.04em', marginBottom: '1.5rem',
                     fontFamily: 'Inter, sans-serif'
                 }}>
-                    Build intelligence.<br />
-                    <span style={{ color: T.muted }}>Own your future work.</span>
+                    Work is evolving.<br />
+
+                    {/* Dynamic typewriter line */}
+                    <div style={{ position: 'relative', marginTop: '0.2em' }}>
+                        <span aria-hidden style={{
+                            fontFamily: 'Playfair Display, serif', fontStyle: 'italic', fontSize: '0.9em',
+                            color: T.muted,
+                            visibility: 'hidden', pointerEvents: 'none', userSelect: 'none',
+                        }}>
+                            {LONGEST}
+                        </span>
+                        <span style={{
+                            position: 'absolute', top: 0, left: 0, right: 0,
+                            fontFamily: 'Playfair Display, serif', fontStyle: 'italic', fontSize: '0.9em',
+                            color: T.muted,
+                        }}>
+                            {display}
+                            <span style={{
+                                display: 'inline-block',
+                                width: '0.06em', height: '0.9em',
+                                background: T.muted,
+                                marginLeft: '0.05em',
+                                verticalAlign: 'middle',
+                            }} />
+                        </span>
+                    </div>
                 </h1>
-                <p className="h-rev" style={{ fontFamily: 'Manrope, sans-serif', fontSize: '1.15rem', color: T.muted, lineHeight: 1.6, maxWidth: 500, marginBottom: '3rem' }}>
+                <p className="h-rev" style={{ fontFamily: 'Manrope, sans-serif', fontSize: '1.15rem', color: T.muted, lineHeight: 1.6, maxWidth: 600, marginBottom: '3rem' }}>
                     The intelligence layer for individual operators. Transition from a passive AI user to an active systems architect.
                 </p>
 
-                <div className="h-rev" style={{ display: 'flex', gap: '1rem', alignItems: 'center', flexWrap: 'wrap' }}>
+                <div className="h-rev" style={{ display: 'flex', gap: '1rem', alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap' }}>
                     <button onClick={() => go('contact')} style={{
                         background: T.text, color: T.bg, padding: '1rem 2rem', border: 'none',
                         borderRadius: 999, fontSize: '0.95rem', fontWeight: 600, cursor: 'pointer',
@@ -156,7 +236,7 @@ function Hero() {
                         background: 'transparent', color: T.text, padding: '1rem 1.5rem', border: `1px solid ${T.border}`,
                         borderRadius: 999, fontSize: '0.9rem', fontWeight: 500, cursor: 'pointer', transition: 'background 0.2s'
                     }}
-                        onMouseEnter={e => e.currentTarget.style.background = 'rgba(255,255,255,0.05)'}
+                        onMouseEnter={e => e.currentTarget.style.background = 'rgba(0,0,0,0.05)'}
                         onMouseLeave={e => e.currentTarget.style.background = 'transparent'}>
                         Explore Program
                     </button>
@@ -198,7 +278,7 @@ function Architecture() {
                             background: T.bg, border: `1px solid ${T.border}`,
                             borderRadius: '1.5rem', padding: '2.5rem', display: 'flex', flexDirection: 'column'
                         }}>
-                            <div style={{ width: 48, height: 48, borderRadius: '50%', background: 'rgba(255,255,255,0.05)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '2rem' }}>
+                            <div style={{ width: 48, height: 48, borderRadius: '50%', background: 'rgba(0,0,0,0.05)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '2rem' }}>
                                 <c.icon size={20} color={T.text} />
                             </div>
                             <h3 style={{ fontSize: '1.25rem', fontWeight: 500, marginBottom: '1rem' }}>{c.title}</h3>
@@ -347,14 +427,14 @@ function Contact() {
                                 width: '100%', background: T.surface, border: `1px solid ${T.border}`,
                                 padding: '1.25rem', borderRadius: '1rem', color: T.text, fontSize: '0.95rem',
                                 outline: 'none', transition: 'border 0.2s', fontFamily: 'Inter, sans-serif'
-                            }} onFocus={e => e.target.style.borderColor = 'rgba(255,255,255,0.3)'} onBlur={e => e.target.style.borderColor = T.border} />
+                            }} onFocus={e => e.target.style.borderColor = 'rgba(0,0,0,0.3)'} onBlur={e => e.target.style.borderColor = T.border} />
                         </div>
                         <div>
                             <input required type="email" placeholder="Professional Email" style={{
                                 width: '100%', background: T.surface, border: `1px solid ${T.border}`,
                                 padding: '1.25rem', borderRadius: '1rem', color: T.text, fontSize: '0.95rem',
                                 outline: 'none', transition: 'border 0.2s', fontFamily: 'Inter, sans-serif'
-                            }} onFocus={e => e.target.style.borderColor = 'rgba(255,255,255,0.3)'} onBlur={e => e.target.style.borderColor = T.border} />
+                            }} onFocus={e => e.target.style.borderColor = 'rgba(0,0,0,0.3)'} onBlur={e => e.target.style.borderColor = T.border} />
                         </div>
                         <button type="submit" disabled={submitting} style={{
                             background: T.text, color: T.bg, padding: '1.25rem', border: 'none',

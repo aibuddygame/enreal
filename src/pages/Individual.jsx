@@ -176,49 +176,57 @@ function Hero() {
 
     return (
         <section id="hero" style={{ height: '100dvh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '0 5vw' }}>
-            <div style={{ maxWidth: 900, marginTop: '20vh', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+            <div style={{ maxWidth: 900, marginTop: '10vh', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', width: '100%' }}>
 
                 {/* Eyebrow */}
                 <p className="h-rev" style={{
                     fontFamily: 'JetBrains Mono, monospace', fontSize: '0.7rem', letterSpacing: '0.22em',
-                    color: T.muted, marginBottom: '2.5rem', opacity: 0.85,
+                    color: '#2563EB', marginBottom: '2.5rem', opacity: 0.85, textTransform: 'uppercase'
                 }}>
                     ENREAL AI — HONG KONG
                 </p>
 
                 <h1 className="h-rev" style={{
-                    fontSize: 'clamp(3rem, 6vw, 5.5rem)', fontWeight: 500,
-                    lineHeight: 1.05, letterSpacing: '-0.04em', marginBottom: '1.5rem',
-                    fontFamily: 'Inter, sans-serif'
+                    fontFamily: 'Inter, sans-serif', fontWeight: 900,
+                    fontSize: 'clamp(2.5rem, 5.5vw, 5.25rem)',
+                    letterSpacing: '-0.04em', lineHeight: 1.05,
+                    marginBottom: '0.08em',
                 }}>
                     Work is evolving.<br />
 
                     {/* Dynamic typewriter line */}
-                    <div style={{ position: 'relative', marginTop: '0.2em' }}>
-                        <span aria-hidden style={{
-                            fontFamily: 'Playfair Display, serif', fontStyle: 'italic', fontSize: '0.9em',
-                            color: T.muted,
+                    <div style={{ position: 'relative' }}>
+                        <h1 aria-hidden style={{
+                            fontFamily: 'Inter, sans-serif', fontWeight: 900,
+                            fontSize: 'clamp(2.5rem, 5.5vw, 5.25rem)',
+                            letterSpacing: '-0.04em', lineHeight: 1.05,
                             visibility: 'hidden', pointerEvents: 'none', userSelect: 'none',
                         }}>
                             {LONGEST}
-                        </span>
-                        <span style={{
+                        </h1>
+                        <h1 style={{
                             position: 'absolute', top: 0, left: 0, right: 0,
-                            fontFamily: 'Playfair Display, serif', fontStyle: 'italic', fontSize: '0.9em',
-                            color: T.muted,
+                            fontFamily: 'Inter, sans-serif', fontWeight: 900,
+                            fontSize: 'clamp(2.5rem, 5.5vw, 5.25rem)',
+                            letterSpacing: '-0.04em', lineHeight: 1.05,
+                            color: '#2563EB',
                         }}>
                             {display}
                             <span style={{
                                 display: 'inline-block',
-                                width: '0.06em', height: '0.9em',
-                                background: T.muted,
+                                width: '0.08em', height: '0.9em',
+                                background: '#2563EB',
                                 marginLeft: '0.05em',
                                 verticalAlign: 'middle',
+                                borderRadius: 1
                             }} />
-                        </span>
+                        </h1>
                     </div>
                 </h1>
-                <p className="h-rev" style={{ fontFamily: 'Manrope, sans-serif', fontSize: '1.15rem', color: T.muted, lineHeight: 1.6, maxWidth: 600, marginBottom: '3rem' }}>
+                <p className="h-rev" style={{
+                    fontFamily: 'Manrope, sans-serif', fontSize: 'clamp(1rem, 1.8vw, 1.1rem)',
+                    color: T.muted, lineHeight: 1.75, maxWidth: 480, margin: '2.75rem auto 3rem'
+                }}>
                     The intelligence layer for individual operators. Transition from a passive AI user to an active systems architect.
                 </p>
 

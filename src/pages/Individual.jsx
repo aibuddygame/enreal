@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { ArrowRight, Code2, Network, Cpu } from 'lucide-react'
+import { ArrowRight, Code2, Network, Cpu, ChevronDown } from 'lucide-react'
 import IndividualNavbar from '../components/IndividualNavbar.jsx'
 import Footer from '../components/Footer.jsx'
 
@@ -270,6 +270,7 @@ function TheShift() {
     return (
         <section className="sec-rev" style={{ padding: '8rem 5vw', background: T.bg }}>
             <div style={{ maxWidth: 1000, margin: '0 auto', textAlign: 'center' }}>
+                <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.75rem', letterSpacing: '0.1em', color: '#059669', marginBottom: '1.5rem', textTransform: 'uppercase' }}>// THE SHIFT</p>
                 <p style={{ fontFamily: 'Manrope, sans-serif', color: T.muted, fontSize: '1.1rem', marginBottom: '2rem', lineHeight: 1.7 }}>
                     AI evolution anxiety. Career displacement fear. Skill irrelevance. <br />
                     The market is shifting rapidly.
@@ -288,6 +289,7 @@ function Architecture() {
         <section id="program" className="sec-rev" style={{ padding: '8rem 5vw', background: T.surface }}>
             <div style={{ maxWidth: 1280, margin: '0 auto' }}>
                 <div style={{ marginBottom: '4rem' }}>
+                    <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.75rem', letterSpacing: '0.1em', color: '#059669', marginBottom: '1rem', textTransform: 'uppercase' }}>// CAPABILITIES</p>
                     <h2 style={{ fontSize: '2.5rem', fontWeight: 500, letterSpacing: '-0.03em', marginBottom: '1rem' }}>Program Architecture</h2>
                     <p style={{ fontFamily: 'Manrope, sans-serif', color: T.muted, fontSize: '1.1rem' }}>Architecture Thinking + Tool Integration = MVP Delivery</p>
                 </div>
@@ -315,6 +317,7 @@ function LearningOutcomes() {
     return (
         <section id="outcomes" className="sec-rev" style={{ padding: '10rem 5vw', background: T.bg }}>
             <div style={{ maxWidth: 1000, margin: '0 auto' }}>
+                <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.75rem', letterSpacing: '0.1em', color: '#059669', marginBottom: '1rem', textTransform: 'uppercase' }}>// OUTCOMES</p>
                 <h2 style={{ fontSize: '2.5rem', fontWeight: 500, letterSpacing: '-0.03em', marginBottom: '4rem' }}>
                     Learning Outcomes
                 </h2>
@@ -338,6 +341,7 @@ function CurriculumOverview() {
     return (
         <section id="curriculum" className="sec-rev" style={{ padding: '8rem 5vw', background: T.surface }}>
             <div style={{ maxWidth: 1000, margin: '0 auto' }}>
+                <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.75rem', letterSpacing: '0.1em', color: '#059669', marginBottom: '1rem', textTransform: 'uppercase' }}>// TIMELINE</p>
                 <h2 style={{ fontSize: '2.5rem', fontWeight: 500, letterSpacing: '-0.03em', marginBottom: '4rem' }}>
                     Curriculum Timeline
                 </h2>
@@ -373,8 +377,8 @@ function ForWho() {
     return (
         <section id="for-who" className="sec-rev" style={{ padding: '8rem 5vw', background: T.bg }}>
             <div style={{ maxWidth: 1280, margin: '0 auto', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
-                <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.75rem', letterSpacing: '0.1em', color: T.muted, marginBottom: '2rem' }}>
-                    DIAGNOSTIC ALIGNMENT
+                <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.75rem', letterSpacing: '0.1em', color: '#059669', marginBottom: '1rem', textTransform: 'uppercase' }}>
+                    // TARGET PROFILE
                 </p>
                 <h2 style={{ fontSize: '2.5rem', fontWeight: 500, letterSpacing: '-0.03em', marginBottom: '3rem' }}>
                     Who is this for?
@@ -429,6 +433,7 @@ function Contact() {
     return (
         <section id="contact" className="sec-rev" style={{ padding: '8rem 5vw', background: T.bg }}>
             <div style={{ maxWidth: 600, margin: '0 auto', textAlign: 'center' }}>
+                <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.75rem', letterSpacing: '0.1em', color: '#059669', marginBottom: '1rem', textTransform: 'uppercase' }}>// ENROLLMENT</p>
                 <h2 style={{ fontSize: '2.5rem', fontWeight: 500, letterSpacing: '-0.03em', marginBottom: '1rem' }}>
                     Start building your intelligence layer.
                 </h2>

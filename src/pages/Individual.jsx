@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { ArrowRight, Code2, Network, Cpu, ChevronDown } from 'lucide-react'
+import { ArrowRight, Code2, Network, Cpu } from 'lucide-react'
 import IndividualNavbar from '../components/IndividualNavbar.jsx'
 import Footer from '../components/Footer.jsx'
 
@@ -187,7 +187,7 @@ function Hero() {
     const LONGEST = PHRASES.reduce((a, b) => a.length > b.length ? a : b)
 
     return (
-        <section id="hero" style={{ height: '100dvh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '0 5vw' }}>
+        <section id="hero" style={{ height: '100dvh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '0 5vw', position: 'relative' }}>
             <div style={{ maxWidth: 900, marginTop: '10vh', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', width: '100%' }}>
 
                 {/* Eyebrow */}

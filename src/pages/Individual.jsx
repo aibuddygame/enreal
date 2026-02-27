@@ -181,7 +181,7 @@ function Hero() {
                 {/* Eyebrow */}
                 <p className="h-rev" style={{
                     fontFamily: 'JetBrains Mono, monospace', fontSize: '0.7rem', letterSpacing: '0.22em',
-                    color: '#2563EB', marginBottom: '2.5rem', opacity: 0.85, textTransform: 'uppercase'
+                    color: '#059669', marginBottom: '2.5rem', opacity: 0.85, textTransform: 'uppercase'
                 }}>
                     ENREAL AI — HONG KONG
                 </p>
@@ -209,13 +209,13 @@ function Hero() {
                             fontFamily: 'Inter, sans-serif', fontWeight: 900,
                             fontSize: 'clamp(2.5rem, 5.5vw, 5.25rem)',
                             letterSpacing: '-0.04em', lineHeight: 1.05,
-                            color: '#2563EB',
+                            color: '#059669',
                         }}>
                             {display}
                             <span style={{
                                 display: 'inline-block',
                                 width: '0.08em', height: '0.9em',
-                                background: '#2563EB',
+                                background: '#059669',
                                 marginLeft: '0.05em',
                                 verticalAlign: 'middle',
                                 borderRadius: 1
@@ -225,9 +225,9 @@ function Hero() {
                 </h1>
                 <p className="h-rev" style={{
                     fontFamily: 'Manrope, sans-serif', fontSize: 'clamp(1rem, 1.8vw, 1.1rem)',
-                    color: T.muted, lineHeight: 1.75, maxWidth: 480, margin: '2.75rem auto 3rem'
+                    color: T.muted, lineHeight: 1.75, maxWidth: 500, margin: '2.75rem auto 3rem'
                 }}>
-                    The intelligence layer for individual operators. Transition from a passive AI user to an active systems architect.
+                    The intelligence layer for professionals entering an AI-native economy.
                 </p>
 
                 <div className="h-rev" style={{ display: 'flex', gap: '1rem', alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap' }}>

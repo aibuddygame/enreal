@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { TRUST, T } from './data.js'
+import { TRUST, T } from '../data.js'
 
 gsap.registerPlugin(ScrollTrigger)
 

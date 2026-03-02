@@ -3,8 +3,8 @@ import { useParams, useNavigate, Link } from 'react-router-dom'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
-import Navbar from '../Navbar.jsx'
-import Footer from '../Footer.jsx'
+import Navbar from '../components/Navbar.jsx'
+import Footer from '../components/Footer.jsx'
 import { PROJECTS, T } from '../data.js'
 
 gsap.registerPlugin(ScrollTrigger)

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { T } from './data.js'
+import { T } from '../data.js'
 
 export function MonoLabel({ children }) {
     return (

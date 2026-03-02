@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { ArrowRight, ChevronDown } from 'lucide-react'
-import { T } from './data.js'
+import { T } from '../data.js'
 
 // ── Typewriter phrases ──────────────────────────────────────
 const PHRASES = [

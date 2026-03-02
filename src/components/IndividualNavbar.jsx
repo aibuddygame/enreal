@@ -12,11 +12,12 @@ const T = {
 }
 
 const NAV = [
-    { label: 'Program', id: 'program' },
+    { label: 'The Shift', id: 'program' },
     { label: 'Outcomes', id: 'outcomes' },
     { label: 'Curriculum', id: 'curriculum' },
     { label: 'For Who', id: 'for-who' },
-    { label: 'FAQ', id: 'faq' },
+    { label: 'Tools', id: 'tools' },
+    { label: 'Enrollment', id: 'contact' }
 ]
 
 export default function IndividualNavbar() {

@@ -9,6 +9,13 @@ export default {
                 ivory: '#FAF8F5',
                 slate: '#2A2A35',
                 'slate-light': '#3A3A48',
+                background: '#FFFFFF',
+                foreground: '#1C1C1E',
+                primary: '#2563EB',
+                'primary-foreground': '#FFFFFF',
+                secondary: '#F5F5F7',
+                'secondary-foreground': '#1C1C1E',
+                'muted-foreground': '#8E8E93',
             },
             fontFamily: {
                 sans: ['Inter', 'system-ui', 'sans-serif'],

@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { ArrowRight } from 'lucide-react'
-import { PROJECTS, T } from './data.js'
+import { PROJECTS, T } from '../data.js'
 
 gsap.registerPlugin(ScrollTrigger)
 

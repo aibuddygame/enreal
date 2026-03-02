@@ -1,9 +1,11 @@
 import { useEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { ArrowRight, Code2, Network, Cpu } from 'lucide-react'
+import { ArrowRight, ArrowLeft, Mail, AlertCircle, Loader } from 'lucide-react'
+import emailjs from '@emailjs/browser'
 import IndividualNavbar from '../components/IndividualNavbar.jsx'
 import Footer from '../components/Footer.jsx'
+import { AILogoCloudSection } from '../components/ui/ai-logo-cloud.jsx'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -18,30 +20,33 @@ const T = {
 
 // ── DATA ─────────────────────────────────────────────────────────
 
-const CAPABILITIES = [
-    {
-        icon: Network,
-        title: 'Enterprise Brain Construction',
-        desc: 'Build Knowledge AI and Agent systems. Connect unstructured data to reasoning engines.'
-    },
-    {
-        icon: Code2,
-        title: 'Automation Infrastructure',
-        desc: 'Engineer workflow orchestration. Extract, route, and execute tasks across disconnected tools.'
-    },
-    {
-        icon: Cpu,
-        title: 'Data Decision Layer',
-        desc: 'Deploy analytics pipelines that turn raw inputs into executive-level insight autonomously.'
-    }
-]
 
 const OUTCOMES = [
-    'Build operational AI agents from scratch',
-    'Automate real, multi-step business workflows',
-    'Integrate multi-tool systems via API',
-    'Deliver working MVP solutions to stakeholders',
-    'Present execution outcomes with technical authority'
+    {
+        title: 'Build operational AI agents from scratch',
+        desc: 'Deploy autonomous systems hooked directly into your company knowledge.',
+        image: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=800&auto=format&fit=crop' // Minimal wireframe/circuit
+    },
+    {
+        title: 'Automate real, multi-step business workflows',
+        desc: 'Replace manual execution with logic-driven routing and API triggers.',
+        image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop' // Data screen
+    },
+    {
+        title: 'Integrate multi-tool systems via API',
+        desc: 'Connect isolated platforms (CRM, ERP, Comms) into unified pipelines.',
+        image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=800&auto=format&fit=crop' // Server/Infrastructure
+    },
+    {
+        title: 'Deliver working MVP solutions to stakeholders',
+        desc: 'Move past ideation. Present functioning systems that prove immediate value.',
+        image: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=800&auto=format&fit=crop' // Presentation/meeting
+    },
+    {
+        title: 'Present execution outcomes with technical authority',
+        desc: 'Speak the language of modern engineering. Lead technical system adoption.',
+        image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=800&auto=format&fit=crop' // Professional group planning
+    }
 ]
 
 const CURRICULUM = [
@@ -111,20 +116,20 @@ export default function IndividualPage() {
                 <main>
                     <Hero />
                     <TheShift />
-                    <Architecture />
                     <LearningOutcomes />
                     <CurriculumOverview />
                     <ForWho />
-                    <Philosophy />
+                    <AILogoCloudSection />
                     <Contact />
                 </main>
                 <Footer
                     navLinks={[
-                        { label: 'Program', id: 'program' },
+                        { label: 'The Shift', id: 'program' },
                         { label: 'Outcomes', id: 'outcomes' },
                         { label: 'Curriculum', id: 'curriculum' },
                         { label: 'For Who', id: 'for-who' },
-                        { label: 'FAQ', id: 'faq' }
+                        { label: 'Tools', id: 'tools' },
+                        { label: 'Enrollment', id: 'contact' }
                     ]}
                     brandText="The intelligence layer for professionals entering an AI-native economy."
                     accentColor="#059669"
@@ -268,7 +273,7 @@ function Hero() {
 
 function TheShift() {
     return (
-        <section className="sec-rev" style={{ padding: '8rem 5vw', background: T.bg }}>
+        <section id="program" className="sec-rev" style={{ padding: '8rem 5vw', background: T.bg }}>
             <div style={{ maxWidth: 1000, margin: '0 auto', textAlign: 'center' }}>
                 <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.75rem', letterSpacing: '0.1em', color: '#059669', marginBottom: '1.5rem', textTransform: 'uppercase' }}>// THE SHIFT</p>
                 <p style={{ fontFamily: 'Manrope, sans-serif', color: T.muted, fontSize: '1.1rem', marginBottom: '2rem', lineHeight: 1.7 }}>
@@ -284,51 +289,108 @@ function TheShift() {
     )
 }
 
-function Architecture() {
-    return (
-        <section id="program" className="sec-rev" style={{ padding: '8rem 5vw', background: T.surface }}>
-            <div style={{ maxWidth: 1280, margin: '0 auto' }}>
-                <div style={{ marginBottom: '4rem' }}>
-                    <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.75rem', letterSpacing: '0.1em', color: '#059669', marginBottom: '1rem', textTransform: 'uppercase' }}>// CAPABILITIES</p>
-                    <h2 style={{ fontSize: '2.5rem', fontWeight: 500, letterSpacing: '-0.03em', marginBottom: '1rem' }}>Program Architecture</h2>
-                    <p style={{ fontFamily: 'Manrope, sans-serif', color: T.muted, fontSize: '1.1rem' }}>Architecture Thinking + Tool Integration = MVP Delivery</p>
-                </div>
-
-                <div className="stag-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '1.5rem' }}>
-                    {CAPABILITIES.map((c, i) => (
-                        <div key={i} style={{
-                            background: T.bg, border: `1px solid ${T.border}`,
-                            borderRadius: '1.5rem', padding: '2.5rem', display: 'flex', flexDirection: 'column'
-                        }}>
-                            <div style={{ width: 48, height: 48, borderRadius: '50%', background: 'rgba(0,0,0,0.05)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '2rem' }}>
-                                <c.icon size={20} color={T.text} />
-                            </div>
-                            <h3 style={{ fontSize: '1.25rem', fontWeight: 500, marginBottom: '1rem' }}>{c.title}</h3>
-                            <p style={{ fontFamily: 'Manrope, sans-serif', color: T.muted, lineHeight: 1.6, fontSize: '0.95rem' }}>{c.desc}</p>
-                        </div>
-                    ))}
-                </div>
-            </div>
-        </section>
-    )
-}
 
 function LearningOutcomes() {
+    const scrollRef = useRef(null)
+
+    const scroll = (offset) => {
+        if (scrollRef.current) {
+            scrollRef.current.scrollBy({ left: offset, behavior: 'smooth' })
+        }
+    }
+
     return (
         <section id="outcomes" className="sec-rev" style={{ padding: '10rem 5vw', background: T.bg }}>
-            <div style={{ maxWidth: 1000, margin: '0 auto' }}>
-                <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.75rem', letterSpacing: '0.1em', color: '#059669', marginBottom: '1rem', textTransform: 'uppercase' }}>// OUTCOMES</p>
-                <h2 style={{ fontSize: '2.5rem', fontWeight: 500, letterSpacing: '-0.03em', marginBottom: '4rem' }}>
-                    Learning Outcomes
-                </h2>
-                <div className="stag-grid" style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                    {OUTCOMES.map((o, i) => (
+            <div style={{ maxWidth: 1200, margin: '0 auto' }}>
+
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '4rem', flexWrap: 'wrap', gap: '1rem' }}>
+                    <div>
+                        <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.75rem', letterSpacing: '0.1em', color: '#059669', marginBottom: '1rem', textTransform: 'uppercase' }}>// OUTCOMES</p>
+                        <h2 style={{ fontSize: '2.5rem', fontWeight: 500, letterSpacing: '-0.03em', margin: 0 }}>
+                            Learning Outcomes
+                        </h2>
+                    </div>
+
+                    <div style={{ display: 'flex', gap: '0.5rem' }}>
+                        <button onClick={() => scroll(-400)} aria-label="Scroll left" style={{
+                            width: '44px', height: '44px', borderRadius: '50%', border: `1px solid ${T.border}`,
+                            background: T.surface, display: 'flex', alignItems: 'center', justifyContent: 'center',
+                            cursor: 'pointer', color: T.text, transition: 'all 0.2s'
+                        }} onMouseEnter={e => e.currentTarget.style.background = 'rgba(0,0,0,0.05)'} onMouseLeave={e => e.currentTarget.style.background = T.surface}>
+                            <ArrowLeft size={18} />
+                        </button>
+                        <button onClick={() => scroll(400)} aria-label="Scroll right" style={{
+                            width: '44px', height: '44px', borderRadius: '50%', border: `1px solid ${T.border}`,
+                            background: T.surface, display: 'flex', alignItems: 'center', justifyContent: 'center',
+                            cursor: 'pointer', color: T.text, transition: 'all 0.2s'
+                        }} onMouseEnter={e => e.currentTarget.style.background = 'rgba(0,0,0,0.05)'} onMouseLeave={e => e.currentTarget.style.background = T.surface}>
+                            <ArrowRight size={18} />
+                        </button>
+                    </div>
+                </div>
+
+                <div className="stag-grid" ref={scrollRef} style={{
+                    display: 'flex',
+                    flexWrap: 'nowrap',
+                    gap: '2rem',
+                    overflowX: 'auto',
+                    paddingBottom: '2rem', // space for hover lift
+                    WebkitOverflowScrolling: 'touch',
+                    scrollbarWidth: 'none', // Firefox
+                    msOverflowStyle: 'none' // IE 10+
+                }}>
+                    <style>{`
+                        .stag-grid::-webkit-scrollbar {
+                            display: none;
+                        }
+                    `}</style>
+
+                    {OUTCOMES.map((item, i) => (
                         <div key={i} style={{
-                            padding: '2rem', borderBottom: `1px solid ${T.border}`,
-                            display: 'flex', alignItems: 'center', gap: '1.5rem'
-                        }}>
-                            <span style={{ fontFamily: 'JetBrains Mono, monospace', color: T.muted, fontSize: '0.85rem' }}>0{i + 1}</span>
-                            <p style={{ fontSize: '1.15rem', fontWeight: 400 }}>{o}</p>
+                            display: 'flex', flexDirection: 'column',
+                            borderRadius: '1rem', overflow: 'hidden',
+                            border: `1px solid ${T.border}`,
+                            background: T.surface,
+                            transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+                            cursor: 'pointer',
+                            flex: '0 0 auto',
+                            width: 'min(85vw, 380px)'
+                        }}
+                            onMouseEnter={e => {
+                                e.currentTarget.style.transform = 'translateY(-5px)';
+                                e.currentTarget.style.boxShadow = '0 10px 30px rgba(0,0,0,0.05)';
+                            }}
+                            onMouseLeave={e => {
+                                e.currentTarget.style.transform = 'translateY(0)';
+                                e.currentTarget.style.boxShadow = 'none';
+                            }}>
+                            {/* Image Header */}
+                            <div style={{ width: '100%', height: '220px', overflow: 'hidden' }}>
+                                <img
+                                    src={item.image}
+                                    alt={item.title}
+                                    style={{
+                                        width: '100%', height: '100%', objectFit: 'cover',
+                                        transition: 'transform 0.5s ease'
+                                    }}
+                                    className="outcome-img"
+                                    onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.05)'}
+                                    onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
+                                />
+                            </div>
+
+                            {/* Content Body */}
+                            <div style={{ padding: '2rem' }}>
+                                <span style={{ fontFamily: 'JetBrains Mono, monospace', color: T.muted, fontSize: '0.8rem', display: 'block', marginBottom: '1rem' }}>
+                                    0{i + 1}
+                                </span>
+                                <h3 style={{ fontSize: '1.25rem', fontWeight: 500, lineHeight: 1.3, marginBottom: '0.75rem', color: T.text }}>
+                                    {item.title}
+                                </h3>
+                                <p style={{ fontFamily: 'Manrope, sans-serif', color: T.muted, fontSize: '0.95rem', lineHeight: 1.6 }}>
+                                    {item.desc}
+                                </p>
+                            </div>
                         </div>
                     ))}
                 </div>
@@ -398,36 +460,79 @@ function ForWho() {
     )
 }
 
-function Philosophy() {
-    return (
-        <section className="sec-rev" style={{ padding: '10rem 5vw', background: T.surface }}>
-            <div style={{ maxWidth: 800, margin: '0 auto', textAlign: 'center' }}>
-                <h2 style={{
-                    fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontFamily: 'Playfair Display, serif', fontStyle: 'italic',
-                    lineHeight: 1.2, marginBottom: '2rem'
-                }}>
-                    Most courses teach features.<br />
-                    We teach delivery.
-                </h2>
-                <p style={{ fontFamily: 'Manrope, sans-serif', color: T.muted, fontSize: '1.2rem', lineHeight: 1.6 }}>
-                    Most people experiment with AI. You will deploy intelligence.
-                </p>
-            </div>
-        </section>
-    )
+
+// ── EmailJS credentials ─────────────────────────────────────
+const EMAILJS_SERVICE_ID = 'service_09wtwnb'
+const EMAILJS_TEMPLATE_ID = 'template_umxh338'
+const EMAILJS_PUBLIC_KEY = 'z4upBtbceRl50m24S'
+
+const DISPLAY_EMAIL = 'hello@enreallab.com.hk'
+
+// ── Validation ──────────────────────────────────────────────
+const validate = ({ name, email }) => {
+    const errs = {}
+    if (!name.trim() || name.trim().length < 2)
+        errs.name = 'Please enter your full name (min 2 characters).'
+    if (!email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim()))
+        errs.email = 'Please enter a valid email address.'
+    return errs
 }
 
 function Contact() {
-    const [submitting, setSubmitting] = useState(false)
-    const [submitted, setSubmitted] = useState(false)
+    const [form, setForm] = useState({ name: '', email: '' })
+    const [errs, setErrs] = useState({})
+    const [touched, setTouched] = useState({})
+    const [status, setStatus] = useState('idle') // 'idle' | 'sending' | 'sent' | 'error'
 
-    const handleSubmit = (e) => {
+    const set = k => e => {
+        const val = e.target.value
+        setForm(p => ({ ...p, [k]: val }))
+        if (touched[k]) setErrs(validate({ ...form, [k]: val }))
+    }
+
+    const touch = k => () => {
+        setTouched(p => ({ ...p, [k]: true }))
+        setErrs(validate(form))
+    }
+
+    const handleSubmit = async e => {
         e.preventDefault()
-        setSubmitting(true)
-        setTimeout(() => {
-            setSubmitting(false)
-            setSubmitted(true)
-        }, 1200)
+        setTouched({ name: true, email: true })
+        const errors = validate(form)
+        setErrs(errors)
+        if (Object.keys(errors).length > 0) return
+
+        setStatus('sending')
+        try {
+            await emailjs.send(
+                EMAILJS_SERVICE_ID,
+                EMAILJS_TEMPLATE_ID,
+                {
+                    name: form.name,
+                    email: form.email,
+                    company: 'Individual Enrollment Request',
+                    message: 'Requested to join the waitlist/updates for the Enreal AI Professional Program.',
+                },
+                EMAILJS_PUBLIC_KEY,
+            )
+            setStatus('sent')
+        } catch (err) {
+            console.error('EmailJS error:', err)
+            setStatus('error')
+        }
+    }
+
+    const inputStyle = k => ({
+        width: '100%', background: T.surface, border: `1px solid ${errs[k] && touched[k] ? '#EF4444' : T.border}`,
+        padding: '1.25rem', borderRadius: '1rem', color: T.text, fontSize: '0.95rem',
+        outline: 'none', transition: 'border 0.2s', fontFamily: 'Inter, sans-serif'
+    })
+    const onFocus = k => e => {
+        if (!errs[k]) e.target.style.borderColor = 'rgba(0,0,0,0.3)'
+    }
+    const onBlurFn = k => e => {
+        touch(k)()
+        if (!errs[k]) e.target.style.borderColor = T.border
     }
 
     return (
@@ -441,36 +546,73 @@ function Contact() {
                     Course details and enrollment will be announced soon. Join the waitlist.
                 </p>
 
-                {submitted ? (
+                {status === 'sent' ? (
                     <div style={{ padding: '2rem', border: `1px solid ${T.border}`, borderRadius: '1.5rem', color: T.text, background: T.surface }}>
+                        <div style={{
+                            width: 48, height: 48, borderRadius: '50%', background: 'rgba(5, 150, 105, 0.1)',
+                            display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1rem',
+                        }}>
+                            <span style={{ color: '#059669', fontSize: '1.25rem' }}>✓</span>
+                        </div>
                         Waitlist confirmed. We will contact you soon.
                     </div>
                 ) : (
-                    <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1rem', textAlign: 'left' }}>
-                        <div>
-                            <input required type="text" placeholder="Full Name" style={{
-                                width: '100%', background: T.surface, border: `1px solid ${T.border}`,
-                                padding: '1.25rem', borderRadius: '1rem', color: T.text, fontSize: '0.95rem',
-                                outline: 'none', transition: 'border 0.2s', fontFamily: 'Inter, sans-serif'
-                            }} onFocus={e => e.target.style.borderColor = 'rgba(0,0,0,0.3)'} onBlur={e => e.target.style.borderColor = T.border} />
+                    <form onSubmit={handleSubmit} noValidate style={{ display: 'flex', flexDirection: 'column', gap: '1rem', textAlign: 'left' }}>
+
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.38rem' }}>
+                            <input type="text" placeholder="Full Name" required
+                                value={form.name} onChange={set('name')}
+                                onBlur={onBlurFn('name')} onFocus={onFocus('name')}
+                                style={inputStyle('name')} />
+                            {touched.name && errs.name && (
+                                <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+                                    <AlertCircle size={12} color="#EF4444" />
+                                    <span style={{ fontFamily: 'Inter,sans-serif', fontSize: '0.72rem', color: '#EF4444' }}>{errs.name}</span>
+                                </div>
+                            )}
                         </div>
-                        <div>
-                            <input required type="email" placeholder="Professional Email" style={{
-                                width: '100%', background: T.surface, border: `1px solid ${T.border}`,
-                                padding: '1.25rem', borderRadius: '1rem', color: T.text, fontSize: '0.95rem',
-                                outline: 'none', transition: 'border 0.2s', fontFamily: 'Inter, sans-serif'
-                            }} onFocus={e => e.target.style.borderColor = 'rgba(0,0,0,0.3)'} onBlur={e => e.target.style.borderColor = T.border} />
+
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.38rem' }}>
+                            <input type="email" placeholder="Professional Email" required
+                                value={form.email} onChange={set('email')}
+                                onBlur={onBlurFn('email')} onFocus={onFocus('email')}
+                                style={inputStyle('email')} />
+                            {touched.email && errs.email && (
+                                <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+                                    <AlertCircle size={12} color="#EF4444" />
+                                    <span style={{ fontFamily: 'Inter,sans-serif', fontSize: '0.72rem', color: '#EF4444' }}>{errs.email}</span>
+                                </div>
+                            )}
                         </div>
-                        <button type="submit" disabled={submitting} style={{
+
+                        {status === 'error' && (
+                            <div style={{
+                                display: 'flex', alignItems: 'center', gap: '0.5rem',
+                                background: 'rgba(239,68,68,0.07)', border: '1px solid rgba(239,68,68,0.2)',
+                                borderRadius: '0.75rem', padding: '0.75rem 1rem'
+                            }}>
+                                <AlertCircle size={14} color="#EF4444" />
+                                <span style={{ fontFamily: 'Inter,sans-serif', fontSize: '0.82rem', color: '#EF4444' }}>
+                                    Failed to enroll. Please email us directly at {DISPLAY_EMAIL}
+                                </span>
+                            </div>
+                        )}
+
+                        <button type="submit" disabled={status === 'sending'} style={{
                             background: T.text, color: T.bg, padding: '1.25rem', border: 'none',
-                            borderRadius: '1rem', fontSize: '1rem', fontWeight: 600, cursor: submitting ? 'not-allowed' : 'pointer',
-                            marginTop: '1rem', transition: 'opacity 0.2s', opacity: submitting ? 0.7 : 1
+                            borderRadius: '1rem', fontSize: '1rem', fontWeight: 600, cursor: status === 'sending' ? 'not-allowed' : 'pointer',
+                            marginTop: '1rem', transition: 'opacity 0.2s', opacity: status === 'sending' ? 0.7 : 1,
+                            display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem'
                         }}>
-                            {submitting ? 'Initializing...' : 'Join Updates'}
+                            {status === 'sending' ? <><Loader size={18} style={{ animation: 'spin 1s linear infinite' }} /> Initializing...</> : 'Join Updates'}
                         </button>
                     </form>
                 )}
             </div>
+
+            <style>{`
+                @keyframes spin { to { transform:rotate(360deg); } }
+            `}</style>
         </section>
     )
 }

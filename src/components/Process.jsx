@@ -1,8 +1,8 @@
 import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { PROCESS, T } from './data.js'
-import { MonoLabel, SectionHeading, Gold } from './ui.jsx'
+import { PROCESS, T } from '../data.js'
+import { MonoLabel, SectionHeading, Gold } from '../components/ui.jsx'
 
 gsap.registerPlugin(ScrollTrigger)
 

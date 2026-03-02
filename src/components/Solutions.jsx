@@ -2,8 +2,8 @@ import { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { ChevronRight } from 'lucide-react'
-import { SOLUTIONS, T } from './data.js'
-import { MonoLabel, SectionHeading, Gold, Card } from './ui.jsx'
+import { SOLUTIONS, T } from '../data.js'
+import { MonoLabel, SectionHeading, Gold, Card } from '../components/ui.jsx'
 
 gsap.registerPlugin(ScrollTrigger)
 

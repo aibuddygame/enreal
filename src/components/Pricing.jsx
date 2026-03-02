@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Check, ArrowRight } from 'lucide-react'
-import { TIERS, T } from './data.js'
+import { TIERS, T } from '../data.js'
 
 export default function Pricing() {
     return (

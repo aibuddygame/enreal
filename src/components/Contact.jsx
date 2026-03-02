@@ -3,7 +3,7 @@ import emailjs from '@emailjs/browser'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { ArrowRight, Mail, AlertCircle, Loader } from 'lucide-react'
-import { T } from './data.js'
+import { T } from '../data.js'
 
 gsap.registerPlugin(ScrollTrigger)
 

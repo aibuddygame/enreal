@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { PROTOCOL_CARDS, T } from './data.js'
+import { PROTOCOL_CARDS, T } from '../data.js'
 
 gsap.registerPlugin(ScrollTrigger)
 

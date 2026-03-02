@@ -3,6 +3,27 @@
 @tailwind utilities;
 
 /* ── Noise overlay ─────────────────────────────────────────── */
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 10% 3.9%;
+    --radius: 0.5rem;
+    --black: #000000;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+    --black: #000000;
+  }
+}
+
 body::before {
   content: '';
   position: fixed;
@@ -231,13 +252,45 @@ body {
   outline: 2px solid #2563EB;
   outline-offset: 2px;
 }
+
 /* -- Page transition --*/
 @keyframes page-in {
-  from { opacity: 0; transform: translateY(14px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
-.page-enter { animation: page-in 0.45s cubic-bezier(0.25,0.46,0.45,0.94) both; }
+
+.page-enter {
+  animation: page-in 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
 
 @media (max-width: 768px) {
-  .overview-grid { grid-template-columns: 1fr !important; gap: 2rem !important; }
+  .overview-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+}
+
+/* ── Glowing Box Mask ───────────────────────────────────────── */
+.glow::after {
+  content: "";
+  position: absolute;
+  border-radius: inherit;
+  inset: calc(-1 * var(--glowingeffect-border-width));
+  border: var(--glowingeffect-border-width) solid transparent;
+  background: var(--gradient);
+  background-attachment: fixed;
+  opacity: var(--active, 0);
+  transition: opacity 300ms;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) padding-box,
+    conic-gradient(from calc((var(--start) - var(--spread)) * 1deg), transparent 0deg, #fff, transparent calc(var(--spread) * 2deg)) border-box;
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
 }

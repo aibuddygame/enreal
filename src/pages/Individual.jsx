@@ -6,6 +6,8 @@ import emailjs from '@emailjs/browser'
 import IndividualNavbar from '../components/IndividualNavbar.jsx'
 import Footer from '../components/Footer.jsx'
 import { AILogoCloudSection } from '../components/ui/ai-logo-cloud.jsx'
+import { Box, Settings, Lock, Sparkles } from 'lucide-react'
+import { cn } from '../lib/utils.js'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -51,14 +53,56 @@ const OUTCOMES = [
 
 const CURRICULUM = [
     {
-        phase: 'PHASE 1',
-        title: 'AI System Construction & Tool Execution',
-        topics: ['Knowledge AI Architecture', 'Visual Pipeline Engineering', 'Automation Workflows', 'Data Integration & Sync']
+        phase: 'Module 1',
+        title: 'AI Communication & Executive Framing',
+        subtitle: 'Control the Narrative in the AI Era',
+        desc: 'Modern professionals are judged by clarity — not effort.\nIn this module, you learn how to use AI to structure thinking, refine communication, and present ideas with executive precision.',
+        learn: [
+            'How Large Language Models work in real business contexts',
+            'Structured prompting frameworks for professional communication',
+            'Turning messy notes into executive-ready updates',
+            'Converting raw ideas into structured presentations'
+        ],
+        tools: ['ChatGPT / Claude', 'AI-assisted presentation tools (PowerPoint Copilot / Gamma)']
     },
     {
-        phase: 'PHASE 2',
-        title: 'Business Logic & Executive Thinking',
-        topics: ['Monetization & ROI Logic', 'Project Roadmap Design', 'Execution Governance', 'Final MVP Presentation']
+        phase: 'Module 2',
+        title: 'AI Data & Performance Intelligence',
+        subtitle: 'Own the Numbers. Own the Room.',
+        desc: 'Managers today must interpret data — not just report it.\nThis module upgrades your analytical leverage using AI-assisted data workflows and reporting systems.',
+        learn: [
+            'Cleaning and structuring messy datasets using AI',
+            'Generating formulas and insights automatically',
+            'Turning KPIs into actionable summaries',
+            'Converting analysis into decision-ready narratives'
+        ],
+        tools: ['Excel / Google Sheets with AI assistance', 'ChatGPT Advanced Data Analysis']
+    },
+    {
+        phase: 'Module 3',
+        title: 'Build Your Team’s AI Copilot',
+        subtitle: 'Turn Knowledge into Strategic Power',
+        desc: 'When knowledge lives only in documents or individuals, execution slows.\nThis module teaches you how to transform internal knowledge into an interactive AI assistant for real workflows.',
+        learn: [
+            'How knowledge-based AI systems work (RAG simplified)',
+            'Converting SOPs and policies into searchable assistants',
+            'Improving response accuracy through instruction design',
+            'Designing AI support aligned with team operations'
+        ],
+        tools: ['Custom GPT (OpenAI GPT Builder)', 'Notion AI / NotebookLM']
+    },
+    {
+        phase: 'Module 4',
+        title: 'AI Tool Builder Lab',
+        subtitle: 'From Operator to Builder',
+        desc: 'The future belongs to professionals who build tools — not just use them.\nIn this final module, you will create your own AI-powered internal application using AI-assisted coding or no-code platforms.',
+        learn: [
+            'Turning business problems into tool concepts',
+            'Using AI to generate and refine code',
+            'Understanding APIs and workflow logic (business-level view)',
+            'Deploying a simple internal web application'
+        ],
+        tools: ['Cursor (AI-assisted coding)', 'Replit / Vercel deployment', 'OR no-code platforms (Retool / Glide)']
     }
 ]
 
@@ -80,21 +124,27 @@ export default function IndividualPage() {
 
             // Sections Fade
             gsap.utils.toArray('.sec-rev').forEach(sec => {
-                gsap.from(sec, {
-                    scrollTrigger: { trigger: sec, start: 'top 85%' },
-                    y: 30, opacity: 0,
-                    duration: 1, ease: 'power3.out'
-                })
+                gsap.fromTo(sec,
+                    { y: 30, opacity: 0 },
+                    {
+                        scrollTrigger: { trigger: sec, start: 'top 85%' },
+                        y: 0, opacity: 1,
+                        duration: 1, ease: 'power3.out'
+                    }
+                )
             })
 
             // Staggers
             gsap.utils.toArray('.stag-grid').forEach(grid => {
-                gsap.from(grid.children, {
-                    scrollTrigger: { trigger: grid, start: 'top 85%' },
-                    y: 20, opacity: 0,
-                    duration: 0.8, stagger: 0.1,
-                    ease: 'power2.out'
-                })
+                gsap.fromTo(grid.children,
+                    { y: 20, opacity: 0 },
+                    {
+                        scrollTrigger: { trigger: grid, start: 'top 85%' },
+                        y: 0, opacity: 1,
+                        duration: 0.8, stagger: 0.1,
+                        ease: 'power2.out'
+                    }
+                )
             })
 
         }, mainRef)
@@ -124,7 +174,7 @@ export default function IndividualPage() {
                 </main>
                 <Footer
                     navLinks={[
-                        { label: 'The Shift', id: 'program' },
+                        { label: 'Philosophy', id: 'program' },
                         { label: 'Outcomes', id: 'outcomes' },
                         { label: 'Curriculum', id: 'curriculum' },
                         { label: 'For Who', id: 'for-who' },
@@ -274,20 +324,70 @@ function Hero() {
 function TheShift() {
     return (
         <section id="program" className="sec-rev" style={{ padding: '8rem 5vw', background: T.bg }}>
-            <div style={{ maxWidth: 1000, margin: '0 auto', textAlign: 'center' }}>
-                <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.75rem', letterSpacing: '0.1em', color: '#059669', marginBottom: '1.5rem', textTransform: 'uppercase' }}>// THE SHIFT</p>
-                <p style={{ fontFamily: 'Manrope, sans-serif', color: T.muted, fontSize: '1.1rem', marginBottom: '2rem', lineHeight: 1.7 }}>
-                    AI evolution anxiety. Career displacement fear. Skill irrelevance. <br />
-                    The market is shifting rapidly.
-                </p>
-                <h2 style={{ fontSize: 'clamp(2rem, 5vw, 4rem)', fontWeight: 500, letterSpacing: '-0.03em', lineHeight: 1.1 }}>
-                    Most people learn tools.<br />
-                    <span style={{ fontFamily: 'Playfair Display, serif', fontStyle: 'italic', color: T.muted }}>Few learn systems.</span>
-                </h2>
+            <div style={{ maxWidth: 1000, margin: '0 auto' }}>
+                <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
+                    <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.75rem', letterSpacing: '0.1em', color: '#059669', marginBottom: '1.5rem', textTransform: 'uppercase' }}>// LEARNING PHILOSOPHY</p>
+                    <h2 style={{ fontSize: 'clamp(2rem, 4.5vw, 3.5rem)', fontWeight: 500, letterSpacing: '-0.03em', lineHeight: 1.1 }}>
+                        We do not teach abstract theory.<br />
+                        <span style={{ fontFamily: 'Playfair Display, serif', fontStyle: 'italic', color: T.muted }}>We teach AI capability for real professional leverage.</span>
+                    </h2>
+                </div>
+
+                <div style={{ marginTop: '4rem' }}>
+                    <ul className="grid grid-cols-1 grid-rows-none gap-4 md:grid-cols-12 md:grid-rows-2 lg:gap-4 xl:max-h-[34rem] xl:grid-rows-2">
+                        <GridItem
+                            area="md:[grid-area:1/1/2/7] xl:[grid-area:1/1/2/7]"
+                            icon={<Box className="h-4 w-4" />}
+                            title="Immediate workplace application"
+                            description="Deploy solutions that provide instant business value. No abstract theory, just actionable systems."
+                        />
+                        <GridItem
+                            area="md:[grid-area:1/7/2/13] xl:[grid-area:1/7/2/13]"
+                            icon={<Settings className="h-4 w-4" />}
+                            title="Progressive capability building"
+                            description="Start with simple workflows and scale to complex autonomous agents as your confidence grows."
+                        />
+                        <GridItem
+                            area="md:[grid-area:2/1/3/7] xl:[grid-area:2/1/3/7]"
+                            icon={<Lock className="h-4 w-4" />}
+                            title="Practical output over passive learning"
+                            description="Build functional MVPs instead of writing academic code. Focus on real-world execution."
+                        />
+                        <GridItem
+                            area="md:[grid-area:2/7/3/13] xl:[grid-area:2/7/3/13]"
+                            icon={<Sparkles className="h-4 w-4" />}
+                            title="Business-first AI literacy"
+                            description="Speak the language of modern engineering and lead technical system adoption in your organization."
+                        />
+                    </ul>
+                </div>
             </div>
         </section>
     )
 }
+
+
+const GridItem = ({ area, icon, title, description }) => {
+    return (
+        <li className={cn("min-h-[14rem] list-none", area)}>
+            <div className="group relative h-full rounded-[1.25rem] border-[1px] border-[rgba(0,0,0,0.06)] bg-white p-6 shadow-[0_2px_10px_rgba(0,0,0,0.02)] transition-all duration-400 ease-out hover:-translate-y-1.5 hover:shadow-[0_12px_30px_rgba(0,0,0,0.06)] md:rounded-[1.5rem] md:p-8">
+                <div className="relative flex flex-1 flex-col justify-between gap-6">
+                    <div className="w-fit rounded-lg border-[1px] border-[rgba(0,0,0,0.05)] bg-[#F5F5F7] p-2.5 text-[#0B0B0C] transition-colors duration-400 group-hover:bg-[#E8E8EB]">
+                        {icon}
+                    </div>
+                    <div className="space-y-3">
+                        <h3 className="pt-0.5 text-xl leading-[1.375rem] font-semibold font-sans tracking-[-0.04em] md:text-2xl md:leading-[1.875rem] text-balance text-[#0B0B0C]">
+                            {title}
+                        </h3>
+                        <h2 className="[&_b]:md:font-semibold [&_strong]:md:font-semibold font-sans text-sm leading-[1.125rem] md:text-base md:leading-[1.375rem] text-[#52525B]">
+                            {description}
+                        </h2>
+                    </div>
+                </div>
+            </div>
+        </li>
+    );
+};
 
 
 function LearningOutcomes() {
@@ -337,7 +437,9 @@ function LearningOutcomes() {
                     paddingBottom: '2rem', // space for hover lift
                     WebkitOverflowScrolling: 'touch',
                     scrollbarWidth: 'none', // Firefox
-                    msOverflowStyle: 'none' // IE 10+
+                    msOverflowStyle: 'none', // IE 10+
+                    maskImage: 'linear-gradient(to right, black 85%, transparent 100%)',
+                    WebkitMaskImage: 'linear-gradient(to right, black 85%, transparent 100%)'
                 }}>
                     <style>{`
                         .stag-grid::-webkit-scrollbar {
@@ -354,7 +456,7 @@ function LearningOutcomes() {
                             transition: 'transform 0.3s ease, box-shadow 0.3s ease',
                             cursor: 'pointer',
                             flex: '0 0 auto',
-                            width: 'min(85vw, 380px)'
+                            width: 'min(85vw, 340px)'
                         }}
                             onMouseEnter={e => {
                                 e.currentTarget.style.transform = 'translateY(-5px)';
@@ -402,36 +504,50 @@ function LearningOutcomes() {
 function CurriculumOverview() {
     return (
         <section id="curriculum" className="sec-rev" style={{ padding: '8rem 5vw', background: T.surface }}>
-            <div style={{ maxWidth: 1000, margin: '0 auto' }}>
-                <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.75rem', letterSpacing: '0.1em', color: '#059669', marginBottom: '1rem', textTransform: 'uppercase' }}>// TIMELINE</p>
-                <h2 style={{ fontSize: '2.5rem', fontWeight: 500, letterSpacing: '-0.03em', marginBottom: '4rem' }}>
-                    Curriculum Timeline
-                </h2>
-                <div className="stag-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '2rem' }}>
+            <div style={{ maxWidth: 1200, margin: '0 auto' }}>
+                <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
+                    <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.75rem', letterSpacing: '0.1em', color: '#059669', marginBottom: '1.5rem', textTransform: 'uppercase' }}>// CURRICULUM</p>
+                    <h2 style={{ fontSize: 'clamp(2rem, 4.5vw, 3.5rem)', fontWeight: 500, letterSpacing: '-0.03em', lineHeight: 1.1 }}>
+                        From Operator to Builder.
+                    </h2>
+                </div>
+
+                <div className="stag-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(380px, 1fr))', gap: '2rem' }}>
                     {CURRICULUM.map((c, i) => (
-                        <div key={i} style={{
-                            background: T.bg, border: `1px solid ${T.border}`,
-                            padding: '3rem', borderRadius: '1.5rem'
-                        }}>
-                            <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.75rem', letterSpacing: '0.1em', color: T.muted, marginBottom: '1rem' }}>
-                                {c.phase}
-                            </p>
-                            <h3 style={{ fontSize: '1.5rem', fontWeight: 500, marginBottom: '2rem', lineHeight: 1.3 }}>
-                                {c.title}
-                            </h3>
-                            <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                                {c.topics.map((t, idx) => (
-                                    <li key={idx} style={{ display: 'flex', alignItems: 'center', gap: '1rem', fontFamily: 'Manrope, sans-serif', color: T.muted, fontSize: '0.95rem' }}>
-                                        <div style={{ width: 4, height: 4, borderRadius: '50%', background: T.muted }} />
-                                        {t}
-                                    </li>
-                                ))}
-                            </ul>
+                        <div key={i} className="h-full">
+                            <div
+                                className="group h-full relative flex flex-col rounded-[1.5rem] bg-white border border-[rgba(0,0,0,0.08)] p-8 md:p-12 transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-[0_16px_40px_rgba(0,0,0,0.06)] cursor-default"
+                            >
+                                <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.75rem', letterSpacing: '0.1em', color: T.muted, marginBottom: '1rem', textTransform: 'uppercase' }}>
+                                    {c.phase}
+                                </p>
+                                <h3 style={{ fontSize: '1.75rem', fontWeight: 600, marginBottom: '0.5rem', lineHeight: 1.2, letterSpacing: '-0.03em', color: T.text, paddingRight: '1rem' }}>
+                                    {c.title}
+                                </h3>
+                                <h4 style={{ fontSize: '1.05rem', fontWeight: 500, color: '#059669', marginBottom: '1.5rem' }}>
+                                    {c.subtitle}
+                                </h4>
+                                <p style={{ fontFamily: 'Manrope, sans-serif', color: T.muted, fontSize: '0.95rem', lineHeight: 1.6, marginBottom: '2.5rem', whiteSpace: 'pre-line' }}>
+                                    {c.desc}
+                                </p>
+
+                                <div style={{ flexGrow: 1 }}>
+                                    <h5 style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.7rem', letterSpacing: '0.05em', color: T.text, marginBottom: '1rem', textTransform: 'uppercase', fontWeight: 600 }}>What You'll Learn</h5>
+                                    <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+                                        {c.learn.map((t, idx) => (
+                                            <li key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem', fontFamily: 'Manrope, sans-serif', color: T.muted, fontSize: '0.92rem', lineHeight: 1.45 }}>
+                                                <div style={{ minWidth: '4px', height: '4px', borderRadius: '50%', background: T.muted, marginTop: '0.55rem' }} />
+                                                <span>{t}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     ))}
                 </div>
             </div>
-        </section>
+        </section >
     )
 }
 
@@ -463,7 +579,7 @@ function ForWho() {
 
 // ── EmailJS credentials ─────────────────────────────────────
 const EMAILJS_SERVICE_ID = 'service_09wtwnb'
-const EMAILJS_TEMPLATE_ID = 'template_umxh338'
+const EMAILJS_TEMPLATE_ID = 'template_qd3ulov'
 const EMAILJS_PUBLIC_KEY = 'z4upBtbceRl50m24S'
 
 const DISPLAY_EMAIL = 'hello@enreallab.com.hk'
@@ -510,8 +626,6 @@ function Contact() {
                 {
                     name: form.name,
                     email: form.email,
-                    company: 'Individual Enrollment Request',
-                    message: 'Requested to join the waitlist/updates for the Enreal AI Professional Program.',
                 },
                 EMAILJS_PUBLIC_KEY,
             )

@@ -12,7 +12,7 @@ const T = {
 }
 
 const NAV = [
-    { label: 'The Shift', id: 'program' },
+    { label: 'Philosophy', id: 'program' },
     { label: 'Outcomes', id: 'outcomes' },
     { label: 'Curriculum', id: 'curriculum' },
     { label: 'For Who', id: 'for-who' },

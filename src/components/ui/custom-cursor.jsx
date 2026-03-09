@@ -20,6 +20,7 @@ export function CustomCursor({
     const [isVisible, setIsVisible] = useState(false)
     const [isHovering, setIsHovering] = useState(false)
     const [fading, setFading] = useState(false)
+    const [isTouch, setIsTouch] = useState(false)
 
     const state = useRef({
         distanceX: 0, distanceY: 0, distance: 0,
@@ -31,9 +32,12 @@ export function CustomCursor({
     })
 
     useEffect(() => {
-        // Only hide native cursor on non-touch (desktop) devices
-        const isTouch = window.matchMedia('(hover: none) and (pointer: coarse)').matches
-        if (!isTouch) document.body.style.cursor = 'none'
+        const touch = window.matchMedia('(hover: none) and (pointer: coarse)').matches
+        setIsTouch(touch)
+
+        if (touch) return
+
+        document.body.style.cursor = 'none'
 
         const onMove = (e) => {
             const s = state.current
@@ -220,6 +224,8 @@ export function CustomCursor({
             </svg>
         )
     }
+
+    if (isTouch) return null
 
     const render = () => {
         switch (cursorType) {

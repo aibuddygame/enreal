@@ -118,7 +118,7 @@ export const Component = () => {
             <div className="relative z-10 flex flex-col items-center text-center px-4 max-w-3xl mx-auto space-y-6 pointer-events-none">
                 <div className="space-y-4 mb-4">
                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-primary/10 text-primary border border-primary/20 mb-2 font-mono">
-                        <LayoutGrid size={14} /> System Gateway
+                        <LayoutGrid size={14} /> Enreal AI Consulting
                     </div>
                     <AnimatedText
                         text="Enable REAL AI"
@@ -152,13 +152,13 @@ export const Component = () => {
                         onClick={() => navigate('/business')}
                         className="group flex items-center justify-center gap-2 px-7 py-3.5 bg-primary text-primary-foreground font-semibold font-sans rounded-[2rem] hover:bg-blue-600 hover:-translate-y-1 transition-all duration-300 shadow-lg hover:shadow-2xl hover:shadow-blue-500/30 active:scale-95 text-[0.95rem]"
                     >
-                        Enter Business <Play size={16} fill="currentColor" className="group-hover:scale-110 transition-transform" />
+                        Business AI Consulting <Play size={16} fill="currentColor" className="group-hover:scale-110 transition-transform" />
                     </button>
                     <button
                         onClick={() => navigate('/individual')}
                         className="group flex items-center justify-center gap-2 px-7 py-3.5 bg-[#1C1C1E] text-white font-semibold font-sans rounded-[2rem] hover:bg-[#3A3A3E] hover:-translate-y-1 transition-all duration-300 shadow-lg hover:shadow-2xl hover:shadow-[#1C1C1E]/30 active:scale-95 text-[0.95rem]"
                     >
-                        Enter Individual <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                        AI Professional Programs <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                     </button>
                 </div>
             </div>

@@ -7,14 +7,11 @@ import { T } from '../data.js'
 
 gsap.registerPlugin(ScrollTrigger)
 
-// ── EmailJS credentials ─────────────────────────────────────
-// 1. Sign up free at https://www.emailjs.com
-// 2. Add Email Service → get SERVICE_ID
-// 3. Create Email Template → get TEMPLATE_ID (use variables: {{from_name}}, {{from_email}}, {{company}}, {{message}})
-// 4. Account → API Keys → get PUBLIC_KEY
-const EMAILJS_SERVICE_ID = 'service_09wtwnb'
-const EMAILJS_TEMPLATE_ID = 'template_umxh338'
-const EMAILJS_PUBLIC_KEY = 'z4upBtbceRl50m24S'
+import {
+    EMAILJS_SERVICE_ID,
+    EMAILJS_PUBLIC_KEY,
+    EMAILJS_TEMPLATE_BUSINESS
+} from '../lib/emailjsConfig.js'
 
 const DISPLAY_EMAIL = 'hello@enreallab.com.hk'
 
@@ -69,7 +66,7 @@ export default function Contact() {
         try {
             await emailjs.send(
                 EMAILJS_SERVICE_ID,
-                EMAILJS_TEMPLATE_ID,
+                EMAILJS_TEMPLATE_BUSINESS,
                 {
                     name: form.name,
                     email: form.email,

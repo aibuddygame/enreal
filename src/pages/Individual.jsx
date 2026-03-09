@@ -577,10 +577,11 @@ function ForWho() {
 }
 
 
-// ── EmailJS credentials ─────────────────────────────────────
-const EMAILJS_SERVICE_ID = 'service_09wtwnb'
-const EMAILJS_TEMPLATE_ID = 'template_qd3ulov'
-const EMAILJS_PUBLIC_KEY = 'z4upBtbceRl50m24S'
+import {
+    EMAILJS_SERVICE_ID,
+    EMAILJS_PUBLIC_KEY,
+    EMAILJS_TEMPLATE_INDIVIDUAL
+} from '../lib/emailjsConfig.js'
 
 const DISPLAY_EMAIL = 'hello@enreallab.com.hk'
 
@@ -622,7 +623,7 @@ function Contact() {
         try {
             await emailjs.send(
                 EMAILJS_SERVICE_ID,
-                EMAILJS_TEMPLATE_ID,
+                EMAILJS_TEMPLATE_INDIVIDUAL,
                 {
                     name: form.name,
                     email: form.email,

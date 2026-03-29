@@ -4,6 +4,7 @@ import LandingPage from './pages/Business.jsx'
 import ProjectPage from './pages/ProjectPage.jsx'
 import Mother from './pages/Home.jsx'
 import IndividualPage from './pages/Individual.jsx'
+import CoursePage from './pages/Course.jsx'
 
 export default function App() {
     return (
@@ -19,6 +20,7 @@ export default function App() {
                 <Route path="/" element={<Mother />} />
                 <Route path="/business" element={<LandingPage />} />
                 <Route path="/individual" element={<IndividualPage />} />
+                <Route path="/course" element={<CoursePage />} />
                 <Route path="/work/:slug" element={<ProjectPage />} />
             </Routes>
         </>

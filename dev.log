@@ -1,0 +1,97 @@
+
+> enreal-ai@1.0.0 dev
+> vite --host 0.0.0.0 --port 3018
+
+
+  VITE v7.3.1  ready in 81 ms
+
+  ➜  Local:   http://localhost:3018/
+  ➜  Network: http://192.168.8.140:3018/
+8:12:39 PM [vite] (client) hmr update /src/pages/Individual.jsx, /src/index.css
+8:12:39 PM [vite] Internal server error: /Users/vxreal/enreallab/src/pages/Individual.jsx: Unexpected token (239:89)
+
+  237 |                                 <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.75rem', letterSpacing: '0.1em', color: T.muted, marginBottom: '1rem', textTransform: 'uppercase' }}>{c.phase}</p>
+  238 |                                 <h3 style={{ fontSize: '1.75rem', fontWeight: 600, marginBottom: '0.5rem', lineHeight: 1.2, letterSpacing: '-0.03em', color: T.text, paddingRight: '1rem' }}>{c.title}</h3>
+> 239 |                                 <h4 style={{ fontSize: '1.05rem', fontWeight: 500, color:
+      |                                                                                          ^
+  Plugin: vite:react-babel
+  File: /Users/vxreal/enreallab/src/pages/Individual.jsx:239:89
+  237 |                                  <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.75rem', letterSpaci...
+  238 |                                  <h3 style={{ fontSize: '1.75rem', fontWeight: 600, marginBottom: '0.5rem', lineHeight...
+  239 |                                  <h4 style={{ fontSize: '1.05rem', fontWeight: 500, color:
+      |                                                                                           ^
+      at constructor (/Users/vxreal/enreallab/node_modules/@babel/parser/lib/index.js:365:19)
+      at JSXParserMixin.raise (/Users/vxreal/enreallab/node_modules/@babel/parser/lib/index.js:6599:19)
+      at JSXParserMixin.unexpected (/Users/vxreal/enreallab/node_modules/@babel/parser/lib/index.js:6619:16)
+      at JSXParserMixin.parseExprAtom (/Users/vxreal/enreallab/node_modules/@babel/parser/lib/index.js:11442:22)
+      at JSXParserMixin.parseExprAtom (/Users/vxreal/enreallab/node_modules/@babel/parser/lib/index.js:4764:20)
+      at JSXParserMixin.parseExprSubscripts (/Users/vxreal/enreallab/node_modules/@babel/parser/lib/index.js:11081:23)
+      at JSXParserMixin.parseUpdate (/Users/vxreal/enreallab/node_modules/@babel/parser/lib/index.js:11066:21)
+      at JSXParserMixin.parseMaybeUnary (/Users/vxreal/enreallab/node_modules/@babel/parser/lib/index.js:11046:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/Users/vxreal/enreallab/node_modules/@babel/parser/lib/index.js:10899:61)
+      at JSXParserMixin.parseExprOps (/Users/vxreal/enreallab/node_modules/@babel/parser/lib/index.js:10904:23)
+      at JSXParserMixin.parseMaybeConditional (/Users/vxreal/enreallab/node_modules/@babel/parser/lib/index.js:10881:23)
+      at JSXParserMixin.parseMaybeAssign (/Users/vxreal/enreallab/node_modules/@babel/parser/lib/index.js:10831:21)
+      at /Users/vxreal/enreallab/node_modules/@babel/parser/lib/index.js:10800:39
+      at JSXParserMixin.allowInAnd (/Users/vxreal/enreallab/node_modules/@babel/parser/lib/index.js:12426:12)
+      at JSXParserMixin.parseMaybeAssignAllowIn (/Users/vxreal/enreallab/node_modules/@babel/parser/lib/index.js:10800:17)
+      at JSXParserMixin.parseMaybeAssignAllowInOrVoidPattern (/Users/vxreal/enreallab/node_modules/@babel/parser/lib/index.js:12493:17)
+      at JSXParserMixin.parseObjectProperty (/Users/vxreal/enreallab/node_modules/@babel/parser/lib/index.js:11950:83)
+      at JSXParserMixin.parseObjPropValue (/Users/vxreal/enreallab/node_modules/@babel/parser/lib/index.js:11978:100)
+      at JSXParserMixin.parsePropertyDefinition (/Users/vxreal/enreallab/node_modules/@babel/parser/lib/index.js:11915:17)
+      at JSXParserMixin.parseObjectLike (/Users/vxreal/enreallab/node_modules/@babel/parser/lib/index.js:11832:21)
+      at JSXParserMixin.parseExprAtom (/Users/vxreal/enreallab/node_modules/@babel/parser/lib/index.js:11339:23)
+      at JSXParserMixin.parseExprAtom (/Users/vxreal/enreallab/node_modules/@babel/parser/lib/index.js:4764:20)
+      at JSXParserMixin.parseExprSubscripts (/Users/vxreal/enreallab/node_modules/@babel/parser/lib/index.js:11081:23)
+      at JSXParserMixin.parseUpdate (/Users/vxreal/enreallab/node_modules/@babel/parser/lib/index.js:11066:21)
+      at JSXParserMixin.parseMaybeUnary (/Users/vxreal/enreallab/node_modules/@babel/parser/lib/index.js:11046:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/Users/vxreal/enreallab/node_modules/@babel/parser/lib/index.js:10899:61)
+      at JSXParserMixin.parseExprOps (/Users/vxreal/enreallab/node_modules/@babel/parser/lib/index.js:10904:23)
+      at JSXParserMixin.parseMaybeConditional (/Users/vxreal/enreallab/node_modules/@babel/parser/lib/index.js:10881:23)
+      at JSXParserMixin.parseMaybeAssign (/Users/vxreal/enreallab/node_modules/@babel/parser/lib/index.js:10831:21)
+      at JSXParserMixin.parseExpressionBase (/Users/vxreal/enreallab/node_modules/@babel/parser/lib/index.js:10784:23)
+      at /Users/vxreal/enreallab/node_modules/@babel/parser/lib/index.js:10780:39
+      at JSXParserMixin.allowInAnd (/Users/vxreal/enreallab/node_modules/@babel/parser/lib/index.js:12426:12)
+      at JSXParserMixin.parseExpression (/Users/vxreal/enreallab/node_modules/@babel/parser/lib/index.js:10780:17)
+      at JSXParserMixin.jsxParseExpressionContainer (/Users/vxreal/enreallab/node_modules/@babel/parser/lib/index.js:4632:31)
+      at JSXParserMixin.jsxParseAttributeValue (/Users/vxreal/enreallab/node_modules/@babel/parser/lib/index.js:4604:21)
+      at JSXParserMixin.jsxParseAttribute (/Users/vxreal/enreallab/node_modules/@babel/parser/lib/index.js:4653:38)
+      at JSXParserMixin.jsxParseOpeningElementAfterName (/Users/vxreal/enreallab/node_modules/@babel/parser/lib/index.js:4667:28)
+      at JSXParserMixin.jsxParseOpeningElementAt (/Users/vxreal/enreallab/node_modules/@babel/parser/lib/index.js:4662:17)
+      at JSXParserMixin.jsxParseElementAt (/Users/vxreal/enreallab/node_modules/@babel/parser/lib/index.js:4686:33)
+      at JSXParserMixin.jsxParseElementAt (/Users/vxreal/enreallab/node_modules/@babel/parser/lib/index.js:4698:32)
+      at JSXParserMixin.jsxParseElementAt (/Users/vxreal/enreallab/node_modules/@babel/parser/lib/index.js:4698:32)
+      at JSXParserMixin.jsxParseElement (/Users/vxreal/enreallab/node_modules/@babel/parser/lib/index.js:4749:17)
+      at JSXParserMixin.parseExprAtom (/Users/vxreal/enreallab/node_modules/@babel/parser/lib/index.js:4759:19)
+      at JSXParserMixin.parseExprSubscripts (/Users/vxreal/enreallab/node_modules/@babel/parser/lib/index.js:11081:23)
+      at JSXParserMixin.parseUpdate (/Users/vxreal/enreallab/node_modules/@babel/parser/lib/index.js:11066:21)
+      at JSXParserMixin.parseMaybeUnary (/Users/vxreal/enreallab/node_modules/@babel/parser/lib/index.js:11046:23)
+      at JSXParserMixin.parseMaybeUnaryOrPrivate (/Users/vxreal/enreallab/node_modules/@babel/parser/lib/index.js:10899:61)
+      at JSXParserMixin.parseExprOps (/Users/vxreal/enreallab/node_modules/@babel/parser/lib/index.js:10904:23)
+      at JSXParserMixin.parseMaybeConditional (/Users/vxreal/enreallab/node_modules/@babel/parser/lib/index.js:10881:23)
+      at JSXParserMixin.parseMaybeAssign (/Users/vxreal/enreallab/node_modules/@babel/parser/lib/index.js:10831:21)
+8:13:43 PM [vite] (client) hmr update /src/pages/Individual.jsx, /src/index.css
+8:24:22 PM [vite] (client) hmr update /src/index.css, /src/components/Footer.jsx
+8:24:28 PM [vite] (client) hmr update /src/index.css, /src/components/Footer.jsx
+8:24:47 PM [vite] (client) hmr update /src/index.css, /src/components/ui/ai-logo-cloud.jsx
+8:25:15 PM [vite] (client) hmr update /src/pages/Individual.jsx, /src/index.css
+8:25:39 PM [vite] (client) hmr update /src/pages/Individual.jsx, /src/index.css
+8:25:44 PM [vite] (client) hmr update /src/pages/Individual.jsx, /src/index.css
+8:26:12 PM [vite] (client) hmr update /src/pages/Course.jsx, /src/index.css
+8:26:31 PM [vite] (client) hmr update /src/pages/Course.jsx, /src/index.css
+8:26:35 PM [vite] (client) hmr update /src/pages/Course.jsx, /src/index.css
+8:33:57 PM [vite] (client) hmr update /src/pages/Course.jsx, /src/index.css
+8:34:06 PM [vite] (client) hmr update /src/pages/Course.jsx, /src/index.css
+8:34:34 PM [vite] (client) hmr update /src/pages/Individual.jsx, /src/index.css
+8:34:43 PM [vite] (client) hmr update /src/pages/Individual.jsx, /src/index.css
+8:34:55 PM [vite] (client) hmr update /src/pages/Individual.jsx, /src/index.css
+8:35:02 PM [vite] (client) hmr update /src/pages/Individual.jsx, /src/index.css
+8:43:22 PM [vite] (client) hmr update /src/pages/Individual.jsx, /src/index.css
+8:43:31 PM [vite] (client) hmr update /src/pages/Individual.jsx, /src/index.css
+8:43:38 PM [vite] (client) hmr update /src/pages/Course.jsx, /src/index.css
+8:45:15 PM [vite] (client) hmr update /src/pages/Individual.jsx, /src/index.css
+8:55:42 PM [vite] (client) hmr update /src/pages/Course.jsx, /src/index.css
+8:55:42 PM [vite] (client) hmr update /src/App.jsx, /src/index.css
+8:55:42 PM [vite] (client) hmr update /src/index.css, /src/components/Footer.jsx
+8:55:42 PM [vite] (client) hmr update /src/index.css, /src/components/ui/ai-logo-cloud.jsx
+8:55:42 PM [vite] (client) hmr update /src/pages/Individual.jsx, /src/index.css

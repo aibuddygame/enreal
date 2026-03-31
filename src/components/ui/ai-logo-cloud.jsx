@@ -62,16 +62,21 @@ const logos = [
     },
 ];
 
-export function AILogoCloudSection() {
+export function AILogoCloudSection({ t }) {
+    const content = t ? t.toolsSection : {
+        eyebrow: '// INTELLIGENCE STACK',
+        title: 'Manage different AI tools.',
+        subtitle: 'Maximize your capability.'
+    }
     return (
         <section id="tools" className="sec-rev" style={{ padding: '8rem 5vw', background: '#F5F5F7' }}>
             <div className="relative mx-auto max-w-4xl flex flex-col items-center">
                 <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.75rem', letterSpacing: '0.1em', color: '#059669', marginBottom: '1rem', textTransform: 'uppercase' }}>
-                    // INTELLIGENCE STACK
+                    {content.eyebrow}
                 </p>
                 <h2 className="text-center" style={{ fontSize: '2.5rem', fontWeight: 500, letterSpacing: '-0.03em', marginBottom: '3rem' }}>
-                    Manage different AI tools.<br />
-                    Maximize your capability.
+                    {content.title}<br />
+                    {content.subtitle}
                 </h2>
 
                 <div className="mx-auto my-8 h-px w-full max-w-sm bg-[rgba(0,0,0,0.1)]" style={{ WebkitMaskImage: 'linear-gradient(to right, transparent, black, transparent)' }} />

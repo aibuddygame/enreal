@@ -4,7 +4,6 @@ import { useNavigate, useLocation } from 'react-router-dom'
 import { T } from '../data.js'
 
 const EMAIL = 'hello@enreallab.com.hk'
-const ADDRESS = 'Rm6, Incubation Centre, 1/F Inno Centre,\n72 Tat Chee Avenue, Kowloon Tong,\nHong Kong'
 
 export default function Footer({ navLinks, brandText, accentColor }) {
     const navigate = useNavigate()
@@ -91,12 +90,7 @@ export default function Footer({ navLinks, brandText, accentColor }) {
                             {EMAIL} <ArrowUpRight size={13} />
                         </a>
 
-                        <p style={{
-                            fontFamily: 'Inter,sans-serif', fontSize: '0.8rem',
-                            color: 'rgba(255,255,255,0.3)', lineHeight: 1.85, whiteSpace: 'pre-line',
-                        }}>
-                            {ADDRESS}
-                        </p>
+
                     </div>
                 </div>
 

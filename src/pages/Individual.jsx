@@ -324,7 +324,7 @@ function Pricing({ t }) {
                     </div>
                     
                     <div style={{ width: '100%' }}>
-                        <button style={{ background: T.primary, color: 'white', padding: '1.25rem 3rem', border: 'none', borderRadius: '1rem', fontSize: '1rem', fontWeight: 600, cursor: 'pointer', transition: 'all 0.2s', width: '100%', maxWidth: 400 }} onMouseEnter={(e) => { e.target.style.background = T.primaryDark; }} onMouseLeave={(e) => { e.target.style.background = T.primary; }} onClick={() => window.location.href = '#contact'}>
+                        <button style={{ background: T.primary, color: 'white', padding: '1.25rem 3rem', border: 'none', borderRadius: '1rem', fontSize: '1rem', fontWeight: 600, cursor: 'pointer', transition: 'all 0.2s', width: '100%', maxWidth: 400 }} onMouseEnter={(e) => { e.target.style.background = T.primaryDark; }} onMouseLeave={(e) => { e.target.style.background = T.primary; }} onClick={() => window.location.href = '/enroll'}>
                             {t.pricing.cta}
                         </button>
                     </div>

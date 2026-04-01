@@ -304,7 +304,7 @@ function Pricing({ t }) {
                             </div>
                         ))}
                     </div>
-                    <button style={{ width: '100%', background: '#EF4444', color: '#FFF', padding: '1.25rem', border: 'none', borderRadius: '1rem', fontSize: '1.1rem', fontWeight: 600, cursor: 'pointer' }}>{t.pricing.cta}</button>
+                    <button style={{ width: '100%', background: '#EF4444', color: '#FFF', padding: '1.25rem', border: 'none', borderRadius: '1rem', fontSize: '1.1rem', fontWeight: 600, cursor: 'pointer' }} onClick={() => window.location.href = '/enroll'}>{t.pricing.cta}</button>
                 </div>
             </div>
         </section>

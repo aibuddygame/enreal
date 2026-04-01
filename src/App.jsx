@@ -5,6 +5,7 @@ import ProjectPage from './pages/ProjectPage.jsx'
 import Mother from './pages/Home.jsx'
 import IndividualPage from './pages/Individual.jsx'
 import CoursePage from './pages/Course.jsx'
+import EnrollmentForm from './pages/EnrollmentForm.jsx'
 
 export default function App() {
     return (
@@ -23,6 +24,7 @@ export default function App() {
                 <Route path="/individual/zh" element={<IndividualPage lang="zh" />} />
                 <Route path="/course" element={<CoursePage lang="zh" />} />
                 <Route path="/course/en" element={<CoursePage lang="en" />} />
+                <Route path="/enroll" element={<EnrollmentForm />} />
                 <Route path="/work/:slug" element={<ProjectPage />} />
             </Routes>
         </>

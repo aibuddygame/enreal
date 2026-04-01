@@ -72,6 +72,7 @@ export default function Contact() {
                     email: form.email,
                     company: form.company || '—',
                     message: form.message,
+                    to_email: 'barry.lau@enreallab.com.hk',
                 },
                 EMAILJS_PUBLIC_KEY,
             )

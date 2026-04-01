@@ -38,8 +38,8 @@ const CONTENT = {
         curriculumSection: { eyebrow: '// CURRICULUM', title: 'From Operator to Builder', subtitle: 'From "thinking" to "doing" to "presenting"', learnTitle: 'What You Will Learn' },
         toolsSection: { eyebrow: '// AI TOOLS', title: 'Manage different AI tools.', subtitle: 'Maximize your capability.' },
         forWho: { eyebrow: '// TARGET AUDIENCE', title: 'Who is this for?', tags: ['Mid-level Managers', 'Professionals facing AI disruption', 'Entrepreneurs', 'Operators', 'Consultants', 'Career Switchers'] },
-        contact: { eyebrow: '// ENROLLMENT', title: 'Start building your intelligence layer.', desc: 'Course details and enrollment will be announced soon. Join the waitlist.', namePlaceholder: 'Full Name', emailPlaceholder: 'Professional Email', submitBtn: 'Join Updates', sending: 'Initializing...', success: 'Waitlist confirmed. We will contact you soon.', error: 'Failed to enroll. Please email us directly at' },
-        footer: { nav: [{ label: 'Philosophy', id: 'program' }, { label: 'Outcomes', id: 'outcomes' }, { label: 'Curriculum', id: 'curriculum' }, { label: 'For Who', id: 'for-who' }, { label: 'Tools', id: 'tools' }, { label: 'Enrollment', id: 'contact' }], brandText: 'The intelligence layer for professionals entering an AI-native economy.' }
+        pricing: { eyebrow: '// LIMITED OFFER 🔥', title: 'Secure Your Spot Now', originalPrice: 'Original: $15,000', price: '$2,000', spots: 'Only 10 students · Limited spots', features: ['7 practical sessions', 'Real CEO/MD presentation opportunity', 'Personal AI MVP project guidance', 'Post-course community support'], cta: 'Enroll Now' },
+        footer: { nav: [{ label: 'Philosophy', id: 'program' }, { label: 'Outcomes', id: 'outcomes' }, { label: 'Curriculum', id: 'curriculum' }, { label: 'For Who', id: 'for-who' }, { label: 'Tools', id: 'tools' }, { label: 'Enrollment', id: 'pricing' }], brandText: 'The intelligence layer for professionals entering an AI-native economy.' }
     },
     zh: {
         outcomes: [
@@ -59,8 +59,8 @@ const CONTENT = {
         curriculumSection: { eyebrow: '// 課程大綱', title: '從使用工具升級到AI開發', subtitle: '從「諗」到「做」，再到「展示」', learnTitle: '學習內容' },
         toolsSection: { eyebrow: '// AI 工具', title: '學習不同AI工具，強化你的全方位技能', subtitle: '' },
         forWho: { eyebrow: '// 目標學員', title: '這是為誰設計的？', tags: ['中層管理者', '面臨AI顛覆的專業人士', '創業者', '運營人員', '顧問', '轉職者'] },
-        contact: { eyebrow: '// 報名方法', title: '立刻升級你的AI技能，踏上晉升之路', desc: '加入我們的AI同學會，立刻獲得我們的課程內容', namePlaceholder: '全名', emailPlaceholder: '工作郵箱', submitBtn: '了解更多', sending: '提交中...', success: '已確認加入候補名單。我們將盡快聯繫你。', error: '報名失敗。請直接發郵件至' },
-        footer: { nav: [{ label: '學習理念', id: 'program' }, { label: '學習成果', id: 'outcomes' }, { label: '課程大綱', id: 'curriculum' }, { label: '目標學員', id: 'for-who' }, { label: 'AI 工具', id: 'tools' }, { label: '報名方法', id: 'contact' }], brandText: '為進入AI原生經濟的專業人士提供智能層。' }
+        pricing: { eyebrow: '// 限時Offer 🔥', title: '立即鎖定你嘅位置', originalPrice: '原價：$15,000', price: '$2,000', spots: '只收 10 位學員 · 滿額即止', features: ['7堂實戰課程', '真實CEO/MD展示機會', '個人AI MVP項目指導', '課後社群支援'], cta: '立即報名' },
+        footer: { nav: [{ label: '學習理念', id: 'program' }, { label: '學習成果', id: 'outcomes' }, { label: '課程大綱', id: 'curriculum' }, { label: '目標學員', id: 'for-who' }, { label: 'AI 工具', id: 'tools' }, { label: '報名方法', id: 'pricing' }], brandText: '為進入AI原生經濟的專業人士提供智能層。' }
     }
 }
 
@@ -112,7 +112,7 @@ export default function IndividualPage({ lang: initialLang }) {
                     <CurriculumOverview t={t} />
                     <ForWho t={t} />
                     <AILogoCloudSection t={t} />
-                    <Contact t={t} />
+                    <Pricing t={t} />
                 </main>
                 <Footer navLinks={t.footer.nav} brandText={t.footer.brandText} accentColor="#059669" />
             </div>
@@ -283,71 +283,34 @@ function ForWho({ t }) {
     )
 }
 
-const validate = ({ name, email }) => {
-    const errs = {}
-    if (!name.trim() || name.trim().length < 2) errs.name = 'Please enter your full name (min 2 characters).'
-    if (!email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) errs.email = 'Please enter a valid email address.'
-    return errs
-}
-
-function Contact({ t }) {
-    const [form, setForm] = useState({ name: '', email: '' })
-    const [errs, setErrs] = useState({})
-    const [touched, setTouched] = useState({})
-    const [status, setStatus] = useState('idle')
-
-    const set = k => e => { const val = e.target.value; setForm(p => ({ ...p, [k]: val })); if (touched[k]) setErrs(validate({ ...form, [k]: val })) }
-    const touch = k => () => { setTouched(p => ({ ...p, [k]: true })); setErrs(validate(form)) }
-
-    const handleSubmit = async e => {
-        e.preventDefault()
-        setTouched({ name: true, email: true })
-        const errors = validate(form)
-        setErrs(errors)
-        if (Object.keys(errors).length > 0) return
-        setStatus('sending')
-        try {
-            await emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', { name: form.name, email: form.email }, 'YOUR_PUBLIC_KEY')
-            setStatus('sent')
-        } catch (err) {
-            console.error('EmailJS error:', err)
-            setStatus('error')
-        }
-    }
-
-    const inputStyle = k => ({ width: '100%', background: T.surface, border: `1px solid ${errs[k] && touched[k] ? '#EF4444' : T.border}`, padding: '1.25rem', borderRadius: '1rem', color: T.text, fontSize: '0.95rem', outline: 'none', transition: 'border 0.2s', fontFamily: 'Inter, sans-serif' })
-    const onFocus = k => e => { if (!errs[k]) e.target.style.borderColor = 'rgba(0,0,0,0.3)' }
-    const onBlurFn = k => e => { touch(k)(); if (!errs[k]) e.target.style.borderColor = T.border }
-
+function Pricing({ t }) {
     return (
-        <section id="contact" className="sec-rev" style={{ padding: '8rem 5vw', background: T.bg }}>
-            <div style={{ maxWidth: 600, margin: '0 auto', textAlign: 'center' }}>
-                <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.75rem', letterSpacing: '0.1em', color: '#059669', marginBottom: '1rem', textTransform: 'uppercase' }}>{t.contact.eyebrow}</p>
-                <h2 style={{ fontSize: '2.5rem', fontWeight: 500, letterSpacing: '-0.03em', marginBottom: '1rem', whiteSpace: 'nowrap' }}>{t.contact.title}</h2>
-                <p style={{ fontFamily: 'Manrope, sans-serif', color: T.muted, marginBottom: '3rem', fontSize: '1rem' }}>{t.contact.desc}</p>
-                {status === 'sent' ? (
-                    <div style={{ padding: '2rem', border: `1px solid ${T.border}`, borderRadius: '1.5rem', color: T.text, background: T.surface }}>
-                        <div style={{ width: 48, height: 48, borderRadius: '50%', background: 'rgba(5, 150, 105, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1rem' }}><span style={{ color: '#059669', fontSize: '1.25rem' }}>✓</span></div>
-                        {t.contact.success}
-                    </div>
-                ) : (
-                    <form onSubmit={handleSubmit} noValidate style={{ display: 'flex', flexDirection: 'column', gap: '1rem', textAlign: 'left' }}>
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.38rem' }}>
-                            <input type="text" placeholder={t.contact.namePlaceholder} required value={form.name} onChange={set('name')} onBlur={onBlurFn('name')} onFocus={onFocus('name')} style={inputStyle('name')} />
-                            {touched.name && errs.name && <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}><AlertCircle size={12} color="#EF4444" /><span style={{ fontFamily: 'Inter,sans-serif', fontSize: '0.72rem', color: '#EF4444' }}>{errs.name}</span></div>}
-                        </div>
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.38rem' }}>
-                            <input type="email" placeholder={t.contact.emailPlaceholder} required value={form.email} onChange={set('email')} onBlur={onBlurFn('email')} onFocus={onFocus('email')} style={inputStyle('email')} />
-                            {touched.email && errs.email && <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}><AlertCircle size={12} color="#EF4444" /><span style={{ fontFamily: 'Inter,sans-serif', fontSize: '0.72rem', color: '#EF4444' }}>{errs.email}</span></div>}
-                        </div>
-                        {status === 'error' && <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', background: 'rgba(239,68,68,0.07)', border: '1px solid rgba(239,68,68,0.2)', borderRadius: '0.75rem', padding: '0.75rem 1rem' }}><AlertCircle size={14} color="#EF4444" /><span style={{ fontFamily: 'Inter,sans-serif', fontSize: '0.82rem', color: '#EF4444' }}>{t.contact.error} hello@enreallab.com.hk</span></div>}
-                        <button type="submit" disabled={status === 'sending'} style={{ background: T.text, color: T.bg, padding: '1.25rem', border: 'none', borderRadius: '1rem', fontSize: '1rem', fontWeight: 600, cursor: status === 'sending' ? 'not-allowed' : 'pointer', marginTop: '1rem', transition: 'opacity 0.2s', opacity: status === 'sending' ? 0.7 : 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }}>
-                            {status === 'sending' ? <><Loader size={18} style={{ animation: 'spin 1s linear infinite' }} /> {t.contact.sending}</> : t.contact.submitBtn}
-                        </button>
-                    </form>
-                )}
+        <section id="pricing" className="sec-rev" style={{ padding: '8rem 5vw', background: T.surface }}>
+            <div style={{ maxWidth: 800, margin: '0 auto', textAlign: 'center' }}>
+                <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.75rem', letterSpacing: '0.1em', color: '#DC2626', marginBottom: '1rem', textTransform: 'uppercase' }}>{t.pricing.eyebrow}</p>
+                <h2 style={{ fontSize: '2.5rem', fontWeight: 500, letterSpacing: '-0.03em', marginBottom: '1rem' }}>{t.pricing.title}</h2>
+                <p style={{ fontFamily: 'Manrope, sans-serif', color: T.muted, marginBottom: '2rem', fontSize: '1rem' }}>{t.pricing.spots}</p>
+                
+                <div style={{ background: T.bg, border: `1px solid ${T.border}`, borderRadius: '2rem', padding: '3rem', boxShadow: '0 4px 24px rgba(0,0,0,0.06)' }}>
+                    <p style={{ fontFamily: 'Manrope, sans-serif', fontSize: '0.9rem', color: T.muted, textDecoration: 'line-through', marginBottom: '0.5rem' }}>{t.pricing.originalPrice}</p>
+                    <p style={{ fontSize: '4rem', fontWeight: 700, color: T.text, marginBottom: '2rem', letterSpacing: '-0.02em' }}>{t.pricing.price}</p>
+                    
+                    <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 2rem 0', textAlign: 'left', display: 'inline-block' }}>
+                        {t.pricing.features.map((feature, idx) => (
+                            <li key={idx} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem', fontFamily: 'Manrope, sans-serif', color: T.text, fontSize: '1rem' }}>
+                                <span style={{ width: 20, height: 20, borderRadius: '50%', background: '#059669', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                                    <span style={{ color: 'white', fontSize: '0.75rem' }}>✓</span>
+                                </span>
+                                {feature}
+                            </li>
+                        ))}
+                    </ul>
+                    
+                    <button style={{ background: T.text, color: T.bg, padding: '1.25rem 3rem', border: 'none', borderRadius: '1rem', fontSize: '1rem', fontWeight: 600, cursor: 'pointer', transition: 'transform 0.2s', width: '100%', maxWidth: 400 }} onClick={() => window.location.href = '#contact'}>
+                        {t.pricing.cta}
+                    </button>
+                </div>
             </div>
-            <style>{`@keyframes spin { to { transform:rotate(360deg); } }`}</style>
         </section>
     )
 }

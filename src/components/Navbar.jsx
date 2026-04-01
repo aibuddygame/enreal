@@ -101,7 +101,7 @@ export default function Navbar() {
                     }}
                         onMouseEnter={e => e.currentTarget.style.background = 'rgba(0,0,0,0.07)'}
                         onMouseLeave={e => e.currentTarget.style.background = 'rgba(0,0,0,0.03)'}>
-                        Switch to {isLanding ? 'Individual' : 'Business'}
+                        Switch to {isLanding ? 'Elite Course' : 'Business'}
                     </button>
                 )}
 
@@ -159,7 +159,7 @@ export default function Navbar() {
                                 fontFamily: 'Inter,sans-serif', fontSize: '0.95rem', fontWeight: 600,
                                 color: isLanding ? '#059669' : '#2563EB', textAlign: 'left'
                             }}>
-                            Switch to {isLanding ? 'Individual' : 'Business'}
+                            Switch to {isLanding ? 'Elite Course' : 'Business'}
                         </button>
                     )}
 

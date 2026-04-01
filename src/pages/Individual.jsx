@@ -295,20 +295,24 @@ function Pricing({ t }) {
                     <p style={{ fontFamily: 'Manrope, sans-serif', fontSize: '0.9rem', color: T.muted, textDecoration: 'line-through', marginBottom: '0.5rem' }}>{t.pricing.originalPrice}</p>
                     <p style={{ fontSize: '4rem', fontWeight: 700, color: T.text, marginBottom: '2rem', letterSpacing: '-0.02em' }}>{t.pricing.price}</p>
                     
-                    <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 2rem 0', textAlign: 'left', display: 'inline-block' }}>
-                        {t.pricing.features.map((feature, idx) => (
-                            <li key={idx} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem', fontFamily: 'Manrope, sans-serif', color: T.text, fontSize: '1rem' }}>
-                                <span style={{ width: 20, height: 20, borderRadius: '50%', background: '#059669', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                                    <span style={{ color: 'white', fontSize: '0.75rem' }}>✓</span>
-                                </span>
-                                {feature}
-                            </li>
-                        ))}
-                    </ul>
+                    <div style={{ margin: '0 0 2rem 0', textAlign: 'left', display: 'inline-block' }}>
+                        <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+                            {t.pricing.features.map((feature, idx) => (
+                                <li key={idx} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem', fontFamily: 'Manrope, sans-serif', color: T.text, fontSize: '1rem' }}>
+                                    <span style={{ width: 20, height: 20, borderRadius: '50%', background: '#059669', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                                        <span style={{ color: 'white', fontSize: '0.75rem' }}>✓</span>
+                                    </span>
+                                    {feature}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
                     
-                    <button style={{ background: T.text, color: T.bg, padding: '1.25rem 3rem', border: 'none', borderRadius: '1rem', fontSize: '1rem', fontWeight: 600, cursor: 'pointer', transition: 'transform 0.2s', width: '100%', maxWidth: 400 }} onClick={() => window.location.href = '#contact'}>
-                        {t.pricing.cta}
-                    </button>
+                    <div style={{ width: '100%' }}>
+                        <button style={{ background: T.text, color: T.bg, padding: '1.25rem 3rem', border: 'none', borderRadius: '1rem', fontSize: '1rem', fontWeight: 600, cursor: 'pointer', transition: 'transform 0.2s', width: '100%', maxWidth: 400 }} onClick={() => window.location.href = '#contact'}>
+                            {t.pricing.cta}
+                        </button>
+                    </div>
                 </div>
             </div>
         </section>

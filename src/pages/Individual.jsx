@@ -22,11 +22,9 @@ const T = {
 const CONTENT = {
     en: {
         outcomes: [
-            { title: 'Build operational AI agents from scratch', desc: 'Deploy autonomous systems hooked directly into your company knowledge.', image: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=800&auto=format&fit=crop' },
-            { title: 'Automate real, multi-step business workflows', desc: 'Replace manual execution with logic-driven routing and API triggers.', image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop' },
-            { title: 'Integrate multi-tool systems via API', desc: 'Connect isolated platforms (CRM, ERP, Comms) into unified pipelines.', image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=800&auto=format&fit=crop' },
-            { title: 'Deliver working MVP solutions to stakeholders', desc: 'Move past ideation. Present functioning systems that prove immediate value.', image: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=800&auto=format&fit=crop' },
-            { title: 'Present execution outcomes with technical authority', desc: 'Speak the language of modern engineering. Lead technical system adoption.', image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=800&auto=format&fit=crop' }
+            { title: 'Tools → Strategy', desc: 'Understand how AI helps companies make money, save costs, and improve efficiency. Transform from an operator to a strategy designer.', image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop' },
+            { title: 'Execution → Design', desc: 'Build Marketing AI workflows, automate documents and reports, and establish data analysis and decision-making frameworks.', image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=800&auto=format&fit=crop' },
+            { title: 'Employee → Indispensable', desc: 'Complete a real AI MVP project, negotiate with results, and become someone the company cannot afford to lose.', image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=800&auto=format&fit=crop' }
         ],
         curriculum: [
             { phase: 'Phase 1', title: 'AI Mindset + Tool Mastery', subtitle: 'Sessions 1-4', desc: 'Focus: Using AI to help companies make money/save time\n\nContent: Common tools, enterprise implementation (Marketing/Operations), problem-solving frameworks\n\nOutcome: Develop your personal AI proposal', learn: ['How AI helps companies make money/save costs/improve efficiency', 'Marketing AI workflow design', 'Document and report automation', 'Data analysis and decision framework building'] },
@@ -36,7 +34,7 @@ const CONTENT = {
         phrases: ['Your role must evolve.', 'Execution now requires intelligence.', 'Architecture is the new advantage.'],
         hero: { eyebrow: 'ENREAL AI — HONG KONG', title: 'Work is evolving.', subtitle: '', desc: 'The intelligence layer for professionals entering an AI-native economy.', ctaPrimary: 'Join Updates', ctaSecondary: 'Explore Program' },
         shift: { eyebrow: '// LEARNING PHILOSOPHY', title: 'We do not teach abstract theory.', subtitle: 'We teach AI capability for real professional leverage.', features: [{ title: 'Immediate workplace application', desc: 'Deploy solutions that provide instant business value. No abstract theory, just actionable systems.' }, { title: 'Progressive capability building', desc: 'Start with simple workflows and scale to complex autonomous agents as your confidence grows.' }, { title: 'Practical output over passive learning', desc: 'Build functional MVPs instead of writing academic code. Focus on real-world execution.' }, { title: 'Business-first AI literacy', desc: 'Speak the language of modern engineering and lead technical system adoption in your organization.' }] },
-        outcomesSection: { eyebrow: '// OUTCOMES', title: 'Learning Outcomes' },
+        outcomesSection: { eyebrow: '// OUTCOMES', title: '7 Sessions, Three Transformations' },
         curriculumSection: { eyebrow: '// CURRICULUM', title: 'From Operator to Builder', subtitle: 'From "thinking" to "doing" to "presenting"', learnTitle: 'What You Will Learn' },
         toolsSection: { eyebrow: '// AI TOOLS', title: 'Manage different AI tools.', subtitle: 'Maximize your capability.' },
         forWho: { eyebrow: '// TARGET AUDIENCE', title: 'Who is this for?', tags: ['Mid-level Managers', 'Professionals facing AI disruption', 'Entrepreneurs', 'Operators', 'Consultants', 'Career Switchers'] },
@@ -45,11 +43,9 @@ const CONTENT = {
     },
     zh: {
         outcomes: [
-            { title: '從零開始構建AI智能體', desc: '部署直接接入公司知識庫的自動化系統。', image: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=800&auto=format&fit=crop' },
-            { title: '自動化真實的多步驟業務流程', desc: '用邏輯驅動的路由和API觸發器取代人工執行。', image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop' },
-            { title: '通過API整合多工具系統', desc: '將孤立的平台（CRM、ERP、通訊）連接成統一的流程。', image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=800&auto=format&fit=crop' },
-            { title: '向利益相關者交付可用的MVP解決方案', desc: '超越構思階段。展示能證明即時價值的功能系統。', image: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=800&auto=format&fit=crop' },
-            { title: '以技術權威展示執行成果', desc: '掌握現代工程語言。引領技術系統的採用。', image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=800&auto=format&fit=crop' }
+            { title: '工具 → 策略', desc: '理解AI如何幫公司賺錢、慳成本、提升效率。從操作者變成策略設計者。', image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop' },
+            { title: '執行 → 設計', desc: '建立Marketing AI流程、文件與報告自動化、數據分析與決策框架。', image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=800&auto=format&fit=crop' },
+            { title: '員工 → 被看見', desc: '完成一個真實AI MVP項目，用成果講價，成為公司離唔開嘅人。', image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=800&auto=format&fit=crop' }
         ],
         curriculum: [
             { phase: 'Phase 1', title: 'AI思維 + 工具掌握', subtitle: 'Sessions 1-4', desc: '聚焦：用AI幫公司賺錢／慳時間\n\n內容：常用工具、企業落地實踐（Marketing/Operations）、解難框架\n\n成果：發展出個人AI提案', learn: ['AI點樣幫公司賺錢／慳成本／提升效率', 'Marketing AI流程設計', '文件與報告自動化', '數據分析與決策框架建立'] },
@@ -59,7 +55,7 @@ const CONTENT = {
         phrases: ['你的角色必須進化。', '執行現在需要智能。', '架構是新的優勢。'],
         hero: { eyebrow: 'ENREAL AI — 香港', title: '工作正在演變。', subtitle: '', desc: '為進入AI原生經濟的專業人士提供智能層。', ctaPrimary: '了解更多', ctaSecondary: '探索課程' },
         shift: { eyebrow: '// 學習理念', title: '我們不教授抽象理論。', subtitle: '我們教授真實專業槓桿的AI能力。', features: [{ title: '即時職場應用', desc: '部署能提供即時商業價值的解決方案。沒有抽象理論，只有可執行的系統。' }, { title: '漸進式能力構建', desc: '從簡單工作流程開始，隨著信心增長擴展到複雜自主智能體。' }, { title: '實踐產出勝過被動學習', desc: '構建功能性的MVP而非編寫學術代碼。專注於真實世界執行。' }, { title: '業務優先的AI素養', desc: '掌握現代工程語言，引領組織中的技術系統採用。' }] },
-        outcomesSection: { eyebrow: '// 學習成果', title: '學習成果' },
+        outcomesSection: { eyebrow: '// 學習成果', title: '7堂課，三個轉變' },
         curriculumSection: { eyebrow: '// 課程大綱', title: '從使用工具升級到AI開發', subtitle: '從「諗」到「做」，再到「展示」', learnTitle: '學習內容' },
         toolsSection: { eyebrow: '// AI 工具', title: '學習不同AI工具，強化你的全方位技能', subtitle: '' },
         forWho: { eyebrow: '// 目標學員', title: '這是為誰設計的？', tags: ['中層管理者', '面臨AI顛覆的專業人士', '創業者', '運營人員', '顧問', '轉職者'] },

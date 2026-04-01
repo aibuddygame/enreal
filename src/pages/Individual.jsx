@@ -59,7 +59,7 @@ const CONTENT = {
         curriculumSection: { eyebrow: '// 課程大綱', title: '從使用工具升級到AI開發', subtitle: '從「諗」到「做」，再到「展示」', learnTitle: '學習內容' },
         toolsSection: { eyebrow: '// AI 工具', title: '學習不同AI工具，強化你的全方位技能', subtitle: '' },
         forWho: { eyebrow: '// 目標學員', title: '這是為誰設計的？', tags: ['中層管理者', '面臨AI顛覆的專業人士', '創業者', '運營人員', '顧問', '轉職者'] },
-        pricing: { eyebrow: '// 限時Offer 🔥', title: '立即鎖定你嘅位置', originalPrice: '原價：$15,000', price: '$2,000', spots: '只收 10 位學員 · 滿額即止', features: ['7堂實戰課程', '真實CEO/MD展示機會', '個人AI MVP項目指導', '課後社群支援'], cta: '立即報名' },
+        pricing: { eyebrow: '// 限時Offer 🔥', title: '立即鎖定你的晉升之路', originalPrice: '原價：$15,000', price: '$2,000', spots: '只收 10 位學員 · 滿額即止', features: ['7堂實戰課程', '真實CEO/MD展示機會', '個人AI MVP項目指導', '課後社群支援'], cta: '立即報名' },
         footer: { nav: [{ label: '學習理念', id: 'program' }, { label: '學習成果', id: 'outcomes' }, { label: '課程大綱', id: 'curriculum' }, { label: '目標學員', id: 'for-who' }, { label: 'AI 工具', id: 'tools' }, { label: '報名方法', id: 'pricing' }], brandText: '為進入AI原生經濟的專業人士提供智能層。' }
     }
 }

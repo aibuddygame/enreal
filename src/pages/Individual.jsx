@@ -70,10 +70,24 @@ const CONTENT = {
     }
 }
 
-export default function IndividualPage() {
-    const [lang, setLang] = useState('en')
+import { useNavigate, useLocation } from 'react-router-dom'
+
+export default function IndividualPage({ lang: initialLang }) {
+    const navigate = useNavigate()
+    const location = useLocation()
+    const [lang, setLang] = useState(initialLang || 'en')
     const mainRef = useRef(null)
     const t = CONTENT[lang]
+
+    // Sync URL with language selection
+    const handleLangChange = (newLang) => {
+        setLang(newLang)
+        if (newLang === 'zh') {
+            navigate('/individual/zh', { replace: true })
+        } else {
+            navigate('/individual', { replace: true })
+        }
+    }
 
     useEffect(() => {
         const ctx = gsap.context(() => {
@@ -93,8 +107,8 @@ export default function IndividualPage() {
         <div ref={mainRef} style={{ background: T.bg, color: T.text, fontFamily: 'Inter, sans-serif', overflowX: 'hidden' }}>
             <IndividualNavbar />
             <div style={{ position: 'fixed', top: '100px', right: '20px', zIndex: 100, display: 'flex', gap: '8px', background: 'rgba(255,255,255,0.95)', padding: '8px', borderRadius: '999px', boxShadow: '0 2px 10px rgba(0,0,0,0.1)', border: '1px solid rgba(0,0,0,0.08)' }}>
-                <button onClick={() => setLang('en')} style={{ padding: '8px 16px', borderRadius: '999px', border: 'none', background: lang === 'en' ? '#059669' : 'transparent', color: lang === 'en' ? 'white' : '#0B0B0C', fontWeight: 600, cursor: 'pointer', fontSize: '0.9rem' }}>EN</button>
-                <button onClick={() => setLang('zh')} style={{ padding: '8px 16px', borderRadius: '999px', border: 'none', background: lang === 'zh' ? '#DC2626' : 'transparent', color: lang === 'zh' ? 'white' : '#0B0B0C', fontWeight: 600, cursor: 'pointer', fontSize: '0.9rem' }}>中文</button>
+                <button onClick={() => handleLangChange('en')} style={{ padding: '8px 16px', borderRadius: '999px', border: 'none', background: lang === 'en' ? '#059669' : 'transparent', color: lang === 'en' ? 'white' : '#0B0B0C', fontWeight: 600, cursor: 'pointer', fontSize: '0.9rem' }}>EN</button>
+                <button onClick={() => handleLangChange('zh')} style={{ padding: '8px 16px', borderRadius: '999px', border: 'none', background: lang === 'zh' ? '#DC2626' : 'transparent', color: lang === 'zh' ? 'white' : '#0B0B0C', fontWeight: 600, cursor: 'pointer', fontSize: '0.9rem' }}>中文</button>
             </div>
             <div style={{ position: 'relative', zIndex: 1 }}>
                 <main>

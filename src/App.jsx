@@ -19,7 +19,8 @@ export default function App() {
             <Routes>
                 <Route path="/" element={<Mother />} />
                 <Route path="/business" element={<LandingPage />} />
-                <Route path="/individual" element={<IndividualPage />} />
+                <Route path="/individual" element={<IndividualPage lang="en" />} />
+                <Route path="/individual/zh" element={<IndividualPage lang="zh" />} />
                 <Route path="/course" element={<CoursePage />} />
                 <Route path="/work/:slug" element={<ProjectPage />} />
             </Routes>

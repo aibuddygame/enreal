@@ -13,10 +13,20 @@ gsap.registerPlugin(ScrollTrigger)
 
 const T = {
     bg: '#FFFFFF',
-    surface: '#F5F5F7',
-    text: '#0B0B0C',
-    muted: '#52525B',
-    border: 'rgba(0,0,0,0.08)',
+    surface: '#F8FAFC',
+    surfaceAlt: '#F1F5F9',
+    text: '#0F172A',
+    muted: '#64748B',
+    border: 'rgba(148,163,184,0.2)',
+    primary: '#059669',
+    primaryLight: '#D1FAE5',
+    primaryDark: '#047857',
+    accent: '#7C3AED',
+    accentLight: '#EDE9FE',
+    warning: '#F59E0B',
+    danger: '#DC2626',
+    gradient: 'linear-gradient(135deg, #059669 0%, #10B981 50%, #34D399 100%)',
+    gradientAccent: 'linear-gradient(135deg, #7C3AED 0%, #A78BFA 100%)',
 }
 
 const CONTENT = {
@@ -202,26 +212,30 @@ function TheShift({ t }) {
 function LearningOutcomes({ t }) {
     const scrollRef = useRef(null)
     const scroll = (offset) => { if (scrollRef.current) scrollRef.current.scrollBy({ left: offset, behavior: 'smooth' }) }
+    const cardColors = ['#059669', '#7C3AED', '#DC2626']
     return (
-        <section id="outcomes" className="sec-rev" style={{ padding: '10rem 5vw', background: T.bg }}>
+        <section id="outcomes" className="sec-rev" style={{ padding: '10rem 5vw', background: `linear-gradient(180deg, ${T.bg} 0%, ${T.surfaceAlt} 100%)` }}>
             <div style={{ maxWidth: 1200, margin: '0 auto' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '4rem', flexWrap: 'wrap', gap: '1rem' }}>
                     <div>
-                        <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.75rem', letterSpacing: '0.1em', color: '#059669', marginBottom: '1rem', textTransform: 'uppercase' }}>{t.outcomesSection.eyebrow}</p>
-                        <h2 style={{ fontSize: '2.5rem', fontWeight: 500, letterSpacing: '-0.03em', margin: 0 }}>{t.outcomesSection.title}</h2>
+                        <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.75rem', letterSpacing: '0.1em', color: T.primary, marginBottom: '1rem', textTransform: 'uppercase', fontWeight: 600 }}>{t.outcomesSection.eyebrow}</p>
+                        <h2 style={{ fontSize: '2.5rem', fontWeight: 600, letterSpacing: '-0.03em', margin: 0, background: T.gradient, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>{t.outcomesSection.title}</h2>
                     </div>
                     <div style={{ display: 'flex', gap: '0.5rem' }}>
-                        <button onClick={() => scroll(-400)} style={{ width: '44px', height: '44px', borderRadius: '50%', border: `1px solid ${T.border}`, background: T.surface, display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', color: T.text }}><ArrowLeft size={18} /></button>
-                        <button onClick={() => scroll(400)} style={{ width: '44px', height: '44px', borderRadius: '50%', border: `1px solid ${T.border}`, background: T.surface, display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', color: T.text }}><ArrowRight size={18} /></button>
+                        <button onClick={() => scroll(-400)} style={{ width: '44px', height: '44px', borderRadius: '50%', border: `1px solid ${T.border}`, background: T.bg, display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', color: T.text, transition: 'all 0.2s', boxShadow: '0 2px 8px rgba(0,0,0,0.08)' }} onMouseEnter={(e) => { e.target.style.background = T.primaryLight; e.target.style.borderColor = T.primary; }} onMouseLeave={(e) => { e.target.style.background = T.bg; e.target.style.borderColor = T.border; }}><ArrowLeft size={18} /></button>
+                        <button onClick={() => scroll(400)} style={{ width: '44px', height: '44px', borderRadius: '50%', border: `1px solid ${T.border}`, background: T.bg, display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', color: T.text, transition: 'all 0.2s', boxShadow: '0 2px 8px rgba(0,0,0,0.08)' }} onMouseEnter={(e) => { e.target.style.background = T.primaryLight; e.target.style.borderColor = T.primary; }} onMouseLeave={(e) => { e.target.style.background = T.bg; e.target.style.borderColor = T.border; }}><ArrowRight size={18} /></button>
                     </div>
                 </div>
                 <div className="stag-grid" ref={scrollRef} style={{ display: 'flex', flexWrap: 'nowrap', gap: '2rem', overflowX: 'auto', paddingBottom: '2rem', scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
                     {t.outcomes.map((item, i) => (
-                        <div key={i} style={{ display: 'flex', flexDirection: 'column', borderRadius: '1rem', overflow: 'hidden', border: `1px solid ${T.border}`, background: T.surface, transition: 'transform 0.3s ease, box-shadow 0.3s ease', cursor: 'pointer', flex: '0 0 auto', width: 'min(85vw, 340px)' }}>
-                            <div style={{ width: '100%', height: '220px', overflow: 'hidden' }}><img src={item.image} alt={item.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} /></div>
-                            <div style={{ padding: '2rem' }}>
-                                <span style={{ fontFamily: 'JetBrains Mono, monospace', color: T.muted, fontSize: '0.8rem', display: 'block', marginBottom: '1rem' }}>0{i + 1}</span>
-                                <h3 style={{ fontSize: '1.25rem', fontWeight: 500, lineHeight: 1.3, marginBottom: '0.75rem', color: T.text }}>{item.title}</h3>
+                        <div key={i} style={{ display: 'flex', flexDirection: 'column', borderRadius: '1.5rem', overflow: 'hidden', border: `1px solid ${T.border}`, background: T.bg, transition: 'all 0.3s ease', cursor: 'pointer', flex: '0 0 auto', width: 'min(85vw, 340px)', boxShadow: '0 4px 20px rgba(0,0,0,0.06)' }} onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-8px)'; e.currentTarget.style.boxShadow = `0 20px 40px rgba(0,0,0,0.12)`; }} onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 4px 20px rgba(0,0,0,0.06)'; }}>
+                            <div style={{ width: '100%', height: '220px', overflow: 'hidden', position: 'relative' }}>
+                                <img src={item.image} alt={item.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: `linear-gradient(180deg, transparent 50%, ${cardColors[i]}40 100%)` }} />
+                            </div>
+                            <div style={{ padding: '2rem', borderTop: `3px solid ${cardColors[i]}` }}>
+                                <span style={{ fontFamily: 'JetBrains Mono, monospace', color: cardColors[i], fontSize: '0.8rem', display: 'block', marginBottom: '1rem', fontWeight: 700 }}>0{i + 1}</span>
+                                <h3 style={{ fontSize: '1.25rem', fontWeight: 600, lineHeight: 1.3, marginBottom: '0.75rem', color: T.text }}>{item.title}</h3>
                                 <p style={{ fontFamily: 'Manrope, sans-serif', color: T.muted, fontSize: '0.95rem', lineHeight: 1.6 }}>{item.desc}</p>
                             </div>
                         </div>
@@ -233,27 +247,36 @@ function LearningOutcomes({ t }) {
 }
 
 function CurriculumOverview({ t }) {
+    const phaseColors = [
+        { bg: '#ECFDF5', border: '#059669', accent: '#059669', icon: '🎯' },
+        { bg: '#EDE9FE', border: '#7C3AED', accent: '#7C3AED', icon: '⚡' },
+        { bg: '#FEF3C7', border: '#F59E0B', accent: '#D97706', icon: '🔥' }
+    ]
     return (
-        <section id="curriculum" className="sec-rev" style={{ padding: '8rem 5vw', background: T.surface }}>
+        <section id="curriculum" className="sec-rev" style={{ padding: '8rem 5vw', background: `linear-gradient(135deg, ${T.surface} 0%, ${T.surfaceAlt} 100%)` }}>
             <div style={{ maxWidth: 1200, margin: '0 auto' }}>
                 <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-                    <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.75rem', letterSpacing: '0.1em', color: '#059669', marginBottom: '1.5rem', textTransform: 'uppercase' }}>{t.curriculumSection.eyebrow}</p>
-                    <h2 style={{ fontSize: 'clamp(2rem, 4.5vw, 3.5rem)', fontWeight: 500, letterSpacing: '-0.03em', lineHeight: 1.1 }}>{t.curriculumSection.title}</h2>
+                    <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.75rem', letterSpacing: '0.1em', color: T.primary, marginBottom: '1.5rem', textTransform: 'uppercase', fontWeight: 600 }}>{t.curriculumSection.eyebrow}</p>
+                    <h2 style={{ fontSize: 'clamp(2rem, 4.5vw, 3.5rem)', fontWeight: 600, letterSpacing: '-0.03em', lineHeight: 1.1, marginBottom: '1rem' }}>{t.curriculumSection.title}</h2>
+                    <p style={{ fontFamily: 'Manrope, sans-serif', color: T.muted, fontSize: '1.1rem' }}>{t.curriculumSection.subtitle}</p>
                 </div>
                 <div className="stag-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(380px, 1fr))', gap: '2rem' }}>
                     {t.curriculum.map((c, i) => (
                         <div key={i} className="h-full">
-                            <div className="group h-full relative flex flex-col rounded-[1.5rem] bg-white border border-[rgba(0,0,0,0.08)] p-8 md:p-12 transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-[0_16px_40px_rgba(0,0,0,0.06)]">
-                                <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.75rem', letterSpacing: '0.1em', color: T.muted, marginBottom: '1rem', textTransform: 'uppercase' }}>{c.phase}</p>
+                            <div className="group h-full relative flex flex-col rounded-[1.5rem] p-8 md:p-12 transition-all duration-300 ease-out" style={{ background: phaseColors[i].bg, border: `2px solid ${phaseColors[i].border}`, boxShadow: `0 4px 20px ${phaseColors[i].border}20` }} onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-8px)'; e.currentTarget.style.boxShadow = `0 20px 40px ${phaseColors[i].border}40`; }} onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = `0 4px 20px ${phaseColors[i].border}20`; }}>
+                                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
+                                    <span style={{ fontSize: '1.5rem' }}>{phaseColors[i].icon}</span>
+                                    <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.75rem', letterSpacing: '0.1em', color: phaseColors[i].accent, textTransform: 'uppercase', fontWeight: 700 }}>{c.phase}</p>
+                                </div>
                                 <h3 style={{ fontSize: '1.75rem', fontWeight: 600, marginBottom: '0.5rem', lineHeight: 1.2, letterSpacing: '-0.03em', color: T.text, paddingRight: '1rem' }}>{c.title}</h3>
-                                <h4 style={{ fontSize: '1.05rem', fontWeight: 500, color: '#059669', marginBottom: '1.5rem' }}>{c.subtitle}</h4>
+                                <h4 style={{ fontSize: '1.05rem', fontWeight: 600, color: phaseColors[i].accent, marginBottom: '1.5rem' }}>{c.subtitle}</h4>
                                 <p style={{ fontFamily: 'Manrope, sans-serif', color: T.muted, fontSize: '0.95rem', lineHeight: 1.6, marginBottom: '2.5rem', whiteSpace: 'pre-line' }}>{c.desc}</p>
                                 <div style={{ flexGrow: 1 }}>
-                                    <h5 style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.7rem', letterSpacing: '0.05em', color: T.text, marginBottom: '1rem', textTransform: 'uppercase', fontWeight: 600 }}>{t.curriculumSection.learnTitle}</h5>
+                                    <h5 style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.7rem', letterSpacing: '0.05em', color: phaseColors[i].accent, marginBottom: '1rem', textTransform: 'uppercase', fontWeight: 700 }}>{t.curriculumSection.learnTitle}</h5>
                                     <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
                                         {c.learn.map((item, idx) => (
-                                            <li key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem', fontFamily: 'Manrope, sans-serif', color: T.muted, fontSize: '0.92rem', lineHeight: 1.45 }}>
-                                                <div style={{ minWidth: '4px', height: '4px', borderRadius: '50%', background: T.muted, marginTop: '0.55rem' }} /><span>{item}</span>
+                                            <li key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem', fontFamily: 'Manrope, sans-serif', color: T.text, fontSize: '0.92rem', lineHeight: 1.45 }}>
+                                                <div style={{ minWidth: '6px', height: '6px', borderRadius: '50%', background: phaseColors[i].accent, marginTop: '0.5rem', flexShrink: 0 }} /><span>{item}</span>
                                             </li>
                                         ))}
                                     </ul>
@@ -268,14 +291,15 @@ function CurriculumOverview({ t }) {
 }
 
 function ForWho({ t }) {
+    const tagColors = ['#059669', '#7C3AED', '#DC2626', '#F59E0B', '#0891B2', '#4F46E5']
     return (
-        <section id="for-who" className="sec-rev" style={{ padding: '8rem 5vw', background: T.bg }}>
+        <section id="for-who" className="sec-rev" style={{ padding: '8rem 5vw', background: `linear-gradient(180deg, ${T.bg} 0%, ${T.primaryLight}20 100%)` }}>
             <div style={{ maxWidth: 1280, margin: '0 auto', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
-                <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.75rem', letterSpacing: '0.1em', color: '#059669', marginBottom: '1rem', textTransform: 'uppercase' }}>{t.forWho.eyebrow}</p>
-                <h2 style={{ fontSize: '2.5rem', fontWeight: 500, letterSpacing: '-0.03em', marginBottom: '3rem' }}>{t.forWho.title}</h2>
+                <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.75rem', letterSpacing: '0.1em', color: T.primary, marginBottom: '1rem', textTransform: 'uppercase', fontWeight: 600 }}>{t.forWho.eyebrow}</p>
+                <h2 style={{ fontSize: '2.5rem', fontWeight: 600, letterSpacing: '-0.03em', marginBottom: '3rem' }}>{t.forWho.title}</h2>
                 <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '1rem', maxWidth: 800 }}>
                     {t.forWho.tags.map((p, i) => (
-                        <span key={i} style={{ padding: '0.75rem 1.5rem', border: `1px solid ${T.border}`, borderRadius: 999, fontFamily: 'Manrope, sans-serif', color: T.muted, fontSize: '0.95rem' }}>{p}</span>
+                        <span key={i} style={{ padding: '0.875rem 1.75rem', borderRadius: 999, fontFamily: 'Manrope, sans-serif', color: 'white', fontSize: '0.95rem', fontWeight: 500, background: tagColors[i % tagColors.length], boxShadow: `0 4px 12px ${tagColors[i % tagColors.length]}40`, transition: 'all 0.2s', cursor: 'default' }} onMouseEnter={(e) => { e.target.style.transform = 'translateY(-3px) scale(1.05)'; e.target.style.boxShadow = `0 8px 20px ${tagColors[i % tagColors.length]}60`; }} onMouseLeave={(e) => { e.target.style.transform = 'translateY(0) scale(1)'; e.target.style.boxShadow = `0 4px 12px ${tagColors[i % tagColors.length]}40`; }}>{p}</span>
                     ))}
                 </div>
             </div>
@@ -285,22 +309,22 @@ function ForWho({ t }) {
 
 function Pricing({ t }) {
     return (
-        <section id="pricing" className="sec-rev" style={{ padding: '8rem 5vw', background: T.surface }}>
+        <section id="pricing" className="sec-rev" style={{ padding: '8rem 5vw', background: `linear-gradient(135deg, #FEF3C7 0%, #FDE68A 50%, #FCD34D 100%)` }}>
             <div style={{ maxWidth: 800, margin: '0 auto', textAlign: 'center' }}>
-                <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.75rem', letterSpacing: '0.1em', color: '#DC2626', marginBottom: '1rem', textTransform: 'uppercase' }}>{t.pricing.eyebrow}</p>
-                <h2 style={{ fontSize: '2.5rem', fontWeight: 500, letterSpacing: '-0.03em', marginBottom: '1rem' }}>{t.pricing.title}</h2>
-                <p style={{ fontFamily: 'Manrope, sans-serif', color: T.muted, marginBottom: '2rem', fontSize: '1rem' }}>{t.pricing.spots}</p>
+                <div style={{ display: 'inline-block', background: '#DC2626', color: 'white', padding: '0.5rem 1.5rem', borderRadius: '999px', fontFamily: 'JetBrains Mono, monospace', fontSize: '0.75rem', letterSpacing: '0.1em', marginBottom: '1.5rem', fontWeight: 700, boxShadow: '0 4px 12px rgba(220,38,38,0.3)' }}>{t.pricing.eyebrow}</div>
+                <h2 style={{ fontSize: '2.5rem', fontWeight: 700, letterSpacing: '-0.03em', marginBottom: '1rem', color: T.text }}>{t.pricing.title}</h2>
+                <p style={{ fontFamily: 'Manrope, sans-serif', color: T.muted, marginBottom: '2.5rem', fontSize: '1.1rem', fontWeight: 500 }}>{t.pricing.spots}</p>
                 
-                <div style={{ background: T.bg, border: `1px solid ${T.border}`, borderRadius: '2rem', padding: '3rem', boxShadow: '0 4px 24px rgba(0,0,0,0.06)' }}>
-                    <p style={{ fontFamily: 'Manrope, sans-serif', fontSize: '0.9rem', color: T.muted, textDecoration: 'line-through', marginBottom: '0.5rem' }}>{t.pricing.originalPrice}</p>
-                    <p style={{ fontSize: '4rem', fontWeight: 700, color: T.text, marginBottom: '2rem', letterSpacing: '-0.02em' }}>{t.pricing.price}</p>
+                <div style={{ background: T.bg, border: '3px solid #F59E0B', borderRadius: '2rem', padding: '3rem', boxShadow: '0 20px 60px rgba(245,158,11,0.25)' }}>
+                    <p style={{ fontFamily: 'Manrope, sans-serif', fontSize: '1rem', color: T.muted, textDecoration: 'line-through', marginBottom: '0.5rem' }}>{t.pricing.originalPrice}</p>
+                    <p style={{ fontSize: '5rem', fontWeight: 800, background: 'linear-gradient(135deg, #DC2626 0%, #F59E0B 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', marginBottom: '2rem', letterSpacing: '-0.02em' }}>{t.pricing.price}</p>
                     
-                    <div style={{ margin: '0 0 2rem 0', textAlign: 'left', display: 'inline-block' }}>
+                    <div style={{ margin: '0 0 2.5rem 0', textAlign: 'left', display: 'inline-block' }}>
                         <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
                             {t.pricing.features.map((feature, idx) => (
-                                <li key={idx} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem', fontFamily: 'Manrope, sans-serif', color: T.text, fontSize: '1rem' }}>
-                                    <span style={{ width: 20, height: 20, borderRadius: '50%', background: '#059669', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                                        <span style={{ color: 'white', fontSize: '0.75rem' }}>✓</span>
+                                <li key={idx} style={{ display: 'flex', alignItems: 'center', gap: '0.875rem', marginBottom: '1.25rem', fontFamily: 'Manrope, sans-serif', color: T.text, fontSize: '1.05rem', fontWeight: 500 }}>
+                                    <span style={{ width: 24, height: 24, borderRadius: '50%', background: T.gradient, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, boxShadow: '0 2px 8px rgba(5,150,105,0.3)' }}>
+                                        <span style={{ color: 'white', fontSize: '0.875rem', fontWeight: 700 }}>✓</span>
                                     </span>
                                     {feature}
                                 </li>
@@ -309,7 +333,7 @@ function Pricing({ t }) {
                     </div>
                     
                     <div style={{ width: '100%' }}>
-                        <button style={{ background: T.text, color: T.bg, padding: '1.25rem 3rem', border: 'none', borderRadius: '1rem', fontSize: '1rem', fontWeight: 600, cursor: 'pointer', transition: 'transform 0.2s', width: '100%', maxWidth: 400 }} onClick={() => window.location.href = '#contact'}>
+                        <button style={{ background: T.gradient, color: 'white', padding: '1.5rem 3rem', border: 'none', borderRadius: '1rem', fontSize: '1.1rem', fontWeight: 700, cursor: 'pointer', transition: 'all 0.3s', width: '100%', maxWidth: 400, boxShadow: '0 8px 24px rgba(5,150,105,0.4)' }} onMouseEnter={(e) => { e.target.style.transform = 'translateY(-3px) scale(1.02)'; e.target.style.boxShadow = '0 12px 32px rgba(5,150,105,0.5)'; }} onMouseLeave={(e) => { e.target.style.transform = 'translateY(0) scale(1)'; e.target.style.boxShadow = '0 8px 24px rgba(5,150,105,0.4)'; }} onClick={() => window.location.href = '#contact'}>
                             {t.pricing.cta}
                         </button>
                     </div>

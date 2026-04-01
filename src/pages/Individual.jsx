@@ -179,7 +179,7 @@ function Hero({ t, lang }) {
 function TheShift({ t }) {
     const features = [{ icon: <Box className="h-4 w-4" />, ...t.shift.features[0] }, { icon: <Settings className="h-4 w-4" />, ...t.shift.features[1] }, { icon: <Lock className="h-4 w-4" />, ...t.shift.features[2] }, { icon: <Sparkles className="h-4 w-4" />, ...t.shift.features[3] }]
     return (
-        <section id="program" className="sec-rev" style={{ padding: '8rem 5vw', background: T.bg }}>
+        <section id="program" className="sec-rev" style={{ padding: '8rem 5vw', background: T.surface }}>
             <div style={{ maxWidth: 1000, margin: '0 auto' }}>
                 <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
                     <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.75rem', letterSpacing: '0.1em', color: '#059669', marginBottom: '1.5rem', textTransform: 'uppercase' }}>{t.shift.eyebrow}</p>
@@ -252,9 +252,12 @@ function CurriculumOverview({ t }) {
                     <p style={{ fontFamily: 'Manrope, sans-serif', color: T.muted, fontSize: '1.1rem' }}>{t.curriculumSection.subtitle}</p>
                 </div>
                 <div className="stag-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(380px, 1fr))', gap: '2rem' }}>
-                    {t.curriculum.map((c, i) => (
+                    {t.curriculum.map((c, i) => {
+                        const phaseBg = ['#F0F9FF', '#F5F3FF', '#FFFBEB'][i]
+                        const phaseBorder = ['#BAE6FD', '#DDD6FE', '#FDE68A'][i]
+                        return (
                         <div key={i} className="h-full">
-                            <div className="group h-full relative flex flex-col rounded-[1.5rem] bg-white border border-[rgba(0,0,0,0.08)] p-8 md:p-12 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(0,0,0,0.08)]">
+                            <div className="group h-full relative flex flex-col rounded-[1.5rem] border p-8 md:p-12 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(0,0,0,0.08)]" style={{ background: phaseBg, borderColor: phaseBorder }}>
                                 <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.75rem', letterSpacing: '0.1em', color: T.primary, marginBottom: '1rem', textTransform: 'uppercase', fontWeight: 600 }}>{c.phase}</p>
                                 <h3 style={{ fontSize: '1.75rem', fontWeight: 600, marginBottom: '0.5rem', lineHeight: 1.2, letterSpacing: '-0.03em', color: T.text, paddingRight: '1rem' }}>{c.title}</h3>
                                 <h4 style={{ fontSize: '1.05rem', fontWeight: 500, color: T.secondary, marginBottom: '1.5rem' }}>{c.subtitle}</h4>
@@ -271,7 +274,8 @@ function CurriculumOverview({ t }) {
                                 </div>
                             </div>
                         </div>
-                    ))}
+                    )}
+                    )}
                 </div>
             </div>
         </section>

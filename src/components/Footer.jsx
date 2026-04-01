@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Linkedin, ArrowUpRight } from 'lucide-react'
+import { ArrowUpRight } from 'lucide-react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { T } from '../data.js'
 
@@ -44,12 +44,7 @@ export default function Footer({ navLinks, brandText, accentColor }) {
                         }}>
                             {brandText || 'The intelligence layer that scales business operations without increasing headcount.'}
                         </p>
-                        {/* LinkedIn only */}
-                        <SocialIcon
-                            Icon={Linkedin}
-                            href="https://www.linkedin.com/company/enreal-lab-limited/about/"
-                            label="LinkedIn"
-                        />
+
                     </div>
 
                     {/* Nav */}

@@ -158,7 +158,7 @@ export const Component = () => {
                         onClick={() => navigate('/individual')}
                         className="group flex items-center justify-center gap-2 px-7 py-3.5 bg-[#1C1C1E] text-white font-semibold font-sans rounded-[2rem] hover:bg-[#3A3A3E] hover:-translate-y-1 transition-all duration-300 shadow-lg hover:shadow-2xl hover:shadow-[#1C1C1E]/30 active:scale-95 text-[0.95rem]"
                     >
-                        AI Professional Programs <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                        AI Elite Course <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                     </button>
                 </div>
             </div>

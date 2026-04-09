@@ -110,6 +110,64 @@ const getBreadcrumbSchema = (lang) => ({
     ]
 })
 
+const getFaqSchema = (lang) => ({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: lang === 'en'
+        ? [
+            {
+                '@type': 'Question',
+                name: 'Who is this course for?',
+                acceptedAnswer: {
+                    '@type': 'Answer',
+                    text: 'Mid-level professionals aged 30 to 45 who report to C-Level and want to lead AI transformation.'
+                }
+            },
+            {
+                '@type': 'Question',
+                name: 'What will I learn?',
+                acceptedAnswer: {
+                    '@type': 'Answer',
+                    text: 'You will learn AI strategy, tool mastery, MVP development, executive presentation, and AI leadership skills.'
+                }
+            },
+            {
+                '@type': 'Question',
+                name: 'What makes this course different?',
+                acceptedAnswer: {
+                    '@type': 'Answer',
+                    text: 'You build a real MVP, present to real CEOs, and join an executive network through the Enreal AI Alliance.'
+                }
+            }
+        ]
+        : [
+            {
+                '@type': 'Question',
+                name: '這個課程適合誰？',
+                acceptedAnswer: {
+                    '@type': 'Answer',
+                    text: '適合30至45歲的中層專業人士，需要向C-Level匯報，並希望帶領AI轉型。'
+                }
+            },
+            {
+                '@type': 'Question',
+                name: '我會學到什麼？',
+                acceptedAnswer: {
+                    '@type': 'Answer',
+                    text: '你會學到AI策略、工具掌握、MVP開發、高管展示，以及AI領導能力。'
+                }
+            },
+            {
+                '@type': 'Question',
+                name: '這個課程有什麼不同？',
+                acceptedAnswer: {
+                    '@type': 'Answer',
+                    text: '你會建立真實MVP、在真實CEO面前展示，並加入Enreal AI實戰聯盟的人脈網絡。'
+                }
+            }
+        ]
+})
+
 // Organization Schema
 const organizationSchema = {
     '@context': 'https://schema.org',
@@ -218,6 +276,7 @@ export default function CoursePage({ lang: initialLang }) {
     const seo = SEO_CONFIG[lang]
     const courseSchema = getCourseSchema(lang)
     const breadcrumbSchema = getBreadcrumbSchema(lang)
+    const faqSchema = getFaqSchema(lang)
     const path = lang === 'en' ? '/course/en' : '/course'
     const alternates = [
         { hrefLang: 'en', href: '/course/en' },
@@ -235,7 +294,7 @@ export default function CoursePage({ lang: initialLang }) {
                 ogTitle={seo.ogTitle}
                 ogDescription={seo.ogDescription}
                 alternates={alternates}
-                schema={[courseSchema, organizationSchema, breadcrumbSchema]}
+                schema={[courseSchema, organizationSchema, breadcrumbSchema, faqSchema]}
             />
             <IndividualNavbar />
             <div style={{ position: 'fixed', top: '100px', right: '20px', zIndex: 100, display: 'flex', gap: '8px', background: 'rgba(255,255,255,0.95)', padding: '8px', borderRadius: '999px', boxShadow: '0 2px 10px rgba(0,0,0,0.1)', border: '1px solid rgba(0,0,0,0.08)' }}>

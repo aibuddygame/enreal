@@ -17,7 +17,7 @@ const NAV = [
     { label: 'Curriculum', id: 'curriculum' },
     { label: 'For Who', id: 'for-who' },
     { label: 'Tools', id: 'tools' },
-    { label: 'Enrollment', id: 'contact' }
+    { label: 'Enrollment', id: 'pricing' }
 ]
 
 export default function IndividualNavbar() {
@@ -114,7 +114,7 @@ export default function IndividualNavbar() {
                 </button>
 
                 {/* CTA */}
-                <button onClick={() => go('contact')} className="nav-d" style={{
+                <button onClick={() => go('pricing')} className="nav-d" style={{
                     marginLeft: '0.5rem', padding: '0.55rem 1.15rem', borderRadius: 999,
                     background: '#0B0B0C', border: 'none', cursor: 'pointer',
                     fontFamily: 'Inter,sans-serif', fontSize: '0.82rem', fontWeight: 700, color: '#FFFFFF',
@@ -168,7 +168,7 @@ export default function IndividualNavbar() {
                         Switch to Business <ArrowRight size={14} />
                     </button>
 
-                    <button onClick={() => go('contact')}
+                    <button onClick={() => go('pricing')}
                         style={{
                             marginTop: '0.5rem', padding: '0.75rem', borderRadius: '0.875rem',
                             background: '#0B0B0C', border: 'none', cursor: 'pointer',

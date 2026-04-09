@@ -26,7 +26,7 @@ export default function IndividualNavbar() {
     const [open, setOpen] = useState(false)
     const navigate = useNavigate()
     const location = useLocation()
-    const isLanding = location.pathname === '/individual'
+    const isLanding = location.pathname === '/individual' || location.pathname === '/course' || location.pathname === '/course/en'
 
     useEffect(() => {
         const obs = new IntersectionObserver(
@@ -52,7 +52,7 @@ export default function IndividualNavbar() {
         if (isLanding) {
             document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
         } else {
-            navigate('/individual', { state: { scrollTo: id } })
+            navigate('/course', { state: { scrollTo: id } })
         }
     }
 

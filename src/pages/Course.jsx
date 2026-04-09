@@ -157,12 +157,15 @@ function Hero({ t, lang }) {
         <section id="hero" style={{ height: '100dvh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '0 5vw', position: 'relative' }}>
             <div style={{ maxWidth: 900, marginTop: '10vh', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', width: '100%' }}>
                 <p className="h-rev" style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.7rem', letterSpacing: '0.22em', color: '#059669', marginBottom: '1.5rem', opacity: 0.85, textTransform: 'uppercase' }}>{t.hero.eyebrow}</p>
-                <h1 className="h-rev" style={{ fontFamily: 'Inter, sans-serif', fontWeight: 900, fontSize: 'clamp(2.2rem, 5vw, 4.5rem)', letterSpacing: '-0.04em', lineHeight: 1.1, marginBottom: '0.5rem' }}>
+                <h1 className="h-rev" style={{ fontFamily: 'Inter, sans-serif', fontWeight: 900, fontSize: 'clamp(1.8rem, 4vw, 3.5rem)', letterSpacing: '-0.03em', lineHeight: 1.2, marginBottom: '0.75rem', whiteSpace: 'nowrap' }}>
                     {t.hero.title}
                 </h1>
-                <p className="h-rev" style={{ fontFamily: 'Manrope, sans-serif', fontSize: 'clamp(1rem, 1.6vw, 1.15rem)', color: T.text, fontWeight: 600, lineHeight: 1.6, maxWidth: 700, margin: '0.75rem auto 1.5rem' }}>
-                    {t.hero.subtitle}
-                </p>
+                <div className="h-rev" style={{ position: 'relative', height: '2.5rem', marginBottom: '1.5rem' }}>
+                    <p style={{ fontFamily: 'Manrope, sans-serif', fontSize: 'clamp(0.9rem, 1.4vw, 1.1rem)', color: T.primary, fontWeight: 600, lineHeight: 1.5, visibility: 'hidden' }}>{LONGEST}</p>
+                    <p style={{ fontFamily: 'Manrope, sans-serif', fontSize: 'clamp(0.9rem, 1.4vw, 1.1rem)', color: T.primary, fontWeight: 600, lineHeight: 1.5, position: 'absolute', top: 0, left: 0, right: 0 }}>
+                        {display}<span style={{ display: 'inline-block', width: '0.08em', height: '0.9em', background: T.primary, marginLeft: '0.05em', verticalAlign: 'middle', borderRadius: 1 }} />
+                    </p>
+                </div>
                 <p className="h-rev" style={{ fontFamily: 'Manrope, sans-serif', fontSize: 'clamp(0.95rem, 1.5vw, 1.05rem)', color: T.muted, lineHeight: 1.8, maxWidth: 550, margin: '0 auto 2.5rem' }} dangerouslySetInnerHTML={{ __html: t.hero.desc }} />
                 <div className="h-rev" style={{ display: 'flex', gap: '1rem', alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap' }}>
                     <button onClick={() => go('contact')} style={{ background: T.text, color: T.bg, padding: '1rem 2rem', border: 'none', borderRadius: 999, fontSize: '0.95rem', fontWeight: 600, cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '0.5rem', transition: 'transform 0.2s' }} onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.03)'} onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}>{t.hero.ctaPrimary} <ArrowRight size={16} /></button>

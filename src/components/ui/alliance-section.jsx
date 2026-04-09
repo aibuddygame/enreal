@@ -1,4 +1,4 @@
-import { Users, FlaskConical, Briefcase, Landmark, ArrowRight } from 'lucide-react'
+import { Users, FlaskConical, Briefcase, Landmark } from 'lucide-react'
 
 const T = {
     bg: '#FFFFFF',
@@ -43,29 +43,6 @@ export function AllianceSection({ t }) {
                             <p style={{ fontFamily: 'Manrope, sans-serif', fontSize: '0.95rem', color: T.muted, lineHeight: 1.7 }}>{pillar.desc}</p>
                         </div>
                     ))}
-                </div>
-
-                {/* Induction Path */}
-                <div style={{ background: T.bg, borderRadius: '2rem', padding: '3rem', border: `1px solid ${T.border}`, marginBottom: '2rem' }}>
-                    <h3 style={{ fontSize: '1.5rem', fontWeight: 700, textAlign: 'center', marginBottom: '2.5rem', color: T.text }}>{a.induction.title}</h3>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-                        {a.induction.steps.map((step, i) => (
-                            <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '1.5rem' }}>
-                                <div style={{ minWidth: 60, height: 60, borderRadius: '50%', background: i === 2 ? '#059669' : T.primary, display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontWeight: 700, fontSize: '0.875rem' }}>
-                                    {step.phase}
-                                </div>
-                                <div style={{ flex: 1, paddingTop: '0.5rem' }}>
-                                    <h4 style={{ fontSize: '1.15rem', fontWeight: 700, marginBottom: '0.5rem', color: T.text }}>{step.title}</h4>
-                                    <p style={{ fontFamily: 'Manrope, sans-serif', fontSize: '0.95rem', color: T.muted, lineHeight: 1.6 }}>{step.desc}</p>
-                                </div>
-                                {i < 2 && (
-                                    <div style={{ display: 'flex', alignItems: 'center', color: T.primary, marginTop: '1rem' }}>
-                                        <ArrowRight size={20} />
-                                    </div>
-                                )}
-                            </div>
-                        ))}
-                    </div>
                 </div>
 
                 {/* CTA */}

@@ -1,4 +1,4 @@
-import { Users, FlaskConical, Briefcase, Landmark, ArrowRight } from 'lucide-react'
+import { Users, FlaskConical, Briefcase, Landmark } from 'lucide-react'
 
 const T = {
     bg: '#FFFFFF',
@@ -45,12 +45,7 @@ export function AllianceSection({ t }) {
                     ))}
                 </div>
 
-                {/* CTA */}
-                <div style={{ textAlign: 'center' }}>
-                    <button onClick={() => go('pricing')} style={{ background: T.primary, color: 'white', padding: '1.25rem 3rem', border: 'none', borderRadius: '1rem', fontSize: '1rem', fontWeight: 600, cursor: 'pointer', transition: 'all 0.2s', display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }} onMouseEnter={(e) => { e.target.style.background = '#014486'; }} onMouseLeave={(e) => { e.target.style.background = T.primary; }}>
-                        {a.cta} <ArrowRight size={18} />
-                    </button>
-                </div>
+
             </div>
         </section>
     )

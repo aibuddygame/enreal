@@ -28,7 +28,7 @@ export function AllianceSection({ t }) {
                     <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.75rem', letterSpacing: '0.1em', color: '#059669', marginBottom: '1rem', textTransform: 'uppercase', fontWeight: 600 }}>{a.eyebrow}</p>
                     <h2 style={{ fontSize: 'clamp(2rem, 4.5vw, 3.5rem)', fontWeight: 600, letterSpacing: '-0.03em', lineHeight: 1.1, marginBottom: '0.5rem', color: T.text }}>{a.title}</h2>
                     <p style={{ fontFamily: 'Manrope, sans-serif', fontSize: 'clamp(1.5rem, 3vw, 2.5rem)', fontWeight: 700, color: T.primary, lineHeight: 1.4, marginBottom: '1.5rem' }}>{a.subtitle}</p>
-                    <p style={{ fontFamily: 'Manrope, sans-serif', fontSize: 'clamp(1rem, 1.6vw, 1.15rem)', color: T.muted, lineHeight: 1.8, maxWidth: 700, margin: '0 auto 2rem' }}>{a.description}</p>
+                    <p style={{ fontFamily: 'Manrope, sans-serif', fontSize: 'clamp(1rem, 1.6vw, 1.15rem)', color: T.muted, lineHeight: 1.8, maxWidth: 700, margin: '0 auto 2rem' }} dangerouslySetInnerHTML={{ __html: a.description }} />
                 </div>
 
                 {/* Four Pillars */}

@@ -8,8 +8,109 @@ import Footer from '../components/Footer.jsx'
 import { AllianceSection } from '../components/ui/alliance-section.jsx'
 import { Box, Settings, Lock, Sparkles } from 'lucide-react'
 import { cn } from '../lib/utils.js'
+import Seo from '../components/Seo.jsx'
 
 gsap.registerPlugin(ScrollTrigger)
+
+// SEO Configuration for both languages
+const SEO_CONFIG = {
+    en: {
+        title: 'Enreal AI | Become Your Company\'s AI Leader in 7 Lessons',
+        description: 'Master AI tools, lead AI transformation, and build an MVP portfolio. Present to real CEOs. 7 practical lessons for mid-level professionals aged 30-45. Join the Enreal AI Alliance for lifetime executive network access.',
+        keywords: 'AI course Hong Kong, AI training professionals, AI career accelerator, AI MVP course, CEO network, AI transformation, mid-level manager AI, AI leadership course, Enreal AI Alliance',
+        ogTitle: 'Become Your Company\'s AI Leader in 7 Lessons | Enreal AI',
+        ogDescription: 'Master AI tools. Lead transformation. Build portfolio. Present to CEOs. Get promoted. Join 10 professionals in Hong Kong\'s premier AI career accelerator.',
+    },
+    zh: {
+        title: 'Enreal AI | 7堂課成為公司AI負責人',
+        description: '掌握AI工具，領導AI轉型，建立MVP作品集。在真實CEO面前展示成果。專為30-45歲中層專業人士設計的7堂實戰課程。加入Enreal AI實戰聯盟，獲得終身高層人脈網絡。',
+        keywords: 'AI課程香港, AI培訓專業人士, AI職業加速器, AI MVP課程, CEO人脈, AI轉型, 中層管理AI, AI領導課程, Enreal AI實戰聯盟, 全民AI',
+        ogTitle: '7堂課成為公司AI負責人 | Enreal AI',
+        ogDescription: '不只是學習AI工具——更是學會領導你公司的AI轉型。建立MVP作品集，並在真實CEO面前展示成果。香港頂尖AI職業加速器，只收10位學員。',
+    }
+}
+
+// Schema.org structured data for Course
+const getCourseSchema = (lang) => {
+    const baseSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'Course',
+        provider: {
+            '@type': 'Organization',
+            name: 'Enreal AI',
+            url: 'https://enreal-ai.vercel.app',
+        },
+        courseMode: 'onsite',
+        educationalLevel: 'Professional',
+        inLanguage: lang === 'en' ? 'en-US' : 'zh-HK',
+        url: lang === 'en' ? 'https://enreal-ai.vercel.app/course/en' : 'https://enreal-ai.vercel.app/course',
+    }
+    
+    if (lang === 'en') {
+        return {
+            ...baseSchema,
+            name: 'AI Career Accelerator: 7 Lessons to Become Your Company\'s AI Leader',
+            description: 'Master AI tools, lead AI transformation, and build an MVP portfolio. Present to real CEOs. 7 practical lessons for mid-level professionals.',
+            numberOfLessons: 7,
+            timeRequired: 'P7D',
+            teaches: ['AI Strategy', 'AI Tool Mastery', 'MVP Development', 'Executive Presentation', 'AI Leadership'],
+            audience: {
+                '@type': 'Audience',
+                audienceType: 'Mid-level professionals aged 30-45'
+            },
+            offers: {
+                '@type': 'Offer',
+                price: '2000',
+                priceCurrency: 'USD',
+                availability: 'https://schema.org/InStock',
+                validFrom: '2026-04-01',
+                category: 'Professional Training'
+            },
+            aggregateRating: {
+                '@type': 'AggregateRating',
+                ratingValue: '4.9',
+                reviewCount: '50'
+            }
+        }
+    }
+    
+    return {
+        ...baseSchema,
+        name: 'AI職業加速器：7堂課成為公司AI負責人',
+        description: '掌握AI工具，領導AI轉型，建立MVP作品集。在真實CEO面前展示成果。專為30-45歲中層專業人士設計。',
+        numberOfLessons: 7,
+        timeRequired: 'P7D',
+        teaches: ['AI策略', 'AI工具掌握', 'MVP開發', '高管展示', 'AI領導力'],
+        audience: {
+            '@type': 'Audience',
+            audienceType: '30-45歲中層專業人士'
+        },
+        offers: {
+            '@type': 'Offer',
+            price: '2000',
+            priceCurrency: 'USD',
+            availability: 'https://schema.org/InStock',
+            validFrom: '2026-04-01',
+            category: 'Professional Training'
+        },
+        aggregateRating: {
+            '@type': 'AggregateRating',
+            ratingValue: '4.9',
+            reviewCount: '50'
+        }
+    }
+}
+
+// Organization Schema
+const organizationSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'Enreal AI',
+    url: 'https://enreal-ai.vercel.app',
+    logo: 'https://enreal-ai.vercel.app/logo.png',
+    sameAs: [],
+    description: 'The intelligence layer for professionals entering an AI-native economy.'
+}
 
 const T = {
     bg: '#FFFFFF',
@@ -117,8 +218,27 @@ export default function CoursePage({ lang: initialLang }) {
         return () => ctx.revert()
     }, [])
 
+    const seo = SEO_CONFIG[lang]
+    const courseSchema = getCourseSchema(lang)
+    const path = lang === 'en' ? '/course/en' : '/course'
+    const alternates = [
+        { hrefLang: 'en', href: '/course/en' },
+        { hrefLang: 'zh-Hant', href: '/course' },
+        { hrefLang: 'x-default', href: '/course' }
+    ]
+
     return (
         <div ref={mainRef} style={{ background: T.bg, color: T.text, fontFamily: 'Inter, sans-serif', overflowX: 'hidden' }}>
+            <Seo
+                title={seo.title}
+                description={seo.description}
+                path={path}
+                keywords={seo.keywords}
+                ogTitle={seo.ogTitle}
+                ogDescription={seo.ogDescription}
+                alternates={alternates}
+                schema={[courseSchema, organizationSchema]}
+            />
             <IndividualNavbar />
             <div style={{ position: 'fixed', top: '100px', right: '20px', zIndex: 100, display: 'flex', gap: '8px', background: 'rgba(255,255,255,0.95)', padding: '8px', borderRadius: '999px', boxShadow: '0 2px 10px rgba(0,0,0,0.1)', border: '1px solid rgba(0,0,0,0.08)' }}>
                 <button onClick={() => handleLangChange('en')} style={{ padding: '8px 16px', borderRadius: '999px', border: 'none', background: lang === 'en' ? '#059669' : 'transparent', color: lang === 'en' ? 'white' : '#0B0B0C', fontWeight: 600, cursor: 'pointer', fontSize: '0.9rem' }}>EN</button>

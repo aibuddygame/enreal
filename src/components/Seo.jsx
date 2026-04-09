@@ -53,6 +53,9 @@ export default function Seo({
     robots = 'index, follow',
     alternates = [],
     schema,
+    keywords,
+    ogTitle,
+    ogDescription,
 }) {
     useEffect(() => {
         const canonical = new URL(path, BASE_URL).toString()
@@ -60,11 +63,12 @@ export default function Seo({
         document.title = title
 
         upsertMeta('name', 'description', description)
+        upsertMeta('name', 'keywords', keywords)
         upsertMeta('name', 'robots', robots)
         upsertMeta('property', 'og:type', type)
         upsertMeta('property', 'og:site_name', SITE_NAME)
-        upsertMeta('property', 'og:title', title)
-        upsertMeta('property', 'og:description', description)
+        upsertMeta('property', 'og:title', ogTitle || title)
+        upsertMeta('property', 'og:description', ogDescription || description)
         upsertMeta('property', 'og:url', canonical)
         upsertMeta('property', 'og:image', imageUrl)
         upsertMeta('name', 'twitter:card', 'summary_large_image')

@@ -15,7 +15,7 @@ const NAV = [
     { label: 'Philosophy', id: 'program' },
     { label: 'Outcomes', id: 'outcomes' },
     { label: 'Curriculum', id: 'curriculum' },
-    { label: 'For Who', id: 'for-who' },
+    { label: 'For Whom', id: 'for-who' },
     { label: 'Alliance', id: 'alliance' },
     { label: 'Enrollment', id: 'pricing' }
 ]

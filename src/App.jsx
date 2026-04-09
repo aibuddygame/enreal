@@ -6,7 +6,7 @@ const CustomCursor = lazy(() => import('./components/ui/custom-cursor.jsx').then
 const LandingPage = lazy(() => import('./pages/Business.jsx'))
 const ProjectPage = lazy(() => import('./pages/ProjectPage.jsx'))
 const HomePage = lazy(() => import('./pages/Home.jsx'))
-const IndividualPage = lazy(() => import('./pages/Individual.jsx'))
+
 const CoursePage = lazy(() => import('./pages/Course.jsx'))
 const EnrollmentForm = lazy(() => import('./pages/EnrollmentForm.jsx'))
 
@@ -33,37 +33,7 @@ const routeSeo = {
             serviceType: 'AI consulting and workflow automation',
         },
     },
-    '/individual': {
-        title: 'AI Elite Course for Professionals | Enreal AI',
-        description: 'A practical AI course for professionals who want to lead AI adoption, build MVPs, and present AI solutions with confidence.',
-        alternates: [
-            { hrefLang: 'en', href: '/individual' },
-            { hrefLang: 'zh-Hant', href: '/individual/zh' },
-        ],
-        schema: {
-            '@context': 'https://schema.org',
-            '@type': 'Course',
-            name: 'AI Elite Course',
-            provider: { '@type': 'Organization', name: 'Enreal AI', sameAs: seoBase.baseUrl },
-            url: `${seoBase.baseUrl}/individual`,
-            educationalCredentialAwarded: 'Certificate of completion',
-        },
-    },
-    '/individual/zh': {
-        title: 'AI 精英課程｜Enreal AI',
-        description: '為希望提升職涯價值的專業人士而設的實戰 AI 課程，聚焦工作流程、MVP 與高層展示能力。',
-        alternates: [
-            { hrefLang: 'en', href: '/individual' },
-            { hrefLang: 'zh-Hant', href: '/individual/zh' },
-        ],
-        schema: {
-            '@context': 'https://schema.org',
-            '@type': 'Course',
-            name: 'AI 精英課程',
-            provider: { '@type': 'Organization', name: 'Enreal AI', sameAs: seoBase.baseUrl },
-            url: `${seoBase.baseUrl}/individual/zh`,
-        },
-    },
+
     '/course': {
         title: 'AI Mid-Level Promotion Course | Enreal AI',
         description: 'A bilingual AI course for mid-level professionals who need to propose, build, and present AI solutions that matter to management.',
@@ -132,11 +102,12 @@ export default function App() {
                 <Routes>
                     <Route path="/" element={<HomePage />} />
                     <Route path="/business" element={<LandingPage />} />
-                    <Route path="/individual" element={<IndividualPage lang="en" />} />
-                    <Route path="/individual/zh" element={<IndividualPage lang="zh" />} />
+
                     <Route path="/course" element={<CoursePage lang="zh" />} />
                     <Route path="/course/en" element={<CoursePage lang="en" />} />
                     <Route path="/enroll" element={<EnrollmentForm />} />
+                    <Route path="/individual" element={<Navigate to="/course" replace />} />
+                    <Route path="/individual/zh" element={<Navigate to="/course" replace />} />
                     <Route path="/work/:slug" element={<ProjectPage />} />
                     <Route path="*" element={<Navigate to="/" replace />} />
                 </Routes>

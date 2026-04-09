@@ -65,11 +65,6 @@ const getCourseSchema = (lang) => {
                 availability: 'https://schema.org/InStock',
                 validFrom: '2026-04-01',
                 category: 'Professional Training'
-            },
-            aggregateRating: {
-                '@type': 'AggregateRating',
-                ratingValue: '4.9',
-                reviewCount: '50'
             }
         }
     }
@@ -92,14 +87,28 @@ const getCourseSchema = (lang) => {
             availability: 'https://schema.org/InStock',
             validFrom: '2026-04-01',
             category: 'Professional Training'
-        },
-        aggregateRating: {
-            '@type': 'AggregateRating',
-            ratingValue: '4.9',
-            reviewCount: '50'
         }
     }
 }
+
+const getBreadcrumbSchema = (lang) => ({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+        {
+            '@type': 'ListItem',
+            position: 1,
+            name: lang === 'en' ? 'Home' : '首頁',
+            item: 'https://enreal-ai.vercel.app/'
+        },
+        {
+            '@type': 'ListItem',
+            position: 2,
+            name: lang === 'en' ? 'AI Career Course' : 'AI職業課程',
+            item: lang === 'en' ? 'https://enreal-ai.vercel.app/course/en' : 'https://enreal-ai.vercel.app/course'
+        }
+    ]
+})
 
 // Organization Schema
 const organizationSchema = {
@@ -157,21 +166,9 @@ const CONTENT = {
             { title: '員工 → 被看見', desc: '完成一個真實AI MVP項目，用成果講價，成為公司離唔開嘅人。', image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=800&auto=format&fit=crop' }
         ],
         curriculum: [
-            { phase: 'Phase 1', title: 'AI思維 + 工具掌握', subtitle: 'Sessions 1-4', desc: '聚焦：用AI幫公司賺錢／慳時間
-
-內容：常用工具、企業落地實踐（Marketing/Operations）、解難框架
-
-成果：發展出個人AI提案', learn: ['AI點樣幫公司賺錢／慳成本／提升效率', 'Marketing AI流程設計', '文件與報告自動化', '數據分析與決策框架建立'] },
-            { phase: 'Phase 2', title: 'MVP實踐', subtitle: 'Sessions 5-6', desc: '聚焦：從「諗」到「做」
-
-內容：將提案轉化為MVP、模擬場景、導師指導優化
-
-成果：完成一個可展示嘅真實項目', learn: ['將AI提案轉化為可行MVP', '模擬真實企業場景', '導師一對一指導優化', '項目展示技巧'] },
-            { phase: 'Phase 3', title: '高管展示 🔥', subtitle: 'Session 7', desc: '聚焦：真實「面對面老闆」體驗
-
-內容：打動老闆嘅展示方法、學員MVP showcase、CEO/MD點評環節
-
-成果：曝光機會、轉工／合作機會', learn: ['向C-Level匯報嘅展示技巧', '真實CEO/MD面前展示成果', '即場反饋與優化建議', '建立高層人脈網絡'] }
+            { phase: 'Phase 1', title: 'AI思維 + 工具掌握', subtitle: 'Sessions 1-4', desc: '聚焦：用AI幫公司賺錢／慳時間\n\n內容：常用工具、企業落地實踐（Marketing/Operations）、解難框架\n\n成果：發展出個人AI提案', learn: ['AI點樣幫公司賺錢／慳成本／提升效率', 'Marketing AI流程設計', '文件與報告自動化', '數據分析與決策框架建立'] },
+            { phase: 'Phase 2', title: 'MVP實踐', subtitle: 'Sessions 5-6', desc: '聚焦：從「諗」到「做」\n\n內容：將提案轉化為MVP、模擬場景、導師指導優化\n\n成果：完成一個可展示嘅真實項目', learn: ['將AI提案轉化為可行MVP', '模擬真實企業場景', '導師一對一指導優化', '項目展示技巧'] },
+            { phase: 'Phase 3', title: '高管展示 🔥', subtitle: 'Session 7', desc: '聚焦：真實「面對面老闆」體驗\n\n內容：打動老闆嘅展示方法、學員MVP showcase、CEO/MD點評環節\n\n成果：曝光機會、轉工／合作機會', learn: ['向C-Level匯報嘅展示技巧', '真實CEO/MD面前展示成果', '即場反饋與優化建議', '建立高層人脈網絡'] }
         ],
         phrases: ['7堂課成為公司AI負責人', '不只是學AI——而是領導AI轉型', 'MVP作品集 + CEO人脈網絡'],
         hero: { eyebrow: '中層專業人士的AI職業加速器', title: 'AI正在改變世界和你的工作？', subtitle: '7堂課成為公司AI負責人 · 不只是運用工具，而是技能轉型 · MVP作品集 + C-Level人脈', desc: '不只是學習AI工具——更是學會領導你公司的AI轉型<br>建立MVP作品集，並在真實CEO面前展示成果', ctaPrimary: '立即報名', ctaSecondary: '了解課程' },
@@ -220,6 +217,7 @@ export default function CoursePage({ lang: initialLang }) {
 
     const seo = SEO_CONFIG[lang]
     const courseSchema = getCourseSchema(lang)
+    const breadcrumbSchema = getBreadcrumbSchema(lang)
     const path = lang === 'en' ? '/course/en' : '/course'
     const alternates = [
         { hrefLang: 'en', href: '/course/en' },
@@ -237,7 +235,7 @@ export default function CoursePage({ lang: initialLang }) {
                 ogTitle={seo.ogTitle}
                 ogDescription={seo.ogDescription}
                 alternates={alternates}
-                schema={[courseSchema, organizationSchema]}
+                schema={[courseSchema, organizationSchema, breadcrumbSchema]}
             />
             <IndividualNavbar />
             <div style={{ position: 'fixed', top: '100px', right: '20px', zIndex: 100, display: 'flex', gap: '8px', background: 'rgba(255,255,255,0.95)', padding: '8px', borderRadius: '999px', boxShadow: '0 2px 10px rgba(0,0,0,0.1)', border: '1px solid rgba(0,0,0,0.08)' }}>

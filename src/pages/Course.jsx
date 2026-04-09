@@ -160,9 +160,9 @@ function Hero({ t, lang }) {
                 <h1 className="h-rev" style={{ fontFamily: 'Inter, sans-serif', fontWeight: 900, fontSize: 'clamp(1.8rem, 4vw, 3.5rem)', letterSpacing: '-0.03em', lineHeight: 1.2, marginBottom: '0.75rem', whiteSpace: 'nowrap' }}>
                     {t.hero.title}
                 </h1>
-                <div className="h-rev" style={{ position: 'relative', height: '3rem', marginBottom: '1.5rem' }}>
-                    <p style={{ fontFamily: 'Manrope, sans-serif', fontSize: 'clamp(1.1rem, 2vw, 1.5rem)', color: T.primary, fontWeight: 600, lineHeight: 1.5, visibility: 'hidden' }}>{LONGEST}</p>
-                    <p style={{ fontFamily: 'Manrope, sans-serif', fontSize: 'clamp(1.1rem, 2vw, 1.5rem)', color: T.primary, fontWeight: 600, lineHeight: 1.5, position: 'absolute', top: 0, left: 0, right: 0 }}>
+                <div className="h-rev" style={{ position: 'relative', height: '4rem', marginBottom: '1.5rem' }}>
+                    <p style={{ fontFamily: 'Manrope, sans-serif', fontSize: 'clamp(1.5rem, 3vw, 2.5rem)', color: T.primary, fontWeight: 700, lineHeight: 1.4, visibility: 'hidden' }}>{LONGEST}</p>
+                    <p style={{ fontFamily: 'Manrope, sans-serif', fontSize: 'clamp(1.5rem, 3vw, 2.5rem)', color: T.primary, fontWeight: 700, lineHeight: 1.4, position: 'absolute', top: 0, left: 0, right: 0 }}>
                         {display}<span style={{ display: 'inline-block', width: '0.08em', height: '0.9em', background: T.primary, marginLeft: '0.05em', verticalAlign: 'middle', borderRadius: 1 }} />
                     </p>
                 </div>

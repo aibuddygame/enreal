@@ -61,7 +61,7 @@ const CONTENT = {
             { phase: 'Phase 3', title: '高管展示 🔥', subtitle: 'Session 7', desc: '聚焦：真實「面對面老闆」體驗\n\n內容：打動老闆嘅展示方法、學員MVP showcase、CEO/MD點評環節\n\n成果：曝光機會、轉工／合作機會', learn: ['向C-Level匯報嘅展示技巧', '真實CEO/MD面前展示成果', '即場反饋與優化建議', '建立高層人脈網絡'] }
         ],
         phrases: ['7堂課成為公司AI負責人', '不只是學AI——而是領導AI轉型', 'MVP作品集 + CEO人脈網絡'],
-        hero: { eyebrow: 'AI職業加速器 · 專為中層專業人士', title: '7堂課成為公司AI負責人', subtitle: '', desc: '不要只是學AI工具——學會領導你公司的AI轉型，建立MVP作品集，並在真實CEO面前展示成果。', ctaPrimary: '立即報名', ctaSecondary: '了解課程' },
+        hero: { eyebrow: '中層專業人士的AI職業加速器', title: 'AI正在改變世界和你的工作？', subtitle: '7堂課成為公司AI負責人 · 不只是運用工具，而是技能轉型 · MVP作品集 + C-Level人脈', desc: '不只是學習AI工具——更是學會領導你公司的AI轉型<br>建立MVP作品集，並在真實CEO面前展示成果', ctaPrimary: '立即報名', ctaSecondary: '了解課程' },
         shift: { eyebrow: '// 學習理念', title: '不要只是學AI——領導AI轉型', subtitle: '專為中層專業人士設計的AI職業加速器', features: [{ title: 'MVP作品集建立', desc: '完成真實AI項目，建立可展示的作品集。不是學術練習，而是職場可用的解決方案。' }, { title: 'CEO人脈網絡', desc: '第七堂課在真實CEO/MD面前展示成果。建立高層人脈，獲得升職轉工機會。' }, { title: '從執行到領導', desc: '從操作AI工具，升級到設計AI策略、帶領團隊轉型。成為公司不可或缺的AI負責人。' }, { title: '職涯加速器', desc: '專為30-45歲中層設計。7堂課獲得升職加薪的籌碼，而非泛泛的AI知識。' }] },
         outcomesSection: { eyebrow: '// 學習成果', title: '7堂課，從員工升級為AI領導' },
         curriculumSection: { eyebrow: '// 課程大綱', title: '從學AI到領導AI轉型', subtitle: '建立MVP作品集 · 獲得CEO人脈 · 成為公司AI負責人', learnTitle: '學習內容' },
@@ -156,17 +156,14 @@ function Hero({ t, lang }) {
     return (
         <section id="hero" style={{ height: '100dvh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '0 5vw', position: 'relative' }}>
             <div style={{ maxWidth: 900, marginTop: '10vh', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', width: '100%' }}>
-                <p className="h-rev" style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.7rem', letterSpacing: '0.22em', color: '#059669', marginBottom: '2.5rem', opacity: 0.85, textTransform: 'uppercase' }}>{t.hero.eyebrow}</p>
-                <h1 className="h-rev" style={{ fontFamily: 'Inter, sans-serif', fontWeight: 900, fontSize: 'clamp(2.5rem, 5.5vw, 5.25rem)', letterSpacing: '-0.04em', lineHeight: 1.05, marginBottom: '0.08em' }}>
-                    {t.hero.title}<br />
-                    <div style={{ position: 'relative' }}>
-                        <h1 aria-hidden style={{ fontFamily: 'Inter, sans-serif', fontWeight: 900, fontSize: 'clamp(2.5rem, 5.5vw, 5.25rem)', letterSpacing: '-0.04em', lineHeight: 1.05, visibility: 'hidden', pointerEvents: 'none', userSelect: 'none' }}>{LONGEST}</h1>
-                        <h1 style={{ position: 'absolute', top: 0, left: 0, right: 0, fontFamily: 'Inter, sans-serif', fontWeight: 900, fontSize: 'clamp(2.5rem, 5.5vw, 5.25rem)', letterSpacing: '-0.04em', lineHeight: 1.05, color: '#059669' }}>
-                            {display}<span style={{ display: 'inline-block', width: '0.08em', height: '0.9em', background: '#059669', marginLeft: '0.05em', verticalAlign: 'middle', borderRadius: 1 }} />
-                        </h1>
-                    </div>
+                <p className="h-rev" style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.7rem', letterSpacing: '0.22em', color: '#059669', marginBottom: '1.5rem', opacity: 0.85, textTransform: 'uppercase' }}>{t.hero.eyebrow}</p>
+                <h1 className="h-rev" style={{ fontFamily: 'Inter, sans-serif', fontWeight: 900, fontSize: 'clamp(2.2rem, 5vw, 4.5rem)', letterSpacing: '-0.04em', lineHeight: 1.1, marginBottom: '0.5rem' }}>
+                    {t.hero.title}
                 </h1>
-                <p className="h-rev" style={{ fontFamily: 'Manrope, sans-serif', fontSize: 'clamp(1rem, 1.8vw, 1.1rem)', color: T.muted, lineHeight: 1.75, maxWidth: 500, margin: '2.75rem auto 3rem' }}>{t.hero.desc}</p>
+                <p className="h-rev" style={{ fontFamily: 'Manrope, sans-serif', fontSize: 'clamp(1rem, 1.6vw, 1.15rem)', color: T.text, fontWeight: 600, lineHeight: 1.6, maxWidth: 700, margin: '0.75rem auto 1.5rem' }}>
+                    {t.hero.subtitle}
+                </p>
+                <p className="h-rev" style={{ fontFamily: 'Manrope, sans-serif', fontSize: 'clamp(0.95rem, 1.5vw, 1.05rem)', color: T.muted, lineHeight: 1.8, maxWidth: 550, margin: '0 auto 2.5rem' }} dangerouslySetInnerHTML={{ __html: t.hero.desc }} />
                 <div className="h-rev" style={{ display: 'flex', gap: '1rem', alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap' }}>
                     <button onClick={() => go('contact')} style={{ background: T.text, color: T.bg, padding: '1rem 2rem', border: 'none', borderRadius: 999, fontSize: '0.95rem', fontWeight: 600, cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '0.5rem', transition: 'transform 0.2s' }} onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.03)'} onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}>{t.hero.ctaPrimary} <ArrowRight size={16} /></button>
                     <button onClick={() => go('program')} style={{ background: 'transparent', color: T.text, padding: '1rem 1.5rem', border: `1px solid ${T.border}`, borderRadius: 999, fontSize: '0.9rem', fontWeight: 500, cursor: 'pointer', transition: 'background 0.2s' }} onMouseEnter={e => e.currentTarget.style.background = 'rgba(0,0,0,0.05)'} onMouseLeave={e => e.currentTarget.style.background = 'transparent'}>{t.hero.ctaSecondary}</button>

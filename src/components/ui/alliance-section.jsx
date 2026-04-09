@@ -1,4 +1,4 @@
-import { Users, FlaskConical, Briefcase, Landmark } from 'lucide-react'
+import { Users, FlaskConical, Briefcase, Landmark, ArrowRight } from 'lucide-react'
 
 const T = {
     bg: '#FFFFFF',

@@ -26,8 +26,8 @@ export function AllianceSection({ t }) {
                 {/* Header */}
                 <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
                     <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.75rem', letterSpacing: '0.1em', color: '#059669', marginBottom: '1rem', textTransform: 'uppercase', fontWeight: 600 }}>{a.eyebrow}</p>
-                    <h2 style={{ fontSize: 'clamp(2rem, 4.5vw, 3.5rem)', fontWeight: 600, letterSpacing: '-0.03em', lineHeight: 1.1, marginBottom: '0.5rem', color: T.text }}>{a.title}</h2>
-                    <p style={{ fontFamily: 'Manrope, sans-serif', fontSize: 'clamp(1.5rem, 3vw, 2.5rem)', fontWeight: 700, color: T.primary, lineHeight: 1.4, marginBottom: '1.5rem' }}>{a.subtitle}</p>
+                    <h2 style={{ fontSize: 'clamp(1.5rem, 5vw, 2.5rem)', fontWeight: 600, letterSpacing: '-0.03em', lineHeight: 1.1, marginBottom: '0.5rem', color: T.text }}>{a.title}</h2>
+                    <p style={{ fontFamily: 'Manrope, sans-serif', fontSize: 'clamp(1rem, 3vw, 1.25rem)', fontWeight: 700, color: T.primary, lineHeight: 1.4, marginBottom: '1.5rem' }}>{a.subtitle}</p>
                     <p style={{ fontFamily: 'Manrope, sans-serif', fontSize: 'clamp(1rem, 1.6vw, 1.15rem)', color: T.muted, lineHeight: 1.8, maxWidth: 700, margin: '0 auto 2rem' }} dangerouslySetInnerHTML={{ __html: a.description }} />
                 </div>
 
@@ -38,7 +38,7 @@ export function AllianceSection({ t }) {
                             <div style={{ width: 48, height: 48, borderRadius: '1rem', background: '#E8F4FD', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.25rem', color: T.primary }}>
                                 {ICONS[i]}
                             </div>
-                            <h3 style={{ fontSize: '1.25rem', fontWeight: 700, marginBottom: '0.25rem', color: T.text }}>{pillar.title}</h3>
+                            <h3 style={{ fontSize: 'clamp(1.125rem, 4vw, 1.5rem)', fontWeight: 700, marginBottom: '0.25rem', color: T.text }}>{pillar.title}</h3>
                             <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.75rem', color: T.primary, marginBottom: '1rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>{pillar.subtitle}</p>
                             <p style={{ fontFamily: 'Manrope, sans-serif', fontSize: '0.95rem', color: T.muted, lineHeight: 1.7 }}>{pillar.desc}</p>
                         </div>

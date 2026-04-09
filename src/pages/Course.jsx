@@ -372,8 +372,8 @@ function TheShift({ t }) {
             <div style={{ maxWidth: 1000, margin: '0 auto' }}>
                 <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
                     <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.75rem', letterSpacing: '0.1em', color: '#059669', marginBottom: '1.5rem', textTransform: 'uppercase' }}>{t.shift.eyebrow}</p>
-                    <h2 style={{ fontSize: 'clamp(2rem, 4.5vw, 3.5rem)', fontWeight: 500, letterSpacing: '-0.03em', lineHeight: 1.1, marginBottom: '0.5rem' }} dangerouslySetInnerHTML={{ __html: t.shift.title }} />
-                    <p style={{ fontFamily: 'Manrope, sans-serif', fontSize: 'clamp(1.5rem, 3vw, 2.5rem)', fontWeight: 700, color: T.primary, lineHeight: 1.4 }}>{t.shift.subtitle}</p>
+                    <h2 style={{ fontSize: 'clamp(1.5rem, 5vw, 2.5rem)', fontWeight: 500, letterSpacing: '-0.03em', lineHeight: 1.1, marginBottom: '0.5rem' }} dangerouslySetInnerHTML={{ __html: t.shift.title }} />
+                    <p style={{ fontFamily: 'Manrope, sans-serif', fontSize: 'clamp(1rem, 3vw, 1.25rem)', fontWeight: 700, color: T.primary, lineHeight: 1.4 }}>{t.shift.subtitle}</p>
                 </div>
                 <div style={{ marginTop: '4rem' }}>
                     <ul className="grid grid-cols-1 grid-rows-none gap-4 md:grid-cols-12 md:grid-rows-2 lg:gap-4 xl:max-h-[34rem] xl:grid-rows-2">
@@ -406,7 +406,7 @@ function LearningOutcomes({ t }) {
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '4rem', flexWrap: 'wrap', gap: '1rem' }}>
                     <div>
                         <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.75rem', letterSpacing: '0.1em', color: T.primary, marginBottom: '1rem', textTransform: 'uppercase', fontWeight: 600 }}>{t.outcomesSection.eyebrow}</p>
-                        <h2 style={{ fontSize: '2.5rem', fontWeight: 600, letterSpacing: '-0.03em', margin: 0, color: T.text }}>{t.outcomesSection.title}</h2>
+                        <h2 style={{ fontSize: 'clamp(1.5rem, 5vw, 2.5rem)', fontWeight: 600, letterSpacing: '-0.03em', margin: 0, color: T.text }}>{t.outcomesSection.title}</h2>
                     </div>
                     <div style={{ display: 'flex', gap: '0.5rem' }}>
                         <button onClick={() => scroll(-400)} style={{ width: '44px', height: '44px', borderRadius: '50%', border: `1px solid ${T.border}`, background: T.bg, display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', color: T.text }}><ArrowLeft size={18} /></button>
@@ -421,7 +421,7 @@ function LearningOutcomes({ t }) {
                             </div>
                             <div style={{ padding: '2rem' }}>
                                 <span style={{ fontFamily: 'JetBrains Mono, monospace', color: T.primary, fontSize: '0.8rem', display: 'block', marginBottom: '1rem', fontWeight: 600 }}>0{i + 1}</span>
-                                <h3 style={{ fontSize: '1.25rem', fontWeight: 600, lineHeight: 1.3, marginBottom: '0.75rem', color: T.text }}>{item.title}</h3>
+                                <h3 style={{ fontSize: 'clamp(1.125rem, 4vw, 1.5rem)', fontWeight: 600, lineHeight: 1.3, marginBottom: '0.75rem', color: T.text }}>{item.title}</h3>
                                 <p style={{ fontFamily: 'Manrope, sans-serif', color: T.muted, fontSize: '0.95rem', lineHeight: 1.6 }}>{item.desc}</p>
                             </div>
                         </div>
@@ -438,8 +438,8 @@ function CurriculumOverview({ t }) {
             <div style={{ maxWidth: 1200, margin: '0 auto' }}>
                 <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
                     <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.75rem', letterSpacing: '0.1em', color: T.primary, marginBottom: '1.5rem', textTransform: 'uppercase', fontWeight: 600 }}>{t.curriculumSection.eyebrow}</p>
-                    <h2 style={{ fontSize: 'clamp(2rem, 4.5vw, 3.5rem)', fontWeight: 600, letterSpacing: '-0.03em', lineHeight: 1.1, marginBottom: '1rem', color: T.text }}>{t.curriculumSection.title}</h2>
-                    <p style={{ fontFamily: 'Manrope, sans-serif', color: T.muted, fontSize: '1.1rem' }}>{t.curriculumSection.subtitle}</p>
+                    <h2 style={{ fontSize: 'clamp(1.5rem, 5vw, 2.5rem)', fontWeight: 600, letterSpacing: '-0.03em', lineHeight: 1.1, marginBottom: '1rem', color: T.text }}>{t.curriculumSection.title}</h2>
+                    <p style={{ fontFamily: 'Manrope, sans-serif', color: T.muted, fontSize: 'clamp(1rem, 3vw, 1.25rem)' }}>{t.curriculumSection.subtitle}</p>
                 </div>
                 <div className="stag-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(380px, 1fr))', gap: '2rem' }}>
                     {t.curriculum.map((c, i) => {
@@ -449,8 +449,8 @@ function CurriculumOverview({ t }) {
                         <div key={i} className="h-full">
                             <div className="group h-full relative flex flex-col rounded-[1.5rem] border p-8 md:p-12 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(0,0,0,0.08)]" style={{ background: phaseBg, borderColor: phaseBorder }}>
                                 <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.75rem', letterSpacing: '0.1em', color: T.primary, marginBottom: '1rem', textTransform: 'uppercase', fontWeight: 600 }}>{c.phase}</p>
-                                <h3 style={{ fontSize: '1.75rem', fontWeight: 600, marginBottom: '0.5rem', lineHeight: 1.2, letterSpacing: '-0.03em', color: T.text, paddingRight: '1rem' }}>{c.title}</h3>
-                                <h4 style={{ fontSize: '1.05rem', fontWeight: 500, color: T.secondary, marginBottom: '1.5rem' }}>{c.subtitle}</h4>
+                                <h3 style={{ fontSize: 'clamp(1.125rem, 4vw, 1.5rem)', fontWeight: 600, marginBottom: '0.5rem', lineHeight: 1.2, letterSpacing: '-0.03em', color: T.text, paddingRight: '1rem' }}>{c.title}</h3>
+                                <h4 style={{ fontSize: 'clamp(0.9rem, 3vw, 1.05rem)', fontWeight: 500, color: T.secondary, marginBottom: '1.5rem' }}>{c.subtitle}</h4>
                                 <p style={{ fontFamily: 'Manrope, sans-serif', color: T.muted, fontSize: '0.95rem', lineHeight: 1.6, marginBottom: '2.5rem', whiteSpace: 'pre-line' }}>{c.desc}</p>
                                 <div style={{ flexGrow: 1 }}>
                                     <h5 style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.7rem', letterSpacing: '0.05em', color: T.text, marginBottom: '1rem', textTransform: 'uppercase', fontWeight: 600 }}>{t.curriculumSection.learnTitle}</h5>
@@ -477,8 +477,8 @@ function ForWho({ t }) {
         <section id="for-who" className="sec-rev" style={{ padding: '8rem 5vw', background: T.surface }}>
             <div style={{ maxWidth: 1280, margin: '0 auto', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
                 <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.75rem', letterSpacing: '0.1em', color: T.primary, marginBottom: '1rem', textTransform: 'uppercase', fontWeight: 600 }}>{t.forWho.eyebrow}</p>
-                <h2 style={{ fontSize: '2.5rem', fontWeight: 600, letterSpacing: '-0.03em', marginBottom: '3rem', color: T.text }}>{t.forWho.title}</h2>
-                <p style={{ fontFamily: 'Manrope, sans-serif', fontSize: '1.1rem', color: T.muted, marginBottom: '2rem' }}>{t.forWho.subtitle}</p>
+                <h2 style={{ fontSize: 'clamp(1.5rem, 5vw, 2.5rem)', fontWeight: 600, letterSpacing: '-0.03em', marginBottom: '3rem', color: T.text }}>{t.forWho.title}</h2>
+                <p style={{ fontFamily: 'Manrope, sans-serif', fontSize: 'clamp(1rem, 3vw, 1.25rem)', color: T.muted, marginBottom: '2rem' }}>{t.forWho.subtitle}</p>
                 <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '1rem', maxWidth: 800 }}>
                     {t.forWho.tags.map((p, i) => (
                         <span key={i} style={{ padding: '0.75rem 1.5rem', border: `1px solid ${T.border}`, borderRadius: 999, fontFamily: 'Manrope, sans-serif', color: T.text, fontSize: '0.95rem', background: T.bg, transition: 'all 0.2s' }} onMouseEnter={(e) => { e.target.style.borderColor = T.primary; e.target.style.color = T.primary; }} onMouseLeave={(e) => { e.target.style.borderColor = T.border; e.target.style.color = T.text; }}>{p}</span>
@@ -494,8 +494,8 @@ function Pricing({ t }) {
         <section id="pricing" className="sec-rev" style={{ padding: '8rem 5vw', background: T.surfaceAlt }}>
             <div style={{ maxWidth: 800, margin: '0 auto', textAlign: 'center' }}>
                 <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.75rem', letterSpacing: '0.1em', color: T.danger, marginBottom: '1rem', textTransform: 'uppercase', fontWeight: 600 }}>{t.pricing.eyebrow}</p>
-                <h2 style={{ fontSize: '2.5rem', fontWeight: 600, letterSpacing: '-0.03em', marginBottom: '1rem', color: T.text }}>{t.pricing.title}</h2>
-                <p style={{ fontFamily: 'Manrope, sans-serif', color: T.muted, marginBottom: '2rem', fontSize: '1rem' }}>{t.pricing.spots}</p>
+                <h2 style={{ fontSize: 'clamp(1.5rem, 5vw, 2.5rem)', fontWeight: 600, letterSpacing: '-0.03em', marginBottom: '1rem', color: T.text }}>{t.pricing.title}</h2>
+                <p style={{ fontFamily: 'Manrope, sans-serif', color: T.muted, marginBottom: '2rem', fontSize: 'clamp(0.9rem, 3vw, 1rem)' }}>{t.pricing.spots}</p>
                 
                 <div style={{ background: T.bg, border: `1px solid ${T.border}`, borderRadius: '2rem', padding: '3rem', boxShadow: '0 8px 32px rgba(0,0,0,0.06)' }}>
                     <p style={{ fontFamily: 'Manrope, sans-serif', fontSize: '0.9rem', color: T.muted, textDecoration: 'line-through', marginBottom: '0.5rem' }}>{t.pricing.originalPrice}</p>

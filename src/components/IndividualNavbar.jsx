@@ -83,14 +83,14 @@ export default function IndividualNavbar() {
                     Enreal<span style={{ color: '#059669' }}> AI</span>
                 </button>
 
-                {/* Desktop links */}
+                {/* Desktop links - hidden on mobile */}
                 <div className="nav-d" style={{ display: 'flex', gap: '0.15rem' }}>
-                    {NAV.map(({ label, id }) => (
+                    {NAV.slice(0, 4).map(({ label, id }) => (
                         <button key={id} onClick={() => go(id)}
                             style={{
                                 background: 'none', border: 'none', cursor: 'pointer',
-                                padding: '0.4rem 0.8rem', borderRadius: 999,
-                                fontFamily: 'Inter,sans-serif', fontSize: '0.83rem', fontWeight: 500,
+                                padding: '0.4rem 0.6rem', borderRadius: 999,
+                                fontFamily: 'Inter,sans-serif', fontSize: '0.75rem', fontWeight: 500,
                                 color: (isLanding && active === id) ? T.text : T.muted,
                                 transition: 'color 0.2s',
                             }}
@@ -101,16 +101,16 @@ export default function IndividualNavbar() {
                     ))}
                 </div>
 
-                {/* Page Switcher */}
-                <button onClick={() => navigate('/business')} className="nav-d" style={{
-                    marginLeft: '1.25rem', padding: '0.5rem 1rem', borderRadius: 999,
+                {/* Page Switcher - hidden on small screens */}
+                <button onClick={() => navigate('/business')} className="nav-d business-switcher" style={{
+                    marginLeft: '0.75rem', padding: '0.5rem 0.75rem', borderRadius: 999,
                     background: 'rgba(0,0,0,0.03)', border: `1px solid ${T.border}`, cursor: 'pointer',
-                    fontFamily: 'Inter,sans-serif', fontSize: '0.82rem', fontWeight: 600, color: '#2563EB',
+                    fontFamily: 'Inter,sans-serif', fontSize: '0.75rem', fontWeight: 600, color: '#2563EB',
                     whiteSpace: 'nowrap', transition: 'background 0.2s',
                 }}
                     onMouseEnter={e => e.currentTarget.style.background = 'rgba(0,0,0,0.06)'}
                     onMouseLeave={e => e.currentTarget.style.background = 'rgba(0,0,0,0.03)'}>
-                    Switch to Business <ArrowRight size={10} style={{ marginLeft: '4px', display: 'inline' }} />
+                    <span className="business-text">Business</span><ArrowRight size={10} style={{ marginLeft: '4px', display: 'inline' }} />
                 </button>
 
                 {/* CTA */}
@@ -180,9 +180,12 @@ export default function IndividualNavbar() {
             )}
 
             <style>{`
-        @media (max-width:768px) {
-          .nav-d { display:none !important; }
-          .nav-m { display:block !important; }
+        @media (max-width: 900px) {
+          .nav-d { display: none !important; }
+          .nav-m { display: block !important; }
+        }
+        @media (max-width: 1024px) {
+          .business-switcher { display: none !important; }
         }
       `}</style>
         </header>

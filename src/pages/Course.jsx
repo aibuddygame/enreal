@@ -297,7 +297,7 @@ export default function CoursePage({ lang: initialLang }) {
                 schema={[courseSchema, organizationSchema, breadcrumbSchema, faqSchema]}
             />
             <IndividualNavbar />
-            <div style={{ position: 'fixed', top: '100px', right: '20px', zIndex: 100, display: 'flex', gap: '8px', background: 'rgba(255,255,255,0.95)', padding: '8px', borderRadius: '999px', boxShadow: '0 2px 10px rgba(0,0,0,0.1)', border: '1px solid rgba(0,0,0,0.08)' }}>
+            <div className="lang-toggle" style={{ position: 'fixed', top: '100px', right: '20px', zIndex: 100, display: 'flex', gap: '8px', background: 'rgba(255,255,255,0.95)', padding: '8px', borderRadius: '999px', boxShadow: '0 2px 10px rgba(0,0,0,0.1)', border: '1px solid rgba(0,0,0,0.08)' }}>
                 <button onClick={() => handleLangChange('en')} style={{ padding: '8px 16px', borderRadius: '999px', border: 'none', background: lang === 'en' ? '#059669' : 'transparent', color: lang === 'en' ? 'white' : '#0B0B0C', fontWeight: 600, cursor: 'pointer', fontSize: '0.9rem' }}>EN</button>
                 <button onClick={() => handleLangChange('zh')} style={{ padding: '8px 16px', borderRadius: '999px', border: 'none', background: lang === 'zh' ? '#DC2626' : 'transparent', color: lang === 'zh' ? 'white' : '#0B0B0C', fontWeight: 600, cursor: 'pointer', fontSize: '0.9rem' }}>中文</button>
             </div>
@@ -346,12 +346,12 @@ function Hero({ t, lang }) {
         <section id="hero" style={{ height: '100dvh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '0 5vw', position: 'relative' }}>
             <div style={{ maxWidth: 900, marginTop: '10vh', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', width: '100%' }}>
                 <p className="h-rev" style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.7rem', letterSpacing: '0.22em', color: '#059669', marginBottom: '1.5rem', opacity: 0.85, textTransform: 'uppercase' }}>{t.hero.eyebrow}</p>
-                <h1 className="h-rev" style={{ fontFamily: 'Inter, sans-serif', fontWeight: 900, fontSize: 'clamp(1.8rem, 4vw, 3.5rem)', letterSpacing: '-0.03em', lineHeight: 1.2, marginBottom: '0.75rem', whiteSpace: 'nowrap' }}>
+                <h1 className="h-rev" style={{ fontFamily: 'Inter, sans-serif', fontWeight: 900, fontSize: 'clamp(1.5rem, 5vw, 3.5rem)', letterSpacing: '-0.03em', lineHeight: 1.2, marginBottom: '0.75rem', whiteSpace: 'normal', maxWidth: '95vw' }}>
                     {t.hero.title}
                 </h1>
-                <div className="h-rev" style={{ position: 'relative', height: '4rem', marginBottom: '1.5rem', width: '100%', maxWidth: '900px' }}>
-                    <p style={{ fontFamily: 'Manrope, sans-serif', fontSize: 'clamp(1.5rem, 3vw, 2.5rem)', color: T.primary, fontWeight: 700, lineHeight: 1.4, visibility: 'hidden', whiteSpace: 'nowrap' }}>{LONGEST}</p>
-                    <p style={{ fontFamily: 'Manrope, sans-serif', fontSize: 'clamp(1.5rem, 3vw, 2.5rem)', color: T.primary, fontWeight: 700, lineHeight: 1.4, position: 'absolute', top: 0, left: 0, right: 0, whiteSpace: 'nowrap' }}>
+                <div className="h-rev" style={{ position: 'relative', minHeight: '3rem', marginBottom: '1.5rem', width: '100%', maxWidth: '900px', padding: '0 1rem' }}>
+                    <p style={{ fontFamily: 'Manrope, sans-serif', fontSize: 'clamp(1rem, 4vw, 2rem)', color: T.primary, fontWeight: 700, lineHeight: 1.4, visibility: 'hidden', whiteSpace: 'nowrap' }}>{LONGEST}</p>
+                    <p style={{ fontFamily: 'Manrope, sans-serif', fontSize: 'clamp(1rem, 4vw, 2rem)', color: T.primary, fontWeight: 700, lineHeight: 1.4, position: 'absolute', top: 0, left: 0, right: 0, whiteSpace: 'nowrap' }}>
                         {display}<span style={{ display: 'inline-block', width: '0.08em', height: '0.9em', background: T.primary, marginLeft: '0.05em', verticalAlign: 'middle', borderRadius: 1 }} />
                     </p>
                 </div>
@@ -521,6 +521,19 @@ function Pricing({ t }) {
                     </div>
                 </div>
             </div>
+            <style>{`
+                @media (max-width: 640px) {
+                    .lang-toggle {
+                        top: 80px !important;
+                        right: 10px !important;
+                        padding: 6px !important;
+                    }
+                    .lang-toggle button {
+                        padding: 6px 12px !important;
+                        font-size: 0.8rem !important;
+                    }
+                }
+            `}</style>
         </section>
     )
 }

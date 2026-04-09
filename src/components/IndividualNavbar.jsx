@@ -16,7 +16,7 @@ const NAV = [
     { label: 'Outcomes', id: 'outcomes' },
     { label: 'Curriculum', id: 'curriculum' },
     { label: 'For Who', id: 'for-who' },
-    { label: 'Tools', id: 'tools' },
+    { label: 'Alliance', id: 'alliance' },
     { label: 'Enrollment', id: 'pricing' }
 ]
 

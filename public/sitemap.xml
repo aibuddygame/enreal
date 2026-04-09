@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://enreal-ai.vercel.app/</loc>
+  </url>
+  <url>
+    <loc>https://enreal-ai.vercel.app/business</loc>
+  </url>
+  <url>
+    <loc>https://enreal-ai.vercel.app/individual</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://enreal-ai.vercel.app/individual" />
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://enreal-ai.vercel.app/individual/zh" />
+  </url>
+  <url>
+    <loc>https://enreal-ai.vercel.app/individual/zh</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://enreal-ai.vercel.app/individual" />
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://enreal-ai.vercel.app/individual/zh" />
+  </url>
+  <url>
+    <loc>https://enreal-ai.vercel.app/course</loc>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://enreal-ai.vercel.app/course" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://enreal-ai.vercel.app/course/en" />
+  </url>
+  <url>
+    <loc>https://enreal-ai.vercel.app/course/en</loc>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://enreal-ai.vercel.app/course" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://enreal-ai.vercel.app/course/en" />
+  </url>
+  <url>
+    <loc>https://enreal-ai.vercel.app/enroll</loc>
+  </url>
+</urlset>

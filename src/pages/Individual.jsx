@@ -227,7 +227,7 @@ function LearningOutcomes({ t }) {
                     {t.outcomes.map((item, i) => (
                         <div key={i} style={{ display: 'flex', flexDirection: 'column', borderRadius: '1rem', overflow: 'hidden', border: `1px solid ${T.border}`, background: T.bg, transition: 'all 0.3s ease', cursor: 'pointer', flex: '0 0 auto', width: 'min(85vw, 340px)' }} onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.boxShadow = '0 12px 24px rgba(0,0,0,0.08)'; }} onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = 'none'; }}>
                             <div style={{ width: '100%', height: '220px', overflow: 'hidden' }}>
-                                <img src={item.image} alt={item.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                                <img src={item.image} alt={item.title} loading="lazy" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                             </div>
                             <div style={{ padding: '2rem' }}>
                                 <span style={{ fontFamily: 'JetBrains Mono, monospace', color: T.primary, fontSize: '0.8rem', display: 'block', marginBottom: '1rem', fontWeight: 600 }}>0{i + 1}</span>

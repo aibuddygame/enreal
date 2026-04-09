@@ -62,7 +62,7 @@ const CONTENT = {
         ],
         phrases: ['7堂課成為公司AI負責人', '不只是學AI——而是領導AI轉型', 'MVP作品集 + CEO人脈網絡'],
         hero: { eyebrow: '中層專業人士的AI職業加速器', title: 'AI正在改變世界和你的工作？', subtitle: '7堂課成為公司AI負責人 · 不只是運用工具，而是技能轉型 · MVP作品集 + C-Level人脈', desc: '不只是學習AI工具——更是學會領導你公司的AI轉型<br>建立MVP作品集，並在真實CEO面前展示成果', ctaPrimary: '立即報名', ctaSecondary: '了解課程' },
-        shift: { eyebrow: '// 學習理念', title: '不要只是學AI——領導AI轉型', subtitle: '專為中層專業人士設計的AI職業加速器', features: [{ title: 'MVP作品集建立', desc: '完成真實AI項目，建立可展示的作品集。不是學術練習，而是職場可用的解決方案。' }, { title: 'CEO人脈網絡', desc: '第七堂課在真實CEO/MD面前展示成果。建立高層人脈，獲得升職轉工機會。' }, { title: '從執行到領導', desc: '從操作AI工具，升級到設計AI策略、帶領團隊轉型。成為公司不可或缺的AI負責人。' }, { title: '職涯加速器', desc: '專為30-45歲中層設計。7堂課獲得升職加薪的籌碼，而非泛泛的AI知識。' }] },
+        shift: { eyebrow: '// 學習理念', title: '不要只是學AI——領導AI轉型', subtitle: '專為中層專業人士設計的AI職業加速器', subtitleStyle: { fontSize: 'clamp(1.5rem, 3vw, 2.5rem)', fontWeight: 700 }, features: [{ title: 'MVP作品集建立', desc: '完成真實AI項目，建立可展示的作品集。不是學術練習，而是職場可用的解決方案。' }, { title: 'CEO人脈網絡', desc: '第七堂課在真實CEO/MD面前展示成果。建立高層人脈，獲得升職轉工機會。' }, { title: '從執行到領導', desc: '從操作AI工具，升級到設計AI策略、帶領團隊轉型。成為公司不可或缺的AI負責人。' }, { title: '職涯加速器', desc: '專為30-45歲中層設計。7堂課獲得升職加薪的籌碼，而非泛泛的AI知識。' }] },
         outcomesSection: { eyebrow: '// 學習成果', title: '7堂課，從員工升級為AI領導' },
         curriculumSection: { eyebrow: '// 課程大綱', title: '從學AI到領導AI轉型', subtitle: '建立MVP作品集 · 獲得CEO人脈 · 成為公司AI負責人', learnTitle: '學習內容' },
         toolsSection: { eyebrow: '// AI 工具', title: '學習不同AI工具，強化你的全方位技能', subtitle: '' },
@@ -183,7 +183,8 @@ function TheShift({ t }) {
             <div style={{ maxWidth: 1000, margin: '0 auto' }}>
                 <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
                     <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.75rem', letterSpacing: '0.1em', color: '#059669', marginBottom: '1.5rem', textTransform: 'uppercase' }}>{t.shift.eyebrow}</p>
-                    <h2 style={{ fontSize: 'clamp(2rem, 4.5vw, 3.5rem)', fontWeight: 500, letterSpacing: '-0.03em', lineHeight: 1.1 }}>{t.shift.title}<br /><span style={{ fontFamily: 'Playfair Display, serif', fontStyle: 'italic', color: T.muted }}>{t.shift.subtitle}</span></h2>
+                    <h2 style={{ fontSize: 'clamp(2rem, 4.5vw, 3.5rem)', fontWeight: 500, letterSpacing: '-0.03em', lineHeight: 1.1, marginBottom: '0.5rem' }}>{t.shift.title}</h2>
+                    <p style={{ fontFamily: 'Manrope, sans-serif', fontSize: 'clamp(1.5rem, 3vw, 2.5rem)', fontWeight: 700, color: T.primary, lineHeight: 1.4 }}>{t.shift.subtitle}</p>
                 </div>
                 <div style={{ marginTop: '4rem' }}>
                     <ul className="grid grid-cols-1 grid-rows-none gap-4 md:grid-cols-12 md:grid-rows-2 lg:gap-4 xl:max-h-[34rem] xl:grid-rows-2">

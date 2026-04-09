@@ -35,8 +35,8 @@ const routeSeo = {
     },
 
     '/course': {
-        title: 'AI Mid-Level Promotion Course | Enreal AI',
-        description: 'A bilingual AI course for mid-level professionals who need to propose, build, and present AI solutions that matter to management.',
+        title: '7堂課成為公司AI負責人 | Enreal AI 職業加速器',
+        description: '專為中層專業人士設計的AI職業加速器。7堂課學會領導公司AI轉型，建立MVP作品集，在真實CEO面前展示成果。不要只是學AI——成為AI領導。',
         alternates: [
             { hrefLang: 'zh-Hant', href: '/course' },
             { hrefLang: 'en', href: '/course/en' },
@@ -44,14 +44,15 @@ const routeSeo = {
         schema: {
             '@context': 'https://schema.org',
             '@type': 'Course',
-            name: 'AI 中層晉升課程',
+            name: 'AI職業加速器：7堂課成為公司AI負責人',
             provider: { '@type': 'Organization', name: 'Enreal AI', sameAs: seoBase.baseUrl },
             url: `${seoBase.baseUrl}/course`,
+            description: '專為30-45歲中層專業人士設計。MVP作品集 + CEO人脈網絡 + 升職加薪籌碼',
         },
     },
     '/course/en': {
-        title: 'AI Mid-Level Promotion Course | Enreal AI',
-        description: 'A practical AI program for managers and professionals to design workflows, build MVPs, and present AI transformation ideas with credibility.',
+        title: '7 Sessions to Become Your Company\'s AI Lead | Enreal AI Career Accelerator',
+        description: 'An AI career accelerator for mid-level professionals. 7 sessions to lead your company\'s AI transformation, build an MVP portfolio, and present to real CEOs. Don\'t just learn AI—become an AI leader.',
         alternates: [
             { hrefLang: 'zh-Hant', href: '/course' },
             { hrefLang: 'en', href: '/course/en' },
@@ -59,9 +60,10 @@ const routeSeo = {
         schema: {
             '@context': 'https://schema.org',
             '@type': 'Course',
-            name: 'AI Mid-Level Promotion Course',
+            name: 'AI Career Accelerator: 7 Sessions to Become Your Company\'s AI Lead',
             provider: { '@type': 'Organization', name: 'Enreal AI', sameAs: seoBase.baseUrl },
             url: `${seoBase.baseUrl}/course/en`,
+            description: 'Designed for professionals ages 30-45. MVP portfolio + CEO network + promotion credentials',
         },
     },
     '/enroll': {

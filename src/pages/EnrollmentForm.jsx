@@ -164,7 +164,7 @@ Submitted: ${new Date().toLocaleString()}
         `.trim()
 
         // Send email using mailto (opens user's email client)
-        const mailtoLink = `mailto:barry.lau@enreallab.com.hk,pierce.tam@enreallab.com.hk?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+        const mailtoLink = `mailto:hello@enreallab.com.hk?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
         window.open(mailtoLink, '_blank')
         
         setSubmitting(false)

@@ -67,10 +67,10 @@ export default function IndividualNavbar() {
                 display: 'flex', alignItems: 'center',
                 padding: '0.45rem 0.45rem 0.45rem 1.35rem',
                 borderRadius: 999,
-                background: scrolled ? 'rgba(255,255,255,0.85)' : 'rgba(255,255,255,0.03)',
-                backdropFilter: scrolled ? 'blur(24px) saturate(1.6)' : 'none',
-                border: scrolled ? `1px solid ${T.border}` : `1px solid ${T.border}`,
-                boxShadow: scrolled ? T.shadow : 'none',
+                background: 'rgba(255,255,255,0.95)',
+                backdropFilter: 'blur(24px) saturate(1.6)',
+                border: `1px solid ${T.border}`,
+                boxShadow: T.shadow,
                 transition: 'all 0.5s cubic-bezier(0.25,0.46,0.45,0.94)',
             }}>
                 {/* Logo — Enreal AI */}

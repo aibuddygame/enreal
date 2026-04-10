@@ -85,7 +85,7 @@ export default function IndividualNavbar() {
 
                 {/* Desktop links - hidden on mobile */}
                 <div className="nav-d" style={{ display: 'flex', gap: '0.15rem' }}>
-                    {NAV.slice(0, 4).map(({ label, id }) => (
+                    {NAV.map(({ label, id }) => (
                         <button key={id} onClick={() => go(id)}
                             style={{
                                 background: 'none', border: 'none', cursor: 'pointer',

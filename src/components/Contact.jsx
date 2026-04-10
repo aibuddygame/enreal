@@ -13,7 +13,7 @@ import {
     EMAILJS_TEMPLATE_BUSINESS
 } from '../lib/emailjsConfig.js'
 
-const DISPLAY_EMAIL = 'hello@enreallab.com.hk'
+const DISPLAY_EMAIL = 'barry.lau@enreallab.com.hk'
 
 // ── Validation ──────────────────────────────────────────────
 const validate = ({ name, email, message }) => {

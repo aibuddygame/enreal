@@ -18,7 +18,7 @@ const T = {
 
 const CONTENT = {
     zh: {
-        title: 'AI中層晉升課程｜申請問卷',
+        title: 'Enreal AI 中層晉升課程｜申請問卷',
         subtitle: '本課程只適合希望用AI提升職場價值的人，並會進行篩選，成功申請者將獲安排面談',
         sections: {
             personal: '【個人資料】',

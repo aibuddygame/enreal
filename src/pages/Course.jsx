@@ -9,6 +9,8 @@ import { AllianceSection } from '../components/ui/alliance-section.jsx'
 import { Box, Settings, Lock, Sparkles } from 'lucide-react'
 import { cn } from '../lib/utils.js'
 import Seo from '../components/Seo.jsx'
+import { AnimatedSection } from '../components/ui/AnimatedSection.jsx'
+import { TypewriterText } from '../components/ui/TypewriterText.jsx'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -317,31 +319,9 @@ export default function CoursePage({ lang: initialLang }) {
     )
 }
 
-const TYPING_MS = 60
-const DELETING_MS = 30
-const PAUSE_MS = 1500
-
 function Hero({ t, lang }) {
-    const [display, setDisplay] = useState('')
-    const [phase, setPhase] = useState('typing')
-    const [phraseIdx, setPhraseIdx] = useState(0)
-    const tRef = useRef(null)
     const go = id => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
-    const phrases = t.phrases
-
-    useEffect(() => {
-        const target = phrases[phraseIdx]
-        let cancelled = false
-        const schedule = (fn, delay) => { tRef.current = setTimeout(() => { if (!cancelled) fn() }, delay) }
-        if (phase === 'typing') { if (display.length < target.length) schedule(() => setDisplay(target.slice(0, display.length + 1)), TYPING_MS); else setPhase('paused') }
-        if (phase === 'paused') schedule(() => setPhase('deleting'), PAUSE_MS)
-        if (phase === 'deleting') { if (display.length > 0) schedule(() => setDisplay(d => d.slice(0, -1)), DELETING_MS); else schedule(() => { setPhraseIdx(i => (i + 1) % phrases.length); setPhase('typing') }, 220) }
-        return () => { cancelled = true; clearTimeout(tRef.current) }
-    }, [display, phase, phraseIdx, phrases])
-
-    useEffect(() => { setDisplay(''); setPhase('typing'); setPhraseIdx(0) }, [lang])
-    const LONGEST = phrases.reduce((a, b) => a.length > b.length ? a : b)
-
+    
     return (
         <section id="hero" style={{ 
             height: '100dvh', 
@@ -375,21 +355,44 @@ function Hero({ t, lang }) {
                 pointerEvents: 'none'
             }} />
             <div style={{ maxWidth: 900, marginTop: '10vh', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', width: '100%', position: 'relative', zIndex: 1 }}>
-                <p className="h-rev" style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.7rem', letterSpacing: '0.22em', color: '#34d399', marginBottom: '1.5rem', opacity: 0.95, textTransform: 'uppercase' }}>{t.hero.eyebrow}</p>
-                <h1 className="h-rev" style={{ fontFamily: 'Inter, sans-serif', fontWeight: 900, fontSize: 'clamp(1.5rem, 5vw, 3.5rem)', letterSpacing: '-0.03em', lineHeight: 1.2, marginBottom: '0.75rem', whiteSpace: 'normal', maxWidth: '95vw', color: '#ffffff' }}>
-                    {t.hero.title}
-                </h1>
-                <div className="h-rev" style={{ position: 'relative', minHeight: '3rem', marginBottom: '1.5rem', width: '100%', maxWidth: '900px', padding: '0 1rem' }}>
-                    <p style={{ fontFamily: 'Manrope, sans-serif', fontSize: 'clamp(1rem, 4vw, 2rem)', color: '#60a5fa', fontWeight: 700, lineHeight: 1.4, visibility: 'hidden', whiteSpace: 'nowrap' }}>{LONGEST}</p>
-                    <p style={{ fontFamily: 'Manrope, sans-serif', fontSize: 'clamp(1rem, 4vw, 2rem)', color: '#60a5fa', fontWeight: 700, lineHeight: 1.4, position: 'absolute', top: 0, left: 0, right: 0, whiteSpace: 'nowrap' }}>
-                        {display}<span style={{ display: 'inline-block', width: '0.08em', height: '0.9em', background: '#60a5fa', marginLeft: '0.05em', verticalAlign: 'middle', borderRadius: 1 }} />
-                    </p>
-                </div>
-                <p className="h-rev" style={{ fontFamily: 'Manrope, sans-serif', fontSize: 'clamp(0.95rem, 1.5vw, 1.05rem)', color: 'rgba(255,255,255,0.75)', lineHeight: 1.8, maxWidth: 550, margin: '0 auto 2.5rem' }} dangerouslySetInnerHTML={{ __html: t.hero.desc }} />
-                <div className="h-rev" style={{ display: 'flex', gap: '1rem', alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap' }}>
-                    <button onClick={() => go('pricing')} style={{ background: '#059669', color: '#ffffff', padding: '1rem 2rem', border: 'none', borderRadius: 999, fontSize: '0.95rem', fontWeight: 600, cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '0.5rem', transition: 'all 0.2s', boxShadow: '0 4px 14px rgba(5, 150, 105, 0.4)' }} onMouseEnter={e => { e.currentTarget.style.transform = 'scale(1.03)'; e.currentTarget.style.boxShadow = '0 6px 20px rgba(5, 150, 105, 0.5)'; }} onMouseLeave={e => { e.currentTarget.style.transform = 'scale(1)'; e.currentTarget.style.boxShadow = '0 4px 14px rgba(5, 150, 105, 0.4)'; }}>{t.hero.ctaPrimary} <ArrowRight size={16} /></button>
-                    <button onClick={() => go('program')} style={{ background: 'rgba(255,255,255,0.1)', color: '#ffffff', padding: '1rem 1.5rem', border: '1px solid rgba(255,255,255,0.3)', borderRadius: 999, fontSize: '0.9rem', fontWeight: 500, cursor: 'pointer', transition: 'all 0.2s', backdropFilter: 'blur(10px)' }} onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.2)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.5)'; }} onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.1)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.3)'; }}>{t.hero.ctaSecondary}</button>
-                </div>
+                <AnimatedSection animation={{ y: 30, duration: 1.2, delay: 0.2 }}>
+                    <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.7rem', letterSpacing: '0.22em', color: '#34d399', marginBottom: '1.5rem', opacity: 0.95, textTransform: 'uppercase' }}>{t.hero.eyebrow}</p>
+                </AnimatedSection>
+                
+                <AnimatedSection animation={{ y: 30, duration: 1.2, delay: 0.28 }}>
+                    <h1 style={{ fontFamily: 'Inter, sans-serif', fontWeight: 900, fontSize: 'clamp(1.5rem, 5vw, 3.5rem)', letterSpacing: '-0.03em', lineHeight: 1.2, marginBottom: '0.75rem', whiteSpace: 'normal', maxWidth: '95vw', color: '#ffffff' }}>
+                        {t.hero.title}
+                    </h1>
+                </AnimatedSection>
+                
+                <AnimatedSection animation={{ y: 30, duration: 1.2, delay: 0.36 }}>
+                    <div style={{ minHeight: '3rem', marginBottom: '1.5rem', width: '100%', maxWidth: '900px', padding: '0 1rem' }}>
+                        <TypewriterText
+                            phrases={t.phrases}
+                            typingSpeed={60}
+                            deletingSpeed={30}
+                            pauseDuration={1500}
+                            style={{
+                                fontFamily: 'Manrope, sans-serif',
+                                fontSize: 'clamp(1rem, 4vw, 2rem)',
+                                color: '#60a5fa',
+                                fontWeight: 700,
+                                lineHeight: 1.4,
+                            }}
+                        />
+                    </div>
+                </AnimatedSection>
+                
+                <AnimatedSection animation={{ y: 30, duration: 1.2, delay: 0.44 }}>
+                    <p style={{ fontFamily: 'Manrope, sans-serif', fontSize: 'clamp(0.95rem, 1.5vw, 1.05rem)', color: 'rgba(255,255,255,0.75)', lineHeight: 1.8, maxWidth: 550, margin: '0 auto 2.5rem' }} dangerouslySetInnerHTML={{ __html: t.hero.desc }} />
+                </AnimatedSection>
+                
+                <AnimatedSection animation={{ y: 30, duration: 1.2, delay: 0.52 }}>
+                    <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap' }}>
+                        <button onClick={() => go('pricing')} style={{ background: '#059669', color: '#ffffff', padding: '1rem 2rem', border: 'none', borderRadius: 999, fontSize: '0.95rem', fontWeight: 600, cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '0.5rem', transition: 'all 0.2s', boxShadow: '0 4px 14px rgba(5, 150, 105, 0.4)' }} onMouseEnter={e => { e.currentTarget.style.transform = 'scale(1.03)'; e.currentTarget.style.boxShadow = '0 6px 20px rgba(5, 150, 105, 0.5)'; }} onMouseLeave={e => { e.currentTarget.style.transform = 'scale(1)'; e.currentTarget.style.boxShadow = '0 4px 14px rgba(5, 150, 105, 0.4)'; }}>{t.hero.ctaPrimary} <ArrowRight size={16} /></button>
+                        <button onClick={() => go('program')} style={{ background: 'rgba(255,255,255,0.1)', color: '#ffffff', padding: '1rem 1.5rem', border: '1px solid rgba(255,255,255,0.3)', borderRadius: 999, fontSize: '0.9rem', fontWeight: 500, cursor: 'pointer', transition: 'all 0.2s', backdropFilter: 'blur(10px)' }} onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.2)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.5)'; }} onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.1)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.3)'; }}>{t.hero.ctaSecondary}</button>
+                    </div>
+                </AnimatedSection>
             </div>
         </section>
     )
@@ -398,29 +401,33 @@ function Hero({ t, lang }) {
 function TheShift({ t }) {
     const features = [{ icon: <Box className="h-4 w-4" />, ...t.shift.features[0] }, { icon: <Settings className="h-4 w-4" />, ...t.shift.features[1] }, { icon: <Lock className="h-4 w-4" />, ...t.shift.features[2] }, { icon: <Sparkles className="h-4 w-4" />, ...t.shift.features[3] }]
     return (
-        <section id="program" className="sec-rev" style={{ padding: '8rem 5vw', background: T.surface }}>
+        <section id="program" style={{ padding: '8rem 5vw', background: T.surface }}>
             <div style={{ maxWidth: 1000, margin: '0 auto' }}>
-                <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-                    <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.75rem', letterSpacing: '0.1em', color: '#059669', marginBottom: '1.5rem', textTransform: 'uppercase' }}>{t.shift.eyebrow}</p>
-                    <h2 style={{ fontSize: 'clamp(1.5rem, 5vw, 2.5rem)', fontWeight: 500, letterSpacing: '-0.03em', lineHeight: 1.1, marginBottom: '0.5rem' }} dangerouslySetInnerHTML={{ __html: t.shift.title }} />
-                    <p style={{ fontFamily: 'Manrope, sans-serif', fontSize: 'clamp(1rem, 3vw, 1.25rem)', fontWeight: 700, color: T.primary, lineHeight: 1.4 }}>{t.shift.subtitle}</p>
-                </div>
+                <AnimatedSection animation={{ y: 30, duration: 0.8 }}>
+                    <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
+                        <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.75rem', letterSpacing: '0.1em', color: '#059669', marginBottom: '1.5rem', textTransform: 'uppercase' }}>{t.shift.eyebrow}</p>
+                        <h2 style={{ fontSize: 'clamp(1.5rem, 5vw, 2.5rem)', fontWeight: 500, letterSpacing: '-0.03em', lineHeight: 1.1, marginBottom: '0.5rem' }} dangerouslySetInnerHTML={{ __html: t.shift.title }} />
+                        <p style={{ fontFamily: 'Manrope, sans-serif', fontSize: 'clamp(1rem, 3vw, 1.25rem)', fontWeight: 700, color: T.primary, lineHeight: 1.4 }}>{t.shift.subtitle}</p>
+                    </div>
+                </AnimatedSection>
                 <div style={{ marginTop: '4rem' }}>
-                    <ul className="grid grid-cols-1 grid-rows-none gap-4 md:grid-cols-12 md:grid-rows-2 lg:gap-4 xl:max-h-[34rem] xl:grid-rows-2">
-                        {features.map((item, i) => (
-                            <li key={i} className={cn("min-h-[14rem] list-none", ['md:[grid-area:1/1/2/7]', 'md:[grid-area:1/7/2/13]', 'md:[grid-area:2/1/3/7]', 'md:[grid-area:2/7/3/13]'][i])}>
-                                <div className="group relative h-full rounded-[1.25rem] border-[1px] border-[rgba(0,0,0,0.06)] bg-white p-6 shadow-[0_2px_10px_rgba(0,0,0,0.02)] transition-all duration-400 ease-out hover:-translate-y-1.5 hover:shadow-[0_12px_30px_rgba(0,0,0,0.06)] md:rounded-[1.5rem] md:p-8">
-                                    <div className="relative flex flex-1 flex-col justify-between gap-6">
-                                        <div className="w-fit rounded-lg border-[1px] border-[rgba(0,0,0,0.05)] bg-[#F5F5F7] p-2.5 text-[#0B0B0C] transition-colors duration-400 group-hover:bg-[#E8E8EB]">{item.icon}</div>
-                                        <div className="space-y-3">
-                                            <h3 className="pt-0.5 text-xl leading-[1.375rem] font-semibold font-sans tracking-[-0.04em] md:text-2xl md:leading-[1.875rem] text-balance text-[#0B0B0C]">{item.title}</h3>
-                                            <h2 className="[&_b]:md:font-semibold [&_strong]:md:font-semibold font-sans text-sm leading-[1.125rem] md:text-base md:leading-[1.375rem] text-[#52525B]">{item.desc}</h2>
+                    <AnimatedSection stagger animation={{ y: 20, duration: 0.8, stagger: 0.1 }}>
+                        <ul className="grid grid-cols-1 grid-rows-none gap-4 md:grid-cols-12 md:grid-rows-2 lg:gap-4 xl:max-h-[34rem] xl:grid-rows-2">
+                            {features.map((item, i) => (
+                                <li key={i} className={cn("min-h-[14rem] list-none", ['md:[grid-area:1/1/2/7]', 'md:[grid-area:1/7/2/13]', 'md:[grid-area:2/1/3/7]', 'md:[grid-area:2/7/3/13]'][i])}>
+                                    <div className="group relative h-full rounded-[1.25rem] border-[1px] border-[rgba(0,0,0,0.06)] bg-white p-6 shadow-[0_2px_10px_rgba(0,0,0,0.02)] transition-all duration-400 ease-out hover:-translate-y-1.5 hover:shadow-[0_12px_30px_rgba(0,0,0,0.06)] md:rounded-[1.5rem] md:p-8">
+                                        <div className="relative flex flex-1 flex-col justify-between gap-6">
+                                            <div className="w-fit rounded-lg border-[1px] border-[rgba(0,0,0,0.05)] bg-[#F5F5F7] p-2.5 text-[#0B0B0C] transition-colors duration-400 group-hover:bg-[#E8E8EB]">{item.icon}</div>
+                                            <div className="space-y-3">
+                                                <h3 className="pt-0.5 text-xl leading-[1.375rem] font-semibold font-sans tracking-[-0.04em] md:text-2xl md:leading-[1.875rem] text-balance text-[#0B0B0C]">{item.title}</h3>
+                                                <h2 className="[&_b]:md:font-semibold [&_strong]:md:font-semibold font-sans text-sm leading-[1.125rem] md:text-base md:leading-[1.375rem] text-[#52525B]">{item.desc}</h2>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </li>
-                        ))}
-                    </ul>
+                                </li>
+                            ))}
+                        </ul>
+                    </AnimatedSection>
                 </div>
             </div>
         </section>

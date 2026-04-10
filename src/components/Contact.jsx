@@ -68,11 +68,26 @@ export default function Contact() {
                 EMAILJS_SERVICE_ID,
                 EMAILJS_TEMPLATE_BUSINESS,
                 {
+                    // Match enrollment template format
+                    to_email: 'hello@enreallab.com.hk',
+                    subject: `Business Inquiry - ${form.name}`,
+                    language: 'English',
+                    applicant_name: `${form.name} / ${form.email}`,
+                    position: form.company || 'Business Inquiry',
+                    industry: 'Business Services',
+                    ai_project: 'N/A',
+                    difficulty: 'N/A',
+                    ai_experience: 'N/A',
+                    ai_problem: 'N/A',
+                    ai_understanding: 'N/A',
+                    improvement_area: form.message,
+                    goal: 'Business consultation',
+                    submitted_at: new Date().toLocaleString(),
+                    // Legacy fields for backward compatibility
                     name: form.name,
                     email: form.email,
                     company: form.company || '—',
                     message: form.message,
-                    to_email: 'hello@enreallab.com.hk',
                 },
                 EMAILJS_PUBLIC_KEY,
             )

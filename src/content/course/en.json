@@ -1,0 +1,150 @@
+{
+  "seo": {
+    "title": "Enreal AI | Become Your Company's AI Leader in 7 Lessons",
+    "description": "Master AI tools, lead AI transformation, and build an MVP portfolio. Present to real CEOs. 7 practical lessons for mid-level professionals aged 30-45. Join the Enreal AI Alliance for lifetime executive network access.",
+    "keywords": "AI course Hong Kong, AI training professionals, AI career accelerator, AI MVP course, CEO network, AI transformation, mid-level manager AI, AI leadership course, Enreal AI Alliance",
+    "ogTitle": "Become Your Company's AI Leader in 7 Lessons | Enreal AI",
+    "ogDescription": "Master AI tools. Lead transformation. Build portfolio. Present to CEOs. Get promoted. Join 10 professionals in Hong Kong's premier AI career accelerator."
+  },
+  "phrases": [
+    "7 Lessons to Become Your Company's AI Lead",
+    "Don't Just Learn AI—Lead the Transformation",
+    "MVP Portfolio + CEO Network"
+  ],
+  "hero": {
+    "eyebrow": "AI CAREER ACCELERATOR FOR MID-LEVEL PROFESSIONALS",
+    "title": "7 Lessons to Become Your Company's AI Lead",
+    "subtitle": "",
+    "desc": "Don't just learn AI tools—learn to lead your company's AI transformation, build an MVP portfolio, and present to real CEOs.",
+    "ctaPrimary": "Enroll Now",
+    "ctaSecondary": "Explore Program"
+  },
+  "shift": {
+    "eyebrow": "// LEARNING PHILOSOPHY",
+    "title": "Don't Just Learn AI—Lead the Transformation",
+    "subtitle": "An AI Career Accelerator for Mid-Level Professionals",
+    "features": [
+      {
+        "title": "MVP Portfolio Building",
+        "desc": "Complete real AI projects and build a demonstrable portfolio. Not academic exercises—workplace-ready solutions."
+      },
+      {
+        "title": "CEO Network Access",
+        "desc": "Lesson 7: Present your work to real CEOs/MDs. Build executive connections and unlock promotion opportunities."
+      },
+      {
+        "title": "From Execution to Leadership",
+        "desc": "Move from operating AI tools to designing AI strategy and leading team transformation. Become your company's indispensable AI lead."
+      },
+      {
+        "title": "Career Accelerator",
+        "desc": "Designed for professionals aged 30-45. 7 lessons to get the credentials for promotion, not generic AI knowledge."
+      }
+    ]
+  },
+  "outcomesSection": {
+    "eyebrow": "// OUTCOMES",
+    "title": "7 Lessons: From Employee to AI Leader"
+  },
+  "outcomes": [
+    {
+      "title": "Tools → Strategy",
+      "desc": "Understand how AI helps companies make money, save costs, and improve efficiency. Transform from an operator to a strategy designer.",
+      "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop"
+    },
+    {
+      "title": "Execution → Design",
+      "desc": "Build Marketing AI workflows, automate documents and reports, and establish data analysis and decision-making frameworks.",
+      "image": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=800&auto=format&fit=crop"
+    },
+    {
+      "title": "Employee → Indispensable",
+      "desc": "Complete a real AI MVP project, negotiate with results, and become someone the company cannot afford to lose.",
+      "image": "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=800&auto=format&fit=crop"
+    }
+  ],
+  "curriculumSection": {
+    "eyebrow": "// CURRICULUM",
+    "title": "From Learning AI to Leading AI Transformation",
+    "subtitle": "Build MVP Portfolio · Gain CEO Network · Become Your Company's AI Lead",
+    "learnTitle": "What You Will Learn"
+  },
+  "curriculum": [
+    {
+      "phase": "Phase 1",
+      "title": "AI Mindset + Tool Mastery",
+      "subtitle": "Lessons 1-4",
+      "desc": "Focus: Using AI to help companies make money/save time\n\nContent: Common tools, enterprise implementation (Marketing/Operations), problem-solving frameworks\n\nOutcome: Develop your personal AI proposal",
+      "learn": [
+        "How AI helps companies make money/save costs/improve efficiency",
+        "Marketing AI workflow design",
+        "Document and report automation",
+        "Data analysis and decision framework building"
+      ]
+    },
+    {
+      "phase": "Phase 2",
+      "title": "MVP Practice",
+      "subtitle": "Lessons 5-6",
+      "desc": "Focus: From 'thinking' to 'doing'\n\nContent: Transform proposals into MVPs, simulate scenarios, mentor-guided optimization\n\nOutcome: Complete a demonstrable real project",
+      "learn": [
+        "Transform AI proposals into feasible MVPs",
+        "Simulate real enterprise scenarios",
+        "One-on-one mentor guidance",
+        "Project presentation skills"
+      ]
+    },
+    {
+      "phase": "Phase 3",
+      "title": "Executive Presentation 🔥",
+      "subtitle": "Lesson 7",
+      "desc": "Focus: Real 'face-to-face with the boss' experience\n\nContent: Presentation methods that impress bosses, student MVP showcase, CEO/MD feedback session\n\nOutcome: Exposure opportunities, job change/partnership opportunities",
+      "learn": [
+        "Presentation skills for C-Level reporting",
+        "Showcasing results in front of real CEO/MD",
+        "On-the-spot feedback and optimization",
+        "Building executive network"
+      ]
+    }
+  ],
+  "forWho": {
+    "eyebrow": "// TARGET AUDIENCE",
+    "title": "Designed for Mid-Level Professionals",
+    "subtitle": "Ages 30-45 · Report to C-Level · Want promotion but lack results",
+    "tags": [
+      "Mid-Level Managers (Ages 30-45)",
+      "Report to C-Level or Board",
+      "Company starting AI but no direction",
+      "Want promotion/career change but lack results",
+      "Tired of theory courses, want practical execution",
+      "Want to build CEO network connections"
+    ]
+  },
+  "pricing": {
+    "eyebrow": "// LIMITED OFFER 🔥",
+    "title": "7 Lessons to Change Your Career Trajectory",
+    "subtitle": "Invest in yourself. Become your company's AI lead.",
+    "originalPrice": "Comparable courses: $6,000-$13,000",
+    "price": "$2,000",
+    "spots": "Only 10 students · Limited spots · Small cohort ensures quality",
+    "features": [
+      "7 practical lessons (MVP portfolio)",
+      "Real CEO/MD presentation (network building)",
+      "Personal AI project one-on-one guidance",
+      "Post-course CEO network community support",
+      "Credentials for promotion & raise"
+    ],
+    "cta": "Enroll Now to Become an AI Leader"
+  },
+  "footer": {
+    "nav": [
+      { "label": "Program", "id": "program" },
+      { "label": "Results", "id": "outcomes" },
+      { "label": "Curriculum", "id": "curriculum" },
+      { "label": "For Whom", "id": "for-who" },
+      { "label": "Alliance", "id": "alliance" },
+      { "label": "Enroll", "id": "pricing" }
+    ],
+    "brandText": "The intelligence layer for professionals entering an AI-native economy."
+  }
+}

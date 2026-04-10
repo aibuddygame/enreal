@@ -1,0 +1,123 @@
+/*
+ * Enreal AI Design System - CSS Custom Properties
+ * Centralized theme variables for consistent styling
+ */
+
+:root {
+  /* Color Palette */
+  --color-bg: #FFFFFF;
+  --color-surface: #F7F9FB;
+  --color-surface-alt: #EEF1F6;
+  --color-text: #181818;
+  --color-muted: #5A5A5A;
+  --color-border: rgba(0, 0, 0, 0.08);
+  
+  /* Brand Colors */
+  --color-primary: #0176D3;
+  --color-primary-light: #E8F4FD;
+  --color-primary-dark: #014486;
+  --color-secondary: #1B96FF;
+  
+  /* Status Colors */
+  --color-success: #2E844A;
+  --color-warning: #F59E0B;
+  --color-danger: #C23934;
+  
+  /* Dark Theme (Hero) */
+  --color-hero-bg-start: #0a0a0f;
+  --color-hero-bg-mid1: #1a1a2e;
+  --color-hero-bg-mid2: #16213e;
+  --color-hero-bg-end: #0f3460;
+  --color-hero-accent-green: #34d399;
+  --color-hero-accent-blue: #60a5fa;
+  --color-hero-text: #ffffff;
+  --color-hero-text-muted: rgba(255, 255, 255, 0.75);
+  
+  /* Typography */
+  --font-family-sans: 'Inter', sans-serif;
+  --font-family-mono: 'JetBrains Mono', monospace;
+  --font-family-display: 'Manrope', sans-serif;
+  
+  /* Font Sizes */
+  --font-size-xs: 0.7rem;
+  --font-size-sm: 0.75rem;
+  --font-size-base: 0.95rem;
+  --font-size-lg: 1rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 2rem;
+  --font-size-4xl: 2.5rem;
+  --font-size-5xl: 3.5rem;
+  
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+  --spacing-2xl: 4rem;
+  --spacing-3xl: 8rem;
+  --spacing-4xl: 10rem;
+  
+  /* Section Padding */
+  --section-padding-y: 8rem;
+  --section-padding-x: 5vw;
+  
+  /* Border Radius */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.875rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.25rem;
+  --radius-2xl: 1.5rem;
+  --radius-full: 999px;
+  
+  /* Shadows */
+  --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.02);
+  --shadow-md: 0 4px 24px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.08);
+  --shadow-xl: 0 12px 30px rgba(0, 0, 0, 0.06);
+  --shadow-hero: 0 4px 14px rgba(5, 150, 105, 0.4);
+  --shadow-hero-hover: 0 6px 20px rgba(5, 150, 105, 0.5);
+  
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-base: 0.3s ease;
+  --transition-slow: 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  
+  /* Animation */
+  --animation-typing-speed: 60ms;
+  --animation-deleting-speed: 30ms;
+  --animation-pause-duration: 1500ms;
+  
+  /* Layout */
+  --container-max-width: 1280px;
+  --container-narrow: 800px;
+  --container-content: 1000px;
+  
+  /* Z-index Scale */
+  --z-base: 1;
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-modal: 300;
+  --z-popover: 400;
+  --z-tooltip: 500;
+}
+
+/* Dark mode support (future) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Can add dark mode overrides here */
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --transition-fast: 0.01ms;
+    --transition-base: 0.01ms;
+    --transition-slow: 0.01ms;
+    --animation-typing-speed: 0ms;
+    --animation-deleting-speed: 0ms;
+    --animation-pause-duration: 0ms;
+  }
+}

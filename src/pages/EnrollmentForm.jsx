@@ -1,7 +1,13 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import emailjs from '@emailjs/browser'
 import IndividualNavbar from '../components/IndividualNavbar.jsx'
 import Footer from '../components/Footer.jsx'
+import {
+    EMAILJS_SERVICE_ID,
+    EMAILJS_PUBLIC_KEY,
+    EMAILJS_TEMPLATE_ENROLLMENT,
+} from '../lib/emailjsConfig.js'
 
 const T = {
     bg: '#FFFFFF',
@@ -116,59 +122,66 @@ export default function EnrollmentForm() {
         e.preventDefault()
         setSubmitting(true)
         
-        // Prepare email content
-        const subject = lang === 'zh' 
-            ? `AI課程申請 - ${formData.q1.split(' / ')[0] || formData.q1}`
-            : `AI Course Application - ${formData.q1.split(' / ')[0] || formData.q1}`
-        
-        const body = `
-${lang === 'zh' ? '新課程申請' : 'New Course Application'}
+        try {
+            // Send email using EmailJS
+            await emailjs.send(
+                EMAILJS_SERVICE_ID,
+                EMAILJS_TEMPLATE_ENROLLMENT,
+                {
+                    // Template variables for EmailJS
+                    to_email: 'hello@enreallab.com.hk',
+                    subject: lang === 'zh' 
+                        ? `AI課程申請 - ${formData.q1.split(' / ')[0] || formData.q1}`
+                        : `AI Course Application - ${formData.q1.split(' / ')[0] || formData.q1}`,
+                    language: lang === 'zh' ? '中文' : 'English',
+                    applicant_name: formData.q1,
+                    position: formData.q2,
+                    industry: formData.q3,
+                    ai_project: formData.q4,
+                    difficulty: formData.q5,
+                    ai_experience: formData.q6,
+                    ai_problem: formData.q7,
+                    ai_understanding: formData.q8,
+                    improvement_area: formData.q9,
+                    goal: formData.q10,
+                    submitted_at: new Date().toLocaleString(),
+                    // Full formatted message
+                    message: `
+【個人資料】
+姓名/聯絡: ${formData.q1}
+職位/年資: ${formData.q2}
+行業: ${formData.q3}
 
-${t.sections.personal}
-${t.questions.q1}
-${formData.q1}
+【現況與痛點】
+AI項目: ${formData.q4}
+匯報困難: ${formData.q5}
+AI經驗: ${formData.q6}
 
-${t.questions.q2}
-${formData.q2}
+【思維與能力】
+AI理解: ${formData.q8}
+改善問題: ${formData.q9}
 
-${t.questions.q3}
-${formData.q3}
-
-${t.sections.situation}
-${t.questions.q4}
-${formData.q4}
-
-${t.questions.q5}
-${formData.q5}
-
-${t.questions.q6}
-${formData.q6}
-
-${t.questions.q7}
-${formData.q7}
-
-${t.sections.mindset}
-${t.questions.q8}
-${formData.q8}
-
-${t.questions.q9}
-${formData.q9}
-
-${t.sections.commitment}
-${t.questions.q10}
-${formData.q10}
+【動機與投入】
+學習目標: ${formData.q10}
 
 ---
-Language: ${lang === 'zh' ? '中文' : 'English'}
-Submitted: ${new Date().toLocaleString()}
-        `.trim()
-
-        // Send email using mailto (opens user's email client)
-        const mailtoLink = `mailto:hello@enreallab.com.hk?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
-        window.open(mailtoLink, '_blank')
-        
-        setSubmitting(false)
-        setSubmitted(true)
+語言: ${lang === 'zh' ? '中文' : 'English'}
+提交時間: ${new Date().toLocaleString()}
+                    `.trim()
+                },
+                EMAILJS_PUBLIC_KEY
+            )
+            
+            setSubmitted(true)
+        } catch (error) {
+            console.error('EmailJS error:', error)
+            alert(lang === 'zh' 
+                ? '提交失敗，請稍後再試或直接聯絡我們。' 
+                : 'Submission failed. Please try again later or contact us directly.'
+            )
+        } finally {
+            setSubmitting(false)
+        }
     }
 
     if (submitted) {

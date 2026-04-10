@@ -122,9 +122,27 @@ export default function EnrollmentForm() {
         e.preventDefault()
         setSubmitting(true)
         
+        // Debug: Log config values (remove in production)
+        console.log('EmailJS Config:', {
+            serviceId: EMAILJS_SERVICE_ID,
+            templateId: EMAILJS_TEMPLATE_ENROLLMENT,
+            publicKey: EMAILJS_PUBLIC_KEY ? '***set***' : '***MISSING***'
+        })
+        
+        // Check if config is valid
+        if (EMAILJS_SERVICE_ID === 'demo_service' || EMAILJS_TEMPLATE_ENROLLMENT === 'demo_template') {
+            console.error('EmailJS not configured properly')
+            alert(lang === 'zh' 
+                ? '系統配置錯誤，請聯絡管理員。' 
+                : 'System configuration error. Please contact admin.'
+            )
+            setSubmitting(false)
+            return
+        }
+        
         try {
             // Send email using EmailJS
-            await emailjs.send(
+            const result = await emailjs.send(
                 EMAILJS_SERVICE_ID,
                 EMAILJS_TEMPLATE_ENROLLMENT,
                 {
@@ -172,12 +190,13 @@ AI理解: ${formData.q8}
                 EMAILJS_PUBLIC_KEY
             )
             
+            console.log('EmailJS success:', result)
             setSubmitted(true)
         } catch (error) {
             console.error('EmailJS error:', error)
             alert(lang === 'zh' 
-                ? '提交失敗，請稍後再試或直接聯絡我們。' 
-                : 'Submission failed. Please try again later or contact us directly.'
+                ? `提交失敗: ${error.text || '請稍後再試或直接聯絡我們。'}` 
+                : `Submission failed: ${error.text || 'Please try again later or contact us directly.'}`
             )
         } finally {
             setSubmitting(false)

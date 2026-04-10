@@ -24,9 +24,9 @@ const SEO_CONFIG = {
     zh: {
         title: 'Enreal AI | 7堂課成為公司AI負責人',
         description: '掌握AI工具，領導AI轉型，建立MVP作品集。在真實CEO面前展示成果。專為30-45歲中層專業人士設計的7堂實戰課程。加入Enreal AI實戰聯盟，獲得終身高層人脈網絡。',
-        keywords: 'AI課程香港, AI培訓專業人士, AI職業加速器, AI MVP課程, CEO人脈, AI轉型, 中層管理AI, AI領導課程, Enreal AI實戰聯盟, 全民AI',
+        keywords: 'Enreal AI, AI中層晉升課程, AI課程香港, AI培訓專業人士, AI職業加速器, AI MVP課程, CEO人脈, AI轉型, 中層管理AI, AI領導課程, Enreal AI實戰聯盟, 全民AI',
         ogTitle: '7堂課成為公司AI負責人 | Enreal AI',
-        ogDescription: '不只是學習AI工具——更是學會領導你公司的AI轉型。建立MVP作品集，並在真實CEO面前展示成果。香港頂尖AI職業加速器，只收10位學員。',
+        ogDescription: 'Enreal AI 中層晉升課程。掌握AI工具，領導AI轉型，建立MVP作品集。在真實CEO面前展示成果。香港頂尖AI職業加速器，只收10位學員。',
     }
 }
 

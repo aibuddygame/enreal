@@ -7,7 +7,7 @@ const LandingPage = lazy(() => import('./pages/Business.jsx'))
 const ProjectPage = lazy(() => import('./pages/ProjectPage.jsx'))
 const HomePage = lazy(() => import('./pages/Home.jsx'))
 
-const CoursePage = lazy(() => import('./pages/Course.jsx'))
+const CoursePage = lazy(() => import('./pages/Course/index.jsx'))
 const EnrollmentForm = lazy(() => import('./pages/EnrollmentForm.jsx'))
 
 const routeSeo = {

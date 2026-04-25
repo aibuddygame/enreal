@@ -9,6 +9,7 @@ const HomePage = lazy(() => import('./pages/Home.jsx'))
 
 const CoursePage = lazy(() => import('./pages/Course.jsx'))
 const EnrollmentForm = lazy(() => import('./pages/EnrollmentForm.jsx'))
+const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy.jsx'))
 
 const routeSeo = {
     '/': {
@@ -36,7 +37,7 @@ const routeSeo = {
 
     '/course': {
         title: '7堂課成為公司AI負責人 | Enreal AI 職業加速器',
-        description: '專為中層專業人士設計的AI職業加速器。7堂課學會領導公司AI轉型，建立MVP作品集，在真實CEO面前展示成果。不要只是學AI——成為AI領導。',
+        description: '專為中層專業人士設計的AI職業加速器。7堂課學會領導公司AI轉型,建立MVP作品集,在真實CEO面前展示成果。不要只是學AI--成為AI領導。',
         alternates: [
             { hrefLang: 'zh-Hant', href: '/course' },
             { hrefLang: 'en', href: '/course/en' },
@@ -44,7 +45,7 @@ const routeSeo = {
         schema: {
             '@context': 'https://schema.org',
             '@type': 'Course',
-            name: 'AI職業加速器：7堂課成為公司AI負責人',
+            name: 'AI職業加速器:7堂課成為公司AI負責人',
             provider: { '@type': 'Organization', name: 'Enreal AI', sameAs: seoBase.baseUrl },
             url: `${seoBase.baseUrl}/course`,
             description: '專為30-45歲中層專業人士設計。MVP作品集 + CEO人脈網絡 + 升職加薪籌碼',
@@ -52,7 +53,7 @@ const routeSeo = {
     },
     '/course/en': {
         title: '7 Sessions to Become Your Company\'s AI Lead | Enreal AI Career Accelerator',
-        description: 'An AI career accelerator for mid-level professionals. 7 sessions to lead your company\'s AI transformation, build an MVP portfolio, and present to real CEOs. Don\'t just learn AI—become an AI leader.',
+        description: 'An AI career accelerator for mid-level professionals. 7 sessions to lead your company\'s AI transformation, build an MVP portfolio, and present to real CEOs. Don\'t just learn AI-become an AI leader.',
         alternates: [
             { hrefLang: 'zh-Hant', href: '/course' },
             { hrefLang: 'en', href: '/course/en' },
@@ -68,13 +69,23 @@ const routeSeo = {
     },
     '/enroll': {
         title: 'Apply for the AI Mid-Level Promotion Course | Enreal AI',
-        description: 'Submit your application for Enreal AI’s bilingual AI course and join a practical program built for professionals and managers.',
+        description: "Submit your application for Enreal AI's bilingual AI course and join a practical program built for professionals and managers.",
         schema: {
             '@context': 'https://schema.org',
             '@type': 'EducationalOccupationalProgram',
             name: 'AI Mid-Level Promotion Course Application',
             provider: { '@type': 'Organization', name: 'Enreal AI', sameAs: seoBase.baseUrl },
             url: `${seoBase.baseUrl}/enroll`,
+        },
+    },
+    '/gps-faker/privacy': {
+        title: 'GPS Faker Privacy Policy',
+        description: 'Privacy policy for GPS Faker app - mock location tool for Android. Learn how we handle your location data.',
+        schema: {
+            '@context': 'https://schema.org',
+            '@type': 'WebPage',
+            name: 'GPS Faker Privacy Policy',
+            url: `${seoBase.baseUrl}/gps-faker/privacy`,
         },
     },
 }
@@ -108,6 +119,7 @@ export default function App() {
                     <Route path="/course" element={<CoursePage lang="zh" />} />
                     <Route path="/course/en" element={<CoursePage lang="en" />} />
                     <Route path="/enroll" element={<EnrollmentForm />} />
+                    <Route path="/gps-faker/privacy" element={<PrivacyPolicy />} />
                     <Route path="/individual" element={<Navigate to="/course" replace />} />
                     <Route path="/individual/zh" element={<Navigate to="/course" replace />} />
                     <Route path="/work/:slug" element={<ProjectPage />} />

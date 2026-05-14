@@ -31,6 +31,26 @@
       "dest": "/favicon.svg"
     },
     {
+      "src": "/ai-(.+)\\.(jpg|png|jpeg|webp)",
+      "dest": "/ai-$1.$2"
+    },
+    {
+      "src": "/hero-cover\\.png",
+      "dest": "/hero-cover.png"
+    },
+    {
+      "src": "/og-(.+)\\.(jpg|png)",
+      "dest": "/og-$1.$2"
+    },
+    {
+      "src": "/manifest\\.webmanifest",
+      "dest": "/manifest.webmanifest"
+    },
+    {
+      "src": "/sw\\.js",
+      "dest": "/sw.js"
+    },
+    {
       "src": "/(.*)",
       "dest": "/index.html"
     }

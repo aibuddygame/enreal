@@ -54,124 +54,58 @@ export default function HeroSection() {
     const badges = ['Reliable', 'AI + Human', 'Agentic', 'Practical', 'Operational']
 
     return (
-        <section id="hero" style={{
-            minHeight: '100dvh',
-            display: 'flex', alignItems: 'center',
-            padding: '8rem 5vw 5rem',
-            background: '#FFFFFF',
-            position: 'relative', overflow: 'hidden',
-        }}>
+        <section id="hero" className="relative min-h-dvh flex items-center overflow-hidden bg-white pt-32 pb-20 px-4 sm:px-6 lg:px-[5vw]">
             {/* Background glow */}
-            <div aria-hidden style={{
-                position: 'absolute', top: '40%', right: '-10%',
-                width: '60vw', height: '60vw', maxWidth: 700,
-                borderRadius: '50%',
-                background: 'radial-gradient(circle, rgba(37,99,235,0.06) 0%, rgba(37,99,235,0) 70%)',
-                pointerEvents: 'none', zIndex: 0,
-            }} />
+            <div aria-hidden className="absolute top-[40%] -right-[10%] w-[60vw] h-[60vw] max-w-[700px] rounded-full pointer-events-none z-0"
+                style={{ background: 'radial-gradient(circle, rgba(37,99,235,0.06) 0%, rgba(37,99,235,0) 70%)' }} />
 
-            <div style={{ maxWidth: 1200, margin: '0 auto', width: '100%', position: 'relative', zIndex: 1 }}>
-                <div style={{
-                    display: 'grid',
-                    gridTemplateColumns: '1fr 1fr',
-                    gap: '4rem',
-                    alignItems: 'center',
-                }} className="hero-grid">
+            <div className="section-container relative z-10">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
                     {/* Left: Text */}
-                    <div>
-                        <p className="f-mono" style={{
-                            fontSize: '0.7rem', letterSpacing: '0.2em',
-                            color: '#2563EB', marginBottom: '1.5rem', textTransform: 'uppercase',
-                        }}>
+                    <div className="order-2 lg:order-1">
+                        <p className="f-mono text-[0.7rem] tracking-[0.2em] text-[#2563EB] mb-6 uppercase">
                             Enreal Lab — Hong Kong
                         </p>
 
-                        <h1 style={{
-                            fontFamily: 'Inter, sans-serif', fontWeight: 900,
-                            fontSize: 'clamp(2.2rem, 4vw, 3.8rem)',
-                            letterSpacing: '-0.03em', lineHeight: 1.08,
-                            color: '#1C1C1E', marginBottom: '0.2em',
-                        }}>
+                        <h1 className="f-sans font-black text-4xl sm:text-5xl lg:text-[3.8rem] tracking-tight leading-[1.08] text-[#1C1C1E] mb-1">
                             Your Reliable AI Workforce Partner
                         </h1>
 
                         {/* Typewriter */}
-                        <div style={{ position: 'relative', marginBottom: '1.5rem' }}>
-                            <h2 aria-hidden style={{
-                                fontFamily: 'Inter, sans-serif', fontWeight: 800,
-                                fontSize: 'clamp(1.6rem, 3vw, 2.6rem)',
-                                letterSpacing: '-0.02em', lineHeight: 1.15,
-                                visibility: 'hidden', pointerEvents: 'none', userSelect: 'none',
-                                whiteSpace: 'pre-wrap',
-                            }}>
+                        <div className="relative mb-6 mt-2">
+                            <h2 aria-hidden className="f-sans font-extrabold text-2xl sm:text-3xl lg:text-[2.6rem] tracking-tight leading-[1.15] invisible pointer-events-none select-none whitespace-pre-wrap">
                                 {LONGEST}
                             </h2>
-                            <h2 style={{
-                                position: 'absolute', top: 0, left: 0, right: 0,
-                                fontFamily: 'Inter, sans-serif', fontWeight: 800,
-                                fontSize: 'clamp(1.6rem, 3vw, 2.6rem)',
-                                letterSpacing: '-0.02em', lineHeight: 1.15,
-                                color: '#2563EB',
-                                whiteSpace: 'pre-wrap',
-                            }}>
+                            <h2 className="absolute top-0 left-0 right-0 f-sans font-extrabold text-2xl sm:text-3xl lg:text-[2.6rem] tracking-tight leading-[1.15] text-[#2563EB] whitespace-pre-wrap">
                                 {display}
-                                <span className="tw-cursor" style={{
-                                    display: 'inline-block', width: '0.06em', height: '0.85em',
-                                    background: '#2563EB', marginLeft: '0.05em',
-                                    verticalAlign: 'middle', borderRadius: 1,
-                                }} />
+                                <span className="tw-cursor inline-block w-[0.06em] h-[0.85em] bg-[#2563EB] ml-[0.05em] align-middle rounded-sm" />
                             </h2>
                         </div>
 
-                        <p style={{
-                            fontFamily: 'Manrope, sans-serif',
-                            fontSize: 'clamp(0.95rem, 1.4vw, 1.1rem)',
-                            color: 'rgba(28,28,30,0.6)', lineHeight: 1.7,
-                            maxWidth: 480, marginBottom: '2rem',
-                        }}>
+                        <p className="f-supp text-base sm:text-lg text-black/60 leading-relaxed max-w-md mb-8">
                             We help businesses deploy reliable AI employees across operations, reporting, marketing, customer service, administration, and software workflows.
                         </p>
 
                         {/* Badges */}
-                        <div style={{
-                            display: 'flex', flexWrap: 'wrap', gap: '0.5rem',
-                            marginBottom: '2.25rem',
-                        }}>
+                        <div className="flex flex-wrap gap-2 mb-9">
                             {badges.map(b => (
-                                <span key={b} style={{
-                                    padding: '0.35rem 0.85rem', borderRadius: 999,
-                                    background: 'rgba(37,99,235,0.06)',
-                                    border: '1px solid rgba(37,99,235,0.12)',
-                                    fontFamily: 'Inter, sans-serif', fontSize: '0.78rem',
-                                    fontWeight: 600, color: '#2563EB',
-                                }}>{b}</span>
+                                <span key={b} className="px-3.5 py-1.5 rounded-full bg-blue-500/[0.06] border border-blue-500/[0.12] font-sans text-[0.78rem] font-semibold text-[#2563EB]">
+                                    {b}
+                                </span>
                             ))}
                         </div>
 
                         {/* CTAs */}
-                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.875rem' }}>
-                            <button onClick={() => go('consultation')} className="btn-mag" style={{
-                                padding: '0.9rem 1.8rem', borderRadius: 999,
-                                background: '#2563EB', border: 'none',
-                                fontFamily: 'Inter, sans-serif', fontSize: '0.88rem',
-                                fontWeight: 700, color: '#fff',
-                                boxShadow: '0 4px 20px rgba(37,99,235,0.28)',
-                                display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
-                            }}>
-                                <span className="slide" style={{ background: '#1D4ED8' }} />
-                                <span className="label" style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+                        <div className="flex flex-wrap gap-3.5">
+                            <button onClick={() => go('consultation')} className="btn-primary">
+                                <span className="slide bg-[#1D4ED8]" />
+                                <span className="label flex items-center gap-1.5">
                                     Book a Free Consultation <ArrowRight size={15} />
                                 </span>
                             </button>
-                            <button onClick={() => go('ai-workforce')} className="btn-mag" style={{
-                                padding: '0.9rem 1.8rem', borderRadius: 999,
-                                background: 'transparent', border: '1px solid rgba(28,28,30,0.12)',
-                                fontFamily: 'Inter, sans-serif', fontSize: '0.88rem',
-                                fontWeight: 500, color: 'rgba(28,28,30,0.6)',
-                                display: 'inline-flex', alignItems: 'center', gap: '0.4rem',
-                            }}>
-                                <span className="slide" style={{ background: 'rgba(37,99,235,0.08)' }} />
-                                <span className="label" style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+                            <button onClick={() => go('ai-workforce')} className="btn-secondary">
+                                <span className="slide bg-blue-500/[0.08]" />
+                                <span className="label flex items-center gap-1.5">
                                     <LayoutGrid size={15} /> Explore AI Employees
                                 </span>
                             </button>
@@ -179,31 +113,15 @@ export default function HeroSection() {
                     </div>
 
                     {/* Right: Cover Image */}
-                    <div style={{
-                        display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    }} className="hero-visual">
-                        <img 
-                            src="/ai-employee-hero.png" 
+                    <div className="order-1 lg:order-2 flex items-center justify-center">
+                        <img
+                            src="/ai-employee-hero.png"
                             alt="AI Workforce - Professional AI employees working alongside human teams"
-                            style={{
-                                width: '100%', 
-                                aspectRatio: '4/3',
-                                borderRadius: '1.5rem',
-                                objectFit: 'cover',
-                                border: '1px solid rgba(37,99,235,0.1)',
-                                boxShadow: '0 8px 32px rgba(37,99,235,0.15)',
-                            }}
+                            className="w-full aspect-[4/3] rounded-3xl object-cover border border-blue-500/10 shadow-lg shadow-blue-500/15"
                         />
                     </div>
                 </div>
             </div>
-
-            <style>{`
-                @media (max-width: 900px) {
-                    .hero-grid { grid-template-columns: 1fr !important; }
-                    .hero-visual { order: -1; max-width: 400px; margin: 0 auto; }
-                }
-            `}</style>
         </section>
     )
 }

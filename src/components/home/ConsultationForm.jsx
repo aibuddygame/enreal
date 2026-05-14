@@ -79,29 +79,13 @@ export default function ConsultationForm() {
 
     if (status === 'success') {
         return (
-            <section id="consultation" style={{ padding: '6rem 5vw', background: '#F8FAFC' }}>
-                <div style={{
-                    maxWidth: 640, margin: '0 auto',
-                    background: '#fff', borderRadius: '1.5rem',
-                    padding: '3rem', textAlign: 'center',
-                    border: '1px solid rgba(28,28,30,0.06)',
-                }}>
-                    <div style={{
-                        width: 64, height: 64, borderRadius: '50%',
-                        background: 'rgba(34,197,94,0.1)',
-                        display: 'flex', alignItems: 'center', justifyContent: 'center',
-                        margin: '0 auto 1.5rem',
-                    }}>
+            <section id="consultation" className="py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-[5vw] bg-[#F8FAFC]">
+                <div className="max-w-xl mx-auto bg-white rounded-3xl p-8 md:p-12 text-center border border-black/[0.06]">
+                    <div className="w-16 h-16 rounded-full bg-green-500/10 flex items-center justify-center mx-auto mb-6">
                         <CheckCircle size={28} color="#22C55E" />
                     </div>
-                    <h3 style={{
-                        fontFamily: 'Inter, sans-serif', fontWeight: 800,
-                        fontSize: '1.5rem', color: '#1C1C1E', marginBottom: '0.75rem',
-                    }}>Thank You!</h3>
-                    <p style={{
-                        fontFamily: 'Manrope, sans-serif',
-                        fontSize: '1rem', color: 'rgba(28,28,30,0.55)', lineHeight: 1.7,
-                    }}>
+                    <h3 className="f-sans font-extrabold text-2xl text-[#1C1C1E] mb-3">Thank You!</h3>
+                    <p className="f-supp text-base text-black/55 leading-relaxed">
                         We have received your consultation request. Our team will reach out within 24 hours.
                     </p>
                 </div>
@@ -110,39 +94,19 @@ export default function ConsultationForm() {
     }
 
     return (
-        <section id="consultation" style={{ padding: '6rem 5vw', background: '#F8FAFC' }}>
-            <div style={{ maxWidth: 720, margin: '0 auto' }}>
-                <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
-                    <p className="f-mono" style={{
-                        fontSize: '0.65rem', letterSpacing: '0.2em',
-                        color: '#2563EB', marginBottom: '1rem', textTransform: 'uppercase',
-                    }}>
-                        Get Started
-                    </p>
-                    <h2 style={{
-                        fontFamily: 'Inter, sans-serif', fontWeight: 800,
-                        fontSize: 'clamp(1.6rem, 3vw, 2.4rem)',
-                        letterSpacing: '-0.02em', lineHeight: 1.15,
-                        color: '#1C1C1E', marginBottom: '1rem',
-                    }}>
-                        Book a Free AI Workflow Consultation
-                    </h2>
-                    <p style={{
-                        fontFamily: 'Manrope, sans-serif',
-                        fontSize: '1rem', color: 'rgba(28,28,30,0.55)', lineHeight: 1.7,
-                    }}>
+        <section id="consultation" className="py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-[5vw] bg-[#F8FAFC]">
+            <div className="max-w-3xl mx-auto">
+                <div className="text-center mb-10">
+                    <p className="section-eyebrow">Get Started</p>
+                    <h2 className="section-title">Book a Free AI Workflow Consultation</h2>
+                    <p className="section-desc">
                         Tell us about your business and we will recommend the right AI employees for your needs.
                     </p>
                 </div>
 
-                <form onSubmit={handleSubmit} style={{
-                    background: '#fff', borderRadius: '1.5rem',
-                    padding: '2.5rem',
-                    border: '1px solid rgba(28,28,30,0.06)',
-                    boxShadow: '0 4px 24px rgba(0,0,0,0.03)',
-                }}>
+                <form onSubmit={handleSubmit} className="bg-white rounded-3xl p-6 md:p-10 border border-black/[0.06] shadow-sm shadow-black/[0.03]">
                     {/* Honeypot */}
-                    <div style={{ position: 'absolute', left: '-9999px' }} aria-hidden="true">
+                    <div className="absolute -left-[9999px]" aria-hidden="true">
                         <input
                             type="text"
                             name="honeypot"
@@ -153,16 +117,10 @@ export default function ConsultationForm() {
                         />
                     </div>
 
-                    <div style={{
-                        display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.25rem',
-                    }} className="form-grid">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                         <div>
-                            <label htmlFor="fullName" style={{
-                                display: 'block', fontFamily: 'Inter, sans-serif',
-                                fontSize: '0.82rem', fontWeight: 600,
-                                color: '#1C1C1E', marginBottom: '0.4rem',
-                            }}>
-                                Full Name <span style={{ color: '#EF4444' }}>*</span>
+                            <label htmlFor="fullName" className="form-label">
+                                Full Name <span className="text-red-500">*</span>
                             </label>
                             <input
                                 id="fullName"
@@ -170,24 +128,11 @@ export default function ConsultationForm() {
                                 required
                                 value={form.fullName}
                                 onChange={e => setForm({ ...form, fullName: e.target.value })}
-                                style={{
-                                    width: '100%', padding: '0.75rem 1rem',
-                                    borderRadius: '0.75rem',
-                                    border: '1px solid rgba(28,28,30,0.1)',
-                                    fontFamily: 'Inter, sans-serif', fontSize: '0.9rem',
-                                    color: '#1C1C1E', background: '#FAFAFA',
-                                    outline: 'none',
-                                }}
-                                onFocus={e => e.currentTarget.style.borderColor = 'rgba(37,99,235,0.4)'}
-                                onBlur={e => e.currentTarget.style.borderColor = 'rgba(28,28,30,0.1)'}
+                                className="form-input"
                             />
                         </div>
                         <div>
-                            <label htmlFor="companyName" style={{
-                                display: 'block', fontFamily: 'Inter, sans-serif',
-                                fontSize: '0.82rem', fontWeight: 600,
-                                color: '#1C1C1E', marginBottom: '0.4rem',
-                            }}>
+                            <label htmlFor="companyName" className="form-label">
                                 Company Name
                             </label>
                             <input
@@ -195,25 +140,12 @@ export default function ConsultationForm() {
                                 type="text"
                                 value={form.companyName}
                                 onChange={e => setForm({ ...form, companyName: e.target.value })}
-                                style={{
-                                    width: '100%', padding: '0.75rem 1rem',
-                                    borderRadius: '0.75rem',
-                                    border: '1px solid rgba(28,28,30,0.1)',
-                                    fontFamily: 'Inter, sans-serif', fontSize: '0.9rem',
-                                    color: '#1C1C1E', background: '#FAFAFA',
-                                    outline: 'none',
-                                }}
-                                onFocus={e => e.currentTarget.style.borderColor = 'rgba(37,99,235,0.4)'}
-                                onBlur={e => e.currentTarget.style.borderColor = 'rgba(28,28,30,0.1)'}
+                                className="form-input"
                             />
                         </div>
                         <div>
-                            <label htmlFor="email" style={{
-                                display: 'block', fontFamily: 'Inter, sans-serif',
-                                fontSize: '0.82rem', fontWeight: 600,
-                                color: '#1C1C1E', marginBottom: '0.4rem',
-                            }}>
-                                Email <span style={{ color: '#EF4444' }}>*</span>
+                            <label htmlFor="email" className="form-label">
+                                Email <span className="text-red-500">*</span>
                             </label>
                             <input
                                 id="email"
@@ -221,24 +153,11 @@ export default function ConsultationForm() {
                                 required
                                 value={form.email}
                                 onChange={e => setForm({ ...form, email: e.target.value })}
-                                style={{
-                                    width: '100%', padding: '0.75rem 1rem',
-                                    borderRadius: '0.75rem',
-                                    border: '1px solid rgba(28,28,30,0.1)',
-                                    fontFamily: 'Inter, sans-serif', fontSize: '0.9rem',
-                                    color: '#1C1C1E', background: '#FAFAFA',
-                                    outline: 'none',
-                                }}
-                                onFocus={e => e.currentTarget.style.borderColor = 'rgba(37,99,235,0.4)'}
-                                onBlur={e => e.currentTarget.style.borderColor = 'rgba(28,28,30,0.1)'}
+                                className="form-input"
                             />
                         </div>
                         <div>
-                            <label htmlFor="phone" style={{
-                                display: 'block', fontFamily: 'Inter, sans-serif',
-                                fontSize: '0.82rem', fontWeight: 600,
-                                color: '#1C1C1E', marginBottom: '0.4rem',
-                            }}>
+                            <label htmlFor="phone" className="form-label">
                                 Phone / WhatsApp
                             </label>
                             <input
@@ -246,26 +165,13 @@ export default function ConsultationForm() {
                                 type="tel"
                                 value={form.phone}
                                 onChange={e => setForm({ ...form, phone: e.target.value })}
-                                style={{
-                                    width: '100%', padding: '0.75rem 1rem',
-                                    borderRadius: '0.75rem',
-                                    border: '1px solid rgba(28,28,30,0.1)',
-                                    fontFamily: 'Inter, sans-serif', fontSize: '0.9rem',
-                                    color: '#1C1C1E', background: '#FAFAFA',
-                                    outline: 'none',
-                                }}
-                                onFocus={e => e.currentTarget.style.borderColor = 'rgba(37,99,235,0.4)'}
-                                onBlur={e => e.currentTarget.style.borderColor = 'rgba(28,28,30,0.1)'}
+                                className="form-input"
                             />
                         </div>
                     </div>
 
-                    <div style={{ marginTop: '1.25rem' }}>
-                        <label htmlFor="website" style={{
-                            display: 'block', fontFamily: 'Inter, sans-serif',
-                            fontSize: '0.82rem', fontWeight: 600,
-                            color: '#1C1C1E', marginBottom: '0.4rem',
-                        }}>
+                    <div className="mt-5">
+                        <label htmlFor="website" className="form-label">
                             Company Website
                         </label>
                         <input
@@ -273,62 +179,31 @@ export default function ConsultationForm() {
                             type="url"
                             value={form.website}
                             onChange={e => setForm({ ...form, website: e.target.value })}
-                            style={{
-                                width: '100%', padding: '0.75rem 1rem',
-                                borderRadius: '0.75rem',
-                                border: '1px solid rgba(28,28,30,0.1)',
-                                fontFamily: 'Inter, sans-serif', fontSize: '0.9rem',
-                                color: '#1C1C1E', background: '#FAFAFA',
-                                outline: 'none',
-                            }}
-                            onFocus={e => e.currentTarget.style.borderColor = 'rgba(37,99,235,0.4)'}
-                            onBlur={e => e.currentTarget.style.borderColor = 'rgba(28,28,30,0.1)'}
+                            className="form-input"
                         />
                     </div>
 
-                    <div style={{ marginTop: '1.25rem' }}>
-                        <p style={{
-                            display: 'block', fontFamily: 'Inter, sans-serif',
-                            fontSize: '0.82rem', fontWeight: 600,
-                            color: '#1C1C1E', marginBottom: '0.6rem',
-                        }}>
-                            Interested AI Employees
-                        </p>
-                        <div style={{
-                            display: 'flex', flexWrap: 'wrap', gap: '0.5rem',
-                        }}>
+                    <div className="mt-5">
+                        <p className="form-label">Interested AI Employees</p>
+                        <div className="flex flex-wrap gap-2">
                             {EMPLOYEE_OPTIONS.map(emp => (
                                 <button
                                     key={emp}
                                     type="button"
                                     onClick={() => toggleEmployee(emp)}
-                                    style={{
-                                        padding: '0.45rem 1rem', borderRadius: 999,
-                                        border: form.interestedEmployees.includes(emp)
-                                            ? '1px solid #2563EB'
-                                            : '1px solid rgba(28,28,30,0.1)',
-                                        background: form.interestedEmployees.includes(emp)
-                                            ? 'rgba(37,99,235,0.08)'
-                                            : '#FAFAFA',
-                                        fontFamily: 'Inter, sans-serif', fontSize: '0.82rem',
-                                        fontWeight: 500,
-                                        color: form.interestedEmployees.includes(emp) ? '#2563EB' : 'rgba(28,28,30,0.6)',
-                                        cursor: 'pointer', transition: 'all 0.2s',
-                                    }}
-                                >
+                                    className={`px-4 py-2 rounded-full text-[0.82rem] font-medium transition-all duration-200 cursor-pointer
+                                        ${form.interestedEmployees.includes(emp)
+                                            ? 'bg-blue-500/[0.08] text-[#2563EB] border border-[#2563EB]'
+                                            : 'bg-[#FAFAFA] text-black/60 border border-black/10 hover:border-black/20'}`}>
                                     {emp}
                                 </button>
                             ))}
                         </div>
                     </div>
 
-                    <div style={{ marginTop: '1.25rem' }}>
-                        <label htmlFor="message" style={{
-                            display: 'block', fontFamily: 'Inter, sans-serif',
-                            fontSize: '0.82rem', fontWeight: 600,
-                            color: '#1C1C1E', marginBottom: '0.4rem',
-                        }}>
-                            Message <span style={{ color: '#EF4444' }}>*</span>
+                    <div className="mt-5">
+                        <label htmlFor="message" className="form-label">
+                            Message <span className="text-red-500">*</span>
                         </label>
                         <textarea
                             id="message"
@@ -337,46 +212,22 @@ export default function ConsultationForm() {
                             value={form.message}
                             onChange={e => setForm({ ...form, message: e.target.value })}
                             placeholder="Tell us about your business and what you would like to automate..."
-                            style={{
-                                width: '100%', padding: '0.75rem 1rem',
-                                borderRadius: '0.75rem',
-                                border: '1px solid rgba(28,28,30,0.1)',
-                                fontFamily: 'Inter, sans-serif', fontSize: '0.9rem',
-                                color: '#1C1C1E', background: '#FAFAFA',
-                                outline: 'none', resize: 'vertical',
-                            }}
-                            onFocus={e => e.currentTarget.style.borderColor = 'rgba(37,99,235,0.4)'}
-                            onBlur={e => e.currentTarget.style.borderColor = 'rgba(28,28,30,0.1)'}
+                            className="form-input resize-y"
                         />
                     </div>
 
                     {status === 'error' && (
-                        <p style={{
-                            marginTop: '1rem',
-                            fontFamily: 'Inter, sans-serif', fontSize: '0.85rem',
-                            color: '#EF4444',
-                        }}>{errorMsg}</p>
+                        <p className="mt-4 font-sans text-sm text-red-500">{errorMsg}</p>
                     )}
 
                     <button
                         type="submit"
                         disabled={status === 'submitting'}
-                        className="btn-mag"
-                        style={{
-                            marginTop: '1.75rem',
-                            width: '100%', padding: '0.9rem',
-                            borderRadius: '0.875rem',
-                            background: '#2563EB', border: 'none',
-                            fontFamily: 'Inter, sans-serif', fontSize: '0.95rem',
-                            fontWeight: 700, color: '#fff',
-                            display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-                            gap: '0.5rem', cursor: status === 'submitting' ? 'wait' : 'pointer',
-                            opacity: status === 'submitting' ? 0.7 : 1,
-                        }}
+                        className="btn-primary w-full justify-center mt-7 disabled:opacity-70 disabled:cursor-wait"
                     >
                         {status === 'submitting' ? (
                             <>
-                                <Loader2 size={16} className="spin-slow" style={{ animation: 'slow-spin 1s linear infinite' }} />
+                                <Loader2 size={16} className="animate-spin" />
                                 Sending...
                             </>
                         ) : (
@@ -387,12 +238,6 @@ export default function ConsultationForm() {
                     </button>
                 </form>
             </div>
-
-            <style>{`
-                @media (max-width: 640px) {
-                    .form-grid { grid-template-columns: 1fr !important; }
-                }
-            `}</style>
         </section>
     )
 }

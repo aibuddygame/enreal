@@ -35,109 +35,42 @@ export default function DeploymentSection() {
     }, [])
 
     return (
-        <section id="deployment" ref={ref} style={{ padding: '6rem 5vw', background: '#FFFFFF' }}>
-            <div style={{ maxWidth: 1200, margin: '0 auto' }}>
-                <div style={{
-                    textAlign: 'center', maxWidth: 640, margin: '0 auto 3.5rem',
-                    opacity: visible ? 1 : 0, transform: visible ? 'translateY(0)' : 'translateY(20px)',
-                    transition: 'all 0.7s cubic-bezier(0.25,0.46,0.45,0.94)',
-                }}>
-                    <p className="f-mono" style={{
-                        fontSize: '0.65rem', letterSpacing: '0.2em',
-                        color: '#2563EB', marginBottom: '1rem', textTransform: 'uppercase',
-                    }}>
-                        Deployment
-                    </p>
-                    <h2 style={{
-                        fontFamily: 'Inter, sans-serif', fontWeight: 800,
-                        fontSize: 'clamp(1.6rem, 3vw, 2.4rem)',
-                        letterSpacing: '-0.02em', lineHeight: 1.15,
-                        color: '#1C1C1E', marginBottom: '1rem',
-                    }}>
-                        Flexible AI Workforce Deployment
-                    </h2>
-                    <p style={{
-                        fontFamily: 'Manrope, sans-serif',
-                        fontSize: '1rem', color: 'rgba(28,28,30,0.55)', lineHeight: 1.7,
-                    }}>
-                        Choose the deployment model that fits your organization\'s size, maturity, and compliance needs.
+        <section id="deployment" ref={ref} className="py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-[5vw] bg-white">
+            <div className="section-container">
+                <div className={`section-header mb-10 md:mb-14 transition-all duration-700 ease-out ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}>
+                    <p className="section-eyebrow">Deployment</p>
+                    <h2 className="section-title">Flexible AI Workforce Deployment</h2>
+                    <p className="section-desc">
+                        Choose the deployment model that fits your organization's size, maturity, and compliance needs.
                     </p>
                 </div>
 
-                <div style={{
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-                    gap: '1.5rem',
-                }}>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     {models.map((m, i) => {
                         const Icon = m.icon
                         return (
-                            <div key={m.title} style={{
-                                background: m.highlight
-                                    ? 'linear-gradient(180deg, #f0f4ff 0%, #ffffff 100%)'
-                                    : '#fff',
-                                borderRadius: '1.5rem',
-                                padding: '2.25rem',
-                                border: m.highlight
-                                    ? '2px solid rgba(37,99,235,0.2)'
-                                    : '1px solid rgba(28,28,30,0.06)',
-                                position: 'relative',
-                                opacity: visible ? 1 : 0,
-                                transform: visible ? 'translateY(0)' : 'translateY(24px)',
-                                transition: `all 0.6s cubic-bezier(0.25,0.46,0.45,0.94) ${0.1 * i}s`,
-                            }}>
+                            <div key={m.title}
+                                className={`relative rounded-3xl p-7 md:p-9 transition-all duration-500 ease-out ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}
+                                    ${m.highlight
+                                        ? 'bg-gradient-to-b from-[#f0f4ff] to-white border-2 border-blue-500/20 hover:border-blue-500/30 hover:shadow-xl hover:shadow-blue-500/10'
+                                        : 'bg-white border border-black/[0.06] hover:-translate-y-1 hover:shadow-xl hover:border-blue-500/20'}`}
+                                style={{ transitionDelay: `${0.1 * i}s` }}>
                                 {m.highlight && (
-                                    <div style={{
-                                        position: 'absolute', top: '-1px', left: '50%',
-                                        transform: 'translateX(-50%)',
-                                        background: '#2563EB',
-                                        color: '#fff',
-                                        fontFamily: 'Inter, sans-serif',
-                                        fontSize: '0.7rem', fontWeight: 700,
-                                        padding: '0.35rem 1rem',
-                                        borderRadius: '0 0 0.5rem 0.5rem',
-                                        display: 'flex', alignItems: 'center', gap: '0.3rem',
-                                    }}>
+                                    <div className="absolute -top-px left-1/2 -translate-x-1/2 bg-[#2563EB] text-white font-sans text-[0.7rem] font-bold px-4 py-1.5 rounded-b-lg flex items-center gap-1">
                                         <Star size={12} /> Recommended
                                     </div>
                                 )}
 
-                                <div style={{
-                                    width: 48, height: 48, borderRadius: 12,
-                                    background: m.highlight ? 'rgba(37,99,235,0.1)' : 'rgba(28,28,30,0.04)',
-                                    display: 'flex', alignItems: 'center', justifyContent: 'center',
-                                    marginBottom: '1.25rem',
-                                }}>
+                                <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-5 ${m.highlight ? 'bg-blue-500/10' : 'bg-black/[0.04]'}`}>
                                     <Icon size={22} color={m.highlight ? '#2563EB' : '#1C1C1E'} />
                                 </div>
 
-                                <h3 style={{
-                                    fontFamily: 'Inter, sans-serif', fontWeight: 700,
-                                    fontSize: '1.15rem', color: '#1C1C1E',
-                                    marginBottom: '0.75rem',
-                                }}>{m.title}</h3>
+                                <h3 className="f-sans font-bold text-[1.15rem] text-[#1C1C1E] mb-3">{m.title}</h3>
+                                <p className="f-supp text-[0.9rem] text-black/55 leading-relaxed mb-5">{m.desc}</p>
 
-                                <p style={{
-                                    fontFamily: 'Manrope, sans-serif',
-                                    fontSize: '0.9rem', color: 'rgba(28,28,30,0.55)',
-                                    lineHeight: 1.7, marginBottom: '1.25rem',
-                                }}>{m.desc}</p>
-
-                                <div style={{
-                                    background: m.highlight ? 'rgba(37,99,235,0.04)' : 'rgba(28,28,30,0.03)',
-                                    borderRadius: '0.75rem',
-                                    padding: '1rem 1.25rem',
-                                }}>
-                                    <p style={{
-                                        fontFamily: 'Inter, sans-serif', fontWeight: 600,
-                                        fontSize: '0.75rem', color: 'rgba(28,28,30,0.4)',
-                                        marginBottom: '0.35rem', textTransform: 'uppercase', letterSpacing: '0.05em',
-                                    }}>Best For</p>
-                                    <p style={{
-                                        fontFamily: 'Manrope, sans-serif',
-                                        fontSize: '0.85rem', color: 'rgba(28,28,30,0.6)',
-                                        lineHeight: 1.6,
-                                    }}>{m.bestFor}</p>
+                                <div className={`rounded-xl p-4 ${m.highlight ? 'bg-blue-500/[0.04]' : 'bg-black/[0.03]'}`}>
+                                    <p className="f-sans font-semibold text-[0.75rem] text-black/40 mb-1 uppercase tracking-wider">Best For</p>
+                                    <p className="f-supp text-[0.85rem] text-black/60 leading-relaxed">{m.bestFor}</p>
                                 </div>
                             </div>
                         )

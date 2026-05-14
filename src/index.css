@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ── Noise overlay ─────────────────────────────────────────── */
+/* ── CSS Variables ─────────────────────────────────────────── */
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -12,18 +12,16 @@
     --ring: 240 10% 3.9%;
     --radius: 0.5rem;
     --black: #000000;
-  }
-
-  .dark {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 240 4.9% 83.9%;
-    --black: #000000;
+    --navy: #1e3a5f;
+    --blue: #2563EB;
+    --blue-dark: #1D4ED8;
+    --orange: #EA580C;
+    --text: #1C1C1E;
+    --muted: rgba(28,28,30,0.55);
   }
 }
 
+/* ── Noise overlay ─────────────────────────────────────────── */
 body::before {
   content: '';
   position: fixed;
@@ -55,6 +53,7 @@ body {
   font-family: 'Inter', system-ui, sans-serif;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* ── Typography ─────────────────────────────────────────────── */
@@ -70,7 +69,64 @@ body {
   font-family: 'JetBrains Mono', monospace;
 }
 
-/* ── Magnetic button ─────────────────────────────────────────── */
+/* ── Section Patterns ──────────────────────────────────────── */
+.section-container {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.section-header {
+  @apply text-center max-w-2xl mx-auto;
+}
+
+.section-eyebrow {
+  @apply f-mono text-[0.65rem] tracking-[0.2em] text-[#2563EB] mb-4 uppercase;
+}
+
+.section-title {
+  @apply f-sans font-extrabold text-3xl md:text-4xl lg:text-[2.4rem] tracking-tight leading-[1.15] text-[#1C1C1E] mb-4;
+}
+
+.section-desc {
+  @apply f-supp text-base text-black/[0.55] leading-relaxed;
+}
+
+/* ── Card Patterns ─────────────────────────────────────────── */
+.card-base {
+  @apply bg-white rounded-2xl border border-black/[0.06] transition-all duration-300 ease-out;
+}
+
+.card-base:hover {
+  @apply -translate-y-1 shadow-xl border-blue-500/20;
+}
+
+.card-icon {
+  @apply w-11 h-11 rounded-xl flex items-center justify-center;
+}
+
+/* ── Button Patterns ───────────────────────────────────────── */
+.btn-primary {
+  @apply inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#2563EB] text-white
+         font-sans text-sm font-bold shadow-lg shadow-blue-500/30
+         transition-all duration-300 ease-out hover:shadow-xl hover:shadow-blue-500/40
+         hover:-translate-y-0.5 hover:bg-[#1D4ED8] active:scale-[0.98];
+}
+
+.btn-secondary {
+  @apply inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-transparent
+         text-black/60 font-sans text-sm font-medium
+         border border-black/10 transition-all duration-300 ease-out
+         hover:bg-blue-500/[0.06] hover:text-black/80 hover:border-black/15
+         active:scale-[0.98];
+}
+
+.btn-ghost-light {
+  @apply inline-flex items-center gap-2 px-7 py-3.5 rounded-full
+         bg-white/[0.08] text-white font-sans text-sm font-medium
+         border border-white/15 transition-all duration-300 ease-out
+         hover:bg-white/15 active:scale-[0.98];
+}
+
+/* ── Magnetic button base (kept for .btn-mag class) ─────────── */
 .btn-mag {
   position: relative;
   overflow: hidden;
@@ -134,17 +190,8 @@ body {
 
 /* ── Pulse dot ──────────────────────────────────────────────── */
 @keyframes pulse-dot {
-
-  0%,
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-
-  50% {
-    opacity: 0.4;
-    transform: scale(0.65);
-  }
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.65); }
 }
 
 .pulse-dot {
@@ -153,21 +200,13 @@ body {
 
 /* ── Shuffler spring ────────────────────────────────────────── */
 .shuffler-card {
-  transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1),
-    opacity 0.4s ease;
+  transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.4s ease;
 }
 
 /* ── Typewriter cursor ──────────────────────────────────────── */
 @keyframes blink {
-
-  0%,
-  100% {
-    opacity: 1
-  }
-
-  50% {
-    opacity: 0
-  }
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }
 
 .tw-cursor {
@@ -176,13 +215,8 @@ body {
 
 /* ── Slow spin ──────────────────────────────────────────────── */
 @keyframes slow-spin {
-  from {
-    transform: rotate(0deg)
-  }
-
-  to {
-    transform: rotate(360deg)
-  }
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 .spin-cw {
@@ -195,19 +229,9 @@ body {
 
 /* ── EKG stroke ─────────────────────────────────────────────── */
 @keyframes ekg-draw {
-  0% {
-    stroke-dashoffset: 700;
-  }
-
-  60% {
-    stroke-dashoffset: 0;
-    opacity: 1;
-  }
-
-  100% {
-    stroke-dashoffset: 0;
-    opacity: 0.2;
-  }
+  0% { stroke-dashoffset: 700; }
+  60% { stroke-dashoffset: 0; opacity: 1; }
+  100% { stroke-dashoffset: 0; opacity: 0.2; }
 }
 
 .ekg-path {
@@ -218,23 +242,10 @@ body {
 
 /* ── Scanning laser ─────────────────────────────────────────── */
 @keyframes laser-scan {
-  0% {
-    transform: translateY(-4px);
-    opacity: 0;
-  }
-
-  10% {
-    opacity: 1;
-  }
-
-  90% {
-    opacity: 1;
-  }
-
-  100% {
-    transform: translateY(164px);
-    opacity: 0;
-  }
+  0% { transform: translateY(-4px); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(164px); opacity: 0; }
 }
 
 .laser {
@@ -253,31 +264,29 @@ body {
   outline-offset: 2px;
 }
 
-/* -- Page transition --*/
+/* ── Page transition ────────────────────────────────────────── */
 @keyframes page-in {
-  from {
-    opacity: 0;
-    transform: translateY(14px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .page-enter {
   animation: page-in 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
-@media (max-width: 768px) {
-  .overview-grid {
-    grid-template-columns: 1fr !important;
-    gap: 2rem !important;
-  }
+/* ── Form input focus transition ───────────────────────────── */
+.form-input {
+  @apply w-full px-4 py-3 rounded-xl border border-black/10 bg-[#FAFAFA]
+         font-sans text-sm text-[#1C1C1E] outline-none
+         transition-all duration-200 ease-out
+         focus:border-blue-500/40 focus:bg-white focus:ring-2 focus:ring-blue-500/10;
 }
 
-/* ── Glowing Box Mask ───────────────────────────────────────── */
+.form-label {
+  @apply block font-sans text-[0.82rem] font-semibold text-[#1C1C1E] mb-1.5;
+}
+
+/* ── Glow effect ───────────────────────────────────────────── */
 .glow::after {
   content: "";
   position: absolute;

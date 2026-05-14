@@ -63,45 +63,26 @@ export default function Navbar() {
     const ctaLabel = isHome ? 'Book a Consultation' : 'Book a Consultation'
 
     return (
-        <header style={{
-            position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100,
-            display: 'flex', justifyContent: 'center',
-            padding: '1rem 1rem', pointerEvents: 'none',
-        }}>
-            <nav aria-label="Main navigation" style={{
-                pointerEvents: 'all',
-                display: 'flex', alignItems: 'center',
-                padding: '0.45rem 0.45rem 0.45rem 1.35rem',
-                borderRadius: 999,
-                background: scrolled ? 'rgba(255,255,255,0.95)' : 'rgba(255,255,255,0)',
-                backdropFilter: scrolled ? 'blur(24px) saturate(1.6)' : 'none',
-                border: scrolled ? `1px solid ${T.border}` : '1px solid transparent',
-                boxShadow: scrolled ? T.shadow : 'none',
-                transition: 'all 0.5s cubic-bezier(0.25,0.46,0.45,0.94)',
-                maxWidth: scrolled ? 'none' : undefined,
-                width: scrolled ? 'calc(100% - 2rem)' : undefined,
-            }}>
+        <header className="fixed top-0 left-0 right-0 z-[100] flex justify-center px-4 py-4 pointer-events-none">
+            <nav aria-label="Main navigation"
+                className={`pointer-events-auto flex items-center py-1.5 pr-1.5 pl-5 rounded-full transition-all duration-500 ease-out
+                    ${scrolled
+                        ? 'bg-white/95 backdrop-blur-2xl border border-black/[0.09] shadow-[0_2px_16px_rgba(0,0,0,0.07)] w-[calc(100%-2rem)] max-w-none'
+                        : 'bg-transparent border border-transparent'}`}>
                 {/* Logo */}
                 <button onClick={() => navigate('/')} aria-label="Go to home"
-                    style={{
-                        background: 'none', border: 'none', cursor: 'pointer',
-                        fontFamily: 'Inter,sans-serif', fontWeight: 800, fontSize: '1.05rem',
-                        letterSpacing: '-0.04em', color: scrolled ? '#0f172a' : T.text, paddingRight: '1.25rem', whiteSpace: 'nowrap',
-                        transition: 'color 0.3s',
-                    }}>
+                    className="bg-none border-none cursor-pointer f-sans font-extrabold text-[1.05rem] tracking-tight pr-5 whitespace-nowrap transition-colors duration-300"
+                    style={{ color: scrolled ? '#0f172a' : T.text }}>
                     Enreal<span style={{ color: accent }}> Lab</span>
                 </button>
 
                 {/* Desktop links */}
-                <div className="nav-d" style={{ display: 'flex', gap: '0.15rem' }}>
+                <div className="hidden md:flex gap-0.5">
                     {activeNav.map(({ label, id }) => (
                         <button key={id} onClick={() => go(id)}
+                            className="bg-none border-none cursor-pointer py-1.5 px-3 rounded-full font-sans text-[0.83rem] font-medium transition-colors duration-200"
                             style={{
-                                background: 'none', border: 'none', cursor: 'pointer',
-                                padding: '0.4rem 0.8rem', borderRadius: 999,
-                                fontFamily: 'Inter,sans-serif', fontSize: '0.83rem', fontWeight: 500,
-                                color: ((isLanding || isHome) && active === id) ? accent : (scrolled ? '#334155' : T.muted),
-                                transition: 'color 0.2s',
+                                color: ((isLanding || isHome) && active === id) ? accent : (scrolled ? '#334155' : T.muted)
                             }}
                             onMouseEnter={e => e.currentTarget.style.color = scrolled ? '#0f172a' : T.text}
                             onMouseLeave={e => e.currentTarget.style.color = ((isLanding || isHome) && active === id) ? accent : (scrolled ? '#334155' : T.muted)}>
@@ -112,94 +93,58 @@ export default function Navbar() {
 
                 {/* Page Switcher */}
                 {(isLanding || isIndividual) && (
-                    <button onClick={() => navigate(isLanding ? '/individual' : '/business')} className="nav-d" style={{
-                        marginLeft: '1.25rem', padding: '0.5rem 1rem', borderRadius: 999,
-                        background: 'rgba(0,0,0,0.03)', border: `1px solid ${T.border}`, cursor: 'pointer',
-                        fontFamily: 'Inter,sans-serif', fontSize: '0.82rem', fontWeight: 600,
-                        color: isLanding ? '#059669' : '#2563EB',
-                        whiteSpace: 'nowrap', transition: 'background 0.2s',
-                    }}
-                        onMouseEnter={e => e.currentTarget.style.background = 'rgba(0,0,0,0.07)'}
-                        onMouseLeave={e => e.currentTarget.style.background = 'rgba(0,0,0,0.03)'}>
+                    <button onClick={() => navigate(isLanding ? '/individual' : '/business')}
+                        className="hidden md:flex ml-5 py-2 px-4 rounded-full bg-black/[0.03] border border-black/[0.09] cursor-pointer font-sans text-[0.82rem] font-semibold whitespace-nowrap transition-colors duration-200 hover:bg-black/[0.07]"
+                        style={{ color: isLanding ? '#059669' : '#2563EB' }}>
                         Switch to {isLanding ? 'Elite Course' : 'Business'}
                     </button>
                 )}
 
                 {/* CTA */}
-                <button onClick={() => go(ctaTarget)} className="nav-d btn-mag" style={{
-                    marginLeft: '0.5rem', padding: '0.55rem 1.15rem', borderRadius: 999,
-                    background: accent, border: 'none',
-                    fontFamily: 'Inter,sans-serif', fontSize: '0.82rem', fontWeight: 700, color: '#fff',
-                    whiteSpace: 'nowrap', boxShadow: `0 2px 12px ${isHome ? 'rgba(234,88,12,0.28)' : 'rgba(37,99,235,0.28)'}`,
-                }}>
+                <button onClick={() => go(ctaTarget)}
+                    className="hidden md:flex btn-mag ml-2 py-2.5 px-4 rounded-full border-none font-sans text-[0.82rem] font-bold text-white whitespace-nowrap"
+                    style={{ background: accent, boxShadow: `0 2px 12px ${isHome ? 'rgba(234,88,12,0.28)' : 'rgba(37,99,235,0.28)'}` }}>
                     <span className="slide" style={{ background: accentD }} />
-                    <span className="label" style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+                    <span className="label flex items-center gap-1">
                         {ctaLabel} <ArrowRight size={12} />
                     </span>
                 </button>
 
                 {/* Mobile toggle */}
-                <button onClick={() => setOpen(v => !v)} className="nav-m" aria-label="Toggle navigation"
-                    style={{
-                        display: 'none', marginLeft: '0.5rem', background: 'none',
-                        border: `1px solid ${T.border}`, borderRadius: 999,
-                        padding: '0.38rem 0.75rem', cursor: 'pointer',
-                        color: scrolled ? '#0f172a' : T.text, fontFamily: 'JetBrains Mono,monospace', fontSize: '0.8rem'
-                    }}>
+                <button onClick={() => setOpen(v => !v)} aria-label="Toggle navigation"
+                    className="md:hidden ml-2 bg-none border border-black/[0.09] rounded-full py-1.5 px-3 cursor-pointer f-mono text-[0.8rem] transition-colors duration-300"
+                    style={{ color: scrolled ? '#0f172a' : T.text }}>
                     {open ? '✕' : '☰'}
                 </button>
             </nav>
 
+            {/* Mobile menu */}
             {open && (
-                <div role="dialog" aria-label="Navigation menu" style={{
-                    position: 'absolute', top: 'calc(100% - 0.5rem)', left: '1rem', right: '1rem',
-                    background: 'rgba(255,255,255,0.97)', backdropFilter: 'blur(24px)',
-                    border: `1px solid ${T.border}`, borderRadius: '1.5rem',
-                    padding: '1rem', display: 'flex', flexDirection: 'column', gap: '0.15rem',
-                    pointerEvents: 'all', boxShadow: T.shadowH,
-                }}>
+                <div role="dialog" aria-label="Navigation menu"
+                    className="absolute top-[calc(100%-0.5rem)] left-4 right-4 bg-white/97 backdrop-blur-2xl border border-black/[0.09] rounded-3xl p-4 flex flex-col gap-0.5 pointer-events-auto shadow-[0_12px_48px_rgba(0,0,0,0.12)]">
                     {activeNav.map(({ label, id }) => (
                         <button key={id} onClick={() => go(id)}
-                            style={{
-                                background: 'none', border: 'none', cursor: 'pointer',
-                                padding: '0.65rem 0.75rem', borderRadius: '0.875rem',
-                                fontFamily: 'Inter,sans-serif', fontSize: '0.95rem',
-                                color: ((isLanding || isHome) && active === id) ? accent : '#0f172a', textAlign: 'left'
-                            }}>
+                            className="bg-none border-none cursor-pointer py-2.5 px-3 rounded-xl font-sans text-[0.95rem] text-left transition-colors duration-200"
+                            style={{ color: ((isLanding || isHome) && active === id) ? accent : '#0f172a' }}>
                             {label}
                         </button>
                     ))}
 
-                    {/* Page Switcher (Mobile) */}
                     {(isLanding || isIndividual) && (
                         <button onClick={() => navigate(isLanding ? '/individual' : '/business')}
-                            style={{
-                                background: 'rgba(0,0,0,0.03)', border: `1px solid ${T.border}`, cursor: 'pointer',
-                                padding: '0.65rem 0.75rem', borderRadius: '0.875rem', marginTop: '0.25rem',
-                                fontFamily: 'Inter,sans-serif', fontSize: '0.95rem', fontWeight: 600,
-                                color: isLanding ? '#059669' : '#2563EB', textAlign: 'left'
-                            }}>
+                            className="bg-black/[0.03] border border-black/[0.09] cursor-pointer py-2.5 px-3 rounded-xl mt-1 font-sans text-[0.95rem] font-semibold text-left transition-colors duration-200"
+                            style={{ color: isLanding ? '#059669' : '#2563EB' }}>
                             Switch to {isLanding ? 'Elite Course' : 'Business'}
                         </button>
                     )}
 
                     <button onClick={() => go(ctaTarget)}
-                        style={{
-                            marginTop: '0.5rem', padding: '0.75rem', borderRadius: '0.875rem',
-                            background: accent, border: 'none', cursor: 'pointer',
-                            fontFamily: 'Inter,sans-serif', fontSize: '0.9rem', fontWeight: 700, color: '#fff'
-                        }}>
+                        className="mt-2 py-3 rounded-xl border-none cursor-pointer font-sans text-[0.9rem] font-bold text-white transition-colors duration-200"
+                        style={{ background: accent }}>
                         {ctaLabel}
                     </button>
                 </div>
             )}
-
-            <style>{`
-        @media (max-width:768px) {
-          .nav-d { display:none !important; }
-          .nav-m { display:block !important; }
-        }
-      `}</style>
         </header>
     )
 }

@@ -30,7 +30,7 @@ export default function HomePage() {
     return (
         <>
             <Navbar />
-            <main style={{ background: '#FFFFFF' }}>
+            <main className="bg-white">
                 <HeroSection />
             <ProblemSection />
             <SolutionSection />

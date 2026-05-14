@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { ArrowRight, CheckCircle2, UserCircle } from 'lucide-react'
 
 export default function AIEmployeeDetails({ employees }) {
     const [visibleIds, setVisibleIds] = useState(new Set())
@@ -25,26 +25,14 @@ export default function AIEmployeeDetails({ employees }) {
     const goConsult = () => document.getElementById('consultation')?.scrollIntoView({ behavior: 'smooth' })
 
     return (
-        <section id="ai-employee-details" style={{ padding: '2rem 5vw 6rem', background: '#FFFFFF' }}>
-            <div style={{ maxWidth: 1200, margin: '0 auto' }}>
-                <div style={{ textAlign: 'center', maxWidth: 640, margin: '0 auto 3.5rem' }}>
-                    <p className="f-mono" style={{
-                        fontSize: '0.65rem', letterSpacing: '0.2em',
-                        color: '#2563EB', marginBottom: '1rem', textTransform: 'uppercase',
-                    }}>
-                        Meet Your AI Employees
-                    </p>
-                    <h2 style={{
-                        fontFamily: 'Inter, sans-serif', fontWeight: 800,
-                        fontSize: 'clamp(1.6rem, 3vw, 2.4rem)',
-                        letterSpacing: '-0.02em', lineHeight: 1.15,
-                        color: '#1C1C1E',
-                    }}>
-                        Detailed Capabilities
-                    </h2>
+        <section id="ai-employee-details" className="pt-8 pb-16 md:pb-20 lg:pb-24 px-4 sm:px-6 lg:px-[5vw] bg-white">
+            <div className="section-container">
+                <div className="section-header mb-10 md:mb-14">
+                    <p className="section-eyebrow">Meet Your AI Employees</p>
+                    <h2 className="section-title">Detailed Capabilities</h2>
                 </div>
 
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '5rem' }}>
+                <div className="flex flex-col gap-16 md:gap-20">
                     {employees.map((emp, idx) => {
                         const isVisible = visibleIds.has(emp.id)
                         const isEven = idx % 2 === 0
@@ -52,70 +40,35 @@ export default function AIEmployeeDetails({ employees }) {
                             <div
                                 key={emp.id}
                                 id={emp.id}
-                                style={{
-                                    display: 'grid',
-                                    gridTemplateColumns: '1fr 1fr',
-                                    gap: '3rem',
-                                    alignItems: 'center',
-                                    opacity: isVisible ? 1 : 0,
-                                    transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
-                                    transition: 'all 0.8s cubic-bezier(0.25,0.46,0.45,0.94)',
-                                }}
-                                className="employee-detail"
+                                className={`grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center transition-all duration-700 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
                             >
                                 {/* Image */}
-                                <div style={{
-                                    order: isEven ? 0 : 1,
-                                }} className="employee-img-col">
-                                    <div style={{
-                                        width: '100%', aspectRatio: '4/3',
-                                        borderRadius: '1.5rem',
-                                        overflow: 'hidden',
-                                        background: 'linear-gradient(135deg, #f0f4ff 0%, #e8eeff 100%)',
-                                    }}>
+                                <div className={isEven ? 'md:order-1' : 'md:order-2'}>
+                                    <div className="w-full aspect-[4/3] rounded-3xl overflow-hidden bg-gradient-to-br from-[#f0f4ff] to-[#e8eeff]">
                                         <img
                                             src={emp.image}
                                             alt={emp.name}
-                                            style={{
-                                                width: '100%', height: '100%',
-                                                objectFit: 'cover',
-                                                display: 'block',
-                                            }}
+                                            className="w-full h-full object-cover block"
                                             loading="lazy"
                                         />
                                     </div>
                                 </div>
 
                                 {/* Content */}
-                                <div style={{ order: isEven ? 1 : 0 }} className="employee-content-col">
-                                    <h3 style={{
-                                        fontFamily: 'Inter, sans-serif', fontWeight: 800,
-                                        fontSize: 'clamp(1.3rem, 2.5vw, 1.8rem)',
-                                        color: '#1C1C1E', marginBottom: '0.75rem',
-                                    }}>{emp.name}</h3>
-                                    <p style={{
-                                        fontFamily: 'Manrope, sans-serif',
-                                        fontSize: '0.95rem', color: 'rgba(28,28,30,0.55)',
-                                        lineHeight: 1.7, marginBottom: '1.75rem',
-                                    }}>{emp.summary}</p>
+                                <div className={isEven ? 'md:order-2' : 'md:order-1'}>
+                                    <h3 className="f-sans font-extrabold text-2xl md:text-3xl text-[#1C1C1E] mb-3">{emp.name}</h3>
+                                    <p className="f-supp text-[0.95rem] text-black/55 leading-relaxed mb-7">
+                                        {emp.summary}
+                                    </p>
 
-                                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }} className="employee-lists">
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                         {/* AI Functions */}
                                         <div>
-                                            <p style={{
-                                                fontFamily: 'Inter, sans-serif', fontWeight: 700,
-                                                fontSize: '0.8rem', color: '#2563EB',
-                                                marginBottom: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.05em',
-                                            }}>AI Functions</p>
-                                            <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
+                                            <p className="f-sans font-bold text-[0.8rem] text-[#2563EB] mb-3 uppercase tracking-wider">AI Functions</p>
+                                            <ul className="space-y-2.5">
                                                 {emp.functions.map(f => (
-                                                    <li key={f} style={{
-                                                        display: 'flex', alignItems: 'flex-start', gap: '0.5rem',
-                                                        fontFamily: 'Manrope, sans-serif',
-                                                        fontSize: '0.85rem', color: 'rgba(28,28,30,0.65)',
-                                                        lineHeight: 1.5,
-                                                    }}>
-                                                        <CheckCircle2 size={14} color="#2563EB" style={{ marginTop: 2, flexShrink: 0 }} />
+                                                    <li key={f} className="flex items-start gap-2 f-supp text-[0.85rem] text-black/65 leading-snug">
+                                                        <CheckCircle2 size={14} color="#2563EB" className="mt-0.5 flex-shrink-0" />
                                                         {f}
                                                     </li>
                                                 ))}
@@ -124,20 +77,11 @@ export default function AIEmployeeDetails({ employees }) {
 
                                         {/* Human Support */}
                                         <div>
-                                            <p style={{
-                                                fontFamily: 'Inter, sans-serif', fontWeight: 700,
-                                                fontSize: '0.8rem', color: '#EA580C',
-                                                marginBottom: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.05em',
-                                            }}>Human Support</p>
-                                            <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
+                                            <p className="f-sans font-bold text-[0.8rem] text-[#EA580C] mb-3 uppercase tracking-wider">Human Support</p>
+                                            <ul className="space-y-2.5">
                                                 {emp.humanSupport.map(h => (
-                                                    <li key={h} style={{
-                                                        display: 'flex', alignItems: 'flex-start', gap: '0.5rem',
-                                                        fontFamily: 'Manrope, sans-serif',
-                                                        fontSize: '0.85rem', color: 'rgba(28,28,30,0.65)',
-                                                        lineHeight: 1.5,
-                                                    }}>
-                                                        <UserCircle size={14} color="#EA580C" style={{ marginTop: 2, flexShrink: 0 }} />
+                                                    <li key={h} className="flex items-start gap-2 f-supp text-[0.85rem] text-black/65 leading-snug">
+                                                        <UserCircle size={14} color="#EA580C" className="mt-0.5 flex-shrink-0" />
                                                         {h}
                                                     </li>
                                                 ))}
@@ -145,17 +89,11 @@ export default function AIEmployeeDetails({ employees }) {
                                         </div>
                                     </div>
 
-                                    <button onClick={goConsult} className="btn-mag" style={{
-                                        marginTop: '1.75rem',
-                                        padding: '0.75rem 1.5rem', borderRadius: 999,
-                                        background: '#2563EB', border: 'none',
-                                        fontFamily: 'Inter, sans-serif', fontSize: '0.82rem',
-                                        fontWeight: 700, color: '#fff',
-                                        display: 'inline-flex', alignItems: 'center', gap: '0.4rem',
-                                        cursor: 'pointer',
-                                    }}>
-                                        <span className="slide" style={{ background: '#1D4ED8' }} />
-                                        <span className="label">Hire This AI Employee <ArrowRight size={13} /></span>
+                                    <button onClick={goConsult} className="btn-primary mt-7">
+                                        <span className="slide bg-[#1D4ED8]" />
+                                        <span className="label flex items-center gap-1.5">
+                                            Hire This AI Employee <ArrowRight size={13} />
+                                        </span>
                                     </button>
                                 </div>
                             </div>
@@ -163,15 +101,6 @@ export default function AIEmployeeDetails({ employees }) {
                     })}
                 </div>
             </div>
-
-            <style>{`
-                @media (max-width: 768px) {
-                    .employee-detail { grid-template-columns: 1fr !important; gap: 1.75rem !important; }
-                    .employee-img-col { order: -1 !important; }
-                    .employee-content-col { order: 0 !important; }
-                    .employee-lists { grid-template-columns: 1fr !important; }
-                }
-            `}</style>
         </section>
     )
 }

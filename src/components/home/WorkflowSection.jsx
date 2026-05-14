@@ -44,103 +44,44 @@ export default function WorkflowSection() {
     }, [])
 
     return (
-        <section id="workflow" ref={ref} style={{ padding: '6rem 5vw', background: '#F8FAFC' }}>
-            <div style={{ maxWidth: 1200, margin: '0 auto' }}>
-                <div style={{
-                    textAlign: 'center', maxWidth: 640, margin: '0 auto 4rem',
-                    opacity: visible ? 1 : 0, transform: visible ? 'translateY(0)' : 'translateY(20px)',
-                    transition: 'all 0.7s cubic-bezier(0.25,0.46,0.45,0.94)',
-                }}>
-                    <p className="f-mono" style={{
-                        fontSize: '0.65rem', letterSpacing: '0.2em',
-                        color: '#2563EB', marginBottom: '1rem', textTransform: 'uppercase',
-                    }}>
-                        Process
-                    </p>
-                    <h2 style={{
-                        fontFamily: 'Inter, sans-serif', fontWeight: 800,
-                        fontSize: 'clamp(1.6rem, 3vw, 2.4rem)',
-                        letterSpacing: '-0.02em', lineHeight: 1.15,
-                        color: '#1C1C1E', marginBottom: '1rem',
-                    }}>
-                        How We Build Your AI Workforce
-                    </h2>
-                    <p style={{
-                        fontFamily: 'Manrope, sans-serif',
-                        fontSize: '1rem', color: 'rgba(28,28,30,0.55)', lineHeight: 1.7,
-                    }}>
+        <section id="workflow" ref={ref} className="py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-[5vw] bg-[#F8FAFC]">
+            <div className="section-container">
+                <div className={`section-header mb-12 md:mb-16 transition-all duration-700 ease-out ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}>
+                    <p className="section-eyebrow">Process</p>
+                    <h2 className="section-title">How We Build Your AI Workforce</h2>
+                    <p className="section-desc">
                         From first conversation to full operation — a clear, proven process that delivers results.
                     </p>
                 </div>
 
-                <div style={{
-                    display: 'flex', flexDirection: 'column', gap: 0,
-                    position: 'relative',
-                }}>
+                <div className="relative flex flex-col">
                     {/* Timeline line */}
-                    <div style={{
-                        position: 'absolute', left: 28, top: 0, bottom: 0,
-                        width: 2, background: 'rgba(37,99,235,0.1)',
-                    }} className="timeline-line" />
+                    <div className="absolute left-7 top-0 bottom-0 w-0.5 bg-blue-500/10 hidden sm:block" />
 
                     {steps.map((step, i) => {
                         const Icon = step.icon
                         return (
-                            <div key={step.num} style={{
-                                display: 'flex', alignItems: 'flex-start', gap: '1.5rem',
-                                padding: '1.5rem 0',
-                                opacity: visible ? 1 : 0,
-                                transform: visible ? 'translateX(0)' : 'translateX(-16px)',
-                                transition: `all 0.6s cubic-bezier(0.25,0.46,0.45,0.94) ${0.1 * i}s`,
-                                position: 'relative',
-                            }}>
+                            <div key={step.num}
+                                className={`flex items-start gap-4 md:gap-6 py-4 md:py-6 relative transition-all duration-500 ease-out ${visible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'}`}
+                                style={{ transitionDelay: `${0.1 * i}s` }}>
                                 {/* Icon bubble */}
-                                <div style={{
-                                    width: 56, height: 56, borderRadius: '50%',
-                                    background: '#fff',
-                                    border: '2px solid rgba(37,99,235,0.15)',
-                                    display: 'flex', alignItems: 'center', justifyContent: 'center',
-                                    flexShrink: 0, zIndex: 1,
-                                    boxShadow: '0 4px 16px rgba(0,0,0,0.05)',
-                                }}>
+                                <div className="w-14 h-14 rounded-full bg-white border-2 border-blue-500/15 flex items-center justify-center flex-shrink-0 z-10 shadow-sm shadow-black/5">
                                     <Icon size={22} color="#2563EB" />
                                 </div>
 
                                 {/* Content */}
-                                <div style={{
-                                    background: '#fff',
-                                    borderRadius: '1rem',
-                                    padding: '1.5rem 2rem',
-                                    border: '1px solid rgba(28,28,30,0.06)',
-                                    flex: 1,
-                                }}>
-                                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.5rem' }}>
-                                        <span className="f-mono" style={{
-                                            fontSize: '0.7rem', letterSpacing: '0.1em',
-                                            color: '#2563EB', fontWeight: 700,
-                                        }}>{step.num}</span>
-                                        <h3 style={{
-                                            fontFamily: 'Inter, sans-serif', fontWeight: 700,
-                                            fontSize: '1.1rem', color: '#1C1C1E',
-                                        }}>{step.title}</h3>
+                                <div className="flex-1 bg-white rounded-2xl p-5 md:px-8 md:py-6 border border-black/[0.06] hover:border-blue-500/15 hover:shadow-lg hover:shadow-black/[0.04] transition-all duration-300">
+                                    <div className="flex items-center gap-3 mb-2">
+                                        <span className="f-mono text-[0.7rem] tracking-[0.1em] text-[#2563EB] font-bold">{step.num}</span>
+                                        <h3 className="f-sans font-bold text-[1.1rem] text-[#1C1C1E]">{step.title}</h3>
                                     </div>
-                                    <p style={{
-                                        fontFamily: 'Manrope, sans-serif',
-                                        fontSize: '0.9rem', color: 'rgba(28,28,30,0.55)',
-                                        lineHeight: 1.7,
-                                    }}>{step.desc}</p>
+                                    <p className="f-supp text-[0.9rem] text-black/55 leading-relaxed">{step.desc}</p>
                                 </div>
                             </div>
                         )
                     })}
                 </div>
             </div>
-
-            <style>{`
-                @media (max-width: 640px) {
-                    .timeline-line { left: 22px !important; }
-                }
-            `}</style>
         </section>
     )
 }

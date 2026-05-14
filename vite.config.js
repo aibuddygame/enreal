@@ -10,12 +10,12 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.svg'],
       manifest: {
-        name: 'Enreal AI',
-        short_name: 'Enreal AI',
+        name: 'Enreal Lab',
+        short_name: 'Enreal Lab',
         start_url: '/',
         display: 'standalone',
         background_color: '#ffffff',
-        theme_color: '#0176D3',
+        theme_color: '#1e3a5f',
         icons: [
           {
             src: '/favicon.svg',

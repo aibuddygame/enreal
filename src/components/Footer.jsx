@@ -19,7 +19,7 @@ export default function Footer({ navLinks, brandText, accentColor }) {
     }
 
     return (
-        <footer className="bg-[#1C1C1E] rounded-t-[3rem] md:rounded-t-[4rem] pt-16 md:pt-20 pb-10 px-4 sm:px-6 lg:px-[5vw] relative z-[1]">
+        <footer className="bg-[#1C1C1E] pt-16 md:pt-20 pb-10 px-4 sm:px-6 lg:px-[5vw] relative z-[1]">
             <div className="max-w-7xl mx-auto">
                 {/* Top grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr] gap-10 lg:gap-16 mb-16">

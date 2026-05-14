@@ -1,12 +1,12 @@
 import { useCallback } from 'react'
 import Navbar from '../components/Navbar.jsx'
 import HeroSection from '../components/home/HeroSection.jsx'
-import ProblemSection from '../components/home/ProblemSection.jsx'
-import SolutionSection from '../components/home/SolutionSection.jsx'
 import AIWorkforceGrid from '../components/home/AIWorkforceGrid.jsx'
 import AIEmployeeDetails from '../components/home/AIEmployeeDetails.jsx'
+import WhyAIHuman from '../components/home/WhyAIHuman.jsx'
 import WorkflowSection from '../components/home/WorkflowSection.jsx'
-import DeploymentSection from '../components/home/DeploymentSection.jsx'
+import WhoThisIsFor from '../components/home/WhoThisIsFor.jsx'
+import PricingSection from '../components/home/PricingSection.jsx'
 import ConsultationForm from '../components/home/ConsultationForm.jsx'
 import ClosingCTASection from '../components/home/ClosingCTASection.jsx'
 import Footer from '../components/Footer.jsx'
@@ -15,7 +15,7 @@ import { AI_EMPLOYEES } from '../data.js'
 const HOME_NAV_LINKS = [
     { label: 'AI Workforce', id: 'ai-workforce' },
     { label: 'How It Works', id: 'workflow' },
-    { label: 'Deployment', id: 'deployment' },
+    { label: 'Pricing', id: 'pricing' },
     { label: 'Consultation', id: 'consultation' },
 ]
 
@@ -32,20 +32,20 @@ export default function HomePage() {
             <Navbar />
             <main className="bg-white">
                 <HeroSection />
-            <ProblemSection />
-            <SolutionSection />
-            <AIWorkforceGrid employees={AI_EMPLOYEES} onSelect={scrollToEmployee} />
-            <AIEmployeeDetails employees={AI_EMPLOYEES} />
-            <WorkflowSection />
-            <DeploymentSection />
-            <ConsultationForm />
-            <ClosingCTASection />
+                <AIWorkforceGrid employees={AI_EMPLOYEES} onSelect={scrollToEmployee} />
+                <AIEmployeeDetails employees={AI_EMPLOYEES} />
+                <WhyAIHuman />
+                <WorkflowSection />
+                <WhoThisIsFor />
+                <PricingSection />
+                <ConsultationForm />
+                <ClosingCTASection />
+            </main>
             <Footer
                 navLinks={HOME_NAV_LINKS}
                 brandText="Your Reliable AI Workforce Partner. Practical AI employees backed by dedicated human implementation support."
-                accentColor="#2563EB"
+                accentColor="#EA580C"
             />
-        </main>
         </>
     )
 }

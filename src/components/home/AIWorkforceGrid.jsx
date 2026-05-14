@@ -11,12 +11,12 @@ export default function AIWorkforceGrid({ employees, onSelect }) {
 
     return (
         <section id="ai-workforce" ref={ref} className="py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-[5vw] bg-[#F8FAFC]">
-            <div className="section-container">
-                <div className={`section-header mb-10 md:mb-14 transition-all duration-700 ease-out ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}>
-                    <p className="section-eyebrow">Our AI Workforce</p>
-                    <h2 className="section-title">Build Your AI Workforce</h2>
-                    <p className="section-desc">
-                        Choose from nine specialized AI employees, each designed to handle specific business functions with human oversight.
+            <div className="max-w-7xl mx-auto">
+                <div className={`text-center max-w-2xl mx-auto mb-10 md:mb-14 transition-all duration-700 ease-out ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}>
+                    <p className="f-mono text-[0.65rem] tracking-[0.2em] text-[#EA580C] mb-4 uppercase">Our AI Workforce</p>
+                    <h2 className="f-sans font-extrabold text-3xl md:text-4xl lg:text-[2.4rem] tracking-tight leading-[1.15] text-[#1e3a5f] mb-4">Choose Your AI Employees</h2>
+                    <p className="f-supp text-base text-black/[0.55] leading-relaxed">
+                        Start with the roles your business needs most. Our team helps you implement and operate them reliably.
                     </p>
                 </div>
 
@@ -25,9 +25,9 @@ export default function AIWorkforceGrid({ employees, onSelect }) {
                         <button
                             key={emp.id}
                             onClick={() => onSelect(emp.id)}
-                            className={`group text-left cursor-pointer bg-white rounded-2xl border border-black/[0.06] p-5 md:p-7 flex flex-col gap-4
+                            className={`group text-left cursor-pointer bg-white rounded-2xl border border-black/[0.06] p-5 md:p-6 flex flex-col gap-4
                                 transition-all duration-500 ease-out
-                                hover:-translate-y-1 hover:shadow-xl hover:border-blue-500/25
+                                hover:-translate-y-1 hover:shadow-xl hover:border-[#1e3a5f]/20
                                 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
                             style={{ transitionDelay: `${0.06 * i}s` }}
                         >
@@ -46,7 +46,7 @@ export default function AIWorkforceGrid({ employees, onSelect }) {
                                 <p className="f-supp text-[0.85rem] text-black/50 leading-relaxed">{emp.summary}</p>
                             </div>
 
-                            <span className="mt-auto inline-flex items-center gap-1 font-sans text-[0.78rem] font-semibold text-[#2563EB] group-hover:gap-2 transition-all duration-300">
+                            <span className="mt-auto inline-flex items-center gap-1 font-sans text-[0.78rem] font-semibold text-[#EA580C] group-hover:gap-2 transition-all duration-300">
                                 Learn more →
                             </span>
                         </button>

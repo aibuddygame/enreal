@@ -6,7 +6,7 @@ const EMPLOYEE_OPTIONS = [
     'AI Data Analyst',
     'AI Report Specialist',
     'AI Creative Director',
-    'AI Social Media Influencer',
+    'AI Social Media Staff',
     'AI Customer Service',
     'AI Secretary',
     'AI HR Manager',
@@ -97,9 +97,9 @@ export default function ConsultationForm() {
         <section id="consultation" className="py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-[5vw] bg-[#F8FAFC]">
             <div className="max-w-3xl mx-auto">
                 <div className="text-center mb-10">
-                    <p className="section-eyebrow">Get Started</p>
-                    <h2 className="section-title">Book a Free AI Workflow Consultation</h2>
-                    <p className="section-desc">
+                    <p className="f-mono text-[0.65rem] tracking-[0.2em] text-[#EA580C] mb-4 uppercase">Get Started</p>
+                    <h2 className="f-sans font-extrabold text-3xl md:text-4xl lg:text-[2.4rem] tracking-tight leading-[1.15] text-[#1e3a5f] mb-4">Book a Free AI Workforce Consultation</h2>
+                    <p className="f-supp text-base text-black/[0.55] leading-relaxed">
                         Tell us about your business and we will recommend the right AI employees for your needs.
                     </p>
                 </div>
@@ -119,7 +119,7 @@ export default function ConsultationForm() {
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                         <div>
-                            <label htmlFor="fullName" className="form-label">
+                            <label htmlFor="fullName" className="block font-sans text-[0.82rem] font-semibold text-[#1C1C1E] mb-1.5">
                                 Full Name <span className="text-red-500">*</span>
                             </label>
                             <input
@@ -132,7 +132,7 @@ export default function ConsultationForm() {
                             />
                         </div>
                         <div>
-                            <label htmlFor="companyName" className="form-label">
+                            <label htmlFor="companyName" className="block font-sans text-[0.82rem] font-semibold text-[#1C1C1E] mb-1.5">
                                 Company Name
                             </label>
                             <input
@@ -144,7 +144,7 @@ export default function ConsultationForm() {
                             />
                         </div>
                         <div>
-                            <label htmlFor="email" className="form-label">
+                            <label htmlFor="email" className="block font-sans text-[0.82rem] font-semibold text-[#1C1C1E] mb-1.5">
                                 Email <span className="text-red-500">*</span>
                             </label>
                             <input
@@ -157,7 +157,7 @@ export default function ConsultationForm() {
                             />
                         </div>
                         <div>
-                            <label htmlFor="phone" className="form-label">
+                            <label htmlFor="phone" className="block font-sans text-[0.82rem] font-semibold text-[#1C1C1E] mb-1.5">
                                 Phone / WhatsApp
                             </label>
                             <input
@@ -171,7 +171,7 @@ export default function ConsultationForm() {
                     </div>
 
                     <div className="mt-5">
-                        <label htmlFor="website" className="form-label">
+                        <label htmlFor="website" className="block font-sans text-[0.82rem] font-semibold text-[#1C1C1E] mb-1.5">
                             Company Website
                         </label>
                         <input
@@ -184,7 +184,7 @@ export default function ConsultationForm() {
                     </div>
 
                     <div className="mt-5">
-                        <p className="form-label">Interested AI Employees</p>
+                        <p className="block font-sans text-[0.82rem] font-semibold text-[#1C1C1E] mb-1.5">Interested AI Employees</p>
                         <div className="flex flex-wrap gap-2">
                             {EMPLOYEE_OPTIONS.map(emp => (
                                 <button
@@ -193,7 +193,7 @@ export default function ConsultationForm() {
                                     onClick={() => toggleEmployee(emp)}
                                     className={`px-4 py-2 rounded-full text-[0.82rem] font-medium transition-all duration-200 cursor-pointer
                                         ${form.interestedEmployees.includes(emp)
-                                            ? 'bg-blue-500/[0.08] text-[#2563EB] border border-[#2563EB]'
+                                            ? 'bg-[#EA580C]/[0.08] text-[#EA580C] border border-[#EA580C]'
                                             : 'bg-[#FAFAFA] text-black/60 border border-black/10 hover:border-black/20'}`}>
                                     {emp}
                                 </button>
@@ -202,8 +202,8 @@ export default function ConsultationForm() {
                     </div>
 
                     <div className="mt-5">
-                        <label htmlFor="message" className="form-label">
-                            Message <span className="text-red-500">*</span>
+                        <label htmlFor="message" className="block font-sans text-[0.82rem] font-semibold text-[#1C1C1E] mb-1.5">
+                            Message / Workflow Description <span className="text-red-500">*</span>
                         </label>
                         <textarea
                             id="message"
@@ -223,7 +223,7 @@ export default function ConsultationForm() {
                     <button
                         type="submit"
                         disabled={status === 'submitting'}
-                        className="btn-primary w-full justify-center mt-7 disabled:opacity-70 disabled:cursor-wait"
+                        className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-[#EA580C] text-white font-sans text-sm font-bold shadow-lg shadow-orange-500/30 transition-all duration-300 ease-out hover:shadow-xl hover:shadow-orange-500/40 hover:-translate-y-0.5 hover:bg-[#C2410C] active:scale-[0.98] w-full mt-7 disabled:opacity-70 disabled:cursor-wait disabled:hover:translate-y-0"
                     >
                         {status === 'submitting' ? (
                             <>
@@ -232,7 +232,7 @@ export default function ConsultationForm() {
                             </>
                         ) : (
                             <>
-                                <Send size={16} /> Submit Consultation Request
+                                <Send size={16} /> Request Free Consultation
                             </>
                         )}
                     </button>

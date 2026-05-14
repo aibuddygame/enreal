@@ -20,8 +20,8 @@ export const T = {
 export const HOME_NAV = [
     { label: 'Home', id: 'hero' },
     { label: 'AI Workforce', id: 'ai-workforce' },
-    { label: 'Solutions', id: 'solution' },
-    { label: 'About', id: 'problem' },
+    { label: 'How It Works', id: 'workflow' },
+    { label: 'Pricing', id: 'pricing' },
     { label: 'Contact', id: 'consultation' },
 ]
 
@@ -144,164 +144,110 @@ export const AI_EMPLOYEES = [
     {
         id: 'ai-coding-engineer',
         name: 'AI Coding Engineer',
-        summary: 'Builds, reviews, and maintains software with human-guided architecture decisions.',
+        summary: 'Builds and maintains software with human-guided architecture oversight.',
         image: '/ai-coding-engineer.jpg',
-        functions: [
+        helpsYou: [
             'Write and refactor production code across stacks',
             'Automate testing, CI/CD, and deployment pipelines',
-            'Review pull requests and enforce code standards',
-            'Generate technical documentation and API specs',
+            'Review code and enforce quality standards',
         ],
-        humanSupport: [
-            'Senior engineer reviews architecture decisions',
-            'Code quality audits and security checks',
-            'Complex debugging and performance tuning',
-            'Client-specific customization and integration',
-        ],
+        dedicatedSupport: 'Our team helps with setup, customization, operation, and optimization.',
     },
     {
         id: 'ai-data-analyst',
         name: 'AI Data Analyst',
         summary: 'Transforms raw data into actionable business intelligence with human validation.',
         image: '/ai-data-analyst.jpg',
-        functions: [
+        helpsYou: [
             'Automate data cleaning and pipeline workflows',
             'Generate dashboards and executive summaries',
-            'Run statistical models and trend forecasting',
-            'Monitor KPIs and anomaly detection alerts',
+            'Monitor KPIs and detect anomalies in real time',
         ],
-        humanSupport: [
-            'Data strategy and source validation',
-            'Interpretation of complex statistical results',
-            'Custom metric design for your business',
-            'Presentation coaching for stakeholder meetings',
-        ],
+        dedicatedSupport: 'Our team helps with setup, customization, operation, and optimization.',
     },
     {
         id: 'ai-report-specialist',
         name: 'AI Report Specialist',
         summary: 'Produces accurate, formatted reports on schedule with human fact-checking.',
         image: '/ai-report-specialist.jpg',
-        functions: [
+        helpsYou: [
             'Generate financial, operational, and sales reports',
-            'Automate chart creation and data visualization',
-            'Schedule recurring report delivery',
-            'Compile multi-source data into unified narratives',
+            'Automate charts, visualizations, and narratives',
+            'Schedule recurring report delivery on time',
         ],
-        humanSupport: [
-            'Report template design and branding alignment',
-            'Data accuracy verification and fact-checking',
-            'Executive summary writing and tone calibration',
-            'Custom formatting for board presentations',
-        ],
+        dedicatedSupport: 'Our team helps with setup, customization, operation, and optimization.',
     },
     {
         id: 'ai-creative-director',
         name: 'AI Creative Director',
         summary: 'Creates on-brand visual and written content with human creative oversight.',
         image: '/ai-creative-director.jpg',
-        functions: [
+        helpsYou: [
             'Generate marketing copy, blogs, and ad creatives',
-            'Produce image concepts and design briefs',
             'Maintain brand voice across all channels',
-            'A/B test messaging and creative variations',
+            'Produce design concepts and creative briefs',
         ],
-        humanSupport: [
-            'Brand strategy and positioning guidance',
-            'Creative direction and campaign concepting',
-            'Final quality control and brand compliance',
-            'Photography and video production oversight',
-        ],
+        dedicatedSupport: 'Our team helps with setup, customization, operation, and optimization.',
     },
     {
-        id: 'ai-social-media-influencer',
-        name: 'AI Social Media Influencer',
-        summary: 'Manages social presence, content calendars, and community engagement 24/7.',
+        id: 'ai-social-media-staff',
+        name: 'AI Social Media Staff',
+        summary: 'Manages social presence, content calendars, and community engagement.',
         image: '/ai-social-media-influencer.jpg',
-        functions: [
+        helpsYou: [
             'Schedule and publish content across platforms',
             'Engage with comments, DMs, and community',
-            'Track trends and viral opportunity alerts',
-            'Analyze engagement metrics and growth reports',
+            'Track trends and analyze growth metrics',
         ],
-        humanSupport: [
-            'Content strategy and campaign planning',
-            'Crisis management and brand reputation',
-            'Influencer partnership negotiations',
-            'Live event coverage and real-time posting',
-        ],
+        dedicatedSupport: 'Our team helps with setup, customization, operation, and optimization.',
     },
     {
         id: 'ai-customer-service',
         name: 'AI Customer Service',
         summary: 'Handles inquiries, tickets, and support workflows with human escalation paths.',
         image: '/ai-customer-service.jpg',
-        functions: [
+        helpsYou: [
             'Answer FAQs and resolve common issues instantly',
             'Route complex tickets to the right department',
-            'Follow up on open cases automatically',
             'Collect feedback and satisfaction scores',
         ],
-        humanSupport: [
-            'Escalation handling for sensitive issues',
-            'Tone and policy training for your brand',
-            'Customer success check-ins and retention',
-            'Service workflow design and optimization',
-        ],
+        dedicatedSupport: 'Our team helps with setup, customization, operation, and optimization.',
     },
     {
         id: 'ai-secretary',
         name: 'AI Secretary',
         summary: 'Manages scheduling, correspondence, and administrative tasks effortlessly.',
         image: '/ai-secretary.jpg',
-        functions: [
+        helpsYou: [
             'Schedule meetings and manage calendars',
             'Draft emails, memos, and routine correspondence',
-            'Organize files and document retrieval',
-            'Set reminders and track action items',
+            'Organize files and track action items',
         ],
-        humanSupport: [
-            'Executive assistant oversight for priorities',
-            'Meeting preparation and briefing notes',
-            'Confidential and sensitive communication handling',
-            'Office management and vendor coordination',
-        ],
+        dedicatedSupport: 'Our team helps with setup, customization, operation, and optimization.',
     },
     {
         id: 'ai-hr-manager',
         name: 'AI HR Manager',
         summary: 'Streamlines recruitment, onboarding, and employee engagement processes.',
         image: '/ai-hr-manager.jpg',
-        functions: [
+        helpsYou: [
             'Screen resumes and schedule interviews',
             'Automate onboarding checklists and paperwork',
-            'Track attendance, leave, and compliance',
-            'Run pulse surveys and engagement analytics',
+            'Track attendance and run engagement surveys',
         ],
-        humanSupport: [
-            'Culture fit assessment and final interviews',
-            'Employee relations and conflict resolution',
-            'Policy design and legal compliance review',
-            'Leadership coaching and development planning',
-        ],
+        dedicatedSupport: 'Our team helps with setup, customization, operation, and optimization.',
     },
     {
         id: 'ai-accountant',
         name: 'AI Accountant',
         summary: 'Manages bookkeeping, invoicing, and financial reporting with accountant review.',
         image: '/ai-accountant.jpg',
-        functions: [
+        helpsYou: [
             'Automate invoice generation and payment tracking',
             'Reconcile accounts and categorize transactions',
             'Generate P&L, balance sheet, and cash flow reports',
-            'Flag discrepancies and compliance risks',
         ],
-        humanSupport: [
-            'Certified accountant review and sign-off',
-            'Tax planning and regulatory compliance',
-            'Financial strategy and forecasting',
-            'Audit preparation and documentation',
-        ],
+        dedicatedSupport: 'Our team helps with setup, customization, operation, and optimization.',
     },
 ]
 

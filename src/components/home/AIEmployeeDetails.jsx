@@ -3,6 +3,7 @@ import { ArrowRight, CheckCircle2, UserCircle } from 'lucide-react'
 
 export default function AIEmployeeDetails({ employees }) {
     const [visibleIds, setVisibleIds] = useState(new Set())
+    const sectionRef = useRef()
 
     useEffect(() => {
         const obs = new IntersectionObserver(
@@ -25,11 +26,11 @@ export default function AIEmployeeDetails({ employees }) {
     const goConsult = () => document.getElementById('consultation')?.scrollIntoView({ behavior: 'smooth' })
 
     return (
-        <section id="ai-employee-details" className="pt-8 pb-16 md:pb-20 lg:pb-24 px-4 sm:px-6 lg:px-[5vw] bg-white">
-            <div className="section-container">
-                <div className="section-header mb-10 md:mb-14">
-                    <p className="section-eyebrow">Meet Your AI Employees</p>
-                    <h2 className="section-title">Detailed Capabilities</h2>
+        <section ref={sectionRef} id="ai-employee-details" className="pt-8 pb-16 md:pb-20 lg:pb-24 px-4 sm:px-6 lg:px-[5vw] bg-white">
+            <div className="max-w-7xl mx-auto">
+                <div className="text-center max-w-2xl mx-auto mb-10 md:mb-14">
+                    <p className="f-mono text-[0.65rem] tracking-[0.2em] text-[#EA580C] mb-4 uppercase">Capabilities</p>
+                    <h2 className="f-sans font-extrabold text-3xl md:text-4xl lg:text-[2.4rem] tracking-tight leading-[1.15] text-[#1e3a5f] mb-4">Meet Your AI Employees</h2>
                 </div>
 
                 <div className="flex flex-col gap-16 md:gap-20">
@@ -56,44 +57,32 @@ export default function AIEmployeeDetails({ employees }) {
 
                                 {/* Content */}
                                 <div className={isEven ? 'md:order-2' : 'md:order-1'}>
-                                    <h3 className="f-sans font-extrabold text-2xl md:text-3xl text-[#1C1C1E] mb-3">{emp.name}</h3>
+                                    <h3 className="f-sans font-extrabold text-2xl md:text-3xl text-[#1e3a5f] mb-3">{emp.name}</h3>
                                     <p className="f-supp text-[0.95rem] text-black/55 leading-relaxed mb-7">
                                         {emp.summary}
                                     </p>
 
-                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                                        {/* AI Functions */}
-                                        <div>
-                                            <p className="f-sans font-bold text-[0.8rem] text-[#2563EB] mb-3 uppercase tracking-wider">AI Functions</p>
-                                            <ul className="space-y-2.5">
-                                                {emp.functions.map(f => (
-                                                    <li key={f} className="flex items-start gap-2 f-supp text-[0.85rem] text-black/65 leading-snug">
-                                                        <CheckCircle2 size={14} color="#2563EB" className="mt-0.5 flex-shrink-0" />
-                                                        {f}
-                                                    </li>
-                                                ))}
-                                            </ul>
-                                        </div>
-
-                                        {/* Human Support */}
-                                        <div>
-                                            <p className="f-sans font-bold text-[0.8rem] text-[#EA580C] mb-3 uppercase tracking-wider">Human Support</p>
-                                            <ul className="space-y-2.5">
-                                                {emp.humanSupport.map(h => (
-                                                    <li key={h} className="flex items-start gap-2 f-supp text-[0.85rem] text-black/65 leading-snug">
-                                                        <UserCircle size={14} color="#EA580C" className="mt-0.5 flex-shrink-0" />
-                                                        {h}
-                                                    </li>
-                                                ))}
-                                            </ul>
-                                        </div>
+                                    <div className="mb-6">
+                                        <p className="f-sans font-bold text-[0.8rem] text-[#1e3a5f] mb-3 uppercase tracking-wider">Helps You</p>
+                                        <ul className="space-y-2.5">
+                                            {emp.helpsYou.map(f => (
+                                                <li key={f} className="flex items-start gap-2 f-supp text-[0.85rem] text-black/65 leading-snug">
+                                                    <CheckCircle2 size={14} color="#1e3a5f" className="mt-0.5 flex-shrink-0" />
+                                                    {f}
+                                                </li>
+                                            ))}
+                                        </ul>
                                     </div>
 
-                                    <button onClick={goConsult} className="btn-primary mt-7">
-                                        <span className="slide bg-[#1D4ED8]" />
-                                        <span className="label flex items-center gap-1.5">
-                                            Hire This AI Employee <ArrowRight size={13} />
-                                        </span>
+                                    <div className="rounded-xl p-4 bg-[#F8FAFC] border border-black/[0.06]">
+                                        <p className="f-sans font-bold text-[0.8rem] text-[#EA580C] mb-1 uppercase tracking-wider">Dedicated Support</p>
+                                        <p className="f-supp text-[0.85rem] text-black/60 leading-relaxed">
+                                            {emp.dedicatedSupport}
+                                        </p>
+                                    </div>
+
+                                    <button onClick={goConsult} className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#EA580C] text-white font-sans text-sm font-bold shadow-lg shadow-orange-500/30 transition-all duration-300 ease-out hover:shadow-xl hover:shadow-orange-500/40 hover:-translate-y-0.5 hover:bg-[#C2410C] active:scale-[0.98] mt-7">
+                                        Discuss This AI Employee <ArrowRight size={13} />
                                     </button>
                                 </div>
                             </div>

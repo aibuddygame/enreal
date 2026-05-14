@@ -66,7 +66,7 @@ export default function Navbar() {
         <header className="fixed top-0 left-0 right-0 z-[100] flex justify-center px-4 py-4 pointer-events-none">
             <nav aria-label="Main navigation"
                 className={`pointer-events-auto flex items-center py-1.5 pr-1.5 pl-5 rounded-full transition-all duration-500 ease-out
-                    bg-white/95 backdrop-blur-2xl border border-black/[0.09] shadow-[0_2px_16px_rgba(0,0,0,0.07)]`}>
+                    bg-[#F8FAFC]/95 backdrop-blur-2xl border border-black/[0.06] shadow-[0_2px_16px_rgba(0,0,0,0.05)]`}>
                 {/* Logo */}
                 <button onClick={() => navigate('/')} aria-label="Go to home"
                     className="bg-none border-none cursor-pointer f-sans font-extrabold text-[1.05rem] tracking-tight pr-5 whitespace-nowrap transition-colors duration-300"

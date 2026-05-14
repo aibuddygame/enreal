@@ -3,6 +3,9 @@ import { useNavigate, useLocation } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 import { NAV, HOME_NAV, T } from '../data.js'
 
+const ORANGE = '#EA580C'
+const ORANGE_D = '#C2410C'
+
 export default function Navbar() {
     const [scrolled, setScrolled] = useState(false)
     const [active, setActive] = useState('')
@@ -14,6 +17,8 @@ export default function Navbar() {
     const isIndividual = location.pathname === '/individual'
 
     const activeNav = isHome ? HOME_NAV : NAV
+    const accent = isHome ? ORANGE : T.accent
+    const accentD = isHome ? ORANGE_D : T.accentD
 
     useEffect(() => {
         if (isLanding || isHome) {
@@ -68,20 +73,23 @@ export default function Navbar() {
                 display: 'flex', alignItems: 'center',
                 padding: '0.45rem 0.45rem 0.45rem 1.35rem',
                 borderRadius: 999,
-                background: scrolled ? 'rgba(255,255,255,0.9)' : 'rgba(255,255,255,0)',
+                background: scrolled ? 'rgba(255,255,255,0.95)' : 'rgba(255,255,255,0)',
                 backdropFilter: scrolled ? 'blur(24px) saturate(1.6)' : 'none',
                 border: scrolled ? `1px solid ${T.border}` : '1px solid transparent',
                 boxShadow: scrolled ? T.shadow : 'none',
                 transition: 'all 0.5s cubic-bezier(0.25,0.46,0.45,0.94)',
+                maxWidth: scrolled ? 'none' : undefined,
+                width: scrolled ? 'calc(100% - 2rem)' : undefined,
             }}>
                 {/* Logo */}
                 <button onClick={() => navigate('/')} aria-label="Go to home"
                     style={{
                         background: 'none', border: 'none', cursor: 'pointer',
                         fontFamily: 'Inter,sans-serif', fontWeight: 800, fontSize: '1.05rem',
-                        letterSpacing: '-0.04em', color: T.text, paddingRight: '1.25rem', whiteSpace: 'nowrap'
+                        letterSpacing: '-0.04em', color: scrolled ? '#0f172a' : T.text, paddingRight: '1.25rem', whiteSpace: 'nowrap',
+                        transition: 'color 0.3s',
                     }}>
-                    Enreal<span style={{ color: T.accent }}> Lab</span>
+                    Enreal<span style={{ color: accent }}> Lab</span>
                 </button>
 
                 {/* Desktop links */}
@@ -92,11 +100,11 @@ export default function Navbar() {
                                 background: 'none', border: 'none', cursor: 'pointer',
                                 padding: '0.4rem 0.8rem', borderRadius: 999,
                                 fontFamily: 'Inter,sans-serif', fontSize: '0.83rem', fontWeight: 500,
-                                color: ((isLanding || isHome) && active === id) ? T.accent : T.muted,
+                                color: ((isLanding || isHome) && active === id) ? accent : (scrolled ? '#334155' : T.muted),
                                 transition: 'color 0.2s',
                             }}
-                            onMouseEnter={e => e.currentTarget.style.color = T.text}
-                            onMouseLeave={e => e.currentTarget.style.color = ((isLanding || isHome) && active === id) ? T.accent : T.muted}>
+                            onMouseEnter={e => e.currentTarget.style.color = scrolled ? '#0f172a' : T.text}
+                            onMouseLeave={e => e.currentTarget.style.color = ((isLanding || isHome) && active === id) ? accent : (scrolled ? '#334155' : T.muted)}>
                             {label}
                         </button>
                     ))}
@@ -120,11 +128,11 @@ export default function Navbar() {
                 {/* CTA */}
                 <button onClick={() => go(ctaTarget)} className="nav-d btn-mag" style={{
                     marginLeft: '0.5rem', padding: '0.55rem 1.15rem', borderRadius: 999,
-                    background: T.accent, border: 'none',
+                    background: accent, border: 'none',
                     fontFamily: 'Inter,sans-serif', fontSize: '0.82rem', fontWeight: 700, color: '#fff',
-                    whiteSpace: 'nowrap', boxShadow: '0 2px 12px rgba(37,99,235,0.28)',
+                    whiteSpace: 'nowrap', boxShadow: `0 2px 12px ${isHome ? 'rgba(234,88,12,0.28)' : 'rgba(37,99,235,0.28)'}`,
                 }}>
-                    <span className="slide" style={{ background: T.accentD }} />
+                    <span className="slide" style={{ background: accentD }} />
                     <span className="label" style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
                         {ctaLabel} <ArrowRight size={12} />
                     </span>
@@ -136,7 +144,7 @@ export default function Navbar() {
                         display: 'none', marginLeft: '0.5rem', background: 'none',
                         border: `1px solid ${T.border}`, borderRadius: 999,
                         padding: '0.38rem 0.75rem', cursor: 'pointer',
-                        color: T.text, fontFamily: 'JetBrains Mono,monospace', fontSize: '0.8rem'
+                        color: scrolled ? '#0f172a' : T.text, fontFamily: 'JetBrains Mono,monospace', fontSize: '0.8rem'
                     }}>
                     {open ? '✕' : '☰'}
                 </button>
@@ -156,7 +164,7 @@ export default function Navbar() {
                                 background: 'none', border: 'none', cursor: 'pointer',
                                 padding: '0.65rem 0.75rem', borderRadius: '0.875rem',
                                 fontFamily: 'Inter,sans-serif', fontSize: '0.95rem',
-                                color: ((isLanding || isHome) && active === id) ? T.accent : T.text, textAlign: 'left'
+                                color: ((isLanding || isHome) && active === id) ? accent : '#0f172a', textAlign: 'left'
                             }}>
                             {label}
                         </button>
@@ -178,7 +186,7 @@ export default function Navbar() {
                     <button onClick={() => go(ctaTarget)}
                         style={{
                             marginTop: '0.5rem', padding: '0.75rem', borderRadius: '0.875rem',
-                            background: T.accent, border: 'none', cursor: 'pointer',
+                            background: accent, border: 'none', cursor: 'pointer',
                             fontFamily: 'Inter,sans-serif', fontSize: '0.9rem', fontWeight: 700, color: '#fff'
                         }}>
                         {ctaLabel}

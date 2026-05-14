@@ -18,10 +18,11 @@ export const T = {
 
 // ── Nav (Homepage) ─────────────────────────────────────────
 export const HOME_NAV = [
+    { label: 'Home', id: 'hero' },
     { label: 'AI Workforce', id: 'ai-workforce' },
-    { label: 'How It Works', id: 'workflow' },
-    { label: 'Deployment', id: 'deployment' },
-    { label: 'Consultation', id: 'consultation' },
+    { label: 'Solutions', id: 'solution' },
+    { label: 'About', id: 'problem' },
+    { label: 'Contact', id: 'consultation' },
 ]
 
 // ── Nav (Business Page) ────────────────────────────────────

@@ -1,4 +1,5 @@
 import { useCallback } from 'react'
+import Navbar from '../components/Navbar.jsx'
 import HeroSection from '../components/home/HeroSection.jsx'
 import ProblemSection from '../components/home/ProblemSection.jsx'
 import SolutionSection from '../components/home/SolutionSection.jsx'
@@ -27,8 +28,10 @@ export default function HomePage() {
     }, [])
 
     return (
-        <main style={{ background: '#FFFFFF' }}>
-            <HeroSection />
+        <>
+            <Navbar />
+            <main style={{ background: '#FFFFFF' }}>
+                <HeroSection />
             <ProblemSection />
             <SolutionSection />
             <AIWorkforceGrid employees={AI_EMPLOYEES} onSelect={scrollToEmployee} />
@@ -43,5 +46,6 @@ export default function HomePage() {
                 accentColor="#2563EB"
             />
         </main>
+        </>
     )
 }

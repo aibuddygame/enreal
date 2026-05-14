@@ -183,7 +183,7 @@ export default function HeroSection() {
                         display: 'flex', alignItems: 'center', justifyContent: 'center',
                     }} className="hero-visual">
                         <img 
-                            src="/hero-cover.png" 
+                            src="/ai-employee-hero.png" 
                             alt="AI Workforce - Professional AI employees working alongside human teams"
                             style={{
                                 width: '100%', 

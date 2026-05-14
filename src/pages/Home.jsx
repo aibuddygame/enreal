@@ -5,7 +5,7 @@ import AIWorkforceGrid from '../components/home/AIWorkforceGrid.jsx'
 import AIEmployeeDetails from '../components/home/AIEmployeeDetails.jsx'
 import WhyAIHuman from '../components/home/WhyAIHuman.jsx'
 import WorkflowSection from '../components/home/WorkflowSection.jsx'
-import WhoThisIsFor from '../components/home/WhoThisIsFor.jsx'
+// WhoThisIsFor removed per user request
 // PricingSection removed per user request
 import ConsultationForm from '../components/home/ConsultationForm.jsx'
 import ClosingCTASection from '../components/home/ClosingCTASection.jsx'
@@ -35,7 +35,6 @@ export default function HomePage() {
                 <AIEmployeeDetails employees={AI_EMPLOYEES} />
                 <WhyAIHuman />
                 <WorkflowSection />
-                <WhoThisIsFor />
                 <ConsultationForm />
                 <ClosingCTASection />
             </main>

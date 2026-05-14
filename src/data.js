@@ -21,7 +21,6 @@ export const HOME_NAV = [
     { label: 'Home', id: 'hero' },
     { label: 'AI Workforce', id: 'ai-workforce' },
     { label: 'How It Works', id: 'workflow' },
-    { label: 'Pricing', id: 'pricing' },
     { label: 'Contact', id: 'consultation' },
 ]
 

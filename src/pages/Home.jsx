@@ -6,7 +6,7 @@ import AIEmployeeDetails from '../components/home/AIEmployeeDetails.jsx'
 import WhyAIHuman from '../components/home/WhyAIHuman.jsx'
 import WorkflowSection from '../components/home/WorkflowSection.jsx'
 import WhoThisIsFor from '../components/home/WhoThisIsFor.jsx'
-import PricingSection from '../components/home/PricingSection.jsx'
+// PricingSection removed per user request
 import ConsultationForm from '../components/home/ConsultationForm.jsx'
 import ClosingCTASection from '../components/home/ClosingCTASection.jsx'
 import Footer from '../components/Footer.jsx'
@@ -15,7 +15,6 @@ import { AI_EMPLOYEES } from '../data.js'
 const HOME_NAV_LINKS = [
     { label: 'AI Workforce', id: 'ai-workforce' },
     { label: 'How It Works', id: 'workflow' },
-    { label: 'Pricing', id: 'pricing' },
     { label: 'Consultation', id: 'consultation' },
 ]
 
@@ -37,7 +36,6 @@ export default function HomePage() {
                 <WhyAIHuman />
                 <WorkflowSection />
                 <WhoThisIsFor />
-                <PricingSection />
                 <ConsultationForm />
                 <ClosingCTASection />
             </main>

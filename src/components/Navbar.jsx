@@ -1,7 +1,7 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
-import { NAV, T } from '../data.js'
+import { NAV, HOME_NAV, T } from '../data.js'
 
 export default function Navbar() {
     const [scrolled, setScrolled] = useState(false)
@@ -10,12 +10,18 @@ export default function Navbar() {
     const navigate = useNavigate()
     const location = useLocation()
     const isLanding = location.pathname === '/business'
+    const isHome = location.pathname === '/'
     const isIndividual = location.pathname === '/individual'
 
+    const activeNav = isHome ? HOME_NAV : NAV
+
     useEffect(() => {
-        if (isLanding) {
+        if (isLanding || isHome) {
             const hero = document.getElementById('hero')
-            if (!hero) return
+            if (!hero) {
+                setScrolled(true)
+                return
+            }
             const obs = new IntersectionObserver(
                 ([e]) => setScrolled(!e.isIntersecting), { threshold: 0.1 }
             )
@@ -24,26 +30,32 @@ export default function Navbar() {
         } else {
             setScrolled(true)
         }
-    }, [isLanding, location.pathname])
+    }, [isLanding, isHome, location.pathname])
 
     useEffect(() => {
-        if (!isLanding) return
+        if (!isLanding && !isHome) return
         const obs = new IntersectionObserver(
             entries => entries.forEach(e => e.isIntersecting && setActive(e.target.id)),
-            { threshold: 0.3 }
+            { threshold: 0.2 }
         )
-        NAV.forEach(({ id }) => { const el = document.getElementById(id); if (el) obs.observe(el) })
+        activeNav.forEach(({ id }) => { const el = document.getElementById(id); if (el) obs.observe(el) })
         return () => obs.disconnect()
-    }, [isLanding])
+    }, [isLanding, isHome, activeNav])
 
     const go = (id) => {
         setOpen(false)
-        if (isLanding) {
-            document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+        if (isLanding || isHome) {
+            const targetId = isHome && id === 'contact' ? 'consultation' : id
+            document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth' })
+        } else if (isIndividual) {
+            navigate('/individual', { state: { scrollTo: id } })
         } else {
             navigate('/business', { state: { scrollTo: id } })
         }
     }
+
+    const ctaTarget = isHome ? 'consultation' : 'contact'
+    const ctaLabel = isHome ? 'Book a Consultation' : 'Book a Consultation'
 
     return (
         <header style={{
@@ -62,29 +74,29 @@ export default function Navbar() {
                 boxShadow: scrolled ? T.shadow : 'none',
                 transition: 'all 0.5s cubic-bezier(0.25,0.46,0.45,0.94)',
             }}>
-                {/* Logo — Enreal AI */}
+                {/* Logo */}
                 <button onClick={() => navigate('/')} aria-label="Go to home"
                     style={{
                         background: 'none', border: 'none', cursor: 'pointer',
                         fontFamily: 'Inter,sans-serif', fontWeight: 800, fontSize: '1.05rem',
                         letterSpacing: '-0.04em', color: T.text, paddingRight: '1.25rem', whiteSpace: 'nowrap'
                     }}>
-                    Enreal<span style={{ color: T.accent }}> AI</span>
+                    Enreal<span style={{ color: T.accent }}> Lab</span>
                 </button>
 
                 {/* Desktop links */}
                 <div className="nav-d" style={{ display: 'flex', gap: '0.15rem' }}>
-                    {NAV.map(({ label, id }) => (
+                    {activeNav.map(({ label, id }) => (
                         <button key={id} onClick={() => go(id)}
                             style={{
                                 background: 'none', border: 'none', cursor: 'pointer',
                                 padding: '0.4rem 0.8rem', borderRadius: 999,
                                 fontFamily: 'Inter,sans-serif', fontSize: '0.83rem', fontWeight: 500,
-                                color: (isLanding && active === id) ? T.accent : T.muted,
+                                color: ((isLanding || isHome) && active === id) ? T.accent : T.muted,
                                 transition: 'color 0.2s',
                             }}
                             onMouseEnter={e => e.currentTarget.style.color = T.text}
-                            onMouseLeave={e => e.currentTarget.style.color = (isLanding && active === id) ? T.accent : T.muted}>
+                            onMouseLeave={e => e.currentTarget.style.color = ((isLanding || isHome) && active === id) ? T.accent : T.muted}>
                             {label}
                         </button>
                     ))}
@@ -106,7 +118,7 @@ export default function Navbar() {
                 )}
 
                 {/* CTA */}
-                <button onClick={() => go('contact')} className="nav-d btn-mag" style={{
+                <button onClick={() => go(ctaTarget)} className="nav-d btn-mag" style={{
                     marginLeft: '0.5rem', padding: '0.55rem 1.15rem', borderRadius: 999,
                     background: T.accent, border: 'none',
                     fontFamily: 'Inter,sans-serif', fontSize: '0.82rem', fontWeight: 700, color: '#fff',
@@ -114,7 +126,7 @@ export default function Navbar() {
                 }}>
                     <span className="slide" style={{ background: T.accentD }} />
                     <span className="label" style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
-                        Book a Consultation <ArrowRight size={12} />
+                        {ctaLabel} <ArrowRight size={12} />
                     </span>
                 </button>
 
@@ -138,13 +150,13 @@ export default function Navbar() {
                     padding: '1rem', display: 'flex', flexDirection: 'column', gap: '0.15rem',
                     pointerEvents: 'all', boxShadow: T.shadowH,
                 }}>
-                    {NAV.map(({ label, id }) => (
+                    {activeNav.map(({ label, id }) => (
                         <button key={id} onClick={() => go(id)}
                             style={{
                                 background: 'none', border: 'none', cursor: 'pointer',
                                 padding: '0.65rem 0.75rem', borderRadius: '0.875rem',
                                 fontFamily: 'Inter,sans-serif', fontSize: '0.95rem',
-                                color: (isLanding && active === id) ? T.accent : T.text, textAlign: 'left'
+                                color: ((isLanding || isHome) && active === id) ? T.accent : T.text, textAlign: 'left'
                             }}>
                             {label}
                         </button>
@@ -163,13 +175,13 @@ export default function Navbar() {
                         </button>
                     )}
 
-                    <button onClick={() => go('contact')}
+                    <button onClick={() => go(ctaTarget)}
                         style={{
                             marginTop: '0.5rem', padding: '0.75rem', borderRadius: '0.875rem',
                             background: T.accent, border: 'none', cursor: 'pointer',
                             fontFamily: 'Inter,sans-serif', fontSize: '0.9rem', fontWeight: 700, color: '#fff'
                         }}>
-                        Book a Consultation
+                        {ctaLabel}
                     </button>
                 </div>
             )}

@@ -16,7 +16,15 @@ export const T = {
     philImg: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=80',
 }
 
-// ── Nav ────────────────────────────────────────────────────
+// ── Nav (Homepage) ─────────────────────────────────────────
+export const HOME_NAV = [
+    { label: 'AI Workforce', id: 'ai-workforce' },
+    { label: 'How It Works', id: 'workflow' },
+    { label: 'Deployment', id: 'deployment' },
+    { label: 'Consultation', id: 'consultation' },
+]
+
+// ── Nav (Business Page) ────────────────────────────────────
 export const NAV = [
     { label: 'Solutions', id: 'solutions' },
     { label: 'Work', id: 'work' },
@@ -127,6 +135,172 @@ export const PROJECTS = [
                 'Executive Dashboard  →  Alert System',
             ],
         },
+    },
+]
+
+// ── AI Employees ───────────────────────────────────────────
+export const AI_EMPLOYEES = [
+    {
+        id: 'ai-coding-engineer',
+        name: 'AI Coding Engineer',
+        summary: 'Builds, reviews, and maintains software with human-guided architecture decisions.',
+        image: '/ai-coding-engineer.jpg',
+        functions: [
+            'Write and refactor production code across stacks',
+            'Automate testing, CI/CD, and deployment pipelines',
+            'Review pull requests and enforce code standards',
+            'Generate technical documentation and API specs',
+        ],
+        humanSupport: [
+            'Senior engineer reviews architecture decisions',
+            'Code quality audits and security checks',
+            'Complex debugging and performance tuning',
+            'Client-specific customization and integration',
+        ],
+    },
+    {
+        id: 'ai-data-analyst',
+        name: 'AI Data Analyst',
+        summary: 'Transforms raw data into actionable business intelligence with human validation.',
+        image: '/ai-data-analyst.jpg',
+        functions: [
+            'Automate data cleaning and pipeline workflows',
+            'Generate dashboards and executive summaries',
+            'Run statistical models and trend forecasting',
+            'Monitor KPIs and anomaly detection alerts',
+        ],
+        humanSupport: [
+            'Data strategy and source validation',
+            'Interpretation of complex statistical results',
+            'Custom metric design for your business',
+            'Presentation coaching for stakeholder meetings',
+        ],
+    },
+    {
+        id: 'ai-report-specialist',
+        name: 'AI Report Specialist',
+        summary: 'Produces accurate, formatted reports on schedule with human fact-checking.',
+        image: '/ai-report-specialist.jpg',
+        functions: [
+            'Generate financial, operational, and sales reports',
+            'Automate chart creation and data visualization',
+            'Schedule recurring report delivery',
+            'Compile multi-source data into unified narratives',
+        ],
+        humanSupport: [
+            'Report template design and branding alignment',
+            'Data accuracy verification and fact-checking',
+            'Executive summary writing and tone calibration',
+            'Custom formatting for board presentations',
+        ],
+    },
+    {
+        id: 'ai-creative-director',
+        name: 'AI Creative Director',
+        summary: 'Creates on-brand visual and written content with human creative oversight.',
+        image: '/ai-creative-director.jpg',
+        functions: [
+            'Generate marketing copy, blogs, and ad creatives',
+            'Produce image concepts and design briefs',
+            'Maintain brand voice across all channels',
+            'A/B test messaging and creative variations',
+        ],
+        humanSupport: [
+            'Brand strategy and positioning guidance',
+            'Creative direction and campaign concepting',
+            'Final quality control and brand compliance',
+            'Photography and video production oversight',
+        ],
+    },
+    {
+        id: 'ai-social-media-influencer',
+        name: 'AI Social Media Influencer',
+        summary: 'Manages social presence, content calendars, and community engagement 24/7.',
+        image: '/ai-social-media-influencer.jpg',
+        functions: [
+            'Schedule and publish content across platforms',
+            'Engage with comments, DMs, and community',
+            'Track trends and viral opportunity alerts',
+            'Analyze engagement metrics and growth reports',
+        ],
+        humanSupport: [
+            'Content strategy and campaign planning',
+            'Crisis management and brand reputation',
+            'Influencer partnership negotiations',
+            'Live event coverage and real-time posting',
+        ],
+    },
+    {
+        id: 'ai-customer-service',
+        name: 'AI Customer Service',
+        summary: 'Handles inquiries, tickets, and support workflows with human escalation paths.',
+        image: '/ai-customer-service.jpg',
+        functions: [
+            'Answer FAQs and resolve common issues instantly',
+            'Route complex tickets to the right department',
+            'Follow up on open cases automatically',
+            'Collect feedback and satisfaction scores',
+        ],
+        humanSupport: [
+            'Escalation handling for sensitive issues',
+            'Tone and policy training for your brand',
+            'Customer success check-ins and retention',
+            'Service workflow design and optimization',
+        ],
+    },
+    {
+        id: 'ai-secretary',
+        name: 'AI Secretary',
+        summary: 'Manages scheduling, correspondence, and administrative tasks effortlessly.',
+        image: '/ai-secretary.jpg',
+        functions: [
+            'Schedule meetings and manage calendars',
+            'Draft emails, memos, and routine correspondence',
+            'Organize files and document retrieval',
+            'Set reminders and track action items',
+        ],
+        humanSupport: [
+            'Executive assistant oversight for priorities',
+            'Meeting preparation and briefing notes',
+            'Confidential and sensitive communication handling',
+            'Office management and vendor coordination',
+        ],
+    },
+    {
+        id: 'ai-hr-manager',
+        name: 'AI HR Manager',
+        summary: 'Streamlines recruitment, onboarding, and employee engagement processes.',
+        image: '/ai-hr-manager.jpg',
+        functions: [
+            'Screen resumes and schedule interviews',
+            'Automate onboarding checklists and paperwork',
+            'Track attendance, leave, and compliance',
+            'Run pulse surveys and engagement analytics',
+        ],
+        humanSupport: [
+            'Culture fit assessment and final interviews',
+            'Employee relations and conflict resolution',
+            'Policy design and legal compliance review',
+            'Leadership coaching and development planning',
+        ],
+    },
+    {
+        id: 'ai-accountant',
+        name: 'AI Accountant',
+        summary: 'Manages bookkeeping, invoicing, and financial reporting with accountant review.',
+        image: '/ai-accountant.jpg',
+        functions: [
+            'Automate invoice generation and payment tracking',
+            'Reconcile accounts and categorize transactions',
+            'Generate P&L, balance sheet, and cash flow reports',
+            'Flag discrepancies and compliance risks',
+        ],
+        humanSupport: [
+            'Certified accountant review and sign-off',
+            'Tax planning and regulatory compliance',
+            'Financial strategy and forecasting',
+            'Audit preparation and documentation',
+        ],
     },
 ]
 

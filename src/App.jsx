@@ -13,12 +13,12 @@ const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy.jsx'))
 
 const routeSeo = {
     '/': {
-        title: 'Enreal AI, AI Consulting and Executive AI Programs in Hong Kong',
-        description: 'Enreal AI helps businesses and professionals in Hong Kong adopt AI through consulting, automation strategy, and executive-ready AI training programs.',
+        title: 'Enreal Lab | Your Reliable AI Workforce Partner',
+        description: 'Enreal Lab helps businesses deploy reliable AI employees across operations, reporting, marketing, customer service, administration, and software workflows — backed by dedicated human implementation support.',
         schema: {
             '@context': 'https://schema.org',
             '@type': 'WebSite',
-            name: 'Enreal AI',
+            name: 'Enreal Lab',
             url: seoBase.baseUrl,
         },
     },

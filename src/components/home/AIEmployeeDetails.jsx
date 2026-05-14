@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { ArrowRight, CheckCircle2, UserCircle } from 'lucide-react'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
 
 export default function AIEmployeeDetails({ employees }) {
     const [visibleIds, setVisibleIds] = useState(new Set())
@@ -70,29 +70,19 @@ export default function AIEmployeeDetails({ employees }) {
                                     <div style={{
                                         width: '100%', aspectRatio: '4/3',
                                         borderRadius: '1.5rem',
-                                        background: 'linear-gradient(135deg, #f0f4ff 0%, #e8eeff 100%)',
-                                        display: 'flex', alignItems: 'center', justifyContent: 'center',
                                         overflow: 'hidden',
+                                        background: 'linear-gradient(135deg, #f0f4ff 0%, #e8eeff 100%)',
                                     }}>
-                                        <div style={{ textAlign: 'center' }}>
-                                            <div style={{
-                                                width: 64, height: 64, borderRadius: '50%',
-                                                background: 'linear-gradient(135deg, #2563EB, #1D4ED8)',
-                                                margin: '0 auto 0.75rem',
-                                                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                                                boxShadow: '0 8px 24px rgba(37,99,235,0.2)',
-                                            }}>
-                                                <UserCircle size={28} color="#fff" />
-                                            </div>
-                                            <p style={{
-                                                fontFamily: 'Inter, sans-serif', fontSize: '0.8rem',
-                                                fontWeight: 600, color: '#2563EB',
-                                            }}>{emp.name}</p>
-                                            <p style={{
-                                                fontFamily: 'Manrope, sans-serif', fontSize: '0.7rem',
-                                                color: 'rgba(28,28,30,0.35)', marginTop: '0.2rem',
-                                            }}>Replace with image</p>
-                                        </div>
+                                        <img
+                                            src={emp.image}
+                                            alt={emp.name}
+                                            style={{
+                                                width: '100%', height: '100%',
+                                                objectFit: 'cover',
+                                                display: 'block',
+                                            }}
+                                            loading="lazy"
+                                        />
                                     </div>
                                 </div>
 

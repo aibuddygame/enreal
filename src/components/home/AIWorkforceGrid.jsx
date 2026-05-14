@@ -1,17 +1,4 @@
 import { useEffect, useRef, useState } from 'react'
-import { Code, BarChart3, FileText, Palette, Share2, Headphones, Calendar, Users, Calculator } from 'lucide-react'
-
-const iconMap = {
-    'ai-coding-engineer': Code,
-    'ai-data-analyst': BarChart3,
-    'ai-report-specialist': FileText,
-    'ai-creative-director': Palette,
-    'ai-social-media-influencer': Share2,
-    'ai-customer-service': Headphones,
-    'ai-secretary': Calendar,
-    'ai-hr-manager': Users,
-    'ai-accountant': Calculator,
-}
 
 export default function AIWorkforceGrid({ employees, onSelect }) {
     const [visible, setVisible] = useState(false)
@@ -57,9 +44,7 @@ export default function AIWorkforceGrid({ employees, onSelect }) {
                     gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
                     gap: '1.25rem',
                 }}>
-                    {employees.map((emp, i) => {
-                        const Icon = iconMap[emp.id] || Code
-                        return (
+                    {employees.map((emp, i) => (
                             <button
                                 key={emp.id}
                                 onClick={() => onSelect(emp.id)}
@@ -85,21 +70,23 @@ export default function AIWorkforceGrid({ employees, onSelect }) {
                                     e.currentTarget.style.boxShadow = 'none'
                                 }}
                             >
-                                {/* Image placeholder */}
+                                {/* Employee image */}
                                 <div style={{
                                     width: '100%', aspectRatio: '16/10',
                                     borderRadius: '0.875rem',
-                                    background: 'linear-gradient(135deg, #f0f4ff 0%, #e8eeff 100%)',
-                                    display: 'flex', alignItems: 'center', justifyContent: 'center',
                                     overflow: 'hidden', position: 'relative',
+                                    background: 'linear-gradient(135deg, #f0f4ff 0%, #e8eeff 100%)',
                                 }}>
-                                    <div style={{
-                                        width: 48, height: 48, borderRadius: 12,
-                                        background: 'rgba(37,99,235,0.08)',
-                                        display: 'flex', alignItems: 'center', justifyContent: 'center',
-                                    }}>
-                                        <Icon size={22} color="#2563EB" />
-                                    </div>
+                                    <img
+                                        src={emp.image}
+                                        alt={emp.name}
+                                        style={{
+                                            width: '100%', height: '100%',
+                                            objectFit: 'cover',
+                                            display: 'block',
+                                        }}
+                                        loading="lazy"
+                                    />
                                 </div>
 
                                 <div>
@@ -125,7 +112,7 @@ export default function AIWorkforceGrid({ employees, onSelect }) {
                                 </span>
                             </button>
                         )
-                    })}
+                    )}
                 </div>
             </div>
         </section>

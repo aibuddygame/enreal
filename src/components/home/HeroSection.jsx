@@ -178,62 +178,22 @@ export default function HeroSection() {
                         </div>
                     </div>
 
-                    {/* Right: Cover Image Placeholder */}
+                    {/* Right: Cover Image */}
                     <div style={{
                         display: 'flex', alignItems: 'center', justifyContent: 'center',
                     }} className="hero-visual">
-                        <div style={{
-                            width: '100%', aspectRatio: '4/3',
-                            borderRadius: '1.5rem',
-                            background: 'linear-gradient(135deg, #f0f4ff 0%, #e0e7ff 50%, #dbeafe 100%)',
-                            border: '1px solid rgba(37,99,235,0.1)',
-                            display: 'flex', flexDirection: 'column',
-                            alignItems: 'center', justifyContent: 'center',
-                            position: 'relative', overflow: 'hidden',
-                        }}>
-                            {/* Decorative elements */}
-                            <div style={{
-                                position: 'absolute', top: '10%', left: '10%',
-                                width: 60, height: 60, borderRadius: '50%',
-                                background: 'rgba(37,99,235,0.08)',
-                            }} />
-                            <div style={{
-                                position: 'absolute', bottom: '15%', right: '12%',
-                                width: 100, height: 100, borderRadius: '50%',
-                                background: 'rgba(37,99,235,0.05)',
-                            }} />
-                            <div style={{
-                                position: 'absolute', top: '50%', left: '50%',
-                                transform: 'translate(-50%, -50%)',
-                                textAlign: 'center',
-                            }}>
-                                <div style={{
-                                    width: 80, height: 80, borderRadius: '50%',
-                                    background: 'linear-gradient(135deg, #2563EB, #1D4ED8)',
-                                    margin: '0 auto 1rem',
-                                    display: 'flex', alignItems: 'center', justifyContent: 'center',
-                                    boxShadow: '0 8px 32px rgba(37,99,235,0.25)',
-                                }}>
-                                    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                        <path d="M12 2a10 10 0 1 0 10 10H12V2z" />
-                                        <path d="M12 2a10 10 0 0 1 10 10" />
-                                        <path d="M12 12l6 6" />
-                                    </svg>
-                                </div>
-                                <p style={{
-                                    fontFamily: 'Inter, sans-serif', fontSize: '0.85rem',
-                                    fontWeight: 600, color: '#2563EB',
-                                }}>
-                                    AI Workforce Cover
-                                </p>
-                                <p style={{
-                                    fontFamily: 'Manrope, sans-serif', fontSize: '0.75rem',
-                                    color: 'rgba(28,28,30,0.4)', marginTop: '0.25rem',
-                                }}>
-                                    Replace with your cover image
-                                </p>
-                            </div>
-                        </div>
+                        <img 
+                            src="/hero-cover.png" 
+                            alt="AI Workforce - Professional AI employees working alongside human teams"
+                            style={{
+                                width: '100%', 
+                                aspectRatio: '4/3',
+                                borderRadius: '1.5rem',
+                                objectFit: 'cover',
+                                border: '1px solid rgba(37,99,235,0.1)',
+                                boxShadow: '0 8px 32px rgba(37,99,235,0.15)',
+                            }}
+                        />
                     </div>
                 </div>
             </div>

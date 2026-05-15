@@ -102,6 +102,9 @@ export default function ConsultationForm() {
                     <p className="f-supp text-base text-black/[0.55] leading-relaxed">
                         Tell us about your business and we will recommend the right AI employees for your needs.
                     </p>
+                    <p className="f-supp text-base text-black/[0.55] leading-relaxed mt-4">
+                        AI workforce deployment plans starting from USD 2,000/month per AI employee
+                    </p>
                 </div>
 
                 <form onSubmit={handleSubmit} className="bg-white rounded-3xl p-6 md:p-10 border border-black/[0.06] shadow-sm shadow-black/[0.03]">

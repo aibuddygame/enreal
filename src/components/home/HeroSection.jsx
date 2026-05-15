@@ -14,11 +14,11 @@ export default function HeroSection() {
                     {/* Left: Text */}
                     <div className="order-2 lg:order-1">
                         <p className="f-mono text-[0.7rem] tracking-[0.2em] text-[#EA580C] mb-6 uppercase">
-                            Enreal Lab — Hong Kong
+                            Enreal AI — Hong Kong
                         </p>
 
                         <h1 className="f-sans font-black text-4xl sm:text-5xl lg:text-[3.6rem] tracking-tight leading-[1.08] text-[#1e3a5f] mb-5">
-                            Your Reliable AI Workforce Partner
+                            Your Reliable<br />AI Workforce Partner
                         </h1>
 
                         <p className="f-sans font-semibold text-xl sm:text-2xl text-[#1C1C1E] mb-4">

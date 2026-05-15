@@ -13,7 +13,7 @@ export default function ClosingCTASection() {
 
             <div className="relative z-10 max-w-3xl mx-auto text-center">
                 <h2 className="f-sans font-extrabold text-3xl md:text-4xl lg:text-5xl tracking-tight leading-[1.15] text-white mb-4">
-                    Build Your Reliable AI Workforce with Enreal Lab
+                    Build Your Reliable AI Workforce with Enreal AI
                 </h2>
                 <p className="f-supp text-base md:text-lg text-white/60 leading-relaxed max-w-xl mx-auto mb-8 md:mb-9">
                     From first consultation to full operations, we are your partner in making AI work reliably for your business.

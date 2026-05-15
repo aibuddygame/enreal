@@ -71,7 +71,7 @@ export default function Navbar() {
                 <button onClick={() => navigate('/')} aria-label="Go to home"
                     className="bg-none border-none cursor-pointer f-sans font-extrabold text-[1.05rem] tracking-tight pr-5 whitespace-nowrap transition-colors duration-300"
                     style={{ color: scrolled ? '#0f172a' : T.text }}>
-                    Enreal<span style={{ color: accent }}> Lab</span>
+                    Enreal<span style={{ color: accent }}> AI</span>
                 </button>
 
                 {/* Desktop links */}

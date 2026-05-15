@@ -13,12 +13,12 @@ const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy.jsx'))
 
 const routeSeo = {
     '/': {
-        title: 'Enreal Lab | Your Reliable AI Workforce Partner',
-        description: 'Enreal Lab helps businesses deploy reliable AI employees across operations, reporting, marketing, customer service, administration, and software workflows — backed by dedicated human implementation support.',
+        title: 'Enreal AI | Your Reliable AI Workforce Partner',
+        description: 'Enreal AI helps businesses deploy reliable AI employees across operations, reporting, marketing, customer service, administration, and software workflows — backed by dedicated human implementation support.',
         schema: {
             '@context': 'https://schema.org',
             '@type': 'WebSite',
-            name: 'Enreal Lab',
+            name: 'Enreal AI',
             url: seoBase.baseUrl,
         },
     },

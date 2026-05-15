@@ -37,10 +37,10 @@ export default function WhyAIHuman() {
         <section ref={ref} className="py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-[5vw] bg-[#F8FAFC]">
             <div className="max-w-7xl mx-auto">
                 <div className={`text-center max-w-2xl mx-auto mb-10 md:mb-14 transition-all duration-700 ease-out ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}>
-                    <p className="f-mono text-[0.65rem] tracking-[0.2em] text-[#EA580C] mb-4 uppercase">Why Enreal Lab</p>
+                    <p className="f-mono text-[0.65rem] tracking-[0.2em] text-[#EA580C] mb-4 uppercase">Why Enreal AI</p>
                     <h2 className="f-sans font-extrabold text-3xl md:text-4xl lg:text-[2.4rem] tracking-tight leading-[1.15] text-[#1e3a5f] mb-4">Reliable AI Needs Human Support</h2>
                     <p className="f-supp text-base text-black/[0.55] leading-relaxed">
-                        AI tools alone are not enough for real business operations. Enreal Lab provides dedicated specialists who help businesses implement, operate, troubleshoot, and optimize their AI workforce.
+                        AI tools alone are not enough for real business operations. Enreal AI provides dedicated specialists who help businesses implement, operate, troubleshoot, and optimize their AI workforce.
                     </p>
                 </div>
 

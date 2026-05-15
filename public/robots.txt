@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
+Disallow: /api/
 
-Sitemap: https://enreal-ai.vercel.app/sitemap.xml
+Sitemap: https://www.enreallab.com.hk/sitemap.xml
+
+# Crawl-delay for bots
+Crawl-delay: 1

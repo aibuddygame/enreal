@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 
 const DEFAULT_IMAGE = '/og-course.jpg'
 const SITE_NAME = 'Enreal AI'
-const BASE_URL = 'https://enreal-ai.vercel.app'
+const BASE_URL = 'https://www.enreallab.com.hk'
 
 function upsertMeta(attr, key, content) {
     if (!content) return
@@ -56,6 +56,7 @@ export default function Seo({
     keywords,
     ogTitle,
     ogDescription,
+    article,
 }) {
     useEffect(() => {
         const canonical = new URL(path, BASE_URL).toString()
@@ -65,6 +66,19 @@ export default function Seo({
         upsertMeta('name', 'description', description)
         upsertMeta('name', 'keywords', keywords)
         upsertMeta('name', 'robots', robots)
+
+        // Article-specific meta tags
+        if (article) {
+            upsertMeta('property', 'article:published_time', article.publishedTime)
+            upsertMeta('property', 'article:modified_time', article.modifiedTime)
+            upsertMeta('property', 'article:author', article.author)
+            upsertMeta('property', 'article:section', article.section)
+            if (article.tags) {
+                article.tags.forEach((tag, i) => {
+                    upsertMeta('property', `article:tag:${i}`, tag)
+                })
+            }
+        }
         upsertMeta('property', 'og:type', type)
         upsertMeta('property', 'og:site_name', SITE_NAME)
         upsertMeta('property', 'og:title', ogTitle || title)
@@ -82,7 +96,7 @@ export default function Seo({
         })
 
         upsertScript('route-schema', schema)
-    }, [title, description, path, image, type, robots, alternates, schema])
+    }, [title, description, path, image, type, robots, alternates, schema, article])
 
     return null
 }

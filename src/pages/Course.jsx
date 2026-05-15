@@ -45,7 +45,7 @@ const getCourseSchema = (lang) => {
         courseMode: 'onsite',
         educationalLevel: 'Professional',
         inLanguage: lang === 'en' ? 'en-US' : 'zh-HK',
-        url: lang === 'en' ? 'https://enreal-ai.vercel.app/course/en' : 'https://enreal-ai.vercel.app/course',
+        url: lang === 'en' ? 'https://www.enreallab.com.hk/course/en' : 'https://www.enreallab.com.hk/course',
     }
     
     if (lang === 'en') {

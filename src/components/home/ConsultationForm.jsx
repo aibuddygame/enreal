@@ -103,7 +103,7 @@ export default function ConsultationForm() {
                         Tell us about your business and we will recommend the right AI employees for your needs.
                     </p>
                     <p className="f-supp text-base text-black/[0.55] leading-relaxed mt-4">
-                        AI workforce deployment plans starting from USD 2,000/month per AI employee
+                        AI workforce deployment plans starting from <span className="text-[#EA580C] font-bold">USD 2,000/month</span> per AI employee
                     </p>
                 </div>
 

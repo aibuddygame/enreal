@@ -74,9 +74,16 @@ export function I18nProvider({ children }) {
         return value
     }, [lang])
 
-    // Helper to convert kebab-case to camelCase
+    // Map data.js IDs to translation keys (handles special cases)
+    const ID_TO_KEY = {
+        'ai-hr-manager': 'aiHRManager',
+        'ai-social-media-staff': 'aiSocialMediaInfluencer',
+    }
+    
     const toCamelCase = (str) => {
-        return str.replace(/-([a-z])/g, (match, letter) => letter.toUpperCase())
+        if (ID_TO_KEY[str]) return ID_TO_KEY[str]
+        const parts = str.split('-')
+        return parts[0] + parts.slice(1).map(p => p.charAt(0).toUpperCase() + p.slice(1)).join('')
     }
 
     // Helper to get translated AI employee data

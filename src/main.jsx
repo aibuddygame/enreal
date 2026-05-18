@@ -5,6 +5,8 @@ import App from './App.jsx'
 import { I18nProvider } from './i18n/I18nContext.jsx'
 import './index.css'
 
+console.log('main.jsx executing, root element:', document.getElementById('root'));
+
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
         <BrowserRouter>

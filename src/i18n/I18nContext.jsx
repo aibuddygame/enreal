@@ -74,9 +74,14 @@ export function I18nProvider({ children }) {
         return value
     }, [lang])
 
+    // Helper to convert kebab-case to camelCase
+    const toCamelCase = (str) => {
+        return str.replace(/-([a-z])/g, (match, letter) => letter.toUpperCase())
+    }
+
     // Helper to get translated AI employee data
     const getAIEmployee = useCallback((employee) => {
-        const id = employee.id
+        const id = toCamelCase(employee.id)
         const name = t(`aiEmployees.${id}`) || employee.name
         const summary = t(`aiEmployeeSummaries.${id}`) || employee.summary
         const helpsYou = t(`aiEmployeeHelpsYou.${id}`) || employee.helpsYou
@@ -97,7 +102,17 @@ export function I18nProvider({ children }) {
 
 export function useI18n() {
     const ctx = useContext(I18nContext)
-    if (!ctx) throw new Error('useI18n must be used within I18nProvider')
+    if (!ctx) {
+        console.error('useI18n called outside of I18nProvider. Component tree:', new Error().stack)
+        // Return a fallback to prevent crash
+        return {
+            lang: 'en',
+            setLang: () => {},
+            t: (key) => key,
+            getAIEmployee: (emp) => emp,
+            getAIEmployees: (emps) => emps,
+        }
+    }
     return ctx
 }
 

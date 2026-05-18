@@ -14,7 +14,7 @@ export default function Navbar() {
     const [open, setOpen] = useState(false)
     const navigate = useNavigate()
     const location = useLocation()
-    const { t } = useI18n()
+    const { t, lang } = useI18n()
     const isLanding = location.pathname === '/business' || location.pathname === '/zh-HK/business'
     const isHome = location.pathname === '/' || location.pathname === '/zh-HK'
     const isIndividual = location.pathname === '/individual' || location.pathname === '/zh-HK/individual'

@@ -33,18 +33,8 @@ export default function Navbar() {
     }
     
     const activeNav = isHome
-        ? HOME_NAV.map(n => {
-            const key = NAV_KEY_MAP[n.id] || n.id;
-            const translated = t(key);
-            console.log('Nav translate:', n.id, '→', key, '→', translated);
-            return { ...n, label: translated };
-          })
-        : NAV.map(n => {
-            const key = NAV_KEY_MAP[n.id] || n.id;
-            const translated = t(key);
-            console.log('Nav translate:', n.id, '→', key, '→', translated);
-            return { ...n, label: translated };
-          })
+        ? HOME_NAV.map(n => ({ ...n, label: t(NAV_KEY_MAP[n.id] || n.id) }))
+        : NAV.map(n => ({ ...n, label: t(NAV_KEY_MAP[n.id] || n.id) }))
     const accent = isHome ? ORANGE : T.accent
     const accentD = isHome ? ORANGE_D : T.accentD
 

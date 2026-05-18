@@ -1,19 +1,9 @@
 import { useState } from 'react'
 import { Send, CheckCircle, Loader2 } from 'lucide-react'
-
-const EMPLOYEE_OPTIONS = [
-    'AI Coding Engineer',
-    'AI Data Analyst',
-    'AI Report Specialist',
-    'AI Creative Director',
-    'AI Social Media Influencer',
-    'AI Customer Service',
-    'AI Secretary',
-    'AI HR Manager',
-    'AI Accountant',
-]
+import { useI18n } from '../../i18n/I18nContext.jsx'
 
 export default function ConsultationForm() {
+    const { t } = useI18n()
     const [form, setForm] = useState({
         fullName: '',
         companyName: '',
@@ -26,6 +16,18 @@ export default function ConsultationForm() {
     })
     const [status, setStatus] = useState('idle') // idle | submitting | success | error
     const [errorMsg, setErrorMsg] = useState('')
+
+    const employeeKeys = [
+        'aiCodingEngineer',
+        'aiDataAnalyst',
+        'aiReportSpecialist',
+        'aiCreativeDirector',
+        'aiSocialMediaInfluencer',
+        'aiCustomerService',
+        'aiSecretary',
+        'aiHRManager',
+        'aiAccountant',
+    ]
 
     const toggleEmployee = (emp) => {
         setForm(prev => ({
@@ -40,13 +42,13 @@ export default function ConsultationForm() {
         e.preventDefault()
         if (form.honeypot) return
         if (!form.fullName || !form.email || !form.message) {
-            setErrorMsg('Please fill in all required fields.')
+            setErrorMsg(t('consultationForm.errorRequired'))
             setStatus('error')
             return
         }
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
         if (!emailRegex.test(form.email)) {
-            setErrorMsg('Please enter a valid email address.')
+            setErrorMsg(t('consultationForm.errorEmail'))
             setStatus('error')
             return
         }
@@ -68,11 +70,11 @@ export default function ConsultationForm() {
                     website: '', interestedEmployees: [], message: '', honeypot: '',
                 })
             } else {
-                setErrorMsg(data.error || 'Something went wrong. Please try again.')
+                setErrorMsg(data.error || t('consultationForm.errorGeneral'))
                 setStatus('error')
             }
         } catch (err) {
-            setErrorMsg('Network error. Please try again later.')
+            setErrorMsg(t('consultationForm.errorNetwork'))
             setStatus('error')
         }
     }
@@ -84,9 +86,9 @@ export default function ConsultationForm() {
                     <div className="w-16 h-16 rounded-full bg-green-500/10 flex items-center justify-center mx-auto mb-6">
                         <CheckCircle size={28} color="#22C55E" />
                     </div>
-                    <h3 className="f-sans font-extrabold text-2xl text-[#1C1C1E] mb-3">Thank You!</h3>
+                    <h3 className="f-sans font-extrabold text-2xl text-[#1C1C1E] mb-3">{t('consultationForm.successTitle')}</h3>
                     <p className="f-supp text-base text-black/55 leading-relaxed">
-                        We have received your consultation request. Our team will reach out within 24 hours.
+                        {t('consultationForm.successMessage')}
                     </p>
                 </div>
             </section>
@@ -97,13 +99,13 @@ export default function ConsultationForm() {
         <section id="consultation" className="py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-[5vw] bg-[#F8FAFC]">
             <div className="max-w-3xl mx-auto">
                 <div className="text-center mb-10">
-                    <p className="f-mono text-[0.65rem] tracking-[0.2em] text-[#EA580C] mb-4 uppercase">Get Started</p>
-                    <h2 className="f-sans font-extrabold text-3xl md:text-4xl lg:text-[2.4rem] tracking-tight leading-[1.15] text-[#1e3a5f] mb-4">Book a Free AI Workforce Consultation</h2>
+                    <p className="f-mono text-[0.65rem] tracking-[0.2em] text-[#EA580C] mb-4 uppercase">{t('consultationForm.eyebrow')}</p>
+                    <h2 className="f-sans font-extrabold text-3xl md:text-4xl lg:text-[2.4rem] tracking-tight leading-[1.15] text-[#1e3a5f] mb-4">{t('consultationForm.title')}</h2>
                     <p className="f-supp text-base text-black/[0.55] leading-relaxed">
-                        Tell us about your business and we will recommend the right AI employees for your needs.
+                        {t('consultationForm.subtitle')}
                     </p>
                     <p className="f-supp text-base text-black/[0.55] leading-relaxed mt-4">
-                        AI workforce deployment plans starting from <span className="text-[#EA580C] font-bold">USD 2,000/month</span> per AI employee
+                        {t('consultationForm.pricingNote')} <span className="text-[#EA580C] font-bold">{t('consultationForm.pricingAmount')}</span> {t('consultationForm.perEmployee')}
                     </p>
                 </div>
 
@@ -123,7 +125,7 @@ export default function ConsultationForm() {
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                         <div>
                             <label htmlFor="fullName" className="block font-sans text-[0.82rem] font-semibold text-[#1C1C1E] mb-1.5">
-                                Full Name <span className="text-red-500">*</span>
+                                {t('consultationForm.fullName')} <span className="text-red-500">*</span>
                             </label>
                             <input
                                 id="fullName"
@@ -136,7 +138,7 @@ export default function ConsultationForm() {
                         </div>
                         <div>
                             <label htmlFor="companyName" className="block font-sans text-[0.82rem] font-semibold text-[#1C1C1E] mb-1.5">
-                                Company Name
+                                {t('consultationForm.companyName')}
                             </label>
                             <input
                                 id="companyName"
@@ -148,7 +150,7 @@ export default function ConsultationForm() {
                         </div>
                         <div>
                             <label htmlFor="email" className="block font-sans text-[0.82rem] font-semibold text-[#1C1C1E] mb-1.5">
-                                Email <span className="text-red-500">*</span>
+                                {t('consultationForm.email')} <span className="text-red-500">*</span>
                             </label>
                             <input
                                 id="email"
@@ -161,7 +163,7 @@ export default function ConsultationForm() {
                         </div>
                         <div>
                             <label htmlFor="phone" className="block font-sans text-[0.82rem] font-semibold text-[#1C1C1E] mb-1.5">
-                                Phone / WhatsApp
+                                {t('consultationForm.phone')}
                             </label>
                             <input
                                 id="phone"
@@ -175,7 +177,7 @@ export default function ConsultationForm() {
 
                     <div className="mt-5">
                         <label htmlFor="website" className="block font-sans text-[0.82rem] font-semibold text-[#1C1C1E] mb-1.5">
-                            Company Website
+                            {t('consultationForm.website')}
                         </label>
                         <input
                             id="website"
@@ -187,18 +189,18 @@ export default function ConsultationForm() {
                     </div>
 
                     <div className="mt-5">
-                        <p className="block font-sans text-[0.82rem] font-semibold text-[#1C1C1E] mb-1.5">Interested AI Employees</p>
+                        <p className="block font-sans text-[0.82rem] font-semibold text-[#1C1C1E] mb-1.5">{t('consultationForm.interestedEmployees')}</p>
                         <div className="flex flex-wrap gap-2">
-                            {EMPLOYEE_OPTIONS.map(emp => (
+                            {employeeKeys.map(empKey => (
                                 <button
-                                    key={emp}
+                                    key={empKey}
                                     type="button"
-                                    onClick={() => toggleEmployee(emp)}
+                                    onClick={() => toggleEmployee(empKey)}
                                     className={`px-4 py-2 rounded-full text-[0.82rem] font-medium transition-all duration-200 cursor-pointer
-                                        ${form.interestedEmployees.includes(emp)
+                                        ${form.interestedEmployees.includes(empKey)
                                             ? 'bg-[#EA580C]/[0.08] text-[#EA580C] border border-[#EA580C]'
                                             : 'bg-[#FAFAFA] text-black/60 border border-black/10 hover:border-black/20'}`}>
-                                    {emp}
+                                    {t(`aiEmployees.${empKey}`)}
                                 </button>
                             ))}
                         </div>
@@ -206,7 +208,7 @@ export default function ConsultationForm() {
 
                     <div className="mt-5">
                         <label htmlFor="message" className="block font-sans text-[0.82rem] font-semibold text-[#1C1C1E] mb-1.5">
-                            Message / Workflow Description <span className="text-red-500">*</span>
+                            {t('consultationForm.message')} <span className="text-red-500">*</span>
                         </label>
                         <textarea
                             id="message"
@@ -214,7 +216,7 @@ export default function ConsultationForm() {
                             rows={4}
                             value={form.message}
                             onChange={e => setForm({ ...form, message: e.target.value })}
-                            placeholder="Tell us about your business and what you would like to automate..."
+                            placeholder={t('consultationForm.messagePlaceholder')}
                             className="form-input resize-y"
                         />
                     </div>
@@ -231,11 +233,11 @@ export default function ConsultationForm() {
                         {status === 'submitting' ? (
                             <>
                                 <Loader2 size={16} className="animate-spin" />
-                                Sending...
+                                {t('consultationForm.submitting')}
                             </>
                         ) : (
                             <>
-                                <Send size={16} /> Request Free Consultation
+                                <Send size={16} /> {t('consultationForm.submit')}
                             </>
                         )}
                     </button>

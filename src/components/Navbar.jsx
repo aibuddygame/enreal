@@ -19,7 +19,9 @@ export default function Navbar() {
     const isHome = location.pathname === '/' || location.pathname === '/zh-HK'
     const isIndividual = location.pathname === '/individual' || location.pathname === '/zh-HK/individual'
 
-    const activeNav = isHome ? HOME_NAV : NAV
+    const activeNav = isHome
+        ? HOME_NAV.map(n => ({ ...n, label: t(`nav.${n.id === 'hero' ? 'home' : n.id === 'ai-workforce' ? 'aiWorkforce' : n.id === 'workflow' ? 'howItWorks' : 'contact'}`) }))
+        : NAV.map(n => ({ ...n, label: t(`nav.${n.id === 'solutions' ? 'solutions' : n.id === 'work' ? 'work' : n.id === 'method' ? 'method' : n.id === 'about' ? 'about' : 'contact'}`) }))
     const accent = isHome ? ORANGE : T.accent
     const accentD = isHome ? ORANGE_D : T.accentD
 

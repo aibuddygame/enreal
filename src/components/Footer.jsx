@@ -1,11 +1,12 @@
 import { useState } from 'react'
 import { ArrowUpRight } from 'lucide-react'
 import { useNavigate, useLocation } from 'react-router-dom'
-import { T } from '../data.js'
+import { useI18n } from '../i18n/I18nContext.jsx'
 
 const EMAIL = 'hello@enreallab.com.hk'
 
 export default function Footer({ navLinks, brandText, accentColor }) {
+    const { t } = useI18n()
     const navigate = useNavigate()
     const location = useLocation()
 
@@ -26,16 +27,16 @@ export default function Footer({ navLinks, brandText, accentColor }) {
                     {/* Brand */}
                     <div>
                         <h2 className="f-sans font-extrabold text-2xl tracking-tight text-white mb-3">
-                            Enreal<span style={{ color: accentColor || T.accent }}> AI</span>
+                            Enreal<span style={{ color: accentColor || '#2563EB' }}> AI</span>
                         </h2>
                         <p className="f-supp text-sm text-white/45 leading-relaxed max-w-xs mb-7">
-                            {brandText || 'The intelligence layer that scales business operations without increasing headcount.'}
+                            {brandText || t('footer.brandText')}
                         </p>
                     </div>
 
                     {/* Nav */}
                     <div>
-                        <p className="f-mono text-[0.6rem] tracking-[0.15em] text-white/30 mb-5 uppercase">Navigation</p>
+                        <p className="f-mono text-[0.6rem] tracking-[0.15em] text-white/30 mb-5 uppercase">{t('footer.navigation')}</p>
                         {(navLinks || []).map(({ label, id }) => (
                             <button key={id} onClick={() => go(id)}
                                 className="block bg-none border-none cursor-pointer font-sans text-sm text-white/45 py-1 text-left transition-colors duration-200 hover:text-white">
@@ -46,7 +47,7 @@ export default function Footer({ navLinks, brandText, accentColor }) {
 
                     {/* Contact */}
                     <div>
-                        <p className="f-mono text-[0.6rem] tracking-[0.15em] text-white/30 mb-5 uppercase">Contact</p>
+                        <p className="f-mono text-[0.6rem] tracking-[0.15em] text-white/30 mb-5 uppercase">{t('footer.contact')}</p>
                         <a href={`mailto:${EMAIL}`}
                             className="inline-flex items-center gap-1.5 font-sans text-sm text-white/45 no-underline mb-6 transition-colors duration-200 hover:text-white">
                             {EMAIL} <ArrowUpRight size={13} />
@@ -59,11 +60,11 @@ export default function Footer({ navLinks, brandText, accentColor }) {
                     <div className="flex items-center gap-2">
                         <span className="pulse-dot inline-block w-1.5 h-1.5 rounded-full bg-green-500" />
                         <span className="f-mono text-[0.67rem] text-white/30 tracking-wider">
-                            SYSTEM STATUS: OPERATIONAL
+                            {t('footer.systemStatus')}
                         </span>
                     </div>
                     <span className="font-sans text-[0.78rem] text-white/20">
-                        © Enreal AI 2025 — Hong Kong
+                        {t('footer.copyright')}
                     </span>
                 </div>
             </div>
@@ -78,8 +79,8 @@ function SocialIcon({ Icon, href, label }) {
             onMouseEnter={() => setHov(true)} onMouseLeave={() => setHov(false)}
             className="w-9 h-9 rounded-full inline-flex items-center justify-center no-underline transition-all duration-250 ease-out"
             style={{
-                background: hov ? T.accent : 'rgba(255,255,255,0.08)',
-                border: `1px solid ${hov ? T.accent : 'rgba(255,255,255,0.1)'}`,
+                background: hov ? '#2563EB' : 'rgba(255,255,255,0.08)',
+                border: `1px solid ${hov ? '#2563EB' : 'rgba(255,255,255,0.1)'}`,
                 color: hov ? '#fff' : 'rgba(255,255,255,0.45)',
                 transform: hov ? 'translateY(-2px)' : 'translateY(0)',
             }}>

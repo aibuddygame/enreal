@@ -1,6 +1,8 @@
 import { ArrowRight, Mail } from 'lucide-react'
+import { useI18n } from '../../i18n/I18nContext.jsx'
 
 export default function ClosingCTASection() {
+    const { t } = useI18n()
     const go = (id) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
 
     return (
@@ -13,15 +15,15 @@ export default function ClosingCTASection() {
 
             <div className="relative z-10 max-w-3xl mx-auto text-center">
                 <h2 className="f-sans font-extrabold text-3xl md:text-4xl lg:text-5xl tracking-tight leading-[1.15] text-white mb-4">
-                    Build Your Reliable AI Workforce with Enreal AI
+                    {t('closingCTA.title')}
                 </h2>
                 <p className="f-supp text-base md:text-lg text-white/60 leading-relaxed max-w-xl mx-auto mb-8 md:mb-9">
-                    From first consultation to full operations, we are your partner in making AI work reliably for your business.
+                    {t('closingCTA.subtitle')}
                 </p>
 
                 <div className="flex flex-wrap gap-3.5 justify-center">
                     <button onClick={() => go('consultation')} className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#EA580C] text-white font-sans text-sm font-bold shadow-lg shadow-orange-500/40 hover:shadow-xl hover:shadow-orange-500/50 hover:-translate-y-0.5 hover:bg-[#C2410C] active:scale-[0.98] transition-all duration-300 ease-out">
-                        Book a Free Consultation <ArrowRight size={15} />
+                        {t('closingCTA.ctaPrimary')} <ArrowRight size={15} />
                     </button>
 
                     <a href="mailto:hello@enreallab.com.hk" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white/[0.08] text-white font-sans text-sm font-medium border border-white/15 transition-all duration-300 ease-out hover:bg-white/15 active:scale-[0.98]">

@@ -20,6 +20,10 @@ export default function Navbar() {
     const isLanding = location.pathname === '/business' || location.pathname === '/zh-HK/business'
     const isHome = location.pathname === '/' || location.pathname === '/zh-HK'
     const isIndividual = location.pathname === '/individual' || location.pathname === '/zh-HK/individual'
+    
+    // Force Chinese if URL is /zh-HK
+    const isZhPath = location.pathname.startsWith('/zh-HK')
+    const effectiveLang = isZhPath ? 'zh-HK' : lang
 
     // Direct translation lookup as fallback
     const translations = { en, 'zh-HK': zhHK }
@@ -51,19 +55,9 @@ export default function Navbar() {
         'nav.about': '關於我們',
     }
     
-    console.log('Navbar render - lang:', lang, 'pathname:', location.pathname)
-    
     const activeNav = isHome
-        ? HOME_NAV.map(n => {
-            const label = lang === 'zh-HK' ? (ZH_NAV[n.label] || translateNav(n.label)) : translateNav(n.label)
-            console.log('Nav item:', n.id, 'label:', label, 'lang:', lang)
-            return { ...n, label }
-          })
-        : NAV.map(n => {
-            const label = lang === 'zh-HK' ? (ZH_NAV[n.label] || translateNav(n.label)) : translateNav(n.label)
-            console.log('Nav item:', n.id, 'label:', label, 'lang:', lang)
-            return { ...n, label }
-          })
+        ? HOME_NAV.map(n => ({ ...n, label: effectiveLang === 'zh-HK' ? (ZH_NAV[n.label] || translateNav(n.label)) : translateNav(n.label) }))
+        : NAV.map(n => ({ ...n, label: effectiveLang === 'zh-HK' ? (ZH_NAV[n.label] || translateNav(n.label)) : translateNav(n.label) }))
     const accent = isHome ? ORANGE : T.accent
     const accentD = isHome ? ORANGE_D : T.accentD
 

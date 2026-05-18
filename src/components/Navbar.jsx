@@ -39,9 +39,21 @@ export default function Navbar() {
         return value
     }
     
+    // Hardcoded Chinese nav for zh-HK
+    const ZH_NAV = {
+        'nav.home': '首頁',
+        'nav.aiWorkforce': 'AI 工作團隊',
+        'nav.howItWorks': '運作流程',
+        'nav.contact': '聯絡我們',
+        'nav.solutions': '解決方案',
+        'nav.work': '作品',
+        'nav.method': '方法',
+        'nav.about': '關於我們',
+    }
+    
     const activeNav = isHome
-        ? HOME_NAV.map(n => ({ ...n, label: translateNav(n.label) }))
-        : NAV.map(n => ({ ...n, label: translateNav(n.label) }))
+        ? HOME_NAV.map(n => ({ ...n, label: lang === 'zh-HK' ? (ZH_NAV[n.label] || translateNav(n.label)) : translateNav(n.label) }))
+        : NAV.map(n => ({ ...n, label: lang === 'zh-HK' ? (ZH_NAV[n.label] || translateNav(n.label)) : translateNav(n.label) }))
     const accent = isHome ? ORANGE : T.accent
     const accentD = isHome ? ORANGE_D : T.accentD
 

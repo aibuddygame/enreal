@@ -65,6 +65,20 @@
       });
     }
   </script>
+  <script>
+    // Cache buster: force reload if HTML is stale
+    fetch('/version.json?_=' + Date.now())
+      .then(r => r.json())
+      .then(v => {
+        var current = localStorage.getItem('enreal-version');
+        if (current && current !== v.version) {
+          localStorage.setItem('enreal-version', v.version);
+          window.location.reload(true);
+        } else {
+          localStorage.setItem('enreal-version', v.version);
+        }
+      });
+  </script>
 </body>
 
 </html>

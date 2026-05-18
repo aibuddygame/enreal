@@ -57,6 +57,12 @@
 
 <body>
   <div id="root"></div>
+  <script>
+    window.onerror = function(msg, url, line, col, error) {
+      console.error('GLOBAL ERROR:', msg, 'at', url, 'line', line, 'col', col);
+      document.body.innerHTML = '<div style="padding:20px;font-family:sans-serif;"><h1>JavaScript Error</h1><pre style="background:#fee;padding:10px;border-radius:4px;">' + msg + '<br>at ' + url + ':' + line + '</pre></div>';
+    };
+  </script>
   <script type="module" src="/src/main.jsx"></script>
   <script>
     // Force unregister old service workers to prevent caching issues

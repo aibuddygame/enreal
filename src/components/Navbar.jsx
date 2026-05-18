@@ -4,6 +4,8 @@ import { ArrowRight } from 'lucide-react'
 import { NAV, HOME_NAV, T } from '../data.js'
 import { useI18n } from '../i18n/I18nContext.jsx'
 import LanguageToggle from './LanguageToggle.jsx'
+import zhHK from '../i18n/zh-HK.json'
+import en from '../i18n/en.json'
 
 const ORANGE = '#EA580C'
 const ORANGE_D = '#C2410C'
@@ -19,18 +21,22 @@ export default function Navbar() {
     const isHome = location.pathname === '/' || location.pathname === '/zh-HK'
     const isIndividual = location.pathname === '/individual' || location.pathname === '/zh-HK/individual'
 
-    // Helper to safely translate nav labels
+    // Direct translation lookup as fallback
+    const translations = { en, 'zh-HK': zhHK }
     const translateNav = (key) => {
         const translated = t(key)
-        // If translation returns the key itself, something is wrong
-        return translated === key ? (key === 'nav.home' ? 'Home' : 
-                                     key === 'nav.aiWorkforce' ? 'AI Workforce' :
-                                     key === 'nav.howItWorks' ? 'How It Works' :
-                                     key === 'nav.contact' ? 'Contact' :
-                                     key === 'nav.solutions' ? 'Solutions' :
-                                     key === 'nav.work' ? 'Work' :
-                                     key === 'nav.method' ? 'Method' :
-                                     key === 'nav.about' ? 'About' : key) : translated
+        if (translated !== key) return translated
+        // Fallback: lookup directly
+        const keys = key.split('.')
+        let value = translations[lang] || translations.en
+        for (const k of keys) {
+            if (value && typeof value === 'object' && k in value) {
+                value = value[k]
+            } else {
+                return key
+            }
+        }
+        return value
     }
     
     const activeNav = isHome

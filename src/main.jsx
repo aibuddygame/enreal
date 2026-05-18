@@ -7,6 +7,8 @@ import './index.css'
 
 console.log('main.jsx executing, root element:', document.getElementById('root'));
 
+document.getElementById('root').innerHTML = '<div style="padding:20px;text-align:center;"><h1>Loading...</h1></div>';
+
 try {
     const root = ReactDOM.createRoot(document.getElementById('root'));
     console.log('Root created:', root);

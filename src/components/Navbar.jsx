@@ -51,17 +51,9 @@ export default function Navbar() {
         'nav.about': '關於我們',
     }
     
-    console.log('Navbar lang:', lang, 'isHome:', isHome, 'pathname:', location.pathname)
-    
-    // Force re-render when lang changes
-    const [navLang, setNavLang] = useState(lang)
-    useEffect(() => {
-        setNavLang(lang)
-    }, [lang])
-    
     const activeNav = isHome
-        ? HOME_NAV.map(n => ({ ...n, label: navLang === 'zh-HK' ? (ZH_NAV[n.label] || translateNav(n.label)) : translateNav(n.label) }))
-        : NAV.map(n => ({ ...n, label: navLang === 'zh-HK' ? (ZH_NAV[n.label] || translateNav(n.label)) : translateNav(n.label) }))
+        ? HOME_NAV.map(n => ({ ...n, label: lang === 'zh-HK' ? (ZH_NAV[n.label] || translateNav(n.label)) : translateNav(n.label) }))
+        : NAV.map(n => ({ ...n, label: lang === 'zh-HK' ? (ZH_NAV[n.label] || translateNav(n.label)) : translateNav(n.label) }))
     const accent = isHome ? ORANGE : T.accent
     const accentD = isHome ? ORANGE_D : T.accentD
 

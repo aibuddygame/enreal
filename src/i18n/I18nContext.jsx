@@ -84,7 +84,8 @@ export function I18nProvider({ children }) {
         const id = toCamelCase(employee.id)
         const name = t(`aiEmployees.${id}`) || employee.name
         const summary = t(`aiEmployeeSummaries.${id}`) || employee.summary
-        const helpsYou = t(`aiEmployeeHelpsYou.${id}`) || employee.helpsYou
+        const helpsYouRaw = t(`aiEmployeeHelpsYou.${id}`)
+        const helpsYou = Array.isArray(helpsYouRaw) ? helpsYouRaw : employee.helpsYou
         return { ...employee, name, summary, helpsYou }
     }, [t])
 

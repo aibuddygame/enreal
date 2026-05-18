@@ -166,6 +166,7 @@ export default function App() {
             <Suspense fallback={<AppFallback />}>
                 <Routes>
                     <Route path="/" element={<HomePage />} />
+                    <Route path="/zh-HK" element={<HomePage />} />
                     <Route path="/business" element={<LandingPage />} />
 
                     <Route path="/course" element={<CoursePage lang="zh" />} />

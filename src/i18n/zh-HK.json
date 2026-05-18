@@ -1,0 +1,241 @@
+{
+  "nav": {
+    "home": "首頁",
+    "aiWorkforce": "AI 工作團隊",
+    "howItWorks": "運作流程",
+    "contact": "聯絡我們",
+    "solutions": "解決方案",
+    "work": "作品",
+    "method": "方法",
+    "about": "關於我們",
+    "bookConsultation": "預約諮詢",
+    "switchToEliteCourse": "切換至精英課程",
+    "switchToBusiness": "切換至商業版"
+  },
+  "hero": {
+    "eyebrow": "Enreal AI — 香港",
+    "title": "最值得信賴的\nAI 工作團隊夥伴",
+    "subtitle": "實用的 AI 員工，配備專屬人類支援團隊。",
+    "description": "我們協助企業部署 AI 員工，涵蓋編程、數據分析、報告、市場推廣、客戶服務、人力資源、會計及日常營運 — 並由真正的專家提供實施與執行支援。",
+    "ctaPrimary": "預約免費諮詢",
+    "ctaSecondary": "探索 AI 員工"
+  },
+  "aiWorkforceGrid": {
+    "eyebrow": "我們的 AI 工作團隊",
+    "title": "選擇您的 AI 員工",
+    "subtitle": "從您業務最需要的職位開始。我們的團隊協助您可靠地實施與運作。",
+    "learnMore": "了解更多 →"
+  },
+  "aiEmployeeDetails": {
+    "eyebrow": "能力",
+    "title": "認識您的 AI 員工",
+    "helpsYou": "協助您",
+    "dedicatedSupport": "專屬支援",
+    "dedicatedSupportText": "我們的團隊協助您進行設定、客製化、運作及優化。",
+    "cta": "諮詢此 AI 員工"
+  },
+  "whyAIHuman": {
+    "eyebrow": "為何選擇 Enreal AI",
+    "title": "可靠的 AI 需要人類支援",
+    "subtitle": "單靠 AI 工具不足以應對真實的商業營運。Enreal AI 提供專屬專家，協助企業實施、運作、排除故障及優化其 AI 工作團隊。",
+    "setupSupport": "設定支援",
+    "setupSupportDesc": "我們將您的 AI 員工配置並整合至現有工具與工作流程中。",
+    "workflowCustomization": "工作流程客製化",
+    "workflowCustomizationDesc": "每間企業各有不同。我們根據您的特定流程量身打造 AI 營運方案。",
+    "qualityControl": "品質控制",
+    "qualityControlDesc": "人類監督確保準確性、品牌一致性，以及每次都能產出可靠成果。",
+    "continuousOptimization": "持續優化",
+    "continuousOptimizationDesc": "我們監控表現並隨著您的業務發展不斷改進 AI 工作團隊。"
+  },
+  "workflow": {
+    "eyebrow": "流程",
+    "title": "我們如何建立您的 AI 工作團隊",
+    "step1Title": "免費諮詢",
+    "step1Desc": "我們討論您的工作流程、痛點與目標，以識別最適合的 AI 員工。",
+    "step2Title": "AI 工作團隊規劃",
+    "step2Desc": "我們設計量身定制的路線圖，定義職位、整合方案及成功指標。",
+    "step3Title": "實施部署",
+    "step3Desc": "我們部署您的 AI 員工、連接您的工具，並培訓您的團隊。",
+    "step4Title": "持續支援",
+    "step4Desc": "您的 AI 工作團隊每日運作，我們的人類團隊持續監控與優化。"
+  },
+  "whoThisIsFor": {
+    "eyebrow": "目標客戶",
+    "title": "為需要實用 AI 支援的企業而設",
+    "smes": "中小企業",
+    "smesDesc": "準備自動化營運，但無需聘請完整技術團隊的中小型企業。",
+    "agencies": "代理商",
+    "agenciesDesc": "希望透過可靠的 AI 支援擴展交付能力的服務代理商。",
+    "enterprises": "大型企業",
+    "enterprisesDesc": "需要專屬實施支援以部署 AI 工作團隊的大型機構。",
+    "teamsWithoutAI": "沒有 AI 工程師的團隊",
+    "teamsWithoutAIDesc": "希望獲得實用 AI 成果，而無需建立內部工程部門的企業。"
+  },
+  "consultationForm": {
+    "eyebrow": "立即開始",
+    "title": "預約免費 AI 工作團隊諮詢",
+    "subtitle": "告訴我們您的業務需求，我們將推薦最適合的 AI 員工。",
+    "pricingNote": "AI 工作團隊部署方案起價為",
+    "pricingAmount": "每月 2,000 美元",
+    "perEmployee": "每位 AI 員工",
+    "fullName": "全名",
+    "companyName": "公司名稱",
+    "email": "電郵",
+    "phone": "電話 / WhatsApp",
+    "website": "公司網站",
+    "interestedEmployees": "感興趣的 AI 員工",
+    "message": "訊息 / 工作流程描述",
+    "messagePlaceholder": "告訴我們您的業務及您希望自動化的項目...",
+    "required": "必填",
+    "submit": "申請免費諮詢",
+    "submitting": "發送中...",
+    "successTitle": "多謝！",
+    "successMessage": "我們已收到您的諮詢申請。我們的團隊將在 24 小時內與您聯絡。",
+    "errorRequired": "請填寫所有必填欄位。",
+    "errorEmail": "請輸入有效的電郵地址。",
+    "errorGeneral": "發生錯誤。請再試一次。",
+    "errorNetwork": "網絡錯誤。請稍後再試。"
+  },
+  "closingCTA": {
+    "title": "與 Enreal AI 建立您可靠的 AI 工作團隊",
+    "subtitle": "從首次諮詢到全面運作，我們是您讓 AI 可靠地為業務服務的夥伴。",
+    "ctaPrimary": "預約免費諮詢",
+    "email": "hello@enreallab.com.hk"
+  },
+  "problem": {
+    "eyebrow": "挑戰",
+    "title": "企業渴望 AI，但可靠的實施仍然困難",
+    "subtitle": "大多數公司難以將對 AI 的好奇轉化為實際營運。您需要的不只是工具 — 您需要一個可靠的夥伴。",
+    "repetitiveWorkflows": "重複性工作流程",
+    "repetitiveWorkflowsDesc": "團隊花費數小時進行手動數據輸入、報告及常規任務，嚴重消耗生產力。",
+    "overloadedTeams": "超負荷團隊",
+    "overloadedTeamsDesc": "熟練員工被營運工作淹沒，無法專注於高價值的策略工作。",
+    "fragmentedData": "數據分散",
+    "fragmentedDataDesc": "資訊分散在不同系統中，難以獲得統一的視圖。",
+    "inconsistentSupport": "不一致的支援",
+    "inconsistentSupportDesc": "客戶服務質素因班次而異，導致客戶不滿及收入損失。",
+    "lackAIExpertise": "缺乏 AI 專業知識",
+    "lackAIExpertiseDesc": "您知道 AI 可以幫助，但沒有內部人才來可靠地實施。"
+  },
+  "solution": {
+    "eyebrow": "我們的方法",
+    "title": "可靠 = AI + 人類",
+    "subtitle": "我們結合智能 AI 能力與專屬人類實施支援，為您提供可信賴的成果。",
+    "aiCapabilities": "智能 AI 能力",
+    "humanSupport": "專屬人類支援",
+    "aiCap1": "全天候運作，永不疲倦",
+    "aiCap2": "大規模處理重複性任務",
+    "aiCap3": "與您現有工具整合",
+    "aiCap4": "持續學習與改進",
+    "humanCap1": "策略方向與監督",
+    "humanCap2": "品質保證與驗證",
+    "humanCap3": "複雜問題解決",
+    "humanCap4": "關係與客戶管理",
+    "keyMessage": "每位 AI 員工都由專屬人員支援",
+    "keyMessageDesc": "您不會獨自面對自動化。我們的團隊持續監控、驗證，並在需要人類判斷時介入。"
+  },
+  "pricing": {
+    "eyebrow": "定價",
+    "title": "根據您的工作流程靈活部署",
+    "subtitle": "每間企業的工作流程各不相同。我們根據所選 AI 員工、工作流程複雜度、整合需求及支援級別提供客製化定價。",
+    "cta": "預約免費諮詢",
+    "note": "我們會在了解您的業務需求後推薦合適的部署方案。"
+  },
+  "deployment": {
+    "eyebrow": "部署模式",
+    "title": "靈活的 AI 工作團隊部署",
+    "subtitle": "選擇最適合您機構規模、成熟度及合規需求的部署模式。",
+    "internalAI": "內部 AI 營運",
+    "internalAIDesc": "在您自己的基礎設施內部署 AI 員工。完全控制、完全擁有，由您的團隊管理並獲得我們的設定支援。",
+    "internalAIBestFor": "擁有專屬 IT 團隊及嚴格數據治理要求的企業。",
+    "managedAI": "託管 AI 營運",
+    "managedAIDesc": "我們端到端託管並運作您的 AI 工作團隊。您獲得成果；我們處理基礎設施。",
+    "managedAIBestFor": "希望立即獲得成果而無需技術負擔的中小企業及團隊。",
+    "hybridAI": "混合 AI 工作團隊",
+    "hybridAIDesc": "兩全其美。關鍵功能在內部運行；溢出及專業任務由我們管理。",
+    "hybridAIBestFor": "需要靈活性、可擴展性及冗餘性的成長中企業。",
+    "recommended": "推薦",
+    "bestFor": "最適合"
+  },
+  "footer": {
+    "brandText": "擴展業務營運的智能層，無需增加人手。",
+    "homeBrandText": "您最值得信賴的 AI 工作團隊夥伴。實用的 AI 員工，配備專屬人類實施支援。",
+    "navigation": "導航",
+    "contact": "聯絡我們",
+    "systemStatus": "系統狀態：正常運作",
+    "copyright": "© Enreal AI 2025 — 香港"
+  },
+  "languageToggle": {
+    "en": "EN",
+    "zh": "中"
+  },
+  "aiEmployees": {
+    "aiCodingEngineer": "AI 軟件工程師",
+    "aiDataAnalyst": "AI 數據分析師",
+    "aiReportSpecialist": "AI 報告專員",
+    "aiCreativeDirector": "AI 創作總監",
+    "aiSocialMediaInfluencer": "AI 社交媒體達人",
+    "aiCustomerService": "AI 客戶服務",
+    "aiSecretary": "AI 秘書",
+    "aiHRManager": "AI 人事經理",
+    "aiAccountant": "AI 會計師"
+  },
+  "aiEmployeeSummaries": {
+    "aiCodingEngineer": "在人類指導的架構監督下構建和維護軟件。",
+    "aiDataAnalyst": "將原始數據轉化為可操作的商業智能，並經人類驗證。",
+    "aiReportSpecialist": "按時製作準確、格式化的報告，並經人員核實。",
+    "aiCreativeDirector": "在人類創意監督下創建符合品牌的視覺和文字內容。",
+    "aiSocialMediaInfluencer": "管理社交媒體形象、內容日曆及社群互動。",
+    "aiCustomerService": "處理查詢、工單及支援工作流程，並設有人類升級路徑。",
+    "aiSecretary": "輕鬆管理日程安排、通信及行政任務。",
+    "aiHRManager": "簡化招聘、入職及員工參與流程。",
+    "aiAccountant": "在會計師審查下管理簿記、發票及財務報告。"
+  },
+  "aiEmployeeHelpsYou": {
+    "aiCodingEngineer": [
+      "跨技術棧編寫和重構生產代碼",
+      "自動化測試、CI/CD 及部署流程",
+      "審查代碼並執行質量標準"
+    ],
+    "aiDataAnalyst": [
+      "自動化數據清理和流程工作流",
+      "生成儀表板及執行摘要",
+      "實時監控 KPI 並檢測異常"
+    ],
+    "aiReportSpecialist": [
+      "生成財務、營運及銷售報告",
+      "自動化圖表、可視化及敘述",
+      "按時安排定期報告交付"
+    ],
+    "aiCreativeDirector": [
+      "生成營銷文案、博客及廣告創意",
+      "在所有渠道保持品牌聲音一致性",
+      "製作設計概念及創意簡報"
+    ],
+    "aiSocialMediaInfluencer": [
+      "跨平台安排和發佈內容",
+      "與評論、私信及社群互動",
+      "追蹤趨勢並分析增長指標"
+    ],
+    "aiCustomerService": [
+      "即時回答常見問題並解決常見問題",
+      "將複雜工單路由至正確部門",
+      "收集反饋及滿意度評分"
+    ],
+    "aiSecretary": [
+      "安排會議及管理日曆",
+      "起草電郵、備忘錄及常規通信",
+      "整理文件並追蹤行動項目"
+    ],
+    "aiHRManager": [
+      "篩選簡歷並安排面試",
+      "自動化入職清單及文書工作",
+      "追蹤出勤並進行參與度調查"
+    ],
+    "aiAccountant": [
+      "自動化發票生成及付款追蹤",
+      "對賬並分類交易",
+      "生成損益表、資產負債表及現金流量表"
+    ]
+  }
+}

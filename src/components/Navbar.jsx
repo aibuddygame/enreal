@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 import { NAV, HOME_NAV, T } from '../data.js'
+import { useI18n } from '../i18n/I18nContext.jsx'
+import LanguageToggle from './LanguageToggle.jsx'
 
 const ORANGE = '#EA580C'
 const ORANGE_D = '#C2410C'
@@ -12,9 +14,10 @@ export default function Navbar() {
     const [open, setOpen] = useState(false)
     const navigate = useNavigate()
     const location = useLocation()
-    const isLanding = location.pathname === '/business'
-    const isHome = location.pathname === '/'
-    const isIndividual = location.pathname === '/individual'
+    const { t } = useI18n()
+    const isLanding = location.pathname === '/business' || location.pathname === '/zh-HK/business'
+    const isHome = location.pathname === '/' || location.pathname === '/zh-HK'
+    const isIndividual = location.pathname === '/individual' || location.pathname === '/zh-HK/individual'
 
     const activeNav = isHome ? HOME_NAV : NAV
     const accent = isHome ? ORANGE : T.accent
@@ -60,7 +63,6 @@ export default function Navbar() {
     }
 
     const ctaTarget = isHome ? 'consultation' : 'contact'
-    const ctaLabel = isHome ? 'Book a Consultation' : 'Book a Consultation'
 
     return (
         <header className="fixed top-0 left-0 right-0 z-[100] flex justify-center px-4 py-4 pointer-events-none">
@@ -89,12 +91,17 @@ export default function Navbar() {
                     ))}
                 </div>
 
+                {/* Language Toggle */}
+                <div className="hidden md:flex ml-3">
+                    <LanguageToggle />
+                </div>
+
                 {/* Page Switcher */}
                 {(isLanding || isIndividual) && (
                     <button onClick={() => navigate(isLanding ? '/individual' : '/business')}
                         className="hidden md:flex ml-5 py-2 px-4 rounded-full bg-black/[0.03] border border-black/[0.09] cursor-pointer font-sans text-[0.82rem] font-semibold whitespace-nowrap transition-colors duration-200 hover:bg-black/[0.07]"
                         style={{ color: isLanding ? '#059669' : '#2563EB' }}>
-                        Switch to {isLanding ? 'Elite Course' : 'Business'}
+                        {isLanding ? t('nav.switchToEliteCourse') : t('nav.switchToBusiness')}
                     </button>
                 )}
 
@@ -104,16 +111,19 @@ export default function Navbar() {
                     style={{ background: accent, boxShadow: `0 2px 12px ${isHome ? 'rgba(234,88,12,0.28)' : 'rgba(37,99,235,0.28)'}` }}>
                     <span className="slide" style={{ background: accentD }} />
                     <span className="label flex items-center gap-1">
-                        {ctaLabel} <ArrowRight size={12} />
+                        {t('nav.bookConsultation')} <ArrowRight size={12} />
                     </span>
                 </button>
 
-                {/* Mobile toggle */}
-                <button onClick={() => setOpen(v => !v)} aria-label="Toggle navigation"
-                    className="md:hidden ml-2 bg-none border border-black/[0.09] rounded-full py-1.5 px-3 cursor-pointer f-mono text-[0.8rem] transition-colors duration-300"
-                    style={{ color: scrolled ? '#0f172a' : T.text }}>
-                    {open ? '✕' : '☰'}
-                </button>
+                {/* Mobile toggle + Language */}
+                <div className="flex items-center gap-2 md:hidden ml-2">
+                    <LanguageToggle />
+                    <button onClick={() => setOpen(v => !v)} aria-label="Toggle navigation"
+                        className="bg-none border border-black/[0.09] rounded-full py-1.5 px-3 cursor-pointer f-mono text-[0.8rem] transition-colors duration-300"
+                        style={{ color: scrolled ? '#0f172a' : T.text }}>
+                        {open ? '✕' : '☰'}
+                    </button>
+                </div>
             </nav>
 
             {/* Mobile menu */}
@@ -132,14 +142,14 @@ export default function Navbar() {
                         <button onClick={() => navigate(isLanding ? '/individual' : '/business')}
                             className="bg-black/[0.03] border border-black/[0.09] cursor-pointer py-2.5 px-3 rounded-xl mt-1 font-sans text-[0.95rem] font-semibold text-left transition-colors duration-200"
                             style={{ color: isLanding ? '#059669' : '#2563EB' }}>
-                            Switch to {isLanding ? 'Elite Course' : 'Business'}
+                            {isLanding ? t('nav.switchToEliteCourse') : t('nav.switchToBusiness')}
                         </button>
                     )}
 
                     <button onClick={() => go(ctaTarget)}
                         className="mt-2 py-3 rounded-xl border-none cursor-pointer font-sans text-[0.9rem] font-bold text-white transition-colors duration-200"
                         style={{ background: accent }}>
-                        {ctaLabel}
+                        {t('nav.bookConsultation')}
                     </button>
                 </div>
             )}

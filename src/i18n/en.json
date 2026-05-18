@@ -1,0 +1,241 @@
+{
+  "nav": {
+    "home": "Home",
+    "aiWorkforce": "AI Workforce",
+    "howItWorks": "How It Works",
+    "contact": "Contact",
+    "solutions": "Solutions",
+    "work": "Work",
+    "method": "Method",
+    "about": "About",
+    "bookConsultation": "Book a Consultation",
+    "switchToEliteCourse": "Switch to Elite Course",
+    "switchToBusiness": "Switch to Business"
+  },
+  "hero": {
+    "eyebrow": "Enreal AI — Hong Kong",
+    "title": "Your Reliable\nAI Workforce Partner",
+    "subtitle": "Practical AI employees backed by dedicated human support.",
+    "description": "We help businesses deploy AI employees for coding, data, reporting, marketing, customer service, HR, accounting, and daily operations — with real specialists supporting implementation and execution.",
+    "ctaPrimary": "Book Free Consultation",
+    "ctaSecondary": "Explore AI Employees"
+  },
+  "aiWorkforceGrid": {
+    "eyebrow": "Our AI Workforce",
+    "title": "Choose Your AI Employees",
+    "subtitle": "Start with the roles your business needs most. Our team helps you implement and operate them reliably.",
+    "learnMore": "Learn more →"
+  },
+  "aiEmployeeDetails": {
+    "eyebrow": "Capabilities",
+    "title": "Meet Your AI Employees",
+    "helpsYou": "Helps You",
+    "dedicatedSupport": "Dedicated Support",
+    "dedicatedSupportText": "Our team helps with setup, customization, operation, and optimization.",
+    "cta": "Discuss This AI Employee"
+  },
+  "whyAIHuman": {
+    "eyebrow": "Why Enreal AI",
+    "title": "Reliable AI Needs Human Support",
+    "subtitle": "AI tools alone are not enough for real business operations. Enreal AI provides dedicated specialists who help businesses implement, operate, troubleshoot, and optimize their AI workforce.",
+    "setupSupport": "Setup Support",
+    "setupSupportDesc": "We configure and integrate your AI employees into your existing tools and workflows.",
+    "workflowCustomization": "Workflow Customization",
+    "workflowCustomizationDesc": "Every business is different. We tailor AI operations to match your specific processes.",
+    "qualityControl": "Quality Control",
+    "qualityControlDesc": "Human oversight ensures accuracy, brand consistency, and reliable output every time.",
+    "continuousOptimization": "Continuous Optimization",
+    "continuousOptimizationDesc": "We monitor performance and refine your AI workforce as your business evolves."
+  },
+  "workflow": {
+    "eyebrow": "Process",
+    "title": "How We Build Your AI Workforce",
+    "step1Title": "Free Consultation",
+    "step1Desc": "We discuss your workflows, pain points, and goals to identify the right AI employees.",
+    "step2Title": "AI Workforce Planning",
+    "step2Desc": "We design a tailored roadmap defining roles, integrations, and success metrics.",
+    "step3Title": "Implementation",
+    "step3Desc": "We deploy your AI employees, connect your tools, and train your team.",
+    "step4Title": "Ongoing Support",
+    "step4Desc": "Your AI workforce operates daily while our human team monitors and optimizes."
+  },
+  "whoThisIsFor": {
+    "eyebrow": "Audience",
+    "title": "Built For Businesses That Need Practical AI Support",
+    "smes": "SMEs",
+    "smesDesc": "Small and medium businesses ready to automate operations without hiring a full tech team.",
+    "agencies": "Agencies",
+    "agenciesDesc": "Service agencies looking to scale delivery capacity with reliable AI support.",
+    "enterprises": "Enterprises",
+    "enterprisesDesc": "Larger organizations needing dedicated implementation support for AI workforce deployment.",
+    "teamsWithoutAI": "Teams without AI engineers",
+    "teamsWithoutAIDesc": "Businesses that want practical AI results without building an in-house engineering department."
+  },
+  "consultationForm": {
+    "eyebrow": "Get Started",
+    "title": "Book a Free AI Workforce Consultation",
+    "subtitle": "Tell us about your business and we will recommend the right AI employees for your needs.",
+    "pricingNote": "AI workforce deployment plans starting from",
+    "pricingAmount": "USD 2,000/month",
+    "perEmployee": "per AI employee",
+    "fullName": "Full Name",
+    "companyName": "Company Name",
+    "email": "Email",
+    "phone": "Phone / WhatsApp",
+    "website": "Company Website",
+    "interestedEmployees": "Interested AI Employees",
+    "message": "Message / Workflow Description",
+    "messagePlaceholder": "Tell us about your business and what you would like to automate...",
+    "required": "required",
+    "submit": "Request Free Consultation",
+    "submitting": "Sending...",
+    "successTitle": "Thank You!",
+    "successMessage": "We have received your consultation request. Our team will reach out within 24 hours.",
+    "errorRequired": "Please fill in all required fields.",
+    "errorEmail": "Please enter a valid email address.",
+    "errorGeneral": "Something went wrong. Please try again.",
+    "errorNetwork": "Network error. Please try again later."
+  },
+  "closingCTA": {
+    "title": "Build Your Reliable AI Workforce with Enreal AI",
+    "subtitle": "From first consultation to full operations, we are your partner in making AI work reliably for your business.",
+    "ctaPrimary": "Book a Free Consultation",
+    "email": "hello@enreallab.com.hk"
+  },
+  "problem": {
+    "eyebrow": "The Challenge",
+    "title": "Businesses Want AI, But Reliable Implementation Is Still Difficult",
+    "subtitle": "Most companies struggle to move from AI curiosity to operational reality. You need more than tools — you need a reliable partner.",
+    "repetitiveWorkflows": "Repetitive Workflows",
+    "repetitiveWorkflowsDesc": "Teams spend hours on manual data entry, reporting, and routine tasks that drain productivity.",
+    "overloadedTeams": "Overloaded Teams",
+    "overloadedTeamsDesc": "Skilled staff are buried in operational work instead of focusing on high-value strategy.",
+    "fragmentedData": "Fragmented Data",
+    "fragmentedDataDesc": "Information is scattered across systems, making it impossible to get a unified view.",
+    "inconsistentSupport": "Inconsistent Support",
+    "inconsistentSupportDesc": "Customer service quality varies by shift, leading to frustrated clients and lost revenue.",
+    "lackAIExpertise": "Lack AI Expertise",
+    "lackAIExpertiseDesc": "You know AI can help, but you do not have the in-house talent to implement it reliably."
+  },
+  "solution": {
+    "eyebrow": "Our Approach",
+    "title": "Reliable = AI + Human",
+    "subtitle": "We combine agentic AI capabilities with dedicated human implementation support to deliver outcomes you can trust.",
+    "aiCapabilities": "Agentic AI Capabilities",
+    "humanSupport": "Dedicated Human Support",
+    "aiCap1": "24/7 execution without fatigue",
+    "aiCap2": "Handles repetitive tasks at scale",
+    "aiCap3": "Integrates with your existing tools",
+    "aiCap4": "Learns and improves over time",
+    "humanCap1": "Strategic direction and oversight",
+    "humanCap2": "Quality assurance and validation",
+    "humanCap3": "Complex problem-solving",
+    "humanCap4": "Relationship and client management",
+    "keyMessage": "Every AI employee is backed by a dedicated human staff member",
+    "keyMessageDesc": "You are never left alone with automation. Our team monitors, validates, and steps in whenever human judgment is required."
+  },
+  "pricing": {
+    "eyebrow": "Pricing",
+    "title": "Flexible Deployment Based On Your Workflow",
+    "subtitle": "Every business has different workflows. We provide customized pricing based on the AI employees selected, workflow complexity, integrations, and support level.",
+    "cta": "Book a Free Consultation",
+    "note": "We will recommend a suitable deployment plan after understanding your business needs."
+  },
+  "deployment": {
+    "eyebrow": "Deployment",
+    "title": "Flexible AI Workforce Deployment",
+    "subtitle": "Choose the deployment model that fits your organization's size, maturity, and compliance needs.",
+    "internalAI": "Internal AI Operation",
+    "internalAIDesc": "Deploy AI employees within your own infrastructure. Full control, full ownership, managed by your team with our setup support.",
+    "internalAIBestFor": "Enterprises with dedicated IT teams and strict data governance requirements.",
+    "managedAI": "Managed AI Operations",
+    "managedAIDesc": "We host, manage, and operate your AI workforce end-to-end. You get the results; we handle the infrastructure.",
+    "managedAIBestFor": "SMBs and teams who want immediate results without technical overhead.",
+    "hybridAI": "Hybrid AI Workforce",
+    "hybridAIDesc": "The best of both worlds. Critical functions run internally; overflow and specialized tasks are managed by us.",
+    "hybridAIBestFor": "Growing businesses that need flexibility, scalability, and redundancy.",
+    "recommended": "Recommended",
+    "bestFor": "Best For"
+  },
+  "footer": {
+    "brandText": "The intelligence layer that scales business operations without increasing headcount.",
+    "homeBrandText": "Your Reliable AI Workforce Partner. Practical AI employees backed by dedicated human implementation support.",
+    "navigation": "Navigation",
+    "contact": "Contact",
+    "systemStatus": "SYSTEM STATUS: OPERATIONAL",
+    "copyright": "© Enreal AI 2025 — Hong Kong"
+  },
+  "languageToggle": {
+    "en": "EN",
+    "zh": "中"
+  },
+  "aiEmployees": {
+    "aiCodingEngineer": "AI Coding Engineer",
+    "aiDataAnalyst": "AI Data Analyst",
+    "aiReportSpecialist": "AI Report Specialist",
+    "aiCreativeDirector": "AI Creative Director",
+    "aiSocialMediaInfluencer": "AI Social Media Influencer",
+    "aiCustomerService": "AI Customer Service",
+    "aiSecretary": "AI Secretary",
+    "aiHRManager": "AI HR Manager",
+    "aiAccountant": "AI Accountant"
+  },
+  "aiEmployeeSummaries": {
+    "aiCodingEngineer": "Builds and maintains software with human-guided architecture oversight.",
+    "aiDataAnalyst": "Transforms raw data into actionable business intelligence with human validation.",
+    "aiReportSpecialist": "Produces accurate, formatted reports on schedule with human fact-checking.",
+    "aiCreativeDirector": "Creates on-brand visual and written content with human creative oversight.",
+    "aiSocialMediaInfluencer": "Manages social presence, content calendars, and community engagement.",
+    "aiCustomerService": "Handles inquiries, tickets, and support workflows with human escalation paths.",
+    "aiSecretary": "Manages scheduling, correspondence, and administrative tasks effortlessly.",
+    "aiHRManager": "Streamlines recruitment, onboarding, and employee engagement processes.",
+    "aiAccountant": "Manages bookkeeping, invoicing, and financial reporting with accountant review."
+  },
+  "aiEmployeeHelpsYou": {
+    "aiCodingEngineer": [
+      "Write and refactor production code across stacks",
+      "Automate testing, CI/CD, and deployment pipelines",
+      "Review code and enforce quality standards"
+    ],
+    "aiDataAnalyst": [
+      "Automate data cleaning and pipeline workflows",
+      "Generate dashboards and executive summaries",
+      "Monitor KPIs and detect anomalies in real time"
+    ],
+    "aiReportSpecialist": [
+      "Generate financial, operational, and sales reports",
+      "Automate charts, visualizations, and narratives",
+      "Schedule recurring report delivery on time"
+    ],
+    "aiCreativeDirector": [
+      "Generate marketing copy, blogs, and ad creatives",
+      "Maintain brand voice across all channels",
+      "Produce design concepts and creative briefs"
+    ],
+    "aiSocialMediaInfluencer": [
+      "Schedule and publish content across platforms",
+      "Engage with comments, DMs, and community",
+      "Track trends and analyze growth metrics"
+    ],
+    "aiCustomerService": [
+      "Answer FAQs and resolve common issues instantly",
+      "Route complex tickets to the right department",
+      "Collect feedback and satisfaction scores"
+    ],
+    "aiSecretary": [
+      "Schedule meetings and manage calendars",
+      "Draft emails, memos, and routine correspondence",
+      "Organize files and track action items"
+    ],
+    "aiHRManager": [
+      "Screen resumes and schedule interviews",
+      "Automate onboarding checklists and paperwork",
+      "Track attendance and run engagement surveys"
+    ],
+    "aiAccountant": [
+      "Automate invoice generation and payment tracking",
+      "Reconcile accounts and categorize transactions",
+      "Generate P&L, balance sheet, and cash flow reports"
+    ]
+  }
+}

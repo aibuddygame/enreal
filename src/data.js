@@ -190,7 +190,7 @@ export const AI_EMPLOYEES = [
     },
     {
         id: 'ai-social-media-staff',
-        name: 'AI Social Media Staff',
+        name: 'AI Social Media Influencer',
         summary: 'Manages social presence, content calendars, and community engagement.',
         image: '/ai-social-media-influencer.jpg',
         helpsYou: [

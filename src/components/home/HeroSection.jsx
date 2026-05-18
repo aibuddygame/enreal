@@ -1,6 +1,8 @@
 import { ArrowRight, LayoutGrid } from 'lucide-react'
+import { useI18n } from '../../i18n/I18nContext.jsx'
 
 export default function HeroSection() {
+    const { t } = useI18n()
     const go = (id) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
 
     return (
@@ -14,28 +16,28 @@ export default function HeroSection() {
                     {/* Left: Text */}
                     <div className="order-2 lg:order-1">
                         <p className="f-mono text-[0.7rem] tracking-[0.2em] text-[#EA580C] mb-6 uppercase">
-                            Enreal AI — Hong Kong
+                            {t('hero.eyebrow')}
                         </p>
 
-                        <h1 className="f-sans font-black text-4xl sm:text-5xl lg:text-[3.6rem] tracking-tight leading-[1.08] text-[#1e3a5f] mb-5">
-                            Your Reliable<br />AI Workforce Partner
+                        <h1 className="f-sans font-black text-4xl sm:text-5xl lg:text-[3.6rem] tracking-tight leading-[1.08] text-[#1e3a5f] mb-5 whitespace-pre-line">
+                            {t('hero.title')}
                         </h1>
 
                         <p className="f-sans font-semibold text-xl sm:text-2xl text-[#1C1C1E] mb-4">
-                            Practical AI employees backed by dedicated human support.
+                            {t('hero.subtitle')}
                         </p>
 
                         <p className="f-supp text-base sm:text-lg text-black/55 leading-relaxed max-w-lg mb-9">
-                            We help businesses deploy AI employees for coding, data, reporting, marketing, customer service, HR, accounting, and daily operations — with real specialists supporting implementation and execution.
+                            {t('hero.description')}
                         </p>
 
                         {/* CTAs */}
                         <div className="flex flex-wrap gap-3.5">
                             <button onClick={() => go('consultation')} className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#EA580C] text-white font-sans text-sm font-bold shadow-lg shadow-orange-500/30 transition-all duration-300 ease-out hover:shadow-xl hover:shadow-orange-500/40 hover:-translate-y-0.5 hover:bg-[#C2410C] active:scale-[0.98]">
-                                Book Free Consultation <ArrowRight size={15} />
+                                {t('hero.ctaPrimary')} <ArrowRight size={15} />
                             </button>
                             <button onClick={() => go('ai-workforce')} className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-transparent text-black/60 font-sans text-sm font-medium border border-black/10 transition-all duration-300 ease-out hover:bg-orange-500/[0.05] hover:text-black/80 hover:border-black/15 active:scale-[0.98]">
-                                <LayoutGrid size={15} /> Explore AI Employees
+                                <LayoutGrid size={15} /> {t('hero.ctaSecondary')}
                             </button>
                         </div>
                     </div>

@@ -6,7 +6,7 @@ const EMPLOYEE_OPTIONS = [
     'AI Data Analyst',
     'AI Report Specialist',
     'AI Creative Director',
-    'AI Social Media Staff',
+    'AI Social Media Influencer',
     'AI Customer Service',
     'AI Secretary',
     'AI HR Manager',

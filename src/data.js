@@ -17,20 +17,21 @@ export const T = {
 }
 
 // ── Nav (Homepage) ─────────────────────────────────────────
+// Labels are translation keys, not display text
 export const HOME_NAV = [
-    { label: 'Home', id: 'hero' },
-    { label: 'AI Workforce', id: 'ai-workforce' },
-    { label: 'How It Works', id: 'workflow' },
-    { label: 'Contact', id: 'consultation' },
+    { label: 'nav.home', id: 'hero' },
+    { label: 'nav.aiWorkforce', id: 'ai-workforce' },
+    { label: 'nav.howItWorks', id: 'workflow' },
+    { label: 'nav.contact', id: 'consultation' },
 ]
 
 // ── Nav (Business Page) ────────────────────────────────────
 export const NAV = [
-    { label: 'Solutions', id: 'solutions' },
-    { label: 'Work', id: 'work' },
-    { label: 'Method', id: 'method' },
-    { label: 'About', id: 'about' },
-    { label: 'Contact', id: 'contact' },
+    { label: 'nav.solutions', id: 'solutions' },
+    { label: 'nav.work', id: 'work' },
+    { label: 'nav.method', id: 'method' },
+    { label: 'nav.about', id: 'about' },
+    { label: 'nav.contact', id: 'contact' },
 ]
 
 // ── Cap 1: Shuffler ────────────────────────────────────────

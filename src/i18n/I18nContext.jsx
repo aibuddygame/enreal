@@ -65,7 +65,6 @@ export function I18nProvider({ children }) {
                     if (fallback && typeof fallback === 'object' && fk in fallback) {
                         fallback = fallback[fk]
                     } else {
-                        console.warn('Translation missing:', key, 'lang:', lang)
                         return key
                     }
                 }

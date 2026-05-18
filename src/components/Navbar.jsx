@@ -19,22 +19,9 @@ export default function Navbar() {
     const isHome = location.pathname === '/' || location.pathname === '/zh-HK'
     const isIndividual = location.pathname === '/individual' || location.pathname === '/zh-HK/individual'
 
-    // Translation key mapping for nav items
-    const NAV_KEY_MAP = {
-        'hero': 'nav.home',
-        'ai-workforce': 'nav.aiWorkforce',
-        'workflow': 'nav.howItWorks',
-        'consultation': 'nav.contact',
-        'solutions': 'nav.solutions',
-        'work': 'nav.work',
-        'method': 'nav.method',
-        'about': 'nav.about',
-        'contact': 'nav.contact',
-    }
-    
     const activeNav = isHome
-        ? HOME_NAV.map(n => ({ ...n, label: t(NAV_KEY_MAP[n.id] || n.id) }))
-        : NAV.map(n => ({ ...n, label: t(NAV_KEY_MAP[n.id] || n.id) }))
+        ? HOME_NAV.map(n => ({ ...n, label: t(n.label) }))
+        : NAV.map(n => ({ ...n, label: t(n.label) }))
     const accent = isHome ? ORANGE : T.accent
     const accentD = isHome ? ORANGE_D : T.accentD
 

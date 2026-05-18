@@ -82,10 +82,16 @@ export function I18nProvider({ children }) {
     // Helper to get translated AI employee data
     const getAIEmployee = useCallback((employee) => {
         const id = toCamelCase(employee.id)
-        const name = t(`aiEmployees.${id}`) || employee.name
-        const summary = t(`aiEmployeeSummaries.${id}`) || employee.summary
-        const helpsYouRaw = t(`aiEmployeeHelpsYou.${id}`)
-        const helpsYou = Array.isArray(helpsYouRaw) ? helpsYouRaw : employee.helpsYou
+        const nameKey = `aiEmployees.${id}`
+        const name = t(nameKey) === nameKey ? employee.name : t(nameKey)
+        
+        const summaryKey = `aiEmployeeSummaries.${id}`
+        const summary = t(summaryKey) === summaryKey ? employee.summary : t(summaryKey)
+        
+        const helpsYouKey = `aiEmployeeHelpsYou.${id}`
+        const helpsYouRaw = t(helpsYouKey)
+        const helpsYou = (Array.isArray(helpsYouRaw) && helpsYouRaw.length > 0) ? helpsYouRaw : employee.helpsYou
+        
         return { ...employee, name, summary, helpsYou }
     }, [t])
 

@@ -188,7 +188,7 @@
     "aiSocialMediaInfluencer": "Manages social presence, content calendars, and community engagement.",
     "aiCustomerService": "Handles inquiries, tickets, and support workflows with human escalation paths.",
     "aiSecretary": "Manages scheduling, correspondence, and administrative tasks effortlessly.",
-    "aiHRManager": "Streamlines recruitment, onboarding, and employee engagement processes.",
+    "aiHRManager": "Supports recruitment, onboarding, and internal HR coordination.",
     "aiAccountant": "Manages bookkeeping, invoicing, and financial reporting with accountant review."
   },
   "aiEmployeeHelpsYou": {
@@ -228,9 +228,9 @@
       "Organize files and track action items"
     ],
     "aiHRManager": [
-      "Screen resumes and schedule interviews",
-      "Automate onboarding checklists and paperwork",
-      "Track attendance and run engagement surveys"
+      "screen resumes faster",
+      "organize interviews and onboarding",
+      "answer common HR policy questions"
     ],
     "aiAccountant": [
       "Automate invoice generation and payment tracking",

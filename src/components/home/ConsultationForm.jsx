@@ -107,6 +107,9 @@ export default function ConsultationForm() {
                     <p className="f-supp text-base text-black/[0.55] leading-relaxed mt-4">
                         {t('consultationForm.pricingNote')} <span className="text-[#EA580C] font-bold">{t('consultationForm.pricingAmount')}</span> {t('consultationForm.perEmployee')}
                     </p>
+                    <p className="f-supp text-[0.75rem] text-black/[0.4] leading-relaxed mt-2 max-w-2xl mx-auto">
+                        {t('consultationForm.pricingDisclaimer')}
+                    </p>
                 </div>
 
                 <form onSubmit={handleSubmit} className="bg-white rounded-3xl p-6 md:p-10 border border-black/[0.06] shadow-sm shadow-black/[0.03]">

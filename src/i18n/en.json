@@ -50,14 +50,14 @@
   "workflow": {
     "eyebrow": "Process",
     "title": "How We Build Your AI Workforce",
-    "step1Title": "Free Consultation",
-    "step1Desc": "We discuss your workflows, pain points, and goals to identify the right AI employees.",
-    "step2Title": "AI Workforce Planning",
-    "step2Desc": "We design a tailored roadmap defining roles, integrations, and success metrics.",
-    "step3Title": "Implementation",
-    "step3Desc": "We deploy your AI employees, connect your tools, and train your team.",
-    "step4Title": "Ongoing Support",
-    "step4Desc": "Your AI workforce operates daily while our human team monitors and optimizes."
+    "step1Title": "Discover Your Business Workflows",
+    "step1Desc": "We start by understanding your daily operations, repeated tasks, documents, customer interactions, reports, and approval processes. This helps us identify where AI models, inference, and workflow automation can create measurable business value.",
+    "step2Title": "Design Reusable AI Workflow Modules",
+    "step2Desc": "We turn repeated business tasks into structured AI workflow modules that can process information, generate outputs, validate results, and support human-in-the-loop review. These modules are designed to be reusable, configurable, and ready for scalable AI execution.",
+    "step3Title": "Build Integration-Ready AI Employees",
+    "step3Desc": "Selected workflows can be designed to connect with existing tools, internal systems, or future APIs when needed. This allows your AI employees to operate as practical business assistants today, while preparing for token-based usage, workflow automation, and deeper system integration over time.",
+    "step4Title": "Deploy with the Right Model Environment",
+    "step4Desc": "We help select the suitable model setup for each workflow based on quality, cost, language, speed, privacy, and token consumption. Depending on the use case, workflows can be powered by cloud AI models, model routing, private deployment, or selected self-hosted open-source model environments."
   },
   "whoThisIsFor": {
     "eyebrow": "Audience",
@@ -74,10 +74,11 @@
   "consultationForm": {
     "eyebrow": "Get Started",
     "title": "Book a Free AI Workforce Consultation",
-    "subtitle": "Tell us about your business and we will recommend the right AI employees for your needs.",
-    "pricingNote": "AI workforce deployment plans starting from",
+    "subtitle": "Tell us about your business workflows and we will recommend the right AI employees, workflow modules, and model setup for your needs.",
+    "pricingNote": "AI workforce deployment plans start from",
     "pricingAmount": "USD 2,000/month",
     "perEmployee": "per AI employee",
+    "pricingDisclaimer": "* Each plan includes a monthly AI usage allowance, with additional usage billed transparently based on token consumption when workloads exceed the included allowance.",
     "fullName": "Full Name",
     "companyName": "Company Name",
     "email": "Email",

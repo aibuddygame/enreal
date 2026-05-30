@@ -100,13 +100,13 @@ const getBreadcrumbSchema = (lang) => ({
         {
             '@type': 'ListItem',
             position: 1,
-            name: lang === 'en' ? 'Home' : '首頁',
+            name: 'Home',
             item: 'https://www.enreallab.com.hk/'
         },
         {
             '@type': 'ListItem',
             position: 2,
-            name: lang === 'en' ? 'AI Career Course' : 'AI職業課程',
+            name: 'AI Career Course',
             item: lang === 'en' ? 'https://www.enreallab.com.hk/course/en' : 'https://www.enreallab.com.hk/course'
         }
     ]

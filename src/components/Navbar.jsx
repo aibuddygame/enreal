@@ -123,7 +123,7 @@ export default function Navbar() {
                     <button onClick={() => navigate(isLanding ? '/individual' : '/business')}
                         className="hidden md:flex ml-5 py-2 px-4 rounded-full bg-black/[0.03] border border-black/[0.09] cursor-pointer font-sans text-[0.82rem] font-semibold whitespace-nowrap transition-colors duration-200 hover:bg-black/[0.07]"
                         style={{ color: isLanding ? '#059669' : '#2563EB' }}>
-                        {isLanding ? t('nav.switchToEliteCourse') : t('nav.switchToBusiness')}
+                        {isLanding ? 'Switch to Elite Course' : 'Switch to Business'}
                     </button>
                 )}
 
@@ -133,7 +133,7 @@ export default function Navbar() {
                     style={{ background: accent, boxShadow: `0 2px 12px ${isHome ? 'rgba(234,88,12,0.28)' : 'rgba(37,99,235,0.28)'}` }}>
                     <span className="slide" style={{ background: accentD }} />
                     <span className="label flex items-center gap-1">
-                        {t('nav.bookConsultation')} <ArrowRight size={12} />
+                        {'Book a Consultation'} <ArrowRight size={12} />
                     </span>
                 </button>
 
@@ -164,14 +164,14 @@ export default function Navbar() {
                         <button onClick={() => navigate(isLanding ? '/individual' : '/business')}
                             className="bg-black/[0.03] border border-black/[0.09] cursor-pointer py-2.5 px-3 rounded-xl mt-1 font-sans text-[0.95rem] font-semibold text-left transition-colors duration-200"
                             style={{ color: isLanding ? '#059669' : '#2563EB' }}>
-                            {isLanding ? t('nav.switchToEliteCourse') : t('nav.switchToBusiness')}
+                            {isLanding ? 'Switch to Elite Course' : 'Switch to Business'}
                         </button>
                     )}
 
                     <button onClick={() => go(ctaTarget)}
                         className="mt-2 py-3 rounded-xl border-none cursor-pointer font-sans text-[0.9rem] font-bold text-white transition-colors duration-200"
                         style={{ background: accent }}>
-                        {t('nav.bookConsultation')}
+                        {'Book a Consultation'}
                     </button>
                 </div>
             )}

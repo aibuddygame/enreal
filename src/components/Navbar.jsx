@@ -178,3 +178,4 @@ export default function Navbar() {
     )
 }
 // Force rebuild: Sat May 30 22:05:36 HKT 2026
+// Navbar fix: Sat May 30 22:24:39 HKT 2026

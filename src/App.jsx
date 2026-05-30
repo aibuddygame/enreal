@@ -16,12 +16,13 @@ const routeSeo = {
     '/': {
         title: 'Enreal AI | Your Reliable AI Workforce Partner in Hong Kong',
         description: 'Enreal AI helps businesses deploy reliable AI employees across operations, reporting, marketing, customer service, administration, and software workflows — backed by dedicated human implementation support. Starting from USD 2,000/month per AI employee.',
-        keywords: 'AI workforce, AI employees, business automation, AI consulting, Hong Kong AI, agentic AI, workflow automation, AI implementation, AI staff, digital workforce',
+        keywords: 'AI Employee, AI Workforce, AI Agent, Agentic AI, AI Secretary, business automation, AI consulting, Hong Kong AI, workflow automation, AI implementation, AI staff, digital workforce',
         image: '/og-course.jpg',
         schema: {
             '@context': 'https://schema.org',
             '@type': 'WebSite',
             name: 'Enreal AI',
+            alternateName: ['Enreal'],
             url: seoBase.baseUrl,
             description: 'Deploy reliable AI employees backed by dedicated human support',
             publisher: {

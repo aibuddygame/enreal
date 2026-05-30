@@ -1,8 +1,6 @@
 // Vercel Serverless Function — Contact Form Submission
 // POST /api/contact
-// Sends form data to hello@enreallab.com.hk via SMTP
-
-import nodemailer from 'nodemailer'
+// Sends form data to hello@enreallab.com.hk via EmailJS REST API
 
 export default async function handler(req, res) {
   // CORS
@@ -31,7 +29,7 @@ export default async function handler(req, res) {
       honeypot,
     } = body
 
-    // Honeypot spam protection
+    // Honeypot spam protection — silently accept so bots don't know they failed
     if (honeypot) {
       return res.status(200).json({ success: true, message: 'Received' })
     }
@@ -50,86 +48,50 @@ export default async function handler(req, res) {
       ? interestedEmployees.join(', ')
       : interestedEmployees || 'None selected'
 
-    // SMTP Configuration
-    // For Gmail: Use App Password (not your regular password)
-    // Generate at: https://myaccount.google.com/apppasswords
-    const SMTP_HOST = process.env.SMTP_HOST || 'smtp.gmail.com'
-    const SMTP_PORT = parseInt(process.env.SMTP_PORT || '587')
-    const SMTP_USER = process.env.SMTP_USER
-    const SMTP_PASS = process.env.SMTP_PASS
+    // EmailJS Configuration
+    const EMAILJS_SERVICE_ID = 'service_ytwl7he'
+    const EMAILJS_TEMPLATE_ID = 'template_566oabb'
+    const EMAILJS_PUBLIC_KEY = 'swTDRfjoWHmoRS3cm'
+    const EMAILJS_PRIVATE_KEY = 'g_2LYTbELv07KQ-y7O3DB'
 
-    if (!SMTP_USER || !SMTP_PASS) {
-      console.error('SMTP credentials not configured')
+    const emailPayload = {
+      service_id: EMAILJS_SERVICE_ID,
+      template_id: EMAILJS_TEMPLATE_ID,
+      user_id: EMAILJS_PUBLIC_KEY,
+      accessToken: EMAILJS_PRIVATE_KEY,
+      template_params: {
+        to_email: 'hello@enreallab.com.hk',
+        from_name: fullName,
+        from_email: email,
+        company_name: companyName || 'N/A',
+        phone: phone || 'N/A',
+        website: website || 'N/A',
+        interested_employees: employeeList,
+        message: message,
+        reply_to: email,
+      },
+    }
+
+    // Send via EmailJS REST API
+    const response = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(emailPayload),
+    })
+
+    if (!response.ok) {
+      const text = await response.text()
+      console.error('EmailJS error:', text)
       return res.status(500).json({
-        error: 'Email service not configured. Please contact us directly at hello@enreallab.com.hk',
+        error: 'Failed to send email. Please try again later or contact us directly at hello@enreallab.com.hk',
       })
     }
 
-    // Create transporter
-    const transporter = nodemailer.createTransport({
-      host: SMTP_HOST,
-      port: SMTP_PORT,
-      secure: SMTP_PORT === 465,
-      auth: {
-        user: SMTP_USER,
-        pass: SMTP_PASS,
-      },
-    })
-
-    // Verify connection
-    await transporter.verify()
-
-    // Build email content
-    const subject = `New Consultation Request from ${fullName}`
-    const htmlContent = `
-      <h2>New Consultation Request</h2>
-      <table style="border-collapse: collapse; width: 100%;">
-        <tr><td style="padding: 8px; border: 1px solid #ddd;"><strong>Name:</strong></td><td style="padding: 8px; border: 1px solid #ddd;">${fullName}</td></tr>
-        <tr><td style="padding: 8px; border: 1px solid #ddd;"><strong>Email:</strong></td><td style="padding: 8px; border: 1px solid #ddd;">${email}</td></tr>
-        <tr><td style="padding: 8px; border: 1px solid #ddd;"><strong>Company:</strong></td><td style="padding: 8px; border: 1px solid #ddd;">${companyName || 'N/A'}</td></tr>
-        <tr><td style="padding: 8px; border: 1px solid #ddd;"><strong>Phone:</strong></td><td style="padding: 8px; border: 1px solid #ddd;">${phone || 'N/A'}</td></tr>
-        <tr><td style="padding: 8px; border: 1px solid #ddd;"><strong>Website:</strong></td><td style="padding: 8px; border: 1px solid #ddd;">${website || 'N/A'}</td></tr>
-        <tr><td style="padding: 8px; border: 1px solid #ddd;"><strong>Interested Employees:</strong></td><td style="padding: 8px; border: 1px solid #ddd;">${employeeList}</td></tr>
-        <tr><td style="padding: 8px; border: 1px solid #ddd;"><strong>Message:</strong></td><td style="padding: 8px; border: 1px solid #ddd;">${message.replace(/\n/g, '<br>')}</td></tr>
-      </table>
-    `
-
-    const textContent = `
-New Consultation Request
-
-Name: ${fullName}
-Email: ${email}
-Company: ${companyName || 'N/A'}
-Phone: ${phone || 'N/A'}
-Website: ${website || 'N/A'}
-Interested Employees: ${employeeList}
-
-Message:
-${message}
-    `.trim()
-
-    // Send email
-    const info = await transporter.sendMail({
-      from: `"Enreal AI Website" <${SMTP_USER}>`,
-      to: 'hello@enreallab.com.hk',
-      replyTo: email,
-      subject: subject,
-      text: textContent,
-      html: htmlContent,
-    })
-
-    console.log('Email sent:', info.messageId)
-
-    return res.status(200).json({
-      success: true,
-      message: 'Form submitted successfully',
-      messageId: info.messageId,
-    })
+    return res.status(200).json({ success: true, message: 'Form submitted successfully' })
   } catch (err) {
     console.error('Contact API error:', err)
     return res.status(500).json({
-      error: 'Failed to send email. Please try again later or contact us directly at hello@enreallab.com.hk',
-      debug: err.message,
+      error: 'Something went wrong. Please try again later or contact us directly at hello@enreallab.com.hk',
     })
   }
 }

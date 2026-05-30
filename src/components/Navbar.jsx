@@ -4,7 +4,6 @@ import { ArrowRight } from 'lucide-react'
 import { NAV, HOME_NAV, T } from '../data.js'
 import { useI18n } from '../i18n/I18nContext.jsx'
 import LanguageToggle from './LanguageToggle.jsx'
-import zhHK from '../i18n/zh-HK.json'
 import en from '../i18n/en.json'
 
 const ORANGE = '#EA580C'

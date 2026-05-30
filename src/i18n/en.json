@@ -51,13 +51,13 @@
     "eyebrow": "Process",
     "title": "How We Build Your AI Workforce",
     "step1Title": "Discover Your Business Workflows",
-    "step1Desc": "We start by understanding your daily operations, repeated tasks, documents, customer interactions, reports, and approval processes. This helps us identify where AI models, inference, and workflow automation can create measurable business value.",
+    "step1Desc": "We start by understanding your daily operations, repeated tasks, documents, customer interactions, reports, and approval processes.",
     "step2Title": "Design Reusable AI Workflow Modules",
-    "step2Desc": "We turn repeated business tasks into structured AI workflow modules that can process information, generate outputs, validate results, and support human-in-the-loop review. These modules are designed to be reusable, configurable, and ready for scalable AI execution.",
+    "step2Desc": "We turn repeated business tasks into structured AI workflow modules that can process information, generate outputs, validate results, and support human-in-the-loop review.",
     "step3Title": "Build Integration-Ready AI Employees",
-    "step3Desc": "Selected workflows can be designed to connect with existing tools, internal systems, or future APIs when needed. This allows your AI employees to operate as practical business assistants today, while preparing for token-based usage, workflow automation, and deeper system integration over time.",
+    "step3Desc": "Selected workflows can be designed to connect with existing tools, internal systems, or future APIs when needed.",
     "step4Title": "Deploy with the Right Model Environment",
-    "step4Desc": "We help select the suitable model setup for each workflow based on quality, cost, language, speed, privacy, and token consumption. Depending on the use case, workflows can be powered by cloud AI models, model routing, private deployment, or selected self-hosted open-source model environments."
+    "step4Desc": "Depending on the use case, workflows can be powered by cloud AI models, model routing, private deployment, or selected self-hosted open-source model environments."
   },
   "whoThisIsFor": {
     "eyebrow": "Audience",

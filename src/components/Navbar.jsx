@@ -16,9 +16,7 @@ export default function Navbar() {
     const navigate = useNavigate()
     const location = useLocation()
     const { t, lang } = useI18n()
-    const isLanding = location.pathname === '/business' || location.pathname === '/zh-HK/business'
     const isHome = location.pathname === '/' || location.pathname === '/zh-HK'
-    const isIndividual = location.pathname === '/individual' || location.pathname === '/zh-HK/individual'
     
     // Force Chinese if URL is /zh-HK
     const isZhPath = location.pathname.startsWith('/zh-HK')
@@ -45,7 +43,7 @@ export default function Navbar() {
     const accentD = isHome ? ORANGE_D : T.accentD
 
     useEffect(() => {
-        if (isLanding || isHome) {
+        if (isHome) {
             const hero = document.getElementById('hero')
             if (!hero) {
                 setScrolled(true)
@@ -59,27 +57,25 @@ export default function Navbar() {
         } else {
             setScrolled(true)
         }
-    }, [isLanding, isHome, location.pathname])
+    }, [isHome, location.pathname])
 
     useEffect(() => {
-        if (!isLanding && !isHome) return
+        if (!isHome) return
         const obs = new IntersectionObserver(
             entries => entries.forEach(e => e.isIntersecting && setActive(e.target.id)),
             { threshold: 0.2 }
         )
         activeNav.forEach(({ id }) => { const el = document.getElementById(id); if (el) obs.observe(el) })
         return () => obs.disconnect()
-    }, [isLanding, isHome, activeNav])
+    }, [isHome, activeNav])
 
     const go = (id) => {
         setOpen(false)
-        if (isLanding || isHome) {
-            const targetId = isHome && id === 'contact' ? 'consultation' : id
+        if (isHome) {
+            const targetId = id === 'contact' ? 'consultation' : id
             document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth' })
-        } else if (isIndividual) {
-            navigate('/individual', { state: { scrollTo: id } })
         } else {
-            navigate('/business', { state: { scrollTo: id } })
+            navigate('/', { state: { scrollTo: id } })
         }
     }
 
@@ -103,10 +99,10 @@ export default function Navbar() {
                         <button key={id} onClick={() => go(id)}
                             className="bg-none border-none cursor-pointer py-1.5 px-3 rounded-full font-sans text-[0.83rem] font-medium transition-colors duration-200"
                             style={{
-                                color: ((isLanding || isHome) && active === id) ? accent : (scrolled ? '#334155' : T.muted)
+                                color: (isHome && active === id) ? accent : (scrolled ? '#334155' : T.muted)
                             }}
                             onMouseEnter={e => e.currentTarget.style.color = scrolled ? '#0f172a' : T.text}
-                            onMouseLeave={e => e.currentTarget.style.color = ((isLanding || isHome) && active === id) ? accent : (scrolled ? '#334155' : T.muted)}>
+                            onMouseLeave={e => e.currentTarget.style.color = (isHome && active === id) ? accent : (scrolled ? '#334155' : T.muted)}>
                             {label}
                         </button>
                     ))}
@@ -117,14 +113,7 @@ export default function Navbar() {
                     <LanguageToggle />
                 </div>
 
-                {/* Page Switcher */}
-                {(isLanding || isIndividual) && (
-                    <button onClick={() => navigate(isLanding ? '/individual' : '/business')}
-                        className="hidden md:flex ml-5 py-2 px-4 rounded-full bg-black/[0.03] border border-black/[0.09] cursor-pointer font-sans text-[0.82rem] font-semibold whitespace-nowrap transition-colors duration-200 hover:bg-black/[0.07]"
-                        style={{ color: isLanding ? '#059669' : '#2563EB' }}>
-                        {isLanding ? 'Switch to Elite Course' : 'Switch to Business'}
-                    </button>
-                )}
+
 
                 {/* CTA */}
                 <button onClick={() => go(ctaTarget)}
@@ -154,18 +143,10 @@ export default function Navbar() {
                     {activeNav.map(({ label, id }) => (
                         <button key={id} onClick={() => go(id)}
                             className="bg-none border-none cursor-pointer py-2.5 px-3 rounded-xl font-sans text-[0.95rem] text-left transition-colors duration-200"
-                            style={{ color: ((isLanding || isHome) && active === id) ? accent : '#0f172a' }}>
+                            style={{ color: (isHome && active === id) ? accent : '#0f172a' }}>
                             {label}
                         </button>
                     ))}
-
-                    {(isLanding || isIndividual) && (
-                        <button onClick={() => navigate(isLanding ? '/individual' : '/business')}
-                            className="bg-black/[0.03] border border-black/[0.09] cursor-pointer py-2.5 px-3 rounded-xl mt-1 font-sans text-[0.95rem] font-semibold text-left transition-colors duration-200"
-                            style={{ color: isLanding ? '#059669' : '#2563EB' }}>
-                            {isLanding ? 'Switch to Elite Course' : 'Switch to Business'}
-                        </button>
-                    )}
 
                     <button onClick={() => go(ctaTarget)}
                         className="mt-2 py-3 rounded-xl border-none cursor-pointer font-sans text-[0.9rem] font-bold text-white transition-colors duration-200"

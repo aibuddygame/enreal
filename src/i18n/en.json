@@ -50,14 +50,14 @@
   "workflow": {
     "eyebrow": "Process",
     "title": "How We Build Your AI Workforce",
-    "step1Title": "Discover Your Business Workflows",
-    "step1Desc": "We start by understanding your daily operations, repeated tasks, documents, customer interactions, reports, and approval processes.",
-    "step2Title": "Design Reusable AI Workflow Modules",
-    "step2Desc": "We turn repeated business tasks into structured AI workflow modules that can process information, generate outputs, validate results, and support human-in-the-loop review.",
-    "step3Title": "Build Integration-Ready AI Employees",
-    "step3Desc": "Selected workflows can be designed to connect with existing tools, internal systems, or future APIs when needed.",
-    "step4Title": "Deploy with the Right Model Environment",
-    "step4Desc": "Depending on the use case, workflows can be powered by cloud AI models, model routing, private deployment, or selected self-hosted open-source model environments."
+    "step1Title": "Map Your Workflow Data",
+    "step1Desc": "We analyze your repeated operations, documents, customer interactions, data flows, and approval logic to identify where AI agents and model inference can automate business execution.",
+    "step2Title": "Build Reusable AI Agent Modules",
+    "step2Desc": "We turn repeated tasks into reusable AI modules using LLMs, OCR, embeddings, retrieval, classification, validation, and human-in-the-loop review.",
+    "step3Title": "Enable Workflow API Integration",
+    "step3Desc": "Selected AI modules can be connected to your existing tools, databases, internal systems, or future APIs, allowing AI employees to become part of your operational infrastructure.",
+    "step4Title": "Optimize Model Deployment",
+    "step4Desc": "We route each workflow to the right model stack based on quality, latency, cost, language, privacy, and token consumption, with support for cloud models, private deployment, and selected self-hosted open-source models."
   },
   "whoThisIsFor": {
     "eyebrow": "Audience",

@@ -1,38 +1,50 @@
-import { useI18n } from '../i18n/I18nContext.jsx'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 export default function LanguageToggle() {
-    const { lang, setLang } = useI18n()
+    const location = useLocation()
+    const navigate = useNavigate()
+    const isZhPath = location.pathname.startsWith('/zh-HK')
 
-    const toggleLang = () => {
-        setLang(lang === 'en' ? 'zh-HK' : 'en')
+    const goToEn = () => {
+        // Remove /zh-HK prefix if present
+        const newPath = location.pathname.replace(/^\/zh-HK/, '') || '/'
+        navigate(newPath)
+    }
+
+    const goToZh = () => {
+        // Add /zh-HK prefix
+        const newPath = location.pathname === '/' ? '/zh-HK' : '/zh-HK' + location.pathname
+        navigate(newPath)
     }
 
     return (
-        <button
-            onClick={toggleLang}
-            aria-label="Toggle language"
-            className="flex items-center gap-0.5 bg-none border border-black/[0.09] rounded-full py-1.5 px-2.5 cursor-pointer font-sans text-[0.75rem] font-semibold transition-all duration-200 hover:bg-black/[0.04]"
+        <div
+            className="flex items-center gap-0.5 bg-none border border-black/[0.09] rounded-full py-1.5 px-2.5 font-sans text-[0.75rem] font-semibold"
             style={{ color: '#334155' }}
         >
-            <span
-                className={`px-1.5 py-0.5 rounded-full transition-all duration-200 ${
-                    lang === 'en'
+            <button
+                onClick={goToEn}
+                aria-label="Switch to English"
+                className={`px-1.5 py-0.5 rounded-full transition-all duration-200 cursor-pointer bg-none border-none ${
+                    !isZhPath
                         ? 'bg-[#1e3a5f] text-white'
-                        : 'text-[#334155]'
+                        : 'text-[#334155] hover:bg-black/[0.04]'
                 }`}
             >
                 EN
-            </span>
+            </button>
             <span className="text-black/20">|</span>
-            <span
-                className={`px-1.5 py-0.5 rounded-full transition-all duration-200 ${
-                    lang === 'zh-HK'
+            <button
+                onClick={goToZh}
+                aria-label="Switch to Chinese"
+                className={`px-1.5 py-0.5 rounded-full transition-all duration-200 cursor-pointer bg-none border-none ${
+                    isZhPath
                         ? 'bg-[#1e3a5f] text-white'
-                        : 'text-[#334155]'
+                        : 'text-[#334155] hover:bg-black/[0.04]'
                 }`}
             >
                 中
-            </span>
-        </button>
+            </button>
+        </div>
     )
 }

@@ -121,7 +121,7 @@ export default function Navbar() {
                     style={{ background: accent, boxShadow: `0 2px 12px ${isHome ? 'rgba(234,88,12,0.28)' : 'rgba(37,99,235,0.28)'}` }}>
                     <span className="slide" style={{ background: accentD }} />
                     <span className="label flex items-center gap-1">
-                        {'Book a Consultation'} <ArrowRight size={12} />
+                        {isZhPath ? '免費諮詢' : 'Book a Consultation'} <ArrowRight size={12} />
                     </span>
                 </button>
 
@@ -151,7 +151,7 @@ export default function Navbar() {
                     <button onClick={() => go(ctaTarget)}
                         className="mt-2 py-3 rounded-xl border-none cursor-pointer font-sans text-[0.9rem] font-bold text-white transition-colors duration-200"
                         style={{ background: accent }}>
-                        {'Book a Consultation'}
+                        {isZhPath ? '免費諮詢' : 'Book a Consultation'}
                     </button>
                 </div>
             )}

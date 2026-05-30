@@ -24,10 +24,10 @@ export default function Navbar() {
     const isZhPath = location.pathname.startsWith('/zh-HK')
     const effectiveLang = isZhPath ? 'zh-HK' : lang
 
-    // Use translated labels for navbar based on effective language
+    // Use English labels only for navbar (no translation)
     const translateNav = (key) => {
         const keys = key.split('.')
-        let value = effectiveLang === 'zh-HK' ? (t(key) !== key ? t(key) : en) : en
+        let value = en
         for (const k of keys) {
             if (value && typeof value === 'object' && k in value) {
                 value = value[k]

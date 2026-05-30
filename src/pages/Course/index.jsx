@@ -24,14 +24,14 @@ const getCourseSchema = (lang, content) => ({
   provider: {
     '@type': 'Organization',
     name: 'Enreal AI',
-    url: 'https://enreal-ai.vercel.app',
+    url: 'https://www.enreallab.com.hk',
   },
   courseMode: 'onsite',
   educationalLevel: 'Professional',
   inLanguage: lang === 'en' ? 'en-US' : 'zh-HK',
   url: lang === 'en' 
-    ? 'https://enreal-ai.vercel.app/course/en' 
-    : 'https://enreal-ai.vercel.app/course',
+    ? 'https://www.enreallab.com.hk/course/en' 
+    : 'https://www.enreallab.com.hk/course',
   numberOfLessons: 7,
   timeRequired: 'P7D',
   teaches: lang === 'en' 
@@ -61,15 +61,15 @@ const getBreadcrumbSchema = (lang) => ({
       '@type': 'ListItem',
       position: 1,
       name: lang === 'en' ? 'Home' : '首頁',
-      item: 'https://enreal-ai.vercel.app/'
+      item: 'https://www.enreallab.com.hk/'
     },
     {
       '@type': 'ListItem',
       position: 2,
       name: lang === 'en' ? 'AI Career Course' : 'AI職業課程',
       item: lang === 'en' 
-        ? 'https://enreal-ai.vercel.app/course/en' 
-        : 'https://enreal-ai.vercel.app/course'
+        ? 'https://www.enreallab.com.hk/course/en' 
+        : 'https://www.enreallab.com.hk/course'
     }
   ]
 });
@@ -78,8 +78,8 @@ const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   name: 'Enreal AI',
-  url: 'https://enreal-ai.vercel.app',
-  logo: 'https://enreal-ai.vercel.app/logo.png',
+  url: 'https://www.enreallab.com.hk',
+  logo: 'https://www.enreallab.com.hk/logo.png',
   sameAs: [],
   description: 'The intelligence layer for professionals entering an AI-native economy.'
 };
